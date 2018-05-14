@@ -7,13 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		774E2D4A20A971BE0039435E /* ContactsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774E2D4920A971BE0039435E /* ContactsManager.swift */; };
+		774E2D4C20A98D4C0039435E /* ContactTBVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774E2D4B20A98D4C0039435E /* ContactTBVCell.swift */; };
 		775999FD20A02986001FF565 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775999FC20A02986001FF565 /* AppDelegate.swift */; };
-		775999FF20A02986001FF565 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775999FE20A02986001FF565 /* ViewController.swift */; };
+		775999FF20A02986001FF565 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775999FE20A02986001FF565 /* MainVC.swift */; };
 		77599A0220A02986001FF565 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77599A0020A02986001FF565 /* Main.storyboard */; };
 		77599A0420A02987001FF565 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77599A0320A02987001FF565 /* Assets.xcassets */; };
 		77599A0720A02987001FF565 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77599A0520A02987001FF565 /* LaunchScreen.storyboard */; };
 		77599A1220A02987001FF565 /* GivBitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77599A1120A02987001FF565 /* GivBitTests.swift */; };
 		77599A1D20A02987001FF565 /* GivBitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77599A1C20A02987001FF565 /* GivBitUITests.swift */; };
+		77599A2C20A03D5E001FF565 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 77599A2B20A03D5E001FF565 /* GoogleService-Info.plist */; };
+		77599A2F20A042DD001FF565 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77599A2E20A042DD001FF565 /* Login.storyboard */; };
+		77599A3220A044DD001FF565 /* SendSMSyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77599A3120A044DD001FF565 /* SendSMSyController.swift */; };
+		77599A3520A04A8B001FF565 /* VerifySMSController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77599A3420A04A8B001FF565 /* VerifySMSController.swift */; };
+		77599A3920A086DD001FF565 /* FBLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77599A3820A086DD001FF565 /* FBLoginVC.swift */; };
+		77599A3F20A1A78E001FF565 /* ReviewLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77599A3E20A1A78E001FF565 /* ReviewLoginVC.swift */; };
+		77599A4120A314E1001FF565 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77599A4020A314E1001FF565 /* LoginVC.swift */; };
+		77599A4320A31659001FF565 /* ColorsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77599A4220A31659001FF565 /* ColorsHelper.swift */; };
+		779CBEBB20A41FA600341004 /* FirestoreHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779CBEBA20A41FA600341004 /* FirestoreHelper.swift */; };
+		7D16C58D4611BF5AD5797E38 /* Pods_GivBitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6903F1C78049D448E70636E3 /* Pods_GivBitTests.framework */; };
+		917A29F17ECDF8A04863167A /* Pods_GivBit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27C4F641A0A396D79F7E442A /* Pods_GivBit.framework */; };
+		AC3F4596E8D8706A78B28945 /* Pods_GivBitUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355127CD12E86A95A2FE5E95 /* Pods_GivBitUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +48,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		27C4F641A0A396D79F7E442A /* Pods_GivBit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GivBit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F2FCD1ADE0B53038880992D /* Pods-GivBitUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GivBitUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GivBitUITests/Pods-GivBitUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		355127CD12E86A95A2FE5E95 /* Pods_GivBitUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GivBitUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		45A373ADA415EB283ADD1514 /* Pods-GivBitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GivBitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GivBitTests/Pods-GivBitTests.release.xcconfig"; sourceTree = "<group>"; };
+		6903F1C78049D448E70636E3 /* Pods_GivBitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GivBitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		774E2D4920A971BE0039435E /* ContactsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsManager.swift; sourceTree = "<group>"; };
+		774E2D4B20A98D4C0039435E /* ContactTBVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTBVCell.swift; sourceTree = "<group>"; };
 		775999F920A02986001FF565 /* GivBit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GivBit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		775999FC20A02986001FF565 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		775999FE20A02986001FF565 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		775999FE20A02986001FF565 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		77599A0120A02986001FF565 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		77599A0320A02987001FF565 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		77599A0620A02987001FF565 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +68,21 @@
 		77599A1820A02987001FF565 /* GivBitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GivBitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		77599A1C20A02987001FF565 /* GivBitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GivBitUITests.swift; sourceTree = "<group>"; };
 		77599A1E20A02987001FF565 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		77599A2B20A03D5E001FF565 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		77599A2D20A03F4D001FF565 /* GivBit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GivBit.entitlements; sourceTree = "<group>"; };
+		77599A2E20A042DD001FF565 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		77599A3120A044DD001FF565 /* SendSMSyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendSMSyController.swift; sourceTree = "<group>"; };
+		77599A3420A04A8B001FF565 /* VerifySMSController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifySMSController.swift; sourceTree = "<group>"; };
+		77599A3820A086DD001FF565 /* FBLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBLoginVC.swift; sourceTree = "<group>"; };
+		77599A3A20A08765001FF565 /* GivBit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GivBit-Bridging-Header.h"; sourceTree = "<group>"; };
+		77599A3E20A1A78E001FF565 /* ReviewLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewLoginVC.swift; sourceTree = "<group>"; };
+		77599A4020A314E1001FF565 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		77599A4220A31659001FF565 /* ColorsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsHelper.swift; sourceTree = "<group>"; };
+		779CBEBA20A41FA600341004 /* FirestoreHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreHelper.swift; sourceTree = "<group>"; };
+		97278999021FF89CD2C74A0B /* Pods-GivBit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GivBit.release.xcconfig"; path = "Pods/Target Support Files/Pods-GivBit/Pods-GivBit.release.xcconfig"; sourceTree = "<group>"; };
+		A3243C0D23FF3C2C434E10EC /* Pods-GivBitUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GivBitUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GivBitUITests/Pods-GivBitUITests.release.xcconfig"; sourceTree = "<group>"; };
+		D789BCAE62317A7BE95FE4C1 /* Pods-GivBitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GivBitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GivBitTests/Pods-GivBitTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E18B7F5895A5DE5747222113 /* Pods-GivBit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GivBit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GivBit/Pods-GivBit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				917A29F17ECDF8A04863167A /* Pods_GivBit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D16C58D4611BF5AD5797E38 /* Pods_GivBitTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +106,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC3F4596E8D8706A78B28945 /* Pods_GivBitUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		09CEC11D28E61C20BDB6CD31 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E18B7F5895A5DE5747222113 /* Pods-GivBit.debug.xcconfig */,
+				97278999021FF89CD2C74A0B /* Pods-GivBit.release.xcconfig */,
+				D789BCAE62317A7BE95FE4C1 /* Pods-GivBitTests.debug.xcconfig */,
+				45A373ADA415EB283ADD1514 /* Pods-GivBitTests.release.xcconfig */,
+				2F2FCD1ADE0B53038880992D /* Pods-GivBitUITests.debug.xcconfig */,
+				A3243C0D23FF3C2C434E10EC /* Pods-GivBitUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		775999F020A02986001FF565 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +133,9 @@
 				77599A1020A02987001FF565 /* GivBitTests */,
 				77599A1B20A02987001FF565 /* GivBitUITests */,
 				775999FA20A02986001FF565 /* Products */,
+				09CEC11D28E61C20BDB6CD31 /* Pods */,
+				E332B805FAE9490A78AF1E86 /* Frameworks */,
+				77599A3A20A08765001FF565 /* GivBit-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,12 +152,14 @@
 		775999FB20A02986001FF565 /* GivBit */ = {
 			isa = PBXGroup;
 			children = (
+				77599A2D20A03F4D001FF565 /* GivBit.entitlements */,
+				77599A4420A3165F001FF565 /* Helpers */,
+				77599A2A20A03D46001FF565 /* Plists */,
+				77599A3020A044C0001FF565 /* Login */,
 				775999FC20A02986001FF565 /* AppDelegate.swift */,
-				775999FE20A02986001FF565 /* ViewController.swift */,
-				77599A0020A02986001FF565 /* Main.storyboard */,
+				779CBEBC20A4387600341004 /* Main */,
 				77599A0320A02987001FF565 /* Assets.xcassets */,
 				77599A0520A02987001FF565 /* LaunchScreen.storyboard */,
-				77599A0820A02987001FF565 /* Info.plist */,
 			);
 			path = GivBit;
 			sourceTree = "<group>";
@@ -125,6 +182,58 @@
 			path = GivBitUITests;
 			sourceTree = "<group>";
 		};
+		77599A2A20A03D46001FF565 /* Plists */ = {
+			isa = PBXGroup;
+			children = (
+				77599A0820A02987001FF565 /* Info.plist */,
+				77599A2B20A03D5E001FF565 /* GoogleService-Info.plist */,
+			);
+			path = Plists;
+			sourceTree = "<group>";
+		};
+		77599A3020A044C0001FF565 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				77599A2E20A042DD001FF565 /* Login.storyboard */,
+				77599A3120A044DD001FF565 /* SendSMSyController.swift */,
+				77599A3420A04A8B001FF565 /* VerifySMSController.swift */,
+				77599A3820A086DD001FF565 /* FBLoginVC.swift */,
+				77599A3E20A1A78E001FF565 /* ReviewLoginVC.swift */,
+				77599A4020A314E1001FF565 /* LoginVC.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		77599A4420A3165F001FF565 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				77599A4220A31659001FF565 /* ColorsHelper.swift */,
+				779CBEBA20A41FA600341004 /* FirestoreHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		779CBEBC20A4387600341004 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				77599A0020A02986001FF565 /* Main.storyboard */,
+				775999FE20A02986001FF565 /* MainVC.swift */,
+				774E2D4920A971BE0039435E /* ContactsManager.swift */,
+				774E2D4B20A98D4C0039435E /* ContactTBVCell.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		E332B805FAE9490A78AF1E86 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				27C4F641A0A396D79F7E442A /* Pods_GivBit.framework */,
+				6903F1C78049D448E70636E3 /* Pods_GivBitTests.framework */,
+				355127CD12E86A95A2FE5E95 /* Pods_GivBitUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +241,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 77599A2120A02987001FF565 /* Build configuration list for PBXNativeTarget "GivBit" */;
 			buildPhases = (
+				AC47821A64548200E14B65BD /* [CP] Check Pods Manifest.lock */,
 				775999F520A02986001FF565 /* Sources */,
 				775999F620A02986001FF565 /* Frameworks */,
 				775999F720A02986001FF565 /* Resources */,
+				E8CCACE080BEF24FF3A90281 /* [CP] Embed Pods Frameworks */,
+				E702AF8BB3EC2A084F0747CD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -149,9 +261,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 77599A2420A02987001FF565 /* Build configuration list for PBXNativeTarget "GivBitTests" */;
 			buildPhases = (
+				A2B07654EFF5DC6F696F2A86 /* [CP] Check Pods Manifest.lock */,
 				77599A0920A02987001FF565 /* Sources */,
 				77599A0A20A02987001FF565 /* Frameworks */,
 				77599A0B20A02987001FF565 /* Resources */,
+				EDF225D3F4D160BD55B9E388 /* [CP] Embed Pods Frameworks */,
+				7194F55496D3C14E736B2B97 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +282,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 77599A2720A02987001FF565 /* Build configuration list for PBXNativeTarget "GivBitUITests" */;
 			buildPhases = (
+				C22589FC8445113BFDA5CA12 /* [CP] Check Pods Manifest.lock */,
 				77599A1420A02987001FF565 /* Sources */,
 				77599A1520A02987001FF565 /* Frameworks */,
 				77599A1620A02987001FF565 /* Resources */,
+				074805E2B0C0E69A74316EAD /* [CP] Embed Pods Frameworks */,
+				F48A78D312006B6CBF17DF03 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -193,6 +311,12 @@
 				TargetAttributes = {
 					775999F820A02986001FF565 = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 0930;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					77599A0C20A02987001FF565 = {
 						CreatedOnToolsVersion = 9.3;
@@ -230,7 +354,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				77599A0720A02987001FF565 /* LaunchScreen.storyboard in Resources */,
+				77599A2C20A03D5E001FF565 /* GoogleService-Info.plist in Resources */,
 				77599A0420A02987001FF565 /* Assets.xcassets in Resources */,
+				77599A2F20A042DD001FF565 /* Login.storyboard in Resources */,
 				77599A0220A02986001FF565 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,13 +377,198 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		074805E2B0C0E69A74316EAD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GivBitUITests/Pods-GivBitUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7194F55496D3C14E736B2B97 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GivBitTests/Pods-GivBitTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A2B07654EFF5DC6F696F2A86 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GivBitTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AC47821A64548200E14B65BD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GivBit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C22589FC8445113BFDA5CA12 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GivBitUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E702AF8BB3EC2A084F0747CD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GivBit/Pods-GivBit-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E8CCACE080BEF24FF3A90281 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-GivBit/Pods-GivBit-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GivBit/Pods-GivBit-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EDF225D3F4D160BD55B9E388 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GivBitTests/Pods-GivBitTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F48A78D312006B6CBF17DF03 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GivBitUITests/Pods-GivBitUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		775999F520A02986001FF565 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				775999FF20A02986001FF565 /* ViewController.swift in Sources */,
+				77599A3F20A1A78E001FF565 /* ReviewLoginVC.swift in Sources */,
+				779CBEBB20A41FA600341004 /* FirestoreHelper.swift in Sources */,
+				774E2D4C20A98D4C0039435E /* ContactTBVCell.swift in Sources */,
+				77599A3520A04A8B001FF565 /* VerifySMSController.swift in Sources */,
+				77599A4120A314E1001FF565 /* LoginVC.swift in Sources */,
+				77599A3220A044DD001FF565 /* SendSMSyController.swift in Sources */,
+				77599A3920A086DD001FF565 /* FBLoginVC.swift in Sources */,
+				774E2D4A20A971BE0039435E /* ContactsManager.swift in Sources */,
+				775999FF20A02986001FF565 /* MainVC.swift in Sources */,
 				775999FD20A02986001FF565 /* AppDelegate.swift in Sources */,
+				77599A4320A31659001FF565 /* ColorsHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,17 +739,23 @@
 		};
 		77599A2220A02987001FF565 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E18B7F5895A5DE5747222113 /* Pods-GivBit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = GivBit/GivBit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q2VTH3TP6E;
-				INFOPLIST_FILE = GivBit/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/GivBit/Plists/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = coinflash.GivBit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GivBit-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -446,17 +763,22 @@
 		};
 		77599A2320A02987001FF565 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 97278999021FF89CD2C74A0B /* Pods-GivBit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = GivBit/GivBit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q2VTH3TP6E;
-				INFOPLIST_FILE = GivBit/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/GivBit/Plists/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = coinflash.GivBit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GivBit-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -464,6 +786,7 @@
 		};
 		77599A2520A02987001FF565 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D789BCAE62317A7BE95FE4C1 /* Pods-GivBitTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -485,6 +808,7 @@
 		};
 		77599A2620A02987001FF565 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45A373ADA415EB283ADD1514 /* Pods-GivBitTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -506,6 +830,7 @@
 		};
 		77599A2820A02987001FF565 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F2FCD1ADE0B53038880992D /* Pods-GivBitUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -526,6 +851,7 @@
 		};
 		77599A2920A02987001FF565 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A3243C0D23FF3C2C434E10EC /* Pods-GivBitUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

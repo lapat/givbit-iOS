@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +18,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Called to configure the firebase framework
+        FirebaseApp.configure()
+        
+        // check if firebase user is logged in and load the respective uiscreens
+        if Auth.auth().currentUser != nil{
+            // User is signed in... let the general flow go
+            let mainStoryBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            self.window?.rootViewController = mainStoryBoard.instantiateInitialViewController()
+            self.window?.makeKeyAndVisible()
+        }else{
+            // User is not signedf in... load the login UI
+        }
+        
+        // set the teme
+        ColorsHelper.setTheme1()
+        
         return true
     }
 
