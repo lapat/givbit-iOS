@@ -45,16 +45,27 @@ class VerifySMSController: LoginVC {
             verificationCode: verificationCodeInputTextField.text!)
         
         // Call firebase cred server to verify login
-        Auth.auth().signIn(with: credential) { (user, error) in
+        Auth.auth().signInAndRetrieveData(with: credential) { (authResult, error) in
             if error != nil {
                 // ...
                 return
             }
             // User is signed in
             // ...
-            print(user?.phoneNumber ?? "")
+            print(authResult?.user.phoneNumber ?? "")
             self.performSegue(withIdentifier: "EditProfile-Segue", sender: self)
         }
+        
+//        Auth.auth().signIn(with: credential) { (user, error) in
+//            if error != nil {
+//                // ...
+//                return
+//            }
+//            // User is signed in
+//            // ...
+//            print(user?.phoneNumber ?? "")
+//            self.performSegue(withIdentifier: "EditProfile-Segue", sender: self)
+//        }
     }
 
 }

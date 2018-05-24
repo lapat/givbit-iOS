@@ -14,6 +14,8 @@ import Contacts
 class MainVC: UIViewController {
     
     @IBOutlet var contactsTableView: UITableView!
+    @IBOutlet var blurViewBehindSearchBar: UIVisualEffectView!
+    
     var contacts : [CNContact] = [CNContact]()
     
     override func viewDidLoad() {
@@ -23,6 +25,8 @@ class MainVC: UIViewController {
         
         self.navigationController?.hidesNavigationBarHairline = true
         
+        
+        // Contacts and Tableview
         ContactsManager.sharedInstance.loadContacts { (contacts, authStatus) in
             self.contacts = contacts!
             if authStatus == true{
@@ -31,6 +35,26 @@ class MainVC: UIViewController {
                 // tell user for access
             }
             self.contactsTableView.reloadData()
+        }
+        
+        // adjust the scrollview
+        
+        // firestore testing
+        //FirestoreHelper.sharedInstnace.saveLoggedInFirebaseUser()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // hide the top and bottom bar
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    override func viewWillLayoutSubviews() {
+        // set scroolview contentinset for tableview to make the header come down
+        self.contactsTableView.contentInset = UIEdgeInsetsMake(self.blurViewBehindSearchBar.frame.height, 0, 0, 0)
+        self.contactsTableView.scrollIndicatorInsets = UIEdgeInsetsMake(self.blurViewBehindSearchBar.frame.height, 0, 0, 0)
+        // Make the top cell to adjust with respect to our new insets. Else it will stay in its default position
+        if contacts.count > 0{
+            self.contactsTableView.scrollToRow(at: IndexPath(item: 0, section: 0), at: UITableViewScrollPosition.top, animated: true)
         }
     }
 
@@ -48,25 +72,47 @@ class MainVC: UIViewController {
             print ("Error signing out: %@", signOutError)
         }
     }
+    
+    //MARK: - Navigation
+    @IBAction func unwindToMainViewController(segue: UIStoryboardSegue){
+        // did unwind back to current view
+        self.contactsTableView.deselectRow(at: self.contactsTableView.indexPathForSelectedRow!, animated: false)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "userSendMoneySegue"{
+            var destinationController = segue.destination as! SendCoinVC
+            let selectedContactIndex = self.contactsTableView.indexPathForSelectedRow?.row
+            let contact = GBContact()
+            contact.populateWith(CNContact: contacts[selectedContactIndex!])
+            destinationController.contact = contact
+            //let isFavourite = self.contactsTableView.indexPathForSelectedRow?.section ?? 0??1
+        }
+    }
 }
 
 // MARK:- Tableview
 extension MainVC: UITableViewDelegate{
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "userSendMoneySegue", sender: self)
+    }
 }
 
 extension MainVC: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contacts.count
+        if contacts != nil{
+            return contacts.count
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0{
+        if indexPath.section == 1{
             let cell = tableView.dequeueReusableCell(withIdentifier: "contact-cell") as! ContactTBVCell
             cell.populateCellWithContact(contact: contacts[indexPath.row])
             return cell
         }
-        else if indexPath.section == 1{
+        else if indexPath.section == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: "contact-cell") as! ContactTBVCell
             cell.populateCellWithContact(contact: contacts[indexPath.row])
             return cell
@@ -75,17 +121,16 @@ extension MainVC: UITableViewDataSource{
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 1
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if section == 0{
-            return tableView.dequeueReusableCell(withIdentifier: "favorite-label-cell")
-        }
         if section == 1{
-            return tableView.dequeueReusableCell(withIdentifier: "friends-label-cell")
+            return tableView.dequeueReusableCell(withIdentifier: "favorite-label-cell")?.contentView
+        }
+        if section == 0{
+            return tableView.dequeueReusableCell(withIdentifier: "friends-label-cell")?.contentView
         }
         return UIView()
     }
 }
-

@@ -188,29 +188,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rc6-tb-baV">
-                                <rect key="frame" x="78" y="328.5" width="219" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="219" id="ny5-Qz-jRk"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yu2-Ro-tAz">
-                                <rect key="frame" x="151.5" y="374.5" width="71" height="30"/>
+                                <rect key="frame" x="152" y="617" width="71" height="30"/>
                                 <state key="normal" title="Send SMS"/>
                                 <connections>
                                     <action selector="didTapSendSMSButtonWithButton:" destination="lDd-Pf-59i" eventType="touchUpInside" id="yc2-gP-5Jo"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rc6-tb-baV">
+                                <rect key="frame" x="78" y="579" width="219" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="yu2-Ro-tAz" firstAttribute="top" secondItem="rc6-tb-baV" secondAttribute="bottom" constant="16" id="SEB-V7-epf"/>
-                            <constraint firstItem="yu2-Ro-tAz" firstAttribute="centerX" secondItem="rc6-tb-baV" secondAttribute="centerX" id="WMX-99-QPb"/>
-                            <constraint firstItem="rc6-tb-baV" firstAttribute="centerX" secondItem="k8T-X2-7cn" secondAttribute="centerX" id="dK1-bg-JGk"/>
-                            <constraint firstItem="rc6-tb-baV" firstAttribute="centerY" secondItem="k8T-X2-7cn" secondAttribute="centerY" id="z3F-sq-81C"/>
+                            <constraint firstItem="yu2-Ro-tAz" firstAttribute="centerX" secondItem="k8T-X2-7cn" secondAttribute="centerX" id="8eh-KI-qZg"/>
+                            <constraint firstItem="k8T-X2-7cn" firstAttribute="bottom" secondItem="yu2-Ro-tAz" secondAttribute="bottom" constant="20" id="ZxD-1M-j9k"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="k8T-X2-7cn"/>
                     </view>
@@ -231,7 +227,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Verification Code" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nfo-nf-zaa">
-                                <rect key="frame" x="78" y="328.5" width="219" height="30"/>
+                                <rect key="frame" x="78" y="329" width="219" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="219" id="MSg-Vc-gbD"/>
                                 </constraints>
@@ -240,7 +236,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rJW-qK-D61">
-                                <rect key="frame" x="167" y="374.5" width="40" height="30"/>
+                                <rect key="frame" x="167" y="285" width="40" height="30"/>
                                 <state key="normal" title="Verify"/>
                                 <connections>
                                     <action selector="didTapOnVerifySMSButtonWithButton:" destination="v3U-E4-dbS" eventType="touchUpInside" id="0WP-SV-2aZ"/>
@@ -251,8 +247,8 @@
                         <constraints>
                             <constraint firstItem="nfo-nf-zaa" firstAttribute="centerX" secondItem="Pi3-bM-lFn" secondAttribute="centerX" id="B0E-F1-V9T"/>
                             <constraint firstItem="nfo-nf-zaa" firstAttribute="centerY" secondItem="Pi3-bM-lFn" secondAttribute="centerY" id="Fkk-5x-DUB"/>
-                            <constraint firstItem="rJW-qK-D61" firstAttribute="top" secondItem="nfo-nf-zaa" secondAttribute="bottom" constant="16" id="rc2-tr-cH3"/>
-                            <constraint firstItem="rJW-qK-D61" firstAttribute="centerX" secondItem="nfo-nf-zaa" secondAttribute="centerX" id="vgP-bN-oeM"/>
+                            <constraint firstItem="rJW-qK-D61" firstAttribute="centerX" secondItem="nfo-nf-zaa" secondAttribute="centerX" id="MV2-7C-jCG"/>
+                            <constraint firstItem="nfo-nf-zaa" firstAttribute="top" secondItem="rJW-qK-D61" secondAttribute="bottom" constant="14" id="iz0-JD-Taa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Pi3-bM-lFn"/>
                     </view>
@@ -273,45 +269,70 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fPY-0m-hHU">
-                                <rect key="frame" x="123.5" y="323.5" width="128.5" height="40.5"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Number: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7TX-sp-23E">
-                                        <rect key="frame" x="0.0" y="0.0" width="128.5" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Facebook Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rch-xl-tet">
-                                        <rect key="frame" x="0.0" y="20.5" width="128.5" height="20"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="7TX-sp-23E" secondAttribute="bottom" constant="20" symbolic="YES" id="9gE-eP-zdz"/>
-                                </constraints>
-                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Number: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7TX-sp-23E">
+                                <rect key="frame" x="16" y="89" width="124" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Give Your Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sxW-fY-5oa">
+                                <rect key="frame" x="16" y="111" width="123" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eR0-Qb-W9D">
+                                <rect key="frame" x="16" y="140" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mOb-id-8Cw">
+                                <rect key="frame" x="162.5" y="178" width="49" height="30"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="userPressedSubmitProfileChnagesButton" destination="Tqv-IV-sF2" eventType="touchUpInside" id="JtN-AC-5bd"/>
+                                </connections>
+                            </button>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zSD-IH-LCv">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Bim-a3-VCG">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="fPY-0m-hHU" firstAttribute="centerY" secondItem="Opz-1E-HFU" secondAttribute="centerY" id="jRe-Rb-BVH"/>
-                            <constraint firstItem="fPY-0m-hHU" firstAttribute="centerX" secondItem="Opz-1E-HFU" secondAttribute="centerX" id="oOD-uM-c0x"/>
+                            <constraint firstItem="zSD-IH-LCv" firstAttribute="leading" secondItem="Opz-1E-HFU" secondAttribute="leading" id="0YU-ae-fJK"/>
+                            <constraint firstItem="Opz-1E-HFU" firstAttribute="trailing" secondItem="zSD-IH-LCv" secondAttribute="trailing" id="2uJ-i8-e2b"/>
+                            <constraint firstItem="7TX-sp-23E" firstAttribute="top" secondItem="Opz-1E-HFU" secondAttribute="top" constant="69" id="6DI-qg-o04"/>
+                            <constraint firstItem="eR0-Qb-W9D" firstAttribute="top" secondItem="sxW-fY-5oa" secondAttribute="bottom" constant="8" id="J5j-Zy-Qj2"/>
+                            <constraint firstItem="sxW-fY-5oa" firstAttribute="leading" secondItem="Opz-1E-HFU" secondAttribute="leading" constant="16" id="Oer-lS-dTv"/>
+                            <constraint firstItem="7TX-sp-23E" firstAttribute="leading" secondItem="Opz-1E-HFU" secondAttribute="leading" constant="16" id="Sk9-zq-b4f"/>
+                            <constraint firstItem="mOb-id-8Cw" firstAttribute="centerX" secondItem="Opz-1E-HFU" secondAttribute="centerX" id="c0H-4J-arS"/>
+                            <constraint firstItem="Opz-1E-HFU" firstAttribute="trailing" secondItem="eR0-Qb-W9D" secondAttribute="trailing" constant="16" id="cIr-1X-NjI"/>
+                            <constraint firstItem="sxW-fY-5oa" firstAttribute="top" secondItem="7TX-sp-23E" secondAttribute="bottom" constant="1.5" id="eTY-Uh-Oa8"/>
+                            <constraint firstItem="eR0-Qb-W9D" firstAttribute="leading" secondItem="Opz-1E-HFU" secondAttribute="leading" constant="16" id="fXY-Uj-njK"/>
+                            <constraint firstItem="mOb-id-8Cw" firstAttribute="top" secondItem="eR0-Qb-W9D" secondAttribute="bottom" constant="8" id="iGs-ip-dio"/>
+                            <constraint firstAttribute="bottom" secondItem="zSD-IH-LCv" secondAttribute="bottom" id="soN-gH-eth"/>
+                            <constraint firstAttribute="top" secondItem="zSD-IH-LCv" secondAttribute="top" id="zHK-w7-EDe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Opz-1E-HFU"/>
                     </view>
                     <connections>
-                        <outlet property="fbLoggedInLabel" destination="rch-xl-tet" id="RUF-m0-E2u"/>
+                        <outlet property="blurVisualEffectView" destination="zSD-IH-LCv" id="Ud7-cR-ea9"/>
+                        <outlet property="nameTextField" destination="eR0-Qb-W9D" id="ryA-mh-GUt"/>
                         <outlet property="phoneVerifiedLabel" destination="7TX-sp-23E" id="cOH-Gs-VgO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c3S-qX-qR9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="932" y="575"/>
+            <point key="canvasLocation" x="932" y="574.36281859070471"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="VNj-Zw-4F7"/>
+        <segue reference="X5w-yM-xMe"/>
     </inferredMetricsTieBreakers>
 </document>

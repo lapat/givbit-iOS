@@ -70,16 +70,28 @@ extension FBLoginVC: FBSDKLoginButtonDelegate {
                     }
                 })
             }else{
-                Auth.auth().signIn(with: credential) { (user, error) in
+                Auth.auth().signInAndRetrieveData(with: credential) { (authResult, error) in
                     if error != nil {
                         // ...
                         return
                     }else{
+                        
                         // User is signed in
-                        print(user?.email ?? "")
+                        print(authResult?.user.email ?? "")
                         self.performSegue(withIdentifier: "EditProfile-Segue", sender: self)
                     }
                 }
+                
+//                Auth.auth().signIn(with: credential) { (user, error) in
+//                    if error != nil {
+//                        // ...
+//                        return
+//                    }else{
+//                        // User is signed in
+//                        print(user?.email ?? "")
+//                        self.performSegue(withIdentifier: "EditProfile-Segue", sender: self)
+//                    }
+//                }
             }
         }
     }

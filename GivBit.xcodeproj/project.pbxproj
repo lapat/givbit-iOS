@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		774E2D4A20A971BE0039435E /* ContactsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774E2D4920A971BE0039435E /* ContactsManager.swift */; };
 		774E2D4C20A98D4C0039435E /* ContactTBVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774E2D4B20A98D4C0039435E /* ContactTBVCell.swift */; };
+		774E2D5020AC0F240039435E /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774E2D4F20AC0F240039435E /* ImageHelper.swift */; };
+		774E2D5220AC1A3D0039435E /* StringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774E2D5120AC1A3D0039435E /* StringHelper.swift */; };
+		774E2D5420AC22D60039435E /* GBContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774E2D5320AC22D60039435E /* GBContact.swift */; };
+		774E2D5720ACB0150039435E /* GBUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774E2D5620ACB0150039435E /* GBUser.swift */; };
 		775999FD20A02986001FF565 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775999FC20A02986001FF565 /* AppDelegate.swift */; };
 		775999FF20A02986001FF565 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775999FE20A02986001FF565 /* MainVC.swift */; };
 		77599A0220A02986001FF565 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77599A0020A02986001FF565 /* Main.storyboard */; };
@@ -24,6 +28,7 @@
 		77599A3F20A1A78E001FF565 /* ReviewLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77599A3E20A1A78E001FF565 /* ReviewLoginVC.swift */; };
 		77599A4120A314E1001FF565 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77599A4020A314E1001FF565 /* LoginVC.swift */; };
 		77599A4320A31659001FF565 /* ColorsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77599A4220A31659001FF565 /* ColorsHelper.swift */; };
+		779417A120B5045C00A46BE2 /* SendCoinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779417A020B5045C00A46BE2 /* SendCoinVC.swift */; };
 		779CBEBB20A41FA600341004 /* FirestoreHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779CBEBA20A41FA600341004 /* FirestoreHelper.swift */; };
 		7D16C58D4611BF5AD5797E38 /* Pods_GivBitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6903F1C78049D448E70636E3 /* Pods_GivBitTests.framework */; };
 		917A29F17ECDF8A04863167A /* Pods_GivBit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27C4F641A0A396D79F7E442A /* Pods_GivBit.framework */; };
@@ -55,6 +60,10 @@
 		6903F1C78049D448E70636E3 /* Pods_GivBitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GivBitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		774E2D4920A971BE0039435E /* ContactsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsManager.swift; sourceTree = "<group>"; };
 		774E2D4B20A98D4C0039435E /* ContactTBVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTBVCell.swift; sourceTree = "<group>"; };
+		774E2D4F20AC0F240039435E /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
+		774E2D5120AC1A3D0039435E /* StringHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringHelper.swift; sourceTree = "<group>"; };
+		774E2D5320AC22D60039435E /* GBContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBContact.swift; sourceTree = "<group>"; };
+		774E2D5620ACB0150039435E /* GBUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBUser.swift; sourceTree = "<group>"; };
 		775999F920A02986001FF565 /* GivBit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GivBit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		775999FC20A02986001FF565 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		775999FE20A02986001FF565 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -78,6 +87,7 @@
 		77599A3E20A1A78E001FF565 /* ReviewLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewLoginVC.swift; sourceTree = "<group>"; };
 		77599A4020A314E1001FF565 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		77599A4220A31659001FF565 /* ColorsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsHelper.swift; sourceTree = "<group>"; };
+		779417A020B5045C00A46BE2 /* SendCoinVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCoinVC.swift; sourceTree = "<group>"; };
 		779CBEBA20A41FA600341004 /* FirestoreHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreHelper.swift; sourceTree = "<group>"; };
 		97278999021FF89CD2C74A0B /* Pods-GivBit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GivBit.release.xcconfig"; path = "Pods/Target Support Files/Pods-GivBit/Pods-GivBit.release.xcconfig"; sourceTree = "<group>"; };
 		A3243C0D23FF3C2C434E10EC /* Pods-GivBitUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GivBitUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GivBitUITests/Pods-GivBitUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -126,6 +136,17 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		774E2D5520ACAD5D0039435E /* DataModelHandeling */ = {
+			isa = PBXGroup;
+			children = (
+				779CBEBA20A41FA600341004 /* FirestoreHelper.swift */,
+				774E2D4920A971BE0039435E /* ContactsManager.swift */,
+				774E2D5320AC22D60039435E /* GBContact.swift */,
+				774E2D5620ACB0150039435E /* GBUser.swift */,
+			);
+			path = DataModelHandeling;
+			sourceTree = "<group>";
+		};
 		775999F020A02986001FF565 = {
 			isa = PBXGroup;
 			children = (
@@ -154,10 +175,11 @@
 			children = (
 				77599A2D20A03F4D001FF565 /* GivBit.entitlements */,
 				77599A4420A3165F001FF565 /* Helpers */,
+				774E2D5520ACAD5D0039435E /* DataModelHandeling */,
 				77599A2A20A03D46001FF565 /* Plists */,
 				77599A3020A044C0001FF565 /* Login */,
-				775999FC20A02986001FF565 /* AppDelegate.swift */,
 				779CBEBC20A4387600341004 /* Main */,
+				775999FC20A02986001FF565 /* AppDelegate.swift */,
 				77599A0320A02987001FF565 /* Assets.xcassets */,
 				77599A0520A02987001FF565 /* LaunchScreen.storyboard */,
 			);
@@ -208,7 +230,8 @@
 			isa = PBXGroup;
 			children = (
 				77599A4220A31659001FF565 /* ColorsHelper.swift */,
-				779CBEBA20A41FA600341004 /* FirestoreHelper.swift */,
+				774E2D4F20AC0F240039435E /* ImageHelper.swift */,
+				774E2D5120AC1A3D0039435E /* StringHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -218,8 +241,8 @@
 			children = (
 				77599A0020A02986001FF565 /* Main.storyboard */,
 				775999FE20A02986001FF565 /* MainVC.swift */,
-				774E2D4920A971BE0039435E /* ContactsManager.swift */,
 				774E2D4B20A98D4C0039435E /* ContactTBVCell.swift */,
+				779417A020B5045C00A46BE2 /* SendCoinVC.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -487,6 +510,7 @@
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
+				"${BUILT_PRODUCTS_DIR}/CountryCodeSelect/CountryCodeSelect.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
@@ -504,6 +528,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CountryCodeSelect.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
@@ -563,12 +588,17 @@
 				774E2D4C20A98D4C0039435E /* ContactTBVCell.swift in Sources */,
 				77599A3520A04A8B001FF565 /* VerifySMSController.swift in Sources */,
 				77599A4120A314E1001FF565 /* LoginVC.swift in Sources */,
+				774E2D5220AC1A3D0039435E /* StringHelper.swift in Sources */,
+				774E2D5420AC22D60039435E /* GBContact.swift in Sources */,
+				779417A120B5045C00A46BE2 /* SendCoinVC.swift in Sources */,
 				77599A3220A044DD001FF565 /* SendSMSyController.swift in Sources */,
+				774E2D5720ACB0150039435E /* GBUser.swift in Sources */,
 				77599A3920A086DD001FF565 /* FBLoginVC.swift in Sources */,
 				774E2D4A20A971BE0039435E /* ContactsManager.swift in Sources */,
 				775999FF20A02986001FF565 /* MainVC.swift in Sources */,
 				775999FD20A02986001FF565 /* AppDelegate.swift in Sources */,
 				77599A4320A31659001FF565 /* ColorsHelper.swift in Sources */,
+				774E2D5020AC0F240039435E /* ImageHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
