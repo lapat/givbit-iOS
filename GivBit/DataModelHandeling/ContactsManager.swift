@@ -128,10 +128,18 @@ class ContactsManager: NSObject {
     
     // Searches the contacts for given string (name) and retuns the results
     func getSearchForContacts(searchString :String, completionHandler: @escaping (_ contacts: [CNContact], _ authStatus: Bool) -> Void){
+        searchedContacts.removeAll()
+        
         self.checkAuthorizationStatus { (status) in
             // Perform a search with given string
-            // ...
             if status{
+                if searchString != "" {
+                    let predicates = NSPredicate(format: CNContactGivenNameKey + " CONTAINS[cd] %@", searchString)
+                    self.searchedContacts = (self.contacts as NSArray).filtered(using: predicates) as! [CNContact]
+                }
+                else{
+                    self.searchedContacts = self.contacts
+                }
                 completionHandler(self.searchedContacts, true)
             }else{
                 completionHandler(self.searchedContacts, false)
