@@ -13,7 +13,7 @@ target 'GivBit' do
   pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
   pod 'IQKeyboardManagerSwift'
   pod 'CTKFlagPhoneNumber'
-
+  pod 'OAuthSwift', '~> 1.2.0'
   target 'GivBitTests' do
     inherit! :search_paths
     # Pods for testing

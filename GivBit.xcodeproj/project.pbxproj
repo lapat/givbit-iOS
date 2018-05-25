@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3FC6D4F320B8356100353321 /* coinbaseoauth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC6D4F220B8356100353321 /* coinbaseoauth.swift */; };
 		774E2D4A20A971BE0039435E /* ContactsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774E2D4920A971BE0039435E /* ContactsManager.swift */; };
 		774E2D4C20A98D4C0039435E /* ContactTBVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774E2D4B20A98D4C0039435E /* ContactTBVCell.swift */; };
 		774E2D5020AC0F240039435E /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774E2D4F20AC0F240039435E /* ImageHelper.swift */; };
@@ -60,6 +61,7 @@
 		27C4F641A0A396D79F7E442A /* Pods_GivBit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GivBit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F2FCD1ADE0B53038880992D /* Pods-GivBitUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GivBitUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GivBitUITests/Pods-GivBitUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		355127CD12E86A95A2FE5E95 /* Pods_GivBitUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GivBitUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FC6D4F220B8356100353321 /* coinbaseoauth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = coinbaseoauth.swift; sourceTree = "<group>"; };
 		45A373ADA415EB283ADD1514 /* Pods-GivBitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GivBitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GivBitTests/Pods-GivBitTests.release.xcconfig"; sourceTree = "<group>"; };
 		6903F1C78049D448E70636E3 /* Pods_GivBitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GivBitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		774E2D4920A971BE0039435E /* ContactsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsManager.swift; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 		77599A4420A3165F001FF565 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				3FC6D4F220B8356100353321 /* coinbaseoauth.swift */,
 				77599A4220A31659001FF565 /* ColorsHelper.swift */,
 				774E2D4F20AC0F240039435E /* ImageHelper.swift */,
 				774E2D5120AC1A3D0039435E /* StringHelper.swift */,
@@ -289,7 +292,6 @@
 				775999F620A02986001FF565 /* Frameworks */,
 				775999F720A02986001FF565 /* Resources */,
 				E8CCACE080BEF24FF3A90281 /* [CP] Embed Pods Frameworks */,
-				E702AF8BB3EC2A084F0747CD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -308,8 +310,6 @@
 				77599A0920A02987001FF565 /* Sources */,
 				77599A0A20A02987001FF565 /* Frameworks */,
 				77599A0B20A02987001FF565 /* Resources */,
-				EDF225D3F4D160BD55B9E388 /* [CP] Embed Pods Frameworks */,
-				7194F55496D3C14E736B2B97 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -329,8 +329,6 @@
 				77599A1420A02987001FF565 /* Sources */,
 				77599A1520A02987001FF565 /* Frameworks */,
 				77599A1620A02987001FF565 /* Resources */,
-				074805E2B0C0E69A74316EAD /* [CP] Embed Pods Frameworks */,
-				F48A78D312006B6CBF17DF03 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -421,36 +419,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		074805E2B0C0E69A74316EAD /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GivBitUITests/Pods-GivBitUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7194F55496D3C14E736B2B97 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GivBitTests/Pods-GivBitTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		A2B07654EFF5DC6F696F2A86 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -505,21 +473,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E702AF8BB3EC2A084F0747CD /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GivBit/Pods-GivBit-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		E8CCACE080BEF24FF3A90281 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -531,8 +484,6 @@
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/CTKFlagPhoneNumber/CTKFlagPhoneNumber.framework",
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
-				"${BUILT_PRODUCTS_DIR}/CountryCodePicker/CountryCodePicker.framework",
-				"${BUILT_PRODUCTS_DIR}/CountryCodeSelect/CountryCodeSelect.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
@@ -553,8 +504,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CTKFlagPhoneNumber.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CountryCodePicker.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CountryCodeSelect.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
@@ -574,36 +523,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GivBit/Pods-GivBit-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EDF225D3F4D160BD55B9E388 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GivBitTests/Pods-GivBitTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F48A78D312006B6CBF17DF03 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GivBitUITests/Pods-GivBitUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -619,6 +538,7 @@
 				774E2D4C20A98D4C0039435E /* ContactTBVCell.swift in Sources */,
 				77599A3520A04A8B001FF565 /* VerifySMSController.swift in Sources */,
 				77599A4120A314E1001FF565 /* LoginVC.swift in Sources */,
+				3FC6D4F320B8356100353321 /* coinbaseoauth.swift in Sources */,
 				77B7C23820B7F4990008E258 /* GBTextField.swift in Sources */,
 				774E2D5220AC1A3D0039435E /* StringHelper.swift in Sources */,
 				774E2D5420AC22D60039435E /* GBContact.swift in Sources */,

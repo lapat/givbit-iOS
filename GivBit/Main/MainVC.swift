@@ -12,7 +12,7 @@ import ChameleonFramework
 import Contacts
 
 class MainVC: UIViewController {
-    
+    @IBOutlet var textViewSearchBar: UITextField!
     @IBOutlet var contactsTableView: UITableView!
     @IBOutlet var blurViewBehindSearchBar: UIVisualEffectView!
     
@@ -25,7 +25,6 @@ class MainVC: UIViewController {
         
         self.navigationController?.hidesNavigationBarHairline = true
         
-        
         // Contacts and Tableview
         ContactsManager.sharedInstance.loadContacts { (contacts, authStatus) in
             self.contacts = contacts!
@@ -34,6 +33,7 @@ class MainVC: UIViewController {
             }else{
                 // tell user for access
             }
+            
             self.contactsTableView.reloadData()
         }
         
@@ -42,6 +42,20 @@ class MainVC: UIViewController {
         // firestore testing
         //FirestoreHelper.sharedInstnace.saveLoggedInFirebaseUser()
     }
+    
+    // MARK: - Actions on SearchBar change Data
+    @IBAction func didChangeInSearch(){
+        let strindToSearch = textViewSearchBar.text
+        ContactsManager.sharedInstance.getSearchForContacts(searchString:strindToSearch!, completionHandler: { (contacts, authStatus) in
+            self.contacts = contacts
+        
+            
+            self.contactsTableView.reloadData()
+        })
+    }
+    
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         // hide the top and bottom bar

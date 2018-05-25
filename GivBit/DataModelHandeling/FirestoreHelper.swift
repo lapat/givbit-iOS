@@ -58,4 +58,25 @@ class FirestoreHelper: NSObject {
         }
         //return (false, User())
     }
+    // Checks if the user exists and if it exists it returns User with a true
+    func updateUserContactOnFirebase(universalUserID uuid: String,contacts:[GBContact], completionHandler: @escaping (_ user: GBUser?, _ success: Bool) -> Void) {
+        let query = db.collection("users").whereField("uid", isEqualTo: uuid)
+        query.getDocuments { (querySnapshot, error) in
+            if error != nil{
+                completionHandler(nil, false)
+            }else{
+                // Only one document should exist
+                for document in querySnapshot!.documents{
+                    let user = GBUser()
+                    user.fullName = document.data()["name"] as! String
+                    user.phoneNumber = document.data()["phone_number"] as! String
+                    completionHandler(user, true)
+                }
+                if querySnapshot!.documents.count <= 0{
+                    completionHandler(nil, true)
+                }
+            }
+        }
+        //return (false, User())
+    }
 }
