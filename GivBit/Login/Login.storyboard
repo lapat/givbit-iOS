@@ -216,7 +216,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instant. Secure. Anonymous." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zjO-uF-kTH">
-                                <rect key="frame" x="77.5" y="380.5" width="219" height="21"/>
+                                <rect key="frame" x="77.5" y="374.5" width="219" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -256,7 +256,7 @@
                             <constraint firstItem="yu2-Ro-tAz" firstAttribute="centerX" secondItem="k8T-X2-7cn" secondAttribute="centerX" id="8eh-KI-qZg"/>
                             <constraint firstItem="ks4-6m-GjA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="k8T-X2-7cn" secondAttribute="leading" constant="30" id="Hvh-uJ-Bf9"/>
                             <constraint firstItem="5Dk-zo-Zof" firstAttribute="top" secondItem="Uue-Rh-aiL" secondAttribute="bottom" constant="24.5" id="NLn-p5-3dI"/>
-                            <constraint firstItem="zjO-uF-kTH" firstAttribute="top" secondItem="5Dk-zo-Zof" secondAttribute="bottom" constant="7.5" id="Qcr-PX-fst"/>
+                            <constraint firstItem="zjO-uF-kTH" firstAttribute="top" secondItem="5Dk-zo-Zof" secondAttribute="bottom" constant="1" id="Qcr-PX-fst"/>
                             <constraint firstItem="zjO-uF-kTH" firstAttribute="centerX" secondItem="5Dk-zo-Zof" secondAttribute="centerX" id="RDg-pE-IvD"/>
                             <constraint firstItem="Uue-Rh-aiL" firstAttribute="centerX" secondItem="5Dk-zo-Zof" secondAttribute="centerX" id="TDG-Rv-xQs"/>
                             <constraint firstItem="ks4-6m-GjA" firstAttribute="centerX" secondItem="k8T-X2-7cn" secondAttribute="centerX" id="XQB-xb-IJb"/>
@@ -457,25 +457,63 @@
                                     <constraint firstItem="fxw-3J-UhJ" firstAttribute="height" secondItem="1DE-2d-LV3" secondAttribute="height" id="akv-ML-6rv"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verify Your Phone" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fgw-I8-ZX6">
+                                <rect key="frame" x="92.5" y="328.5" width="190" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="number." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zLh-bh-7or">
+                                <rect key="frame" x="143" y="358.5" width="89" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="We have sent you a 6 digit " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oPG-pD-A6s">
+                                <rect key="frame" x="84.5" y="388.5" width="206" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="verification code via sms." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="peT-co-UT3">
+                                <rect key="frame" x="91" y="409.5" width="193.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bitcoingCircle" translatesAutoresizingMaskIntoConstraints="NO" id="7WE-XU-q3a">
+                                <rect key="frame" x="119" y="184.5" width="136" height="136"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.41176470590000003" green="0.43921568630000002" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="peT-co-UT3" firstAttribute="centerX" secondItem="oPG-pD-A6s" secondAttribute="centerX" id="4bO-PT-In7"/>
                             <constraint firstItem="jY7-GU-q80" firstAttribute="top" secondItem="XAx-jY-F1k" secondAttribute="bottom" constant="28" id="5Yz-y6-Bdc"/>
                             <constraint firstItem="vWL-Fo-tTI" firstAttribute="centerY" secondItem="hbo-Pi-JwY" secondAttribute="centerY" id="7Rd-hq-AWu"/>
+                            <constraint firstItem="7WE-XU-q3a" firstAttribute="centerX" secondItem="Fgw-I8-ZX6" secondAttribute="centerX" id="7zJ-Mw-8rN"/>
                             <constraint firstItem="Pi3-bM-lFn" firstAttribute="bottom" secondItem="jY7-GU-q80" secondAttribute="bottom" constant="20" id="BcL-Mn-q5B"/>
+                            <constraint firstItem="k6K-yF-Hoa" firstAttribute="top" relation="greaterThanOrEqual" secondItem="peT-co-UT3" secondAttribute="bottom" constant="2" id="Bsu-Gh-ZXQ"/>
                             <constraint firstItem="XAx-jY-F1k" firstAttribute="centerY" secondItem="BXQ-3X-IZI" secondAttribute="centerY" id="CY8-Zs-x1N"/>
                             <constraint firstItem="BXQ-3X-IZI" firstAttribute="leading" secondItem="XAx-jY-F1k" secondAttribute="trailing" constant="8" id="Nit-dS-cW8"/>
                             <constraint firstItem="LB6-FZ-l2b" firstAttribute="leading" secondItem="WoU-qx-FY5" secondAttribute="trailing" constant="8" id="Nos-ra-eTw"/>
                             <constraint firstItem="1DE-2d-LV3" firstAttribute="centerY" secondItem="GWw-x9-Eu8" secondAttribute="centerY" id="O0L-tH-x4o"/>
+                            <constraint firstItem="zLh-bh-7or" firstAttribute="centerX" secondItem="Fgw-I8-ZX6" secondAttribute="centerX" id="OvG-jA-ay4"/>
+                            <constraint firstItem="Fgw-I8-ZX6" firstAttribute="centerY" secondItem="Pi3-bM-lFn" secondAttribute="centerY" id="Q1b-v1-MVU"/>
+                            <constraint firstItem="Fgw-I8-ZX6" firstAttribute="top" secondItem="7WE-XU-q3a" secondAttribute="bottom" constant="8" id="WLJ-0e-mnr"/>
                             <constraint firstItem="LB6-FZ-l2b" firstAttribute="centerY" secondItem="WoU-qx-FY5" secondAttribute="centerY" id="YkV-W3-BwR"/>
+                            <constraint firstItem="zLh-bh-7or" firstAttribute="top" secondItem="Fgw-I8-ZX6" secondAttribute="bottom" id="ZtS-Jr-veg"/>
                             <constraint firstItem="v2b-OS-wlm" firstAttribute="leading" secondItem="BXQ-3X-IZI" secondAttribute="trailing" constant="8" id="aBp-xc-QAa"/>
                             <constraint firstItem="LB6-FZ-l2b" firstAttribute="centerY" secondItem="XAx-jY-F1k" secondAttribute="centerY" id="aoK-4V-QiU"/>
                             <constraint firstItem="XAx-jY-F1k" firstAttribute="leading" secondItem="LB6-FZ-l2b" secondAttribute="trailing" constant="8" id="epw-lX-0Q1"/>
+                            <constraint firstItem="oPG-pD-A6s" firstAttribute="top" secondItem="zLh-bh-7or" secondAttribute="bottom" id="fIB-Qj-Shf"/>
                             <constraint firstItem="1DE-2d-LV3" firstAttribute="leading" secondItem="GWw-x9-Eu8" secondAttribute="trailing" constant="8" id="hKi-ql-tg7"/>
+                            <constraint firstItem="Fgw-I8-ZX6" firstAttribute="centerX" secondItem="Pi3-bM-lFn" secondAttribute="centerX" id="hcm-Uy-cjR"/>
                             <constraint firstItem="v2b-OS-wlm" firstAttribute="centerY" secondItem="BXQ-3X-IZI" secondAttribute="centerY" id="o6J-TA-kcv"/>
                             <constraint firstItem="XAx-jY-F1k" firstAttribute="centerX" secondItem="Pi3-bM-lFn" secondAttribute="centerX" id="os1-cL-o7l"/>
+                            <constraint firstItem="oPG-pD-A6s" firstAttribute="centerX" secondItem="zLh-bh-7or" secondAttribute="centerX" id="p0p-J0-tRW"/>
                             <constraint firstItem="vWL-Fo-tTI" firstAttribute="leading" secondItem="hbo-Pi-JwY" secondAttribute="trailing" constant="8" id="tFA-1t-zwr"/>
                             <constraint firstItem="jY7-GU-q80" firstAttribute="centerX" secondItem="Pi3-bM-lFn" secondAttribute="centerX" id="vSt-8r-oOo"/>
+                            <constraint firstItem="peT-co-UT3" firstAttribute="top" secondItem="oPG-pD-A6s" secondAttribute="bottom" id="wJy-vd-bMF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Pi3-bM-lFn"/>
                     </view>
