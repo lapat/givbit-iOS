@@ -47,6 +47,37 @@
             </objects>
             <point key="canvasLocation" x="2553" y="454"/>
         </scene>
+        <!--SettingsVC-->
+        <scene sceneID="usN-I5-Z6E">
+            <objects>
+                <viewController id="EQW-bb-4sJ" customClass="SettingsVC" customModule="GivBit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wdf-Vg-MdG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="npl-gh-ckZ">
+                                <rect key="frame" x="157" y="262" width="60" height="30"/>
+                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="SIgn Out">
+                                    <color key="titleColor" red="0.41176470590000003" green="0.43921568630000002" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapSignOutButton" destination="EQW-bb-4sJ" eventType="touchUpInside" id="Qhg-z8-9sr"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.41176470590000003" green="0.43921568630000002" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="npl-gh-ckZ" firstAttribute="centerY" secondItem="H3j-70-qlp" secondAttribute="centerY" id="AL8-hE-7Tq"/>
+                            <constraint firstItem="npl-gh-ckZ" firstAttribute="centerX" secondItem="H3j-70-qlp" secondAttribute="centerX" id="Aew-yz-h7z"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="H3j-70-qlp"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mHp-u1-GoM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4457" y="-1064"/>
+        </scene>
         <!--GivBit-->
         <scene sceneID="imK-n3-O6T">
             <objects>
@@ -260,6 +291,9 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="sliders" id="FqW-0g-0Mg">
                             <color key="tintColor" red="0.41176470588235292" green="0.42352941176470588" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="EQW-bb-4sJ" kind="show" id="7lI-Mn-ndx"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -520,6 +554,7 @@
                         <outlet property="contactImageView" destination="bxn-zo-Gjg" id="cT1-aA-1DH"/>
                         <outlet property="contactNameLabel" destination="J6e-Vd-KRD" id="xQ8-j9-u43"/>
                         <outlet property="fiatToSendLabel" destination="LRR-Ml-kdB" id="kh4-EM-qgr"/>
+                        <outlet property="sendButton" destination="l06-1C-im7" id="S1Y-dg-DyE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ikb-NH-pey" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -16,6 +16,7 @@ class SendCoinVC: UIViewController {
     @IBOutlet weak var contactNameLabel: UILabel!
     @IBOutlet weak var fiatToSendLabel: UILabel!
     @IBOutlet weak var btcToSendLabel: UILabel!
+    @IBOutlet weak var sendButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,12 @@ class SendCoinVC: UIViewController {
         // Round the iamgeview
         self.contactImageView.layer.cornerRadius = self.contactImageView.frame.height/2
         self.contactImageView.clipsToBounds = true
+        
+        // round the button
+        sendButton.layer.cornerRadius = 5
+        sendButton.clipsToBounds = true
+        
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
