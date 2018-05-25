@@ -8,13 +8,21 @@
 
 import UIKit
 import FirebaseAuth
+import CTKFlagPhoneNumber
 
 class SendSMSyController: LoginVC {
+    
+    @IBOutlet weak var phoneTextField: CTKFlagPhoneNumberTextField!
+    @IBOutlet weak var verifySMSButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        verifySMSButton.layer.cornerRadius = 5
+        
+        phoneTextField.layer.masksToBounds = true
+        phoneTextField.flagButtonEdgeInsets = UIEdgeInsetsMake(5, 10, 5, 10)
     }
     
     override func didReceiveMemoryWarning() {
@@ -39,7 +47,12 @@ class SendSMSyController: LoginVC {
     // MARK: - Actions
     
     @IBAction func didTapSendSMSButton(button: UIButton){
-        PhoneAuthProvider.provider().verifyPhoneNumber("+923218792228", uiDelegate: nil) { (verificationID, error) in
+        let phoneNumber = self.phoneTextField.getFormattedPhoneNumber()
+        if phoneNumber == nil{
+            AlertHelper.sharedInstance.showAlert(inViewController: self, withDescription: "Kindly enter a valid phone number!", andTitle: "Sorry")
+            return
+        }
+        PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber!, uiDelegate: nil) { (verificationID, error) in
             if let error = error {
                 print(error.localizedDescription)
                 return
@@ -48,8 +61,6 @@ class SendSMSyController: LoginVC {
                 self.performSegue(withIdentifier: "VerifySMS-Segue", sender: self)
             }
             // Sign in using the verificationID and the code sent to the user
-            
-            
         }
         
     }

@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -36,6 +37,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // set the teme
         ColorsHelper.setTheme1()
+        
+        // set the keybaord config
+        IQKeyboardManager.shared.enable = true
         
         return true
     }
