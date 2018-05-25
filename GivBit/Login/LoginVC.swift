@@ -17,7 +17,7 @@ class LoginVC: UIViewController {
         // Do any additional setup after loading the view.
         
         // Added gradient background
-        self.view.backgroundColor = ColorsHelper.getLoginViewBackgroundGradientColor(rect: self.view.frame)
+        //self.view.backgroundColor = ColorsHelper.getLoginViewBackgroundGradientColor(rect: self.view.frame)
     }
 
     override func didReceiveMemoryWarning() {
