@@ -11,7 +11,6 @@ import FirebaseAuth
 
 class VerifySMSController: LoginVC {
 
-    
     @IBOutlet weak var verifyButton: UIButton!
     @IBOutlet weak var firstDigitTextField: UITextField!
     @IBOutlet weak var secondDigitTextField: UITextField!
@@ -19,13 +18,17 @@ class VerifySMSController: LoginVC {
     @IBOutlet weak var fourthDigitTextField: UITextField!
     @IBOutlet weak var fifthDigitTextField: UITextField!
     @IBOutlet weak var sixthDigitTextField: UITextField!
+    @IBOutlet weak var backButton: UIButton!
     
+    //MARK: - VCFunction
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         verifyButton.layer.cornerRadius = 5
         verifyButton.layer.masksToBounds = true
+        
+        // set the back button
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,9 +44,6 @@ class VerifySMSController: LoginVC {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    
-    // MARK: - Variables
-    @IBOutlet var verificationCodeInputTextField: UITextField!
     
     //MARK: - Actions
     @IBAction func didTapOnVerifySMSButton(button: UIButton){

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cCS-CY-qd5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lDd-Pf-59i">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -224,8 +224,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ks4-6m-GjA">
                                 <rect key="frame" x="30.5" y="522" width="314" height="60"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P0E-EL-xfb" customClass="CTKFlagPhoneNumberTextField" customModule="CTKFlagPhoneNumber">
-                                        <rect key="frame" x="8" y="16" width="298" height="28"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P0E-EL-xfb" customClass="CTKFlagPhoneNumberTextField" customModule="CTKFlagPhoneNumber">
+                                        <rect key="frame" x="0.0" y="0.0" width="314" height="60"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
@@ -236,9 +236,10 @@
                                 <color key="backgroundColor" white="1" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="P0E-EL-xfb" firstAttribute="centerX" secondItem="ks4-6m-GjA" secondAttribute="centerX" id="Ib0-bM-PoY"/>
-                                    <constraint firstItem="P0E-EL-xfb" firstAttribute="leading" secondItem="ks4-6m-GjA" secondAttribute="leading" constant="8" id="NY1-Cd-5tQ"/>
-                                    <constraint firstAttribute="trailing" secondItem="P0E-EL-xfb" secondAttribute="trailing" constant="8" id="W9h-Qg-8hZ"/>
+                                    <constraint firstItem="P0E-EL-xfb" firstAttribute="leading" secondItem="ks4-6m-GjA" secondAttribute="leading" id="NY1-Cd-5tQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="P0E-EL-xfb" secondAttribute="trailing" id="W9h-Qg-8hZ"/>
                                     <constraint firstAttribute="width" priority="750" constant="314" id="ZJh-Ph-tmu"/>
+                                    <constraint firstItem="P0E-EL-xfb" firstAttribute="height" secondItem="ks4-6m-GjA" secondAttribute="height" id="aiq-va-VzH"/>
                                     <constraint firstAttribute="height" constant="60" id="cEN-rl-LBv"/>
                                     <constraint firstItem="P0E-EL-xfb" firstAttribute="centerY" secondItem="ks4-6m-GjA" secondAttribute="centerY" id="pqW-gP-MUD"/>
                                 </constraints>
@@ -484,6 +485,22 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bitcoingCircle" translatesAutoresizingMaskIntoConstraints="NO" id="7WE-XU-q3a">
                                 <rect key="frame" x="119" y="184.5" width="136" height="136"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gst-lE-H5U">
+                                <rect key="frame" x="30" y="24" width="93" height="22"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="93" id="glm-cv-zKZ"/>
+                                </constraints>
+                                <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
+                                <state key="normal" title="Go Back" image="back-arrow">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="xaS-pq-QVf" kind="unwind" unwindAction="unwindToSendSMSViewControllerWithSegue:" id="ymd-M6-Pem"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.41176470590000003" green="0.43921568630000002" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -494,11 +511,13 @@
                             <constraint firstItem="Pi3-bM-lFn" firstAttribute="bottom" secondItem="jY7-GU-q80" secondAttribute="bottom" constant="20" id="BcL-Mn-q5B"/>
                             <constraint firstItem="k6K-yF-Hoa" firstAttribute="top" relation="greaterThanOrEqual" secondItem="peT-co-UT3" secondAttribute="bottom" constant="2" id="Bsu-Gh-ZXQ"/>
                             <constraint firstItem="XAx-jY-F1k" firstAttribute="centerY" secondItem="BXQ-3X-IZI" secondAttribute="centerY" id="CY8-Zs-x1N"/>
+                            <constraint firstItem="gst-lE-H5U" firstAttribute="leading" secondItem="Pi3-bM-lFn" secondAttribute="leading" constant="30" id="NaS-zz-zAO"/>
                             <constraint firstItem="BXQ-3X-IZI" firstAttribute="leading" secondItem="XAx-jY-F1k" secondAttribute="trailing" constant="8" id="Nit-dS-cW8"/>
                             <constraint firstItem="LB6-FZ-l2b" firstAttribute="leading" secondItem="WoU-qx-FY5" secondAttribute="trailing" constant="8" id="Nos-ra-eTw"/>
                             <constraint firstItem="1DE-2d-LV3" firstAttribute="centerY" secondItem="GWw-x9-Eu8" secondAttribute="centerY" id="O0L-tH-x4o"/>
                             <constraint firstItem="zLh-bh-7or" firstAttribute="centerX" secondItem="Fgw-I8-ZX6" secondAttribute="centerX" id="OvG-jA-ay4"/>
                             <constraint firstItem="Fgw-I8-ZX6" firstAttribute="centerY" secondItem="Pi3-bM-lFn" secondAttribute="centerY" id="Q1b-v1-MVU"/>
+                            <constraint firstItem="gst-lE-H5U" firstAttribute="top" secondItem="Pi3-bM-lFn" secondAttribute="top" constant="4" id="STd-6C-sE7"/>
                             <constraint firstItem="Fgw-I8-ZX6" firstAttribute="top" secondItem="7WE-XU-q3a" secondAttribute="bottom" constant="8" id="WLJ-0e-mnr"/>
                             <constraint firstItem="LB6-FZ-l2b" firstAttribute="centerY" secondItem="WoU-qx-FY5" secondAttribute="centerY" id="YkV-W3-BwR"/>
                             <constraint firstItem="zLh-bh-7or" firstAttribute="top" secondItem="Fgw-I8-ZX6" secondAttribute="bottom" id="ZtS-Jr-veg"/>
@@ -518,6 +537,7 @@
                         <viewLayoutGuide key="safeArea" id="Pi3-bM-lFn"/>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="gst-lE-H5U" id="Pka-6e-GRe"/>
                         <outlet property="fifthDigitTextField" destination="GWw-x9-Eu8" id="erq-cF-BUA"/>
                         <outlet property="firstDigitTextField" destination="hbo-Pi-JwY" id="9FC-7g-DP8"/>
                         <outlet property="fourthDigitTextField" destination="BXQ-3X-IZI" id="GGQ-6b-CWg"/>
@@ -526,11 +546,28 @@
                         <outlet property="thirdDigitTextField" destination="k6K-yF-Hoa" id="vd0-Rs-GgO"/>
                         <outlet property="verifyButton" destination="jY7-GU-q80" id="ypE-ai-6YH"/>
                         <segue destination="Tqv-IV-sF2" kind="show" identifier="EditProfile-Segue" id="X5w-yM-xMe"/>
+                        <segue destination="kVe-10-zKF" kind="show" identifier="coinbaseVCSegue" id="w8E-bT-4hB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9LG-92-bcR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="xaS-pq-QVf" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="148" y="189.3553223388306"/>
+            <point key="canvasLocation" x="-105" y="190"/>
+        </scene>
+        <!--CoinbaseVC View Controller-->
+        <scene sceneID="Mn8-X7-nkl">
+            <objects>
+                <viewController id="kVe-10-zKF" customClass="CoinbaseVCViewController" customModule="GivBit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Fi4-Gj-dAm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.41176470590000003" green="0.43921568630000002" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <viewLayoutGuide key="safeArea" id="ejJ-Tz-UBo"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PeD-vp-wkJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="631" y="190"/>
         </scene>
         <!--Review LoginVC-->
         <scene sceneID="Bxm-YF-wIU">
@@ -600,10 +637,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c3S-qX-qR9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="932" y="574.36281859070471"/>
+            <point key="canvasLocation" x="993" y="960"/>
         </scene>
     </scenes>
     <resources>
+        <image name="back-arrow" width="18" height="18"/>
         <image name="bitcoingCircle" width="136" height="136"/>
     </resources>
     <inferredMetricsTieBreakers>
