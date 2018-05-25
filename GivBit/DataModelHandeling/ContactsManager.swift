@@ -19,6 +19,9 @@ class ContactsManager: NSObject {
     var normalContacts: [CNContact] = [CNContact]()
     // the search results for contacts search
     var searchedContacts:[CNContact] = [CNContact]()
+    // converted contactes into GBcontacts
+    var convertedContacts:[GBContact] = [GBContact]()
+    
     // loads all contacts from the contact store
     lazy var contacts: [CNContact] = {
         let contactStore = CNContactStore()
@@ -153,6 +156,17 @@ class ContactsManager: NSObject {
             
         }
         return GBContact()
+    }
+    
+    // convert current contacts to GbContacts
+    func convertToGBContacts(contacts: [CNContact]){
+        
+        for contact in contacts {
+            let gbcontact = GBContact()
+            gbcontact.populateWith(CNContact: contact)
+            self.convertedContacts.append(gbcontact)
+        }
+        
     }
     
     // MARK: - Favourites

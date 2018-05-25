@@ -10,10 +10,10 @@ target 'GivBit' do
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
   pod 'FBSDKLoginKit'
-  pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'xw
+  pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
   pod 'IQKeyboardManagerSwift'
   pod 'CTKFlagPhoneNumber'
-
+  pod 'OAuthSwift', '~> 1.2.0'
   target 'GivBitTests' do
     inherit! :search_paths
     # Pods for testing
