@@ -70,6 +70,7 @@ class ContactsManager: NSObject {
             
         }
         print("PhoneNumbers: %d",cleanedResults.count)
+        //self.convertToGBContacts()
         return cleanedResults
     }()
     
@@ -152,16 +153,16 @@ class ContactsManager: NSObject {
     
     func getGBContact(forCNContact contact: CNContact) -> GBContact{
         var gbContact = GBContact()
-        if contact.phoneNumbers.count>0{
+        if contact.phoneNumbers.count > 0 {
             
         }
         return GBContact()
     }
     
     // convert current contacts to GbContacts
-    func convertToGBContacts(contacts: [CNContact]){
+    func convertToGBContacts(){
         
-        for contact in contacts {
+        for contact in self.contacts {
             let gbcontact = GBContact()
             gbcontact.populateWith(CNContact: contact)
             self.convertedContacts.append(gbcontact)

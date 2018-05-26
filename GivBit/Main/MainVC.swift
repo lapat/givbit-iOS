@@ -35,6 +35,7 @@ class MainVC: UIViewController {
             }
             
             self.contactsTableView.reloadData()
+            self.pushContactsOnFirebase()
         }
         
         // adjust the scrollview
@@ -46,7 +47,7 @@ class MainVC: UIViewController {
     // MARK: - Actions on SearchBar change Data
     @IBAction func didChangeInSearch(){
         let strindToSearch = textViewSearchBar.text
-        ContactsManager.sharedInstance.getSearchForContacts(searchString:strindToSearch!, completionHandler: { (contacts, authStatus) in
+         ContactsManager.sharedInstance.getSearchForContacts(searchString:strindToSearch!, completionHandler: { (contacts, authStatus) in
             self.contacts = contacts
         
             
@@ -146,5 +147,14 @@ extension MainVC: UITableViewDataSource{
             return tableView.dequeueReusableCell(withIdentifier: "friends-label-cell")?.contentView
         }
         return UIView()
+    }
+    func pushContactsOnFirebase(){
+        
+        FirestoreHelper.sharedInstnace.updateUserContactOnFirebase(universalUserID :(Auth.auth().currentUser?.uid)!){ ( success) in
+            // Check if user already exists in the database
+            if success == true{
+              
+            }
+        }
     }
 }

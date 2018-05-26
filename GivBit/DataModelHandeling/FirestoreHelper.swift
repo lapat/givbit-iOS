@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import Contacts
 
 class FirestoreHelper: NSObject {
 
@@ -59,24 +60,27 @@ class FirestoreHelper: NSObject {
         //return (false, User())
     }
     // Checks if the user exists and if it exists it returns User with a true
-    func updateUserContactOnFirebase(universalUserID uuid: String,contacts:[GBContact], completionHandler: @escaping (_ user: GBUser?, _ success: Bool) -> Void) {
+    func updateUserContactOnFirebase(universalUserID uuid: String, completionHandler: @escaping ( _ success: Bool) -> Void) {
+         ContactsManager.sharedInstance.convertToGBContacts()
+        /*
         let query = db.collection("users").whereField("uid", isEqualTo: uuid)
         query.getDocuments { (querySnapshot, error) in
             if error != nil{
-                completionHandler(nil, false)
+                completionHandler( false)
             }else{
                 // Only one document should exist
                 for document in querySnapshot!.documents{
                     let user = GBUser()
                     user.fullName = document.data()["name"] as! String
                     user.phoneNumber = document.data()["phone_number"] as! String
-                    completionHandler(user, true)
+                    completionHandler( true)
                 }
                 if querySnapshot!.documents.count <= 0{
-                    completionHandler(nil, true)
+                    completionHandler( true)
                 }
             }
         }
-        //return (false, User())
+ */   completionHandler( true)
+        
     }
 }
