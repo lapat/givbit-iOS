@@ -79,4 +79,29 @@ class FirestoreHelper: NSObject {
         }
         //return (false, User())
     }
+    
+    //MARK: Transactions
+    func getTransactionsForUser(uuid: String, completionHandler: @escaping (_ transactions: [GBTransaction], _ success: Bool) -> Void){
+        let query = db.collection("transactions").whereField("sender_uid", isEqualTo: uuid)
+        query.getDocuments { (querySnapShot, error) in
+            if error != nil{
+                // Error occured
+                completionHandler([GBTransaction](), false)
+            }else{
+                var transactions = [GBTransaction]()
+                for document in querySnapShot!.documents{
+                    let transaction = GBTransaction()
+                    transaction.cryptoAmount = "9.00sdf1" // document.data()["btc_amount"] as! String
+                    transaction.coinbaseItemID = document.data()["coinbase_idem_id"] as! String
+                    transaction.date = document.data()["date"] as! Int
+                    transaction.pending = document.data()["pending"] as! Bool
+                    transaction.recieverPhoneNumber = document.data()["receiver_phone_number"] as! String
+                    transaction.recieverUID = document.data()["receiver_uid"] as! String
+                    transaction.senderUID = document.data()["sender_uid"] as! String
+                    transactions.append(transaction)
+                }
+                completionHandler(transactions, true)
+            }
+        }
+    }
 }
