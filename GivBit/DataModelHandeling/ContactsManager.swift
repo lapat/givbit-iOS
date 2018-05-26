@@ -20,7 +20,7 @@ class ContactsManager: NSObject {
     // the search results for contacts search
     var searchedContacts:[CNContact] = [CNContact]()
     // converted contactes into GBcontacts
-    var convertedContacts:[GBContact] = [GBContact]()
+    var convertedContacts:[Dictionary<String, Any>] = [Dictionary<String, Any>]()
     
     // loads all contacts from the contact store
     lazy var contacts: [CNContact] = {
@@ -159,13 +159,13 @@ class ContactsManager: NSObject {
         return GBContact()
     }
     
-    // convert current contacts to GbContacts
-    func convertToGBContacts(){
+    // convert current contacts to Dictionery
+    func convertToDictionery(){
         
         for contact in self.contacts {
             let gbcontact = GBContact()
             gbcontact.populateWith(CNContact: contact)
-            self.convertedContacts.append(gbcontact)
+            self.convertedContacts.append(gbcontact.dataAsDictionary())
         }
         
     }

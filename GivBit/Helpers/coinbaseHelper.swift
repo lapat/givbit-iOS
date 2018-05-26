@@ -15,7 +15,7 @@ class coinbaseoauth : NSObject{
     static var sharedInstnace = coinbaseoauth()
     let meta = ["send_limit_amount": "1.00", " send_limit_currency": "USD", "send_limit_period": "week"];
     let meta_all = ["account":"all"]
-    
+    var loginvc = LoginVC()
     var oauthswift = OAuth2Swift(
         consumerKey:    "dc14823d87efd9398dcb60d79e2f158e7d7f50067213130f8b61d5f6c1c865f0",
         consumerSecret: "9b4fda8e5f6ac55a85af59efdbd6133f53bc5ef3c7966eb3b489edc2ead4339c",
@@ -27,7 +27,8 @@ class coinbaseoauth : NSObject{
     let coibaseScope = "wallet:accounts:read,wallet:accounts:update,wallet:accounts:create,wallet:accounts:delete,wallet:addresses:read,wallet:addresses:create,wallet:buys:read,wallet:buys:create,wallet:checkouts:read,wallet:checkouts:create,wallet:deposits:read,wallet:deposits:create,wallet:notifications:read,wallet:orders:read,wallet:orders:create,wallet:orders:refund,wallet:payment-methods:read,wallet:payment-methods:delete,wallet:payment-methods:limits,wallet:sells:read,wallet:sells:create,wallet:transactions:read,wallet:transactions:request,wallet:transactions:transfer,wallet:user:read,wallet:user:update,wallet:user:email,wallet:withdrawals:read,wallet:withdrawals:create";
     let redirectUrl = "com.coinbasepermittedcoinoath.apps.coinoath://coinbase-oauth"
     
-    
+    var accessToken = ""
+    var refreashToken = ""
     func makeLoginupRequest(){
         
         
@@ -58,15 +59,15 @@ class coinbaseoauth : NSObject{
             oauthswift.postOAuthAccessTokenWithRequestToken(byCode: urlString, callbackURL: path! ,
                                                             success: {credential, response ,parameters in
                                                                 
-                                                                let access_token = credential.oauthToken
-                                                                let refresh_token = credential.oauthRefreshToken
+                                                                let  accessToken = credential.oauthToken
+                                                                let  refreashToken = credential.oauthRefreshToken
                                                                 
                                                                 
                                                                 if Auth.auth().currentUser?.providerData[0].providerID == "phone"{
                                                                     
-                                                                FirestoreHelper.sharedInstnace.updateCoinbaseidOnCoinbaseWithUUID(universalUserID: (Auth.auth().currentUser?.uid)!, accessToken: access_token, refreashToken: refresh_token, completionHandler: { (success) in
+                                                                    FirestoreHelper.sharedInstnace.updateCoinbaseidOnCoinbaseWithUUID(universalUserID: (Auth.auth().currentUser?.uid)!, accessToken: accessToken, refreashToken: refreashToken, completionHandler: { (success) in
                                                                     if success == true{
-                                                                       // self.performSegue(withIdentifier: "requestcontactssegue", sender: self)
+                                                                      self.loginvc.performSegue(withIdentifier: "requestcontactssegue", sender: self)
                                                                     }else{
                                                                         
                                                                     }

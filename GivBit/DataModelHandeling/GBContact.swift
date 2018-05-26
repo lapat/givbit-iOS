@@ -18,6 +18,21 @@ class GBContact: NSObject {
     var phoneNumber: String = ""
     var UUID: String = ""
     
+    enum ObjectKeys: String{
+        case name = "name"
+        case imageData = "image_data"
+        case phonenumber = "phone_Number"
+    }
+    
+    // Returns a dictionary containing all the contact information
+    func dataAsDictionary() -> Dictionary<String, Any>{
+        var contactDic = Dictionary<String, Any>()
+        contactDic[ObjectKeys.name.rawValue] = self.name
+        contactDic[ObjectKeys.imageData.rawValue] = self.imageData
+        contactDic[ObjectKeys.phonenumber.rawValue] = self.phoneNumber
+        return contactDic
+    }
+    
     func getUIImageForPlacement(inRect rect: CGRect) -> UIImage{
         if self.imageData == nil{
             // gettting the initials for being drawn on image
@@ -48,4 +63,5 @@ class GBContact: NSObject {
         }
         self.name = CNContactFormatter.string(from: contact, style: CNContactFormatterStyle.fullName)!
     }
+    
 }

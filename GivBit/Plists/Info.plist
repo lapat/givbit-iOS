@@ -37,7 +37,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.givbitapp.coinbaselogincallback://coinbase-oauth</string>
+				<string>com.coinbasepermittedcoinoath.apps.coinoath</string>
 			</array>
 		</dict>
 	</array>

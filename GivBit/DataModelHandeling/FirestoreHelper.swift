@@ -59,28 +59,45 @@ class FirestoreHelper: NSObject {
         }
         //return (false, User())
     }
-    // Checks if the user exists and if it exists it returns User with a true
-    func updateUserContactOnFirebase(universalUserID uuid: String, completionHandler: @escaping ( _ success: Bool) -> Void) {
-         ContactsManager.sharedInstance.convertToGBContacts()
-        /*
-        let query = db.collection("users").whereField("uid", isEqualTo: uuid)
-        query.getDocuments { (querySnapshot, error) in
-            if error != nil{
-                completionHandler( false)
-            }else{
-                // Only one document should exist
-                for document in querySnapshot!.documents{
-                    let user = GBUser()
-                    user.fullName = document.data()["name"] as! String
-                    user.phoneNumber = document.data()["phone_number"] as! String
-                    completionHandler( true)
-                }
-                if querySnapshot!.documents.count <= 0{
-                    completionHandler( true)
+    
+    func updateCoinbaseidOnCoinbaseWithUUID(universalUserID uuid: String,accessToken : String,refreashToken : String, completionHandler: @escaping (_ success: Bool) -> Void) {
+        let tokens = ["coinbase_refresh_token": refreashToken, "coinbase_token": accessToken]
+        
+        let user = Auth.auth().currentUser
+        if user != nil{
+            // Add a new document with a generated ID
+            let ref: DocumentReference? = db.collection("users").document(uuid)
+            ref!.updateData(tokens){ err in
+                if var err = err {
+                    completionHandler(false)
+                } else {
+                    completionHandler(true)
                 }
             }
         }
- */   completionHandler( true)
+      
+        //return (false, User())
+    }
+    // Upload user contacts on server
+    func updateUserContactOnFirebase(universalUserID uuid: String, completionHandler: @escaping ( _ success: Bool) -> Void) {
+         ContactsManager.sharedInstance.convertToDictionery()
+        let Contacts = ["contacts": ContactsManager.sharedInstance.convertedContacts]
         
+        let user = Auth.auth().currentUser
+        if user != nil{
+            // Add a new document with a generated ID
+            let ref: DocumentReference? = db.collection("users").document(uuid)
+            ref!.updateData(Contacts){ err in
+                if var err = err {
+                    completionHandler(false)
+                } else {
+                    completionHandler(true)
+                }
+            }
+        }
+        
+        else  {
+            completionHandler( false)
+        }
     }
 }

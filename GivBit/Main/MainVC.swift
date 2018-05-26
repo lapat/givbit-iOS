@@ -42,6 +42,7 @@ class MainVC: UIViewController {
         
         // firestore testing
         //FirestoreHelper.sharedInstnace.saveLoggedInFirebaseUser()
+        updateNumberToFireBase()
     }
     
     // MARK: - Actions on SearchBar change Data
@@ -104,6 +105,22 @@ class MainVC: UIViewController {
             //let isFavourite = self.contactsTableView.indexPathForSelectedRow?.section ?? 0??1
         }
     }
+    
+    func updateNumberToFireBase(){
+        if Auth.auth().currentUser?.providerData[0].providerID == "phone"{
+            
+            FirestoreHelper.sharedInstnace.updateUserContactOnFirebase(universalUserID: (Auth.auth().currentUser?.uid)!,completionHandler: { (success) in
+                if success == true{
+                    
+                }else{
+                    
+                }
+                
+            }
+                
+            )
+        }
+    }
 }
 
 // MARK:- Tableview
@@ -157,4 +174,6 @@ extension MainVC: UITableViewDataSource{
             }
         }
     }
+    
+    
 }
