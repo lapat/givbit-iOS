@@ -36,6 +36,9 @@
 		77B7C23820B7F4990008E258 /* GBTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B7C23720B7F4990008E258 /* GBTextField.swift */; };
 		77B7C23A20B835C40008E258 /* CoinbaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B7C23920B835C40008E258 /* CoinbaseVC.swift */; };
 		77B7C23C20B905ED0008E258 /* RequestContactsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B7C23B20B905ED0008E258 /* RequestContactsVC.swift */; };
+		77B7C23E20B915EB0008E258 /* GBTransactionTBVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B7C23D20B915EB0008E258 /* GBTransactionTBVC.swift */; };
+		77B7C24020B9216D0008E258 /* GBTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B7C23F20B9216D0008E258 /* GBTransaction.swift */; };
+		77B7C24220B924920008E258 /* TransactionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B7C24120B924920008E258 /* TransactionsVC.swift */; };
 		7D16C58D4611BF5AD5797E38 /* Pods_GivBitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6903F1C78049D448E70636E3 /* Pods_GivBitTests.framework */; };
 		917A29F17ECDF8A04863167A /* Pods_GivBit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27C4F641A0A396D79F7E442A /* Pods_GivBit.framework */; };
 		AC3F4596E8D8706A78B28945 /* Pods_GivBitUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355127CD12E86A95A2FE5E95 /* Pods_GivBitUITests.framework */; };
@@ -101,6 +104,9 @@
 		77B7C23720B7F4990008E258 /* GBTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBTextField.swift; sourceTree = "<group>"; };
 		77B7C23920B835C40008E258 /* CoinbaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinbaseVC.swift; sourceTree = "<group>"; };
 		77B7C23B20B905ED0008E258 /* RequestContactsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestContactsVC.swift; sourceTree = "<group>"; };
+		77B7C23D20B915EB0008E258 /* GBTransactionTBVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBTransactionTBVC.swift; sourceTree = "<group>"; };
+		77B7C23F20B9216D0008E258 /* GBTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBTransaction.swift; sourceTree = "<group>"; };
+		77B7C24120B924920008E258 /* TransactionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsVC.swift; sourceTree = "<group>"; };
 		97278999021FF89CD2C74A0B /* Pods-GivBit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GivBit.release.xcconfig"; path = "Pods/Target Support Files/Pods-GivBit/Pods-GivBit.release.xcconfig"; sourceTree = "<group>"; };
 		A3243C0D23FF3C2C434E10EC /* Pods-GivBitUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GivBitUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GivBitUITests/Pods-GivBitUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D789BCAE62317A7BE95FE4C1 /* Pods-GivBitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GivBitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GivBitTests/Pods-GivBitTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -148,15 +154,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		774E2D5520ACAD5D0039435E /* DataModelHandeling */ = {
+		774E2D5520ACAD5D0039435E /* DataHandeling */ = {
 			isa = PBXGroup;
 			children = (
 				779CBEBA20A41FA600341004 /* FirestoreHelper.swift */,
 				774E2D4920A971BE0039435E /* ContactsManager.swift */,
 				774E2D5320AC22D60039435E /* GBContact.swift */,
 				774E2D5620ACB0150039435E /* GBUser.swift */,
+				77B7C23F20B9216D0008E258 /* GBTransaction.swift */,
 			);
-			path = DataModelHandeling;
+			path = DataHandeling;
 			sourceTree = "<group>";
 		};
 		775999F020A02986001FF565 = {
@@ -188,7 +195,7 @@
 				77599A2D20A03F4D001FF565 /* GivBit.entitlements */,
 				77B7C23420B7F4500008E258 /* CustomUIObjects */,
 				77599A4420A3165F001FF565 /* Helpers */,
-				774E2D5520ACAD5D0039435E /* DataModelHandeling */,
+				774E2D5520ACAD5D0039435E /* DataHandeling */,
 				77599A2A20A03D46001FF565 /* Plists */,
 				77599A3020A044C0001FF565 /* Login */,
 				779CBEBC20A4387600341004 /* Main */,
@@ -258,9 +265,9 @@
 			children = (
 				77599A0020A02986001FF565 /* Main.storyboard */,
 				775999FE20A02986001FF565 /* MainVC.swift */,
-				774E2D4B20A98D4C0039435E /* ContactTBVCell.swift */,
 				779417A020B5045C00A46BE2 /* SendCoinVC.swift */,
 				779417A420B6B37B00A46BE2 /* SettingsVC.swift */,
+				77B7C24120B924920008E258 /* TransactionsVC.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -268,7 +275,9 @@
 		77B7C23420B7F4500008E258 /* CustomUIObjects */ = {
 			isa = PBXGroup;
 			children = (
+				774E2D4B20A98D4C0039435E /* ContactTBVCell.swift */,
 				77B7C23720B7F4990008E258 /* GBTextField.swift */,
+				77B7C23D20B915EB0008E258 /* GBTransactionTBVC.swift */,
 			);
 			path = CustomUIObjects;
 			sourceTree = "<group>";
@@ -542,6 +551,7 @@
 				779417A720B7E4AE00A46BE2 /* AlertHelper.swift in Sources */,
 				77599A3F20A1A78E001FF565 /* ReviewLoginVC.swift in Sources */,
 				779CBEBB20A41FA600341004 /* FirestoreHelper.swift in Sources */,
+				77B7C24020B9216D0008E258 /* GBTransaction.swift in Sources */,
 				774E2D4C20A98D4C0039435E /* ContactTBVCell.swift in Sources */,
 				77599A3520A04A8B001FF565 /* VerifySMSController.swift in Sources */,
 				77599A4120A314E1001FF565 /* LoginVC.swift in Sources */,
@@ -550,6 +560,7 @@
 				774E2D5220AC1A3D0039435E /* StringHelper.swift in Sources */,
 				774E2D5420AC22D60039435E /* GBContact.swift in Sources */,
 				779417A120B5045C00A46BE2 /* SendCoinVC.swift in Sources */,
+				77B7C24220B924920008E258 /* TransactionsVC.swift in Sources */,
 				77599A3220A044DD001FF565 /* SendSMSyController.swift in Sources */,
 				774E2D5720ACB0150039435E /* GBUser.swift in Sources */,
 				77599A3920A086DD001FF565 /* FBLoginVC.swift in Sources */,
@@ -557,6 +568,7 @@
 				77B7C23C20B905ED0008E258 /* RequestContactsVC.swift in Sources */,
 				775999FF20A02986001FF565 /* MainVC.swift in Sources */,
 				775999FD20A02986001FF565 /* AppDelegate.swift in Sources */,
+				77B7C23E20B915EB0008E258 /* GBTransactionTBVC.swift in Sources */,
 				77599A4320A31659001FF565 /* ColorsHelper.swift in Sources */,
 				774E2D5020AC0F240039435E /* ImageHelper.swift in Sources */,
 			);
