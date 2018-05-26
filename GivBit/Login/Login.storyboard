@@ -251,7 +251,8 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.41176470590000003" green="0.43921568630000002" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.41712448473707658" green="0.43304402016488408" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="5Dk-zo-Zof" firstAttribute="centerX" secondItem="k8T-X2-7cn" secondAttribute="centerX" id="4o5-Kb-BSJ"/>
                             <constraint firstItem="yu2-Ro-tAz" firstAttribute="centerX" secondItem="k8T-X2-7cn" secondAttribute="centerX" id="8eh-KI-qZg"/>
@@ -554,20 +555,140 @@
             </objects>
             <point key="canvasLocation" x="-105" y="190"/>
         </scene>
-        <!--CoinbaseVC View Controller-->
+        <!--CoinbaseVC-->
         <scene sceneID="Mn8-X7-nkl">
             <objects>
-                <viewController id="kVe-10-zKF" customClass="CoinbaseVCViewController" customModule="GivBit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="kVe-10-zKF" customClass="CoinbaseVC" customModule="GivBit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fi4-Gj-dAm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.41176470590000003" green="0.43921568630000002" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connect your" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pgN-nL-n6y">
+                                <rect key="frame" x="115" y="328.5" width="145" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coinbase Account." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7lX-of-OK4">
+                                <rect key="frame" x="85.5" y="358.5" width="205" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="We'll transfer your payments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iUh-fX-Y0p">
+                                <rect key="frame" x="79" y="388.5" width="218" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="through FDIC insured coinbase." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BIS-kD-5pM">
+                                <rect key="frame" x="68" y="409" width="241" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2Coinbase" translatesAutoresizingMaskIntoConstraints="NO" id="ZVC-8i-O9y">
+                                <rect key="frame" x="119.5" y="184" width="136" height="136"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Viq-DV-ZZq">
+                                <rect key="frame" x="16" y="587" width="343" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9CF-Kx-637">
+                                        <rect key="frame" x="0.0" y="0.0" width="166.5" height="60"/>
+                                        <color key="backgroundColor" white="1" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal" title="Create Account">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapOnSignUpWithCoinbaseWithButton:" destination="kVe-10-zKF" eventType="touchUpInside" id="EOO-ey-z90"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="pUm-WY-jba">
+                                        <rect key="frame" x="176.5" y="0.0" width="166.5" height="60"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal" title="Connect Coinbase">
+                                            <color key="titleColor" red="0.41176470590000003" green="0.43921568630000002" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapOnLoginWithCoinbaseWithButton:" destination="kVe-10-zKF" eventType="touchUpInside" id="We9-jm-isq"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="ApM-NC-PuR"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="waC-jT-zHW">
+                                <rect key="frame" x="16" y="20" width="93" height="22"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="93" id="W4e-lb-BHQ"/>
+                                </constraints>
+                                <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
+                                <state key="normal" title="Restart" image="back-arrow">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="KaV-Gy-bCk" kind="unwind" unwindAction="unwindToSendSMSViewControllerWithSegue:" id="fi1-fb-DbV"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We don't store any credentials" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uFA-iv-CZ7">
+                                <rect key="frame" x="84.5" y="561" width="207.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your data is secure" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9XG-bY-0uL">
+                                <rect key="frame" x="123" y="543" width="131" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="group5" translatesAutoresizingMaskIntoConstraints="NO" id="KXJ-zY-UQf">
+                                <rect key="frame" x="181.5" y="528" width="14" height="15"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.41176470590000003" green="0.42352941176470588" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="waC-jT-zHW" firstAttribute="leading" secondItem="ejJ-Tz-UBo" secondAttribute="leading" constant="16" id="7yJ-TQ-2Ke"/>
+                            <constraint firstItem="BIS-kD-5pM" firstAttribute="top" secondItem="iUh-fX-Y0p" secondAttribute="bottom" id="8ko-sv-mx3"/>
+                            <constraint firstItem="iUh-fX-Y0p" firstAttribute="centerX" secondItem="7lX-of-OK4" secondAttribute="centerX" id="Ajc-Sq-aJg"/>
+                            <constraint firstItem="pgN-nL-n6y" firstAttribute="centerY" secondItem="ejJ-Tz-UBo" secondAttribute="centerY" id="Cv0-B8-kak"/>
+                            <constraint firstItem="7lX-of-OK4" firstAttribute="top" secondItem="pgN-nL-n6y" secondAttribute="bottom" id="Hec-Hs-Gaz"/>
+                            <constraint firstItem="ejJ-Tz-UBo" firstAttribute="bottom" secondItem="Viq-DV-ZZq" secondAttribute="bottom" constant="20" id="KiF-NI-NGT"/>
+                            <constraint firstItem="9XG-bY-0uL" firstAttribute="centerX" secondItem="uFA-iv-CZ7" secondAttribute="centerX" id="LY6-Jx-IoD"/>
+                            <constraint firstItem="KXJ-zY-UQf" firstAttribute="centerX" secondItem="9XG-bY-0uL" secondAttribute="centerX" id="P3x-gz-kQ6"/>
+                            <constraint firstItem="waC-jT-zHW" firstAttribute="top" secondItem="ejJ-Tz-UBo" secondAttribute="top" id="PIg-2f-6Ga"/>
+                            <constraint firstItem="Viq-DV-ZZq" firstAttribute="top" secondItem="uFA-iv-CZ7" secondAttribute="bottom" constant="8" id="Tn9-2K-tQz"/>
+                            <constraint firstItem="uFA-iv-CZ7" firstAttribute="top" secondItem="9XG-bY-0uL" secondAttribute="bottom" id="Wau-DY-VsR"/>
+                            <constraint firstItem="Viq-DV-ZZq" firstAttribute="leading" secondItem="ejJ-Tz-UBo" secondAttribute="leading" constant="16" id="X4b-f8-kYt"/>
+                            <constraint firstItem="pgN-nL-n6y" firstAttribute="centerX" secondItem="ejJ-Tz-UBo" secondAttribute="centerX" id="Z4O-Ix-pmI"/>
+                            <constraint firstItem="iUh-fX-Y0p" firstAttribute="top" secondItem="7lX-of-OK4" secondAttribute="bottom" id="a1g-4k-YIn"/>
+                            <constraint firstItem="uFA-iv-CZ7" firstAttribute="centerX" secondItem="Viq-DV-ZZq" secondAttribute="centerX" id="d1l-yy-tp1"/>
+                            <constraint firstItem="9XG-bY-0uL" firstAttribute="top" secondItem="KXJ-zY-UQf" secondAttribute="bottom" id="dBs-lA-9Lh"/>
+                            <constraint firstItem="BIS-kD-5pM" firstAttribute="centerX" secondItem="iUh-fX-Y0p" secondAttribute="centerX" id="fpz-xx-Ce7"/>
+                            <constraint firstItem="pgN-nL-n6y" firstAttribute="top" secondItem="ZVC-8i-O9y" secondAttribute="bottom" constant="8" id="iRt-8N-nbz"/>
+                            <constraint firstItem="ejJ-Tz-UBo" firstAttribute="trailing" secondItem="Viq-DV-ZZq" secondAttribute="trailing" constant="16" id="l5a-Gc-vvl"/>
+                            <constraint firstItem="7lX-of-OK4" firstAttribute="centerX" secondItem="pgN-nL-n6y" secondAttribute="centerX" id="nRD-8s-cjV"/>
+                            <constraint firstItem="Viq-DV-ZZq" firstAttribute="centerX" secondItem="ejJ-Tz-UBo" secondAttribute="centerX" id="rJR-4g-vaW"/>
+                            <constraint firstItem="ZVC-8i-O9y" firstAttribute="centerX" secondItem="pgN-nL-n6y" secondAttribute="centerX" id="uwA-xx-LcM"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ejJ-Tz-UBo"/>
                     </view>
+                    <connections>
+                        <outlet property="coinbaseLoginButton" destination="pUm-WY-jba" id="XDU-dY-nQd"/>
+                        <outlet property="coinbaseSignUpButton" destination="9CF-Kx-637" id="Q9h-tC-tCy"/>
+                        <segue destination="C3E-XW-gbd" kind="show" identifier="requestcontactssegue" id="GIa-0S-8da"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PeD-vp-wkJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="KaV-Gy-bCk" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="631" y="190"/>
+            <point key="canvasLocation" x="629.60000000000002" y="189.3553223388306"/>
         </scene>
         <!--Review LoginVC-->
         <scene sceneID="Bxm-YF-wIU">
@@ -639,10 +760,136 @@
             </objects>
             <point key="canvasLocation" x="993" y="960"/>
         </scene>
+        <!--Request ContactsVC-->
+        <scene sceneID="htW-rJ-3Lz">
+            <objects>
+                <viewController id="C3E-XW-gbd" customClass="RequestContactsVC" customModule="GivBit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ade-4X-n9d">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connect your" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xaQ-YU-gw2">
+                                <rect key="frame" x="115" y="328.5" width="145" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WvP-dY-hfC">
+                                <rect key="frame" x="123" y="358.5" width="130.5" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="For the last step, we need" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mtx-DA-Q0m">
+                                <rect key="frame" x="90" y="388.5" width="197" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="to access your contacts to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oqy-a9-f9Y">
+                                <rect key="frame" x="87.5" y="409" width="202" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3Contacts" translatesAutoresizingMaskIntoConstraints="NO" id="nWp-qo-4CZ">
+                                <rect key="frame" x="119.5" y="184" width="136" height="136"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="KRW-d4-Cl7">
+                                <rect key="frame" x="62.5" y="587" width="250" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="OGL-Sh-K8L">
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="60"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal" title="Connect Contacts">
+                                            <color key="titleColor" red="0.41176470590000003" green="0.43921568630000002" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapRequestContactsButton" destination="C3E-XW-gbd" eventType="touchUpInside" id="DKH-bu-Ypr"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="2Ae-KH-FLV"/>
+                                    <constraint firstAttribute="width" constant="250" id="Y5F-n8-zRT"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jhm-1s-Txj">
+                                <rect key="frame" x="16" y="20" width="93" height="22"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="93" id="fu7-FK-oBJ"/>
+                                </constraints>
+                                <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
+                                <state key="normal" title="Restart" image="back-arrow">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="ZhQ-dM-BFs" kind="unwind" unwindAction="unwindToSendSMSViewControllerWithSegue:" id="7HR-iZ-QNC"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="group5" translatesAutoresizingMaskIntoConstraints="NO" id="JCF-yk-LsJ">
+                                <rect key="frame" x="180.5" y="546" width="14" height="15"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="send payments." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HvW-UA-mdw">
+                                <rect key="frame" x="127.5" y="429.5" width="121.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your data is secure" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E5k-aa-42P">
+                                <rect key="frame" x="122" y="561" width="131" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.41176470590000003" green="0.42352941179999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="nWp-qo-4CZ" firstAttribute="centerX" secondItem="xaQ-YU-gw2" secondAttribute="centerX" id="25j-zK-dE6"/>
+                            <constraint firstItem="KRW-d4-Cl7" firstAttribute="centerX" secondItem="oYA-PH-mdw" secondAttribute="centerX" id="2FF-Tc-0jF"/>
+                            <constraint firstItem="KRW-d4-Cl7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="oYA-PH-mdw" secondAttribute="leading" constant="16" id="3Qi-eI-Ge9"/>
+                            <constraint firstItem="E5k-aa-42P" firstAttribute="top" secondItem="JCF-yk-LsJ" secondAttribute="bottom" id="7cw-tO-KBx"/>
+                            <constraint firstItem="WvP-dY-hfC" firstAttribute="centerX" secondItem="xaQ-YU-gw2" secondAttribute="centerX" id="C1G-TV-Ub8"/>
+                            <constraint firstItem="Mtx-DA-Q0m" firstAttribute="centerX" secondItem="WvP-dY-hfC" secondAttribute="centerX" id="DcE-IW-vRz"/>
+                            <constraint firstItem="E5k-aa-42P" firstAttribute="centerX" secondItem="KRW-d4-Cl7" secondAttribute="centerX" id="KCk-Pw-iEv"/>
+                            <constraint firstItem="jhm-1s-Txj" firstAttribute="top" secondItem="oYA-PH-mdw" secondAttribute="top" id="Rdr-ch-wq9"/>
+                            <constraint firstItem="KRW-d4-Cl7" firstAttribute="top" secondItem="E5k-aa-42P" secondAttribute="bottom" constant="8" id="RkY-8P-me2"/>
+                            <constraint firstItem="WvP-dY-hfC" firstAttribute="top" secondItem="xaQ-YU-gw2" secondAttribute="bottom" id="Sca-JC-UZA"/>
+                            <constraint firstItem="oqy-a9-f9Y" firstAttribute="top" secondItem="Mtx-DA-Q0m" secondAttribute="bottom" id="bTG-71-gEd"/>
+                            <constraint firstItem="xaQ-YU-gw2" firstAttribute="centerX" secondItem="oYA-PH-mdw" secondAttribute="centerX" id="c54-P1-UMO"/>
+                            <constraint firstItem="oYA-PH-mdw" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="KRW-d4-Cl7" secondAttribute="trailing" constant="16" id="eqK-vN-1Nq"/>
+                            <constraint firstItem="HvW-UA-mdw" firstAttribute="centerX" secondItem="oqy-a9-f9Y" secondAttribute="centerX" id="fzB-0U-cv9"/>
+                            <constraint firstItem="oqy-a9-f9Y" firstAttribute="centerX" secondItem="Mtx-DA-Q0m" secondAttribute="centerX" id="hJO-PH-BDe"/>
+                            <constraint firstItem="jhm-1s-Txj" firstAttribute="leading" secondItem="oYA-PH-mdw" secondAttribute="leading" constant="16" id="k8k-FS-ebE"/>
+                            <constraint firstItem="xaQ-YU-gw2" firstAttribute="centerY" secondItem="oYA-PH-mdw" secondAttribute="centerY" id="n9Y-DW-KUR"/>
+                            <constraint firstItem="Mtx-DA-Q0m" firstAttribute="top" secondItem="WvP-dY-hfC" secondAttribute="bottom" id="pWg-9s-j6g"/>
+                            <constraint firstItem="JCF-yk-LsJ" firstAttribute="centerX" secondItem="E5k-aa-42P" secondAttribute="centerX" id="q37-VT-UTr"/>
+                            <constraint firstItem="HvW-UA-mdw" firstAttribute="top" secondItem="oqy-a9-f9Y" secondAttribute="bottom" id="rNe-n4-1RH"/>
+                            <constraint firstItem="xaQ-YU-gw2" firstAttribute="top" secondItem="nWp-qo-4CZ" secondAttribute="bottom" constant="8" id="we3-ie-M8z"/>
+                            <constraint firstItem="oYA-PH-mdw" firstAttribute="bottom" secondItem="KRW-d4-Cl7" secondAttribute="bottom" constant="20" id="yxL-Ob-WmQ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="oYA-PH-mdw"/>
+                    </view>
+                    <connections>
+                        <outlet property="requestContactsButton" destination="OGL-Sh-K8L" id="8xU-Aa-Ctf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gJG-eT-r3g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="ZhQ-dM-BFs" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1364" y="189"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="2Coinbase" width="136" height="136"/>
+        <image name="3Contacts" width="136" height="136"/>
         <image name="back-arrow" width="18" height="18"/>
         <image name="bitcoingCircle" width="136" height="136"/>
+        <image name="group5" width="14" height="15"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="X5w-yM-xMe"/>

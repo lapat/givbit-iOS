@@ -8,12 +8,17 @@
 
 import UIKit
 
-class CoinbaseVCViewController: LoginVC {
+class CoinbaseVC: LoginVC {
 
+    @IBOutlet weak var coinbaseSignUpButton: UIButton!
+    @IBOutlet weak var coinbaseLoginButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        coinbaseLoginButton.layer.cornerRadius = 5
+        coinbaseSignUpButton.layer.cornerRadius = 5
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,5 +36,13 @@ class CoinbaseVCViewController: LoginVC {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func didTapOnSignUpWithCoinbase(button: UIButton){
+        coinbaseoauth().makeSignupRequest()
+    }
 
+    @IBAction func didTapOnLoginWithCoinbase(button: UIButton){
+        //coinbaseoauth().getAccessToken(url: URL(string: "")!)
+        self.performSegue(withIdentifier: "requestcontactssegue", sender: self)
+    }
 }

@@ -14,6 +14,8 @@ target 'GivBit' do
   pod 'IQKeyboardManagerSwift'
   pod 'CTKFlagPhoneNumber'
   pod 'OAuthSwift', '~> 1.2.0'
+  pod 'MBProgressHUD'
+  
   target 'GivBitTests' do
     inherit! :search_paths
     # Pods for testing

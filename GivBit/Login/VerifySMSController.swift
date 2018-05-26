@@ -81,7 +81,7 @@ class VerifySMSController: LoginVC {
             // User is signed in
             // ...
             print(authResult?.user.phoneNumber ?? "")
-            self.performSegue(withIdentifier: "EditProfile-Segue", sender: self)
+            self.performSegue(withIdentifier: "coinbaseVCSegue", sender: self)
         }
         
 //        Auth.auth().signIn(with: credential) { (user, error) in

@@ -30,4 +30,6 @@ class AlertHelper: NSObject {
         alert.addAction(okButton)
         controller.present(alert, animated: true, completion: nil)
     }
+    
+    // show a alert with completion handler.
 }

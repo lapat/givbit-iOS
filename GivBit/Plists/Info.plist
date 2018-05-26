@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>LSApplicationCategoryType</key>
-	<string>We need this, in order to send coins to your contacts.</string>
-	<key>NSContactsUsageDescription</key>
-	<string>So you may send coins to your friends</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -36,6 +32,14 @@
 				<string>com.googleusercontent.apps.13863964616-ljjkd0ef60diju5l79c5ghrtkvum90ki</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.givbitapp.coinbaselogincallback://coinbase-oauth</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
@@ -43,6 +47,8 @@
 	<string>821581154702620</string>
 	<key>FacebookDisplayName</key>
 	<string>GivBit</string>
+	<key>LSApplicationCategoryType</key>
+	<string>We need this, in order to send coins to your contacts.</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>
@@ -52,6 +58,8 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSContactsUsageDescription</key>
+	<string>So you may send coins to your friends</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
