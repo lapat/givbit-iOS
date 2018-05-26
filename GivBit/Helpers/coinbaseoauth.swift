@@ -23,7 +23,7 @@ class coinbaseoauth{
     )
     
     let coibaseScope = "wallet:accounts:read,wallet:accounts:update,wallet:accounts:create,wallet:accounts:delete,wallet:addresses:read,wallet:addresses:create,wallet:buys:read,wallet:buys:create,wallet:checkouts:read,wallet:checkouts:create,wallet:deposits:read,wallet:deposits:create,wallet:notifications:read,wallet:orders:read,wallet:orders:create,wallet:orders:refund,wallet:payment-methods:read,wallet:payment-methods:delete,wallet:payment-methods:limits,wallet:sells:read,wallet:sells:create,wallet:transactions:read,wallet:transactions:request,wallet:transactions:transfer,wallet:user:read,wallet:user:update,wallet:user:email,wallet:withdrawals:read,wallet:withdrawals:create";
-    let redirectUrl = "coinflashyehaaa.coinbaselib://coinbase-oauth"
+    let redirectUrl = "com.givbitapp.coinbaselogincallback://coinbase-oauth"
     
     func makeSignupRequest(){
         
@@ -39,9 +39,8 @@ class coinbaseoauth{
                                 let s = (error.localizedDescription);
                                 
         })
-        
-        
     }
+    
     func getAccessToken(url: URL){
         
         var urlString = url.absoluteString
