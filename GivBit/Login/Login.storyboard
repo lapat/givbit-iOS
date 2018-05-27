@@ -278,7 +278,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WGK-vX-LOV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-850.39999999999998" y="190.25487256371815"/>
+            <point key="canvasLocation" x="-1164" y="153"/>
         </scene>
         <!--VerifySMS Controller-->
         <scene sceneID="Zv9-xi-LRb">
@@ -554,7 +554,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9LG-92-bcR" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="xaS-pq-QVf" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-105" y="190"/>
+            <point key="canvasLocation" x="-255" y="85"/>
         </scene>
         <!--CoinbaseVC-->
         <scene sceneID="Mn8-X7-nkl">

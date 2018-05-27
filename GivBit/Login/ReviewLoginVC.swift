@@ -48,7 +48,13 @@ class ReviewLoginVC: LoginVC {
         user.fullName = nameTextField.text!
         user.uuid = (Auth.auth().currentUser?.uid)!
         user.phoneNumber = Auth.auth().currentUser!.phoneNumber!
+        if(coinbaseoauth.sharedInstnace.accessToken != "")
+        {
+            user.coinbaseRefreshToken = coinbaseoauth.sharedInstnace.refreashToken
+            user.coinbaseToken = coinbaseoauth.sharedInstnace.accessToken
+        }
         FirestoreHelper.sharedInstnace.saveLoggedInFirebaseUser(givbitUser: user)
+        
         
     }
     

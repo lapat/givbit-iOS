@@ -35,18 +35,20 @@ class MainVC: UIViewController {
             }
             
             self.contactsTableView.reloadData()
+            self.pushContactsOnFirebase()
         }
         
         // adjust the scrollview
         
         // firestore testing
         //FirestoreHelper.sharedInstnace.saveLoggedInFirebaseUser()
+        updateNumberToFireBase()
     }
     
     // MARK: - Actions on SearchBar change Data
     @IBAction func didChangeInSearch(){
         let strindToSearch = textViewSearchBar.text
-        ContactsManager.sharedInstance.getSearchForContacts(searchString:strindToSearch!, completionHandler: { (contacts, authStatus) in
+         ContactsManager.sharedInstance.getSearchForContacts(searchString:strindToSearch!, completionHandler: { (contacts, authStatus) in
             self.contacts = contacts
         
             
@@ -103,6 +105,22 @@ class MainVC: UIViewController {
             //let isFavourite = self.contactsTableView.indexPathForSelectedRow?.section ?? 0??1
         }
     }
+    
+    func updateNumberToFireBase(){
+        if Auth.auth().currentUser?.providerData[0].providerID == "phone"{
+            
+            FirestoreHelper.sharedInstnace.updateUserContactOnFirebase(universalUserID: (Auth.auth().currentUser?.uid)!,completionHandler: { (success) in
+                if success == true{
+                    
+                }else{
+                    
+                }
+                
+            }
+                
+            )
+        }
+    }
 }
 
 // MARK:- Tableview
@@ -147,4 +165,15 @@ extension MainVC: UITableViewDataSource{
         }
         return UIView()
     }
+    func pushContactsOnFirebase(){
+        
+        FirestoreHelper.sharedInstnace.updateUserContactOnFirebase(universalUserID :(Auth.auth().currentUser?.uid)!){ ( success) in
+            // Check if user already exists in the database
+            if success == true{
+              
+            }
+        }
+    }
+    
+    
 }

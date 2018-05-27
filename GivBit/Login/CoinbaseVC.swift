@@ -19,6 +19,7 @@ class CoinbaseVC: LoginVC {
         // Do any additional setup after loading the view.
         coinbaseLoginButton.layer.cornerRadius = 5
         coinbaseSignUpButton.layer.cornerRadius = 5
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,11 +39,16 @@ class CoinbaseVC: LoginVC {
     */
     
     @IBAction func didTapOnSignUpWithCoinbase(button: UIButton){
-        coinbaseoauth().makeSignupRequest()
+        if let url = URL(string: "https://www.coinbase.com/signup?locale=en") {
+            UIApplication.shared.open(url, options: [:])
+        }
+
     }
 
     @IBAction func didTapOnLoginWithCoinbase(button: UIButton){
         //coinbaseoauth().getAccessToken(url: URL(string: "")!)
-        self.performSegue(withIdentifier: "requestcontactssegue", sender: self)
+        coinbaseoauth.sharedInstnace.loginvc = self
+        coinbaseoauth.sharedInstnace.makeLoginupRequest()
+       // self.performSegue(withIdentifier: "requestcontactssegue", sender: self)
     }
 }

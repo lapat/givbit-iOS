@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import Contacts
 
 class FirestoreHelper: NSObject {
 
@@ -80,8 +81,11 @@ class FirestoreHelper: NSObject {
                     transaction.senderUID = document.data()["sender_uid"] as! String
                     transactions.append(transaction)
                 }
-                completionHandler(transactions, true)
             }
+        }
+        
+        else  {
+            completionHandler( false)
         }
     }
 }
