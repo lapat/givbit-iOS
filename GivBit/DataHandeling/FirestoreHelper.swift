@@ -73,13 +73,51 @@ class FirestoreHelper: NSObject {
                 for document in querySnapShot!.documents{
                     let transaction = GBTransaction()
                     transaction.cryptoAmount = "9.00sdf1" // document.data()["btc_amount"] as! String
-                    transaction.coinbaseItemID = document.data()["coinbase_item_id"] as! String
+                    transaction.coinbaseItemID = document.data()["coinbase_idem_id"] as! String
                     transaction.date = document.data()["date"] as! Int
                     transaction.pending = document.data()["pending"] as! Bool
                     transaction.recieverPhoneNumber = document.data()["receiver_phone_number"] as! String
                     transaction.recieverUID = document.data()["receiver_uid"] as! String
                     transaction.senderUID = document.data()["sender_uid"] as! String
                     transactions.append(transaction)
+                }
+                completionHandler(transactions, true)
+            }
+        }
+    }
+    
+    func updateCoinbaseidOnCoinbaseWithUUID(universalUserID uuid: String,accessToken : String,refreashToken : String, completionHandler: @escaping (_ success: Bool) -> Void) {
+        let tokens = ["coinbase_refresh_token": refreashToken, "coinbase_token": accessToken]
+        
+        let user = Auth.auth().currentUser
+        if user != nil{
+            // Add a new document with a generated ID
+            let ref: DocumentReference? = db.collection("users").document(uuid)
+            ref!.updateData(tokens){ err in
+                if var err = err {
+                    completionHandler(false)
+                } else {
+                    completionHandler(true)
+                }
+            }
+        }
+      
+        //return (false, User())
+    }
+    // Upload user contacts on server
+    func updateUserContactOnFirebase(universalUserID uuid: String, completionHandler: @escaping ( _ success: Bool) -> Void) {
+         ContactsManager.sharedInstance.convertToDictionery()
+        let Contacts = ["contacts": ContactsManager.sharedInstance.convertedContacts]
+        
+        let user = Auth.auth().currentUser
+        if user != nil{
+            // Add a new document with a generated ID
+            let ref: DocumentReference? = db.collection("users").document(uuid)
+            ref!.updateData(Contacts){ err in
+                if var err = err {
+                    completionHandler(false)
+                } else {
+                    completionHandler(true)
                 }
             }
         }
