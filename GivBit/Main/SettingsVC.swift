@@ -22,6 +22,10 @@ class SettingsVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        // hide the top and bottom bar
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
 
     /*
     // MARK: - Navigation

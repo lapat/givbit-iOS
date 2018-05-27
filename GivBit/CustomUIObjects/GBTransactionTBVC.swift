@@ -15,7 +15,7 @@ class TransactionTBVC: UITableViewCell {
     @IBOutlet weak var fiatAmountLabel: UILabel!
     @IBOutlet weak var cryptoAmountLabel: UILabel!
     @IBOutlet weak var timeSinceLabel: UILabel!
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -28,7 +28,7 @@ class TransactionTBVC: UITableViewCell {
     }
     
     func populateCellWithGBTransanctions(transaction: GBTransaction){
-        nameLabel.text = transaction.
+        
     }
-
+    
 }

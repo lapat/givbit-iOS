@@ -26,7 +26,7 @@ class FirestoreHelper: NSObject {
         let user = Auth.auth().currentUser
         if user != nil{
             // Add a new document with a generated ID
-            var ref: DocumentReference? = db.collection("users").document(gbUser.uuid)
+            let ref: DocumentReference? = db.collection("users").document(gbUser.uuid)
             ref!.setData(gbUser.dataAsDictionary()){ err in
                 if let err = err {
                     print("Error adding document: \(err)")
@@ -58,27 +58,7 @@ class FirestoreHelper: NSObject {
         }
         //return (false, User())
     }
-    // Checks if the user exists and if it exists it returns User with a true
-    func updateUserContactOnFirebase(universalUserID uuid: String,contacts:[GBContact], completionHandler: @escaping (_ user: GBUser?, _ success: Bool) -> Void) {
-        let query = db.collection("users").whereField("uid", isEqualTo: uuid)
-        query.getDocuments { (querySnapshot, error) in
-            if error != nil{
-                completionHandler(nil, false)
-            }else{
-                // Only one document should exist
-                for document in querySnapshot!.documents{
-                    let user = GBUser()
-                    user.fullName = document.data()["name"] as! String
-                    user.phoneNumber = document.data()["phone_number"] as! String
-                    completionHandler(user, true)
-                }
-                if querySnapshot!.documents.count <= 0{
-                    completionHandler(nil, true)
-                }
-            }
-        }
-        //return (false, User())
-    }
+    
     
     //MARK: Transactions
     func getTransactionsForUser(uuid: String, completionHandler: @escaping (_ transactions: [GBTransaction], _ success: Bool) -> Void){
@@ -92,7 +72,7 @@ class FirestoreHelper: NSObject {
                 for document in querySnapShot!.documents{
                     let transaction = GBTransaction()
                     transaction.cryptoAmount = "9.00sdf1" // document.data()["btc_amount"] as! String
-                    transaction.coinbaseItemID = document.data()["coinbase_idem_id"] as! String
+                    transaction.coinbaseItemID = document.data()["coinbase_item_id"] as! String
                     transaction.date = document.data()["date"] as! Int
                     transaction.pending = document.data()["pending"] as! Bool
                     transaction.recieverPhoneNumber = document.data()["receiver_phone_number"] as! String

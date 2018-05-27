@@ -37,7 +37,7 @@ class SendCoinVC: UIViewController {
         
         
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         // hide the top and bottom bar
         self.navigationController?.setNavigationBarHidden(true, animated: true)
