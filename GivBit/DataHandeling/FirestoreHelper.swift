@@ -60,7 +60,6 @@ class FirestoreHelper: NSObject {
         //return (false, User())
     }
     
-    
     //MARK: Transactions
     func getTransactionsForUser(uuid: String, completionHandler: @escaping (_ transactions: [GBTransaction], _ success: Bool) -> Void){
         let query = db.collection("transactions").whereField("sender_uid", isEqualTo: uuid)
