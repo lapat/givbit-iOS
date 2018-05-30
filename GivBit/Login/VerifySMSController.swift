@@ -74,7 +74,8 @@ class VerifySMSController: LoginVC {
         
         // add the progresshud
         SVProgressHUD.show()
-        // Call firebase cred server to verify login
+        
+        // Call firestore server to verify login - and save or update user, as per the need
         Auth.auth().signInAndRetrieveData(with: credential) { (authResult, error) in
             SVProgressHUD.dismiss()
             if error != nil {
@@ -85,21 +86,29 @@ class VerifySMSController: LoginVC {
             // User is signed in
             // ...
             print(authResult?.user.phoneNumber ?? "")
-            self.performSegue(withIdentifier: "coinbaseVCSegue", sender: self)
+            
+            // authenticate if the user is a new user or already has a account
+            FirestoreHelper.sharedInstnace.getUserWithUUID(universalUserID: (Auth.auth().currentUser?.uid)!, completionHandler: { (gbUser, success) in
+                if success{
+                    if gbUser?.coinbaseToken == ""{
+                        // has no coinbase... must ask for coinbase
+                        self.performSegue(withIdentifier: "coinbaseVCSegue", sender: self)
+                    }else{
+                        self.performSegue(withIdentifier: "showContactsViewSegue", sender: self)
+                    }
+                }else{
+                    // create a new user
+                    // create a user object
+                    let user = GBUser()
+                    user.fullName = ""
+                    user.uuid = (Auth.auth().currentUser?.uid)!
+                    user.phoneNumber = Auth.auth().currentUser!.phoneNumber!
+                    FirestoreHelper.sharedInstnace.saveLoggedInFirebaseUser(givbitUser: user)
+                    
+                }
+            })
         }
-        
-//        Auth.auth().signIn(with: credential) { (user, error) in
-//            if error != nil {
-//                // ...
-//                return
-//            }
-//            // User is signed in
-//            // ...
-//            print(user?.phoneNumber ?? "")
-//            self.performSegue(withIdentifier: "EditProfile-Segue", sender: self)
-//        }
     }
-
 }
 
 // MARK: - TextField

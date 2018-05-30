@@ -39,7 +39,7 @@ class FirestoreHelper: NSObject {
     }
     
     // Checks if the user exists and if it exists it returns User with a true
-    func fetchUserWithUUID(universalUserID uuid: String, completionHandler: @escaping (_ user: GBUser?, _ success: Bool) -> Void) {
+    func getUserWithUUID(universalUserID uuid: String, completionHandler: @escaping (_ user: GBUser?, _ success: Bool) -> Void) {
         let query = db.collection("users").whereField("uid", isEqualTo: uuid)
         query.getDocuments { (querySnapshot, error) in
             if error != nil{
@@ -105,7 +105,7 @@ class FirestoreHelper: NSObject {
     }
     // Upload user contacts on server
     func updateUserContactOnFirebase(universalUserID uuid: String, completionHandler: @escaping ( _ success: Bool) -> Void) {
-         ContactsManager.sharedInstance.convertToDictionery()
+        ContactsManager.sharedInstance.convertToDictionery()
         let Contacts = ["contacts": ContactsManager.sharedInstance.convertedContacts]
         
         let user = Auth.auth().currentUser
@@ -113,7 +113,7 @@ class FirestoreHelper: NSObject {
             // Add a new document with a generated ID
             let ref: DocumentReference? = db.collection("users").document(uuid)
             ref!.updateData(Contacts){ err in
-                if var err = err {
+                if err != nil {
                     completionHandler(false)
                 } else {
                     completionHandler(true)
@@ -123,6 +123,24 @@ class FirestoreHelper: NSObject {
         
         else  {
             completionHandler( false)
+        }
+    }
+    
+    // MARK: - Crypto Prices
+    func getBTCPriceInDollars(completionHandler: @escaping (_ value: Decimal) -> Void){
+        let query = db.collection("prices").document("BTC")
+        
+        
+        query.getDocument { (snapshot, error) in
+            if error != nil{
+                // ERROR occured
+                completionHandler(0.0)
+            }else{
+                let data = snapshot?.data()
+                let decimal = data!["USD"]
+                print(decimal)
+                
+            }
         }
     }
 }

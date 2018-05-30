@@ -15,11 +15,10 @@ class CoinbaseVC: LoginVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         coinbaseLoginButton.layer.cornerRadius = 5
         coinbaseSignUpButton.layer.cornerRadius = 5
-        
     }
     
     override func didReceiveMemoryWarning() {

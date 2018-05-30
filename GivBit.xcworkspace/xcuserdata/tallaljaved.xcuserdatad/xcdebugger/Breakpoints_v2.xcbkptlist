@@ -23,13 +23,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "GivBit/DataHandeling/FirestoreHelper.swift"
-            timestampString = "549114405.753267"
+            filePath = "GivBit/Main/SendCoinVC.swift"
+            timestampString = "549379504.511433"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "saveLoggedInFirebaseUser(givbitUser:)"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "getCryptoAmountforFiat(fiat:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -20,7 +20,7 @@ class SendCoinVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         if contact != nil{
             contactImageView.image = contact.getUIImageForPlacement(inRect: CGRect(x: 0, y: 0, width: contactImageView.frame.width, height: contactImageView.frame.height))
@@ -34,8 +34,6 @@ class SendCoinVC: UIViewController {
         // round the button
         sendButton.layer.cornerRadius = 5
         sendButton.clipsToBounds = true
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,20 +50,33 @@ class SendCoinVC: UIViewController {
         let num = Int((button.titleLabel?.text)!)
         fiatToSendLabel.text?.removeFirst()
         fiatToSendLabel.text?.append((button.titleLabel?.text)!)
+        
+        self.getCryptoAmountforFiat(fiat: 1)
     }
     
     @IBAction func didTapDeleteNumButton(button: UIButton){
         self.fiatToSendLabel.text? = "00.00"
+        self.getCryptoAmountforFiat(fiat: 00.00)
     }
 
+    
+    //MARK:- Crypto
+    func getCryptoAmountforFiat(fiat: Decimal) -> Decimal{
+        FirestoreHelper.sharedInstnace.getBTCPriceInDollars { (value) in
+            print(value)
+        }
+        return 0.0
+    }
+    
+    
     /*
     // MARK: - Navigation
-
+     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
     */
-
+    
 }

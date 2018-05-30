@@ -54,8 +54,6 @@ class ReviewLoginVC: LoginVC {
             user.coinbaseToken = coinbaseoauth.sharedInstnace.accessToken
         }
         FirestoreHelper.sharedInstnace.saveLoggedInFirebaseUser(givbitUser: user)
-        
-        
     }
     
     //MARK: - UI Updates
@@ -72,7 +70,7 @@ class ReviewLoginVC: LoginVC {
         }
         
         if Auth.auth().currentUser?.providerData[0].providerID == "phone"{
-            FirestoreHelper.sharedInstnace.fetchUserWithUUID(universalUserID: (Auth.auth().currentUser?.uid)!) { (user, success) in
+            FirestoreHelper.sharedInstnace.getUserWithUUID(universalUserID: (Auth.auth().currentUser?.uid)!) { (user, success) in
                 // Check if user already exists in the database
                 if success == true{
                     if user != nil{

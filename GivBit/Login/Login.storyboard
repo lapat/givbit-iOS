@@ -206,7 +206,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bitcoingCircle" translatesAutoresizingMaskIntoConstraints="NO" id="Uue-Rh-aiL">
                                 <rect key="frame" x="119.5" y="152.5" width="136" height="136"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pay your friend with Bitcoin." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5Dk-zo-Zof">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pay your friends with Bitcoin." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5Dk-zo-Zof">
                                 <rect key="frame" x="87.5" y="313.5" width="200" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="9DT-Lk-hVg"/>
@@ -283,6 +283,8 @@
         <!--VerifySMS Controller-->
         <scene sceneID="Zv9-xi-LRb">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9LG-92-bcR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="xaS-pq-QVf" userLabel="Exit" sceneMemberID="exit"/>
                 <viewController id="v3U-E4-dbS" customClass="VerifySMSController" customModule="GivBit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hV6-qy-PMt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -301,7 +303,6 @@
                                 </state>
                                 <connections>
                                     <action selector="didTapOnVerifySMSButtonWithButton:" destination="v3U-E4-dbS" eventType="touchUpInside" id="cFA-PQ-ngf"/>
-                                    <action selector="didTapSendSMSButtonWithButton:" destination="lDd-Pf-59i" eventType="touchUpInside" id="CkD-nb-tN7"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XAx-jY-F1k">
@@ -473,19 +474,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="We have sent you a 6 digit " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oPG-pD-A6s">
-                                <rect key="frame" x="84.5" y="388.5" width="206" height="21"/>
+                                <rect key="frame" x="84.5" y="398.5" width="206" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="verification code via sms." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="peT-co-UT3">
-                                <rect key="frame" x="91" y="409.5" width="193.5" height="21"/>
+                                <rect key="frame" x="91" y="419.5" width="193.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bitcoingCircle" translatesAutoresizingMaskIntoConstraints="NO" id="7WE-XU-q3a">
-                                <rect key="frame" x="119" y="184.5" width="136" height="136"/>
+                                <rect key="frame" x="119" y="168" width="136" height="136"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gst-lE-H5U">
                                 <rect key="frame" x="30" y="24" width="93" height="22"/>
@@ -520,13 +521,13 @@
                             <constraint firstItem="zLh-bh-7or" firstAttribute="centerX" secondItem="Fgw-I8-ZX6" secondAttribute="centerX" id="OvG-jA-ay4"/>
                             <constraint firstItem="Fgw-I8-ZX6" firstAttribute="centerY" secondItem="Pi3-bM-lFn" secondAttribute="centerY" id="Q1b-v1-MVU"/>
                             <constraint firstItem="gst-lE-H5U" firstAttribute="top" secondItem="Pi3-bM-lFn" secondAttribute="top" constant="4" id="STd-6C-sE7"/>
-                            <constraint firstItem="Fgw-I8-ZX6" firstAttribute="top" secondItem="7WE-XU-q3a" secondAttribute="bottom" constant="8" id="WLJ-0e-mnr"/>
+                            <constraint firstItem="Fgw-I8-ZX6" firstAttribute="top" secondItem="7WE-XU-q3a" secondAttribute="bottom" constant="24.5" id="WLJ-0e-mnr"/>
                             <constraint firstItem="LB6-FZ-l2b" firstAttribute="centerY" secondItem="WoU-qx-FY5" secondAttribute="centerY" id="YkV-W3-BwR"/>
                             <constraint firstItem="zLh-bh-7or" firstAttribute="top" secondItem="Fgw-I8-ZX6" secondAttribute="bottom" id="ZtS-Jr-veg"/>
                             <constraint firstItem="v2b-OS-wlm" firstAttribute="leading" secondItem="BXQ-3X-IZI" secondAttribute="trailing" constant="8" id="aBp-xc-QAa"/>
                             <constraint firstItem="LB6-FZ-l2b" firstAttribute="centerY" secondItem="XAx-jY-F1k" secondAttribute="centerY" id="aoK-4V-QiU"/>
                             <constraint firstItem="XAx-jY-F1k" firstAttribute="leading" secondItem="LB6-FZ-l2b" secondAttribute="trailing" constant="8" id="epw-lX-0Q1"/>
-                            <constraint firstItem="oPG-pD-A6s" firstAttribute="top" secondItem="zLh-bh-7or" secondAttribute="bottom" id="fIB-Qj-Shf"/>
+                            <constraint firstItem="oPG-pD-A6s" firstAttribute="top" secondItem="zLh-bh-7or" secondAttribute="bottom" constant="10" id="fIB-Qj-Shf"/>
                             <constraint firstItem="1DE-2d-LV3" firstAttribute="leading" secondItem="GWw-x9-Eu8" secondAttribute="trailing" constant="8" id="hKi-ql-tg7"/>
                             <constraint firstItem="Fgw-I8-ZX6" firstAttribute="centerX" secondItem="Pi3-bM-lFn" secondAttribute="centerX" id="hcm-Uy-cjR"/>
                             <constraint firstItem="v2b-OS-wlm" firstAttribute="centerY" secondItem="BXQ-3X-IZI" secondAttribute="centerY" id="o6J-TA-kcv"/>
@@ -549,12 +550,11 @@
                         <outlet property="verifyButton" destination="jY7-GU-q80" id="ypE-ai-6YH"/>
                         <segue destination="Tqv-IV-sF2" kind="show" identifier="EditProfile-Segue" id="X5w-yM-xMe"/>
                         <segue destination="kVe-10-zKF" kind="show" identifier="coinbaseVCSegue" id="w8E-bT-4hB"/>
+                        <segue destination="C3E-XW-gbd" kind="show" identifier="showContactsViewSegue" id="v3n-lb-mUz"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9LG-92-bcR" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="xaS-pq-QVf" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-241" y="-8"/>
+            <point key="canvasLocation" x="-262" y="-9"/>
         </scene>
         <!--CoinbaseVC-->
         <scene sceneID="Mn8-X7-nkl">
@@ -589,7 +589,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2Coinbase" translatesAutoresizingMaskIntoConstraints="NO" id="ZVC-8i-O9y">
-                                <rect key="frame" x="119.5" y="184" width="136" height="136"/>
+                                <rect key="frame" x="119.5" y="168" width="136" height="136"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Viq-DV-ZZq">
                                 <rect key="frame" x="16" y="587" width="343" height="60"/>
@@ -672,7 +672,7 @@
                             <constraint firstItem="uFA-iv-CZ7" firstAttribute="centerX" secondItem="Viq-DV-ZZq" secondAttribute="centerX" id="d1l-yy-tp1"/>
                             <constraint firstItem="9XG-bY-0uL" firstAttribute="top" secondItem="KXJ-zY-UQf" secondAttribute="bottom" id="dBs-lA-9Lh"/>
                             <constraint firstItem="BIS-kD-5pM" firstAttribute="centerX" secondItem="iUh-fX-Y0p" secondAttribute="centerX" id="fpz-xx-Ce7"/>
-                            <constraint firstItem="pgN-nL-n6y" firstAttribute="top" secondItem="ZVC-8i-O9y" secondAttribute="bottom" constant="8" id="iRt-8N-nbz"/>
+                            <constraint firstItem="pgN-nL-n6y" firstAttribute="top" secondItem="ZVC-8i-O9y" secondAttribute="bottom" constant="24.5" id="iRt-8N-nbz"/>
                             <constraint firstItem="ejJ-Tz-UBo" firstAttribute="trailing" secondItem="Viq-DV-ZZq" secondAttribute="trailing" constant="16" id="l5a-Gc-vvl"/>
                             <constraint firstItem="7lX-of-OK4" firstAttribute="centerX" secondItem="pgN-nL-n6y" secondAttribute="centerX" id="nRD-8s-cjV"/>
                             <constraint firstItem="Viq-DV-ZZq" firstAttribute="centerX" secondItem="ejJ-Tz-UBo" secondAttribute="centerX" id="rJR-4g-vaW"/>
@@ -689,7 +689,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PeD-vp-wkJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="KaV-Gy-bCk" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="513" y="-7"/>
+            <point key="canvasLocation" x="466" y="-8"/>
         </scene>
         <!--Review LoginVC-->
         <scene sceneID="Bxm-YF-wIU">
@@ -794,7 +794,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3Contacts" translatesAutoresizingMaskIntoConstraints="NO" id="nWp-qo-4CZ">
-                                <rect key="frame" x="119.5" y="184" width="136" height="136"/>
+                                <rect key="frame" x="119.5" y="168" width="136" height="136"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="KRW-d4-Cl7">
                                 <rect key="frame" x="62.5" y="587" width="250" height="60"/>
@@ -870,7 +870,7 @@
                             <constraint firstItem="Mtx-DA-Q0m" firstAttribute="top" secondItem="WvP-dY-hfC" secondAttribute="bottom" id="pWg-9s-j6g"/>
                             <constraint firstItem="JCF-yk-LsJ" firstAttribute="centerX" secondItem="E5k-aa-42P" secondAttribute="centerX" id="q37-VT-UTr"/>
                             <constraint firstItem="HvW-UA-mdw" firstAttribute="top" secondItem="oqy-a9-f9Y" secondAttribute="bottom" id="rNe-n4-1RH"/>
-                            <constraint firstItem="xaQ-YU-gw2" firstAttribute="top" secondItem="nWp-qo-4CZ" secondAttribute="bottom" constant="8" id="we3-ie-M8z"/>
+                            <constraint firstItem="xaQ-YU-gw2" firstAttribute="top" secondItem="nWp-qo-4CZ" secondAttribute="bottom" constant="24.5" id="we3-ie-M8z"/>
                             <constraint firstItem="oYA-PH-mdw" firstAttribute="bottom" secondItem="KRW-d4-Cl7" secondAttribute="bottom" constant="20" id="yxL-Ob-WmQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oYA-PH-mdw"/>
@@ -882,7 +882,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gJG-eT-r3g" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ZhQ-dM-BFs" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1247" y="-8"/>
+            <point key="canvasLocation" x="1199" y="-9"/>
         </scene>
     </scenes>
     <resources>
@@ -893,6 +893,7 @@
         <image name="group5" width="14" height="15"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="v3n-lb-mUz"/>
         <segue reference="X5w-yM-xMe"/>
     </inferredMetricsTieBreakers>
 </document>

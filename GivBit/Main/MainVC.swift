@@ -41,8 +41,8 @@ class MainVC: UIViewController {
         // adjust the scrollview
         
         // firestore testing
-        //FirestoreHelper.sharedInstnace.saveLoggedInFirebaseUser()
-        updateNumberToFireBase()
+        //FirestoreHelper.sharedInstnace.saveLoggedInFirebaseUser(GBUser())
+        //updateNumberToFireBase()
     }
     
     // MARK: - Actions on SearchBar change Data
