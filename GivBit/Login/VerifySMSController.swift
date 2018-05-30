@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import SVProgressHUD
 
 class VerifySMSController: LoginVC {
 
@@ -71,8 +72,11 @@ class VerifySMSController: LoginVC {
             withVerificationID: verificationID!,
             verificationCode: code)
         
+        // add the progresshud
+        SVProgressHUD.show()
         // Call firebase cred server to verify login
         Auth.auth().signInAndRetrieveData(with: credential) { (authResult, error) in
+            SVProgressHUD.dismiss()
             if error != nil {
                 // ...
                 AlertHelper.sharedInstance.showAlert(inViewController: self, withDescription: "Kindly check your verification code, or internet.", andTitle: "Error")

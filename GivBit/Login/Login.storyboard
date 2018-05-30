@@ -178,7 +178,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="INm-d4-n4N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-850" y="911"/>
+            <point key="canvasLocation" x="-956" y="912"/>
         </scene>
         <!--SendSM Sy Controller-->
         <scene sceneID="NUW-Ac-gbD">
@@ -278,7 +278,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WGK-vX-LOV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1164" y="153"/>
+            <point key="canvasLocation" x="-956" y="-7"/>
         </scene>
         <!--VerifySMS Controller-->
         <scene sceneID="Zv9-xi-LRb">
@@ -554,7 +554,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9LG-92-bcR" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="xaS-pq-QVf" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-255" y="85"/>
+            <point key="canvasLocation" x="-241" y="-8"/>
         </scene>
         <!--CoinbaseVC-->
         <scene sceneID="Mn8-X7-nkl">
@@ -689,7 +689,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PeD-vp-wkJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="KaV-Gy-bCk" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="629.60000000000002" y="189.3553223388306"/>
+            <point key="canvasLocation" x="513" y="-7"/>
         </scene>
         <!--Review LoginVC-->
         <scene sceneID="Bxm-YF-wIU">
@@ -882,7 +882,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gJG-eT-r3g" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ZhQ-dM-BFs" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1364" y="189"/>
+            <point key="canvasLocation" x="1247" y="-8"/>
         </scene>
     </scenes>
     <resources>
