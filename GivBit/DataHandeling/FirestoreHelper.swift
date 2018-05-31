@@ -85,8 +85,8 @@ class FirestoreHelper: NSObject {
         }
     }
     
-    func updateCoinbaseidOnCoinbaseWithUUID(universalUserID uuid: String,accessToken : String,refreashToken : String, completionHandler: @escaping (_ success: Bool) -> Void) {
-        let tokens = ["coinbase_refresh_token": refreashToken, "coinbase_token": accessToken]
+    func updateCoinbaseidOnCoinbaseWithUUID(universalUserID uuid: String,code : String, completionHandler: @escaping (_ success: Bool) -> Void) {
+        let tokens = ["code": code ]
         
         let user = Auth.auth().currentUser
         if user != nil{

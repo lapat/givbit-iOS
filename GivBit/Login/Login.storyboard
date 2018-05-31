@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lDd-Pf-59i">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cCS-CY-qd5">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -283,8 +283,6 @@
         <!--VerifySMS Controller-->
         <scene sceneID="Zv9-xi-LRb">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9LG-92-bcR" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="xaS-pq-QVf" userLabel="Exit" sceneMemberID="exit"/>
                 <viewController id="v3U-E4-dbS" customClass="VerifySMSController" customModule="GivBit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hV6-qy-PMt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -553,6 +551,8 @@
                         <segue destination="C3E-XW-gbd" kind="show" identifier="showContactsViewSegue" id="v3n-lb-mUz"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9LG-92-bcR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="xaS-pq-QVf" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-262" y="-9"/>
         </scene>
@@ -689,7 +689,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PeD-vp-wkJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="KaV-Gy-bCk" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="466" y="-8"/>
+            <point key="canvasLocation" x="846" y="233"/>
         </scene>
         <!--Review LoginVC-->
         <scene sceneID="Bxm-YF-wIU">
@@ -759,7 +759,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c3S-qX-qR9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="993" y="960"/>
+            <point key="canvasLocation" x="-263" y="912"/>
         </scene>
         <!--Request ContactsVC-->
         <scene sceneID="htW-rJ-3Lz">
@@ -882,7 +882,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gJG-eT-r3g" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ZhQ-dM-BFs" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1199" y="-9"/>
+            <point key="canvasLocation" x="1615" y="-512"/>
         </scene>
     </scenes>
     <resources>
