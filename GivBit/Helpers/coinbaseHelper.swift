@@ -13,7 +13,7 @@ import OAuthSwift
 class coinbaseoauth : NSObject{
     
     static var sharedInstnace = coinbaseoauth()
-    let meta_all_data = ["":"meta[send_limit_period]=week&meta[send_limit_currency]=USD&meta[send_limit_amount]=1.00&account=all"]
+    let meta_all_data = ["":"meta[send_limit_period]=day&meta[send_limit_currency]=USD&meta[send_limit_amount]=1.00&account=all"]
     
     var loginvc = LoginVC()
     var oauthswift = OAuth2Swift(

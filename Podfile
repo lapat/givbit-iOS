@@ -9,6 +9,7 @@ target 'GivBit' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
+  pod 'Firebase/Functions'
   pod 'FBSDKLoginKit'
   pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
   pod 'IQKeyboardManagerSwift'
