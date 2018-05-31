@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return true
     }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -35,8 +36,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // User is signed in... let the general flow go
             let mainStoryBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             
-            //self.window?.rootViewController = mainStoryBoard.instantiateInitialViewController()
-            //self.window?.makeKeyAndVisible()
+            self.window?.rootViewController = mainStoryBoard.instantiateInitialViewController()
+            self.window?.makeKeyAndVisible()
             
         }else{
             // User is not signedf in... load the login UI
