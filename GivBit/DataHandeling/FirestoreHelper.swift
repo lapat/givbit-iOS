@@ -9,12 +9,13 @@
 import UIKit
 import Firebase
 import Contacts
-
+import FirebaseFunctions
 class FirestoreHelper: NSObject {
 
     static var sharedInstnace = FirestoreHelper()
     let db = Firestore.firestore()
-    
+    var functions = Functions.functions()
+
     override init() {
         let settings = db.settings
         settings.areTimestampsInSnapshotsEnabled = true
@@ -91,14 +92,32 @@ class FirestoreHelper: NSObject {
         let user = Auth.auth().currentUser
         if user != nil{
             // Add a new document with a generated ID
-            let ref: DocumentReference? = db.collection("users").document(uuid)
-            ref!.updateData(tokens){ err in
-                if var err = err {
-                    completionHandler(false)
-                } else {
+                
+            functions.httpsCallable("linkCoinbaseWithCode").call(["code":code ,"uriRedirect":coinbaseoauth.sharedInstnace.redirectUrl]) { (result, error) in
+                if let error = error as NSError? {
+                    if error.domain == FunctionsErrorDomain {
+                        let code = FunctionsErrorCode(rawValue: error.code)
+                        let message = error.localizedDescription
+                        let details = error.userInfo[FunctionsErrorDetailsKey]
+                        completionHandler(false)
+                    }
+                    
+                }
+                else{
+                    
                     completionHandler(true)
                 }
             }
+            
+            /*
+            let ref: DocumentReference? = db.collection("users").document(uuid)
+            ref!.updateData(tokens){ err in
+                if var err = err {
+                    
+                } else {
+                    
+                }
+            }*/
         }
       
         //return (false, User())
