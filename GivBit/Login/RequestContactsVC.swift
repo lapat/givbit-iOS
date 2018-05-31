@@ -38,15 +38,20 @@ class RequestContactsVC: UIViewController {
         ContactsManager.sharedInstance.checkAuthorizationStatus { (auth) in
             if auth{
                 print("yay")
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                UIApplication.shared.delegate?.window??.rootViewController = storyboard.instantiateInitialViewController()
-                UIApplication.shared.delegate?.window??.makeKeyAndVisible()
-            }else{
-                print("nay")
-                AlertHelper.sharedInstance.showAlert(inViewController: self, withDescription: "Without sharing contacts, you won't be able to send money to any of your friends", andTitle: "Are you sure?", completionHandler: {
+                // getting the main queue
+                DispatchQueue.main.async {
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     UIApplication.shared.delegate?.window??.rootViewController = storyboard.instantiateInitialViewController()
                     UIApplication.shared.delegate?.window??.makeKeyAndVisible()
+                }
+            }else{
+                print("nay")
+                AlertHelper.sharedInstance.showAlert(inViewController: self, withDescription: "Without sharing contacts, you won't be able to send money to any of your friends", andTitle: "Are you sure?", completionHandler: {
+                    DispatchQueue.main.async {
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                        UIApplication.shared.delegate?.window??.rootViewController = storyboard.instantiateInitialViewController()
+                        UIApplication.shared.delegate?.window??.makeKeyAndVisible()
+                    }
                 })
             }
         }

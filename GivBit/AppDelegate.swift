@@ -35,8 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // User is signed in... let the general flow go
             let mainStoryBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             
-            self.window?.rootViewController = mainStoryBoard.instantiateInitialViewController()
-            self.window?.makeKeyAndVisible()
+            //self.window?.rootViewController = mainStoryBoard.instantiateInitialViewController()
+            //self.window?.makeKeyAndVisible()
             
         }else{
             // User is not signedf in... load the login UI

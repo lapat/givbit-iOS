@@ -13,19 +13,19 @@ import OAuthSwift
 class coinbaseoauth : NSObject{
     
     static var sharedInstnace = coinbaseoauth()
-    let meta_all_data = ["":"meta[send_limit_period]=week&meta[send_limit_currency]=USD&meta[send_limit_amount]=500.00&account=all"]
+    let meta_all_data = ["":"meta[send_limit_period]=week&meta[send_limit_currency]=USD&meta[send_limit_amount]=1.00&account=all"]
     
     var loginvc = LoginVC()
     var oauthswift = OAuth2Swift(
-        consumerKey:    "723e663bdd30aac0f9641160de28ce520e1a065853febbd9a9c983569753bcf3",
+        consumerKey:    "2303625dda9f8ed8a5dd76f111106897069b8b2a6126972718240d50315111a7",
         consumerSecret: "",
         authorizeUrl: "https://www.coinbase.com/oauth/authorize/",
         accessTokenUrl: "http://www.coinbase.com/oauth/token"  ,
         responseType:   "code"
     )
     
-    let coibaseScope = "wallet:user:email,wallet:user:read,wallet:buys:create,wallet:buys:read,wallet:payment-methods:read,wallet:accounts:read,wallet:addresses:read,wallet:transactions:send,wallet:transactions:send:bypass-2fa,wallet:addresses:create";
-    let redirectUrl = "com.coinbasepermittedcoinflash.apps.coinflash-12345678://coinbase-oauth"
+    let coibaseScope = "wallet:user:email,wallet:user:read,wallet:buys:create,wallet:buys:read,wallet:payment-methods:read,wallet:accounts:read,wallet:addresses:read,wallet:transactions:send,wallet:addresses:create"//,wallet:transactions:send:bypass-2fa"
+    let redirectUrl = "com.givbitapp.apps.coinflash-12345678://coinbase-oauth"
     
     var accessToken = ""
     var refreashToken = ""
@@ -55,47 +55,15 @@ class coinbaseoauth : NSObject{
                 urlString.replaceSubrange(range, with: "")
             }
             if Auth.auth().currentUser?.providerData[0].providerID == "phone"{
-            FirestoreHelper.sharedInstnace.updateCoinbaseidOnCoinbaseWithUUID(universalUserID: (Auth.auth().currentUser?.uid)!, code: urlString, completionHandler: { (success) in
-                if success == true{
-                    self.loginvc.performSegue(withIdentifier: "requestcontactssegue", sender: self)
-                }else{
-                    
-                }
-                
-            }
-                
-            )
+                FirestoreHelper.sharedInstnace.updateCoinbaseidOnCoinbaseWithUUID(universalUserID: (Auth.auth().currentUser?.uid)!, code: urlString, completionHandler: { (success) in
+                    if success == true{
+                        self.loginvc.performSegue(withIdentifier: "requestcontactssegue", sender: self)
+                    }else{
+                        
+                    }
+                })
             }
             let path = URL(string: redirectUrl)
-            /*
-            oauthswift.postOAuthAccessTokenWithRequestToken(byCode: urlString, callbackURL: path! ,
-                                                            success: {credential, response ,parameters in
-                                                                
-                                                                let  accessToken = credential.oauthToken
-                                                                let  refreashToken = credential.oauthRefreshToken
-                                                                
-                                                                
-                                                                if Auth.auth().currentUser?.providerData[0].providerID == "phone"{
-                                                                    
-                                                                    FirestoreHelper.sharedInstnace.updateCoinbaseidOnCoinbaseWithUUID(universalUserID: (Auth.auth().currentUser?.uid)!, accessToken: accessToken, refreashToken: refreashToken, completionHandler: { (success) in
-                                                                    if success == true{
-                                                                      self.loginvc.performSegue(withIdentifier: "requestcontactssegue", sender: self)
-                                                                    }else{
-                                                                        
-                                                                    }
-                                                                    
-                                                                }
-                                                                    
-                                                                )
-                                                                }
-                                                                
-            },
-                                                            failure: {
-                                                                error in
-                                                                print(error.localizedDescription);
-            })*/
-            
-            
         }
     }
     

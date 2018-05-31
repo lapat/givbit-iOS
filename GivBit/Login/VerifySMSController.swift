@@ -90,21 +90,24 @@ class VerifySMSController: LoginVC {
             // authenticate if the user is a new user or already has a account
             FirestoreHelper.sharedInstnace.getUserWithUUID(universalUserID: (Auth.auth().currentUser?.uid)!, completionHandler: { (gbUser, success) in
                 if success{
-                    if gbUser?.coinbaseToken == ""{
-                        // has no coinbase... must ask for coinbase
-                        self.performSegue(withIdentifier: "coinbaseVCSegue", sender: self)
+                    if gbUser == nil{
+                        // create a new user
+                        // create a user object
+                        let user = GBUser()
+                        user.fullName = ""
+                        user.uuid = (Auth.auth().currentUser?.uid)!
+                        user.phoneNumber = Auth.auth().currentUser!.phoneNumber!
+                        FirestoreHelper.sharedInstnace.saveLoggedInFirebaseUser(givbitUser: user)
                     }else{
-                        self.performSegue(withIdentifier: "showContactsViewSegue", sender: self)
+                        if gbUser?.coinbaseToken == ""{
+                            // has no coinbase... must ask for coinbase
+                            self.performSegue(withIdentifier: "coinbaseVCSegue", sender: self)
+                        }else{
+                            self.performSegue(withIdentifier: "showContactsViewSegue", sender: self)
+                        }
                     }
                 }else{
-                    // create a new user
-                    // create a user object
-                    let user = GBUser()
-                    user.fullName = ""
-                    user.uuid = (Auth.auth().currentUser?.uid)!
-                    user.phoneNumber = Auth.auth().currentUser!.phoneNumber!
-                    FirestoreHelper.sharedInstnace.saveLoggedInFirebaseUser(givbitUser: user)
-                    
+                    // something went wrong while fetching from server
                 }
             })
         }

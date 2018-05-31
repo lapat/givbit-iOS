@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cCS-CY-qd5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lDd-Pf-59i">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -689,7 +689,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PeD-vp-wkJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="KaV-Gy-bCk" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="846" y="233"/>
+            <point key="canvasLocation" x="492" y="-8"/>
         </scene>
         <!--Review LoginVC-->
         <scene sceneID="Bxm-YF-wIU">
@@ -882,7 +882,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gJG-eT-r3g" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ZhQ-dM-BFs" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1615" y="-512"/>
+            <point key="canvasLocation" x="1295" y="-290"/>
         </scene>
     </scenes>
     <resources>
@@ -893,7 +893,7 @@
         <image name="group5" width="14" height="15"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="v3n-lb-mUz"/>
+        <segue reference="GIa-0S-8da"/>
         <segue reference="X5w-yM-xMe"/>
     </inferredMetricsTieBreakers>
 </document>
