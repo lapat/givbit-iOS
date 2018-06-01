@@ -17,6 +17,7 @@ target 'GivBit' do
   pod 'OAuthSwift', '~> 1.2.0'
   pod 'SVProgressHUD'
   pod 'NotificationBannerSwift'
+  pod 'PhoneNumberKit'
   
   target 'GivBitTests' do
     inherit! :search_paths

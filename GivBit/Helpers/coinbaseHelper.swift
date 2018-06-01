@@ -26,11 +26,9 @@ class coinbaseoauth : NSObject{
     
     let coibaseScope = "wallet:user:email,wallet:user:read,wallet:buys:create,wallet:buys:read,wallet:payment-methods:read,wallet:accounts:read,wallet:addresses:read,wallet:transactions:send,wallet:addresses:create"//,wallet:transactions:send:bypass-2fa"
     let redirectUrl = "com.givbitapp.apps.coinflash-12345678://coinbase-oauth"
-    
     var accessToken = ""
     var refreashToken = ""
     func makeLoginupRequest(){
-        
         
         oauthswift.authorize(withCallbackURL: URL(string: redirectUrl)!, scope: coibaseScope, state: "",parameters:meta_all_data,
                              success: {

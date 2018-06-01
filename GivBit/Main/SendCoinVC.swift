@@ -39,6 +39,9 @@ class SendCoinVC: UIViewController {
         sendButton.layer.cornerRadius = 5
         sendButton.clipsToBounds = true
         
+        // varify the number
+        print(PhoneNumberHelper.sharedInstance.parsePhoneNUmber(number: contact.phoneNumber))
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -76,13 +79,12 @@ class SendCoinVC: UIViewController {
     // sends the coin
     @IBAction func didTapOnSendCoinButton(button: UIButton){
         // do checks before sending.
-        let num = amountOfFiatToSend.doubleValue
-        let float = amountOfFiatToSend.floatValue
+        
         if amountOfFiatToSend.doubleValue < 500 && amountOfFiatToSend.doubleValue > 3.5{
             // fiat is good to be sent.
             let functions = Functions.functions()
             print(contact.phoneNumber)
-            functions.httpsCallable("sendCrypto").call(["btcAmount": amountOfFiatToSend.doubleValue, "sendToPhoneNumber": contact.phoneNumber]) { (result, error) in
+            functions.httpsCallable("sendCrypto").call(["btcAmount": amountOfFiatToSend.doubleValue, "sendToPhoneNumber": "+12244201331"]) { (result, error) in
                 if error != nil{
                     print("Error performing function \(String(describing: error?.localizedDescription))")
                 }else{

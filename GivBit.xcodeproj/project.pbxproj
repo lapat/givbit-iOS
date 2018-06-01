@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3FC6D4F320B8356100353321 /* coinbaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC6D4F220B8356100353321 /* coinbaseHelper.swift */; };
+		771742B120C1EED400BD0A88 /* PhoneNumberHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771742B020C1EED400BD0A88 /* PhoneNumberHelper.swift */; };
 		774E2D4A20A971BE0039435E /* ContactsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774E2D4920A971BE0039435E /* ContactsManager.swift */; };
 		774E2D4C20A98D4C0039435E /* ContactTBVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774E2D4B20A98D4C0039435E /* ContactTBVCell.swift */; };
 		774E2D5020AC0F240039435E /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774E2D4F20AC0F240039435E /* ImageHelper.swift */; };
@@ -69,6 +70,7 @@
 		3FC6D4F220B8356100353321 /* coinbaseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = coinbaseHelper.swift; sourceTree = "<group>"; };
 		45A373ADA415EB283ADD1514 /* Pods-GivBitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GivBitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GivBitTests/Pods-GivBitTests.release.xcconfig"; sourceTree = "<group>"; };
 		6903F1C78049D448E70636E3 /* Pods_GivBitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GivBitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		771742B020C1EED400BD0A88 /* PhoneNumberHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberHelper.swift; sourceTree = "<group>"; };
 		774E2D4920A971BE0039435E /* ContactsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsManager.swift; sourceTree = "<group>"; };
 		774E2D4B20A98D4C0039435E /* ContactTBVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTBVCell.swift; sourceTree = "<group>"; };
 		774E2D4F20AC0F240039435E /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 				774E2D4F20AC0F240039435E /* ImageHelper.swift */,
 				774E2D5120AC1A3D0039435E /* StringHelper.swift */,
 				779417A620B7E4AE00A46BE2 /* AlertHelper.swift */,
+				771742B020C1EED400BD0A88 /* PhoneNumberHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/NotificationBannerSwift/NotificationBannerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/OAuthSwift/OAuthSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/PhoneNumberKit/PhoneNumberKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
@@ -532,6 +536,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationBannerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OAuthSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PhoneNumberKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
@@ -560,6 +565,7 @@
 				779417A720B7E4AE00A46BE2 /* AlertHelper.swift in Sources */,
 				77599A3F20A1A78E001FF565 /* ReviewLoginVC.swift in Sources */,
 				779CBEBB20A41FA600341004 /* FirestoreHelper.swift in Sources */,
+				771742B120C1EED400BD0A88 /* PhoneNumberHelper.swift in Sources */,
 				77B7C24020B9216D0008E258 /* GBTransaction.swift in Sources */,
 				774E2D4C20A98D4C0039435E /* ContactTBVCell.swift in Sources */,
 				77599A3520A04A8B001FF565 /* VerifySMSController.swift in Sources */,
