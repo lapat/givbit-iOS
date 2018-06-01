@@ -24,4 +24,6 @@ class FirebaseHelper: NSObject {
     func getCryptoPriceForCurrency(crypto: CryptoType, fiat: FiatType){
         
     }
+    
+    // functions
 }

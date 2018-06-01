@@ -8,11 +8,11 @@
 
 import UIKit
 import Firebase
+import FirebaseFunctions
 
 class SendCoinVC: UIViewController {
     
     var contact: GBContact!
-    var amountToSendInFIAT: Decimal!
     @IBOutlet weak var contactImageView: UIImageView!
     @IBOutlet weak var contactNameLabel: UILabel!
     @IBOutlet weak var fiatToSendLabel: UILabel!
@@ -72,7 +72,27 @@ class SendCoinVC: UIViewController {
         self.fiatToSendLabel.text? = "0000"
         self.fiatAmountUpdatedByUser()
     }
-
+    
+    // sends the coin
+    @IBAction func didTapOnSendCoinButton(button: UIButton){
+        // do checks before sending.
+        let num = amountOfFiatToSend.doubleValue
+        let float = amountOfFiatToSend.floatValue
+        if amountOfFiatToSend.doubleValue < 500 && amountOfFiatToSend.doubleValue > 3.5{
+            // fiat is good to be sent.
+            let functions = Functions.functions()
+            print(contact.phoneNumber)
+            functions.httpsCallable("sendCrypto").call(["btcAmount": amountOfFiatToSend.doubleValue, "sendToPhoneNumber": contact.phoneNumber]) { (result, error) in
+                if error != nil{
+                    print("Error performing function \(String(describing: error?.localizedDescription))")
+                }else{
+                    print(result?.data ?? "")
+                }
+            }
+        }else{
+            AlertHelper.sharedInstance.showAlert(inViewController: self, withDescription: "Invalid Amount", andTitle: "Error")
+        }
+    }
     
     //MARK:- Price Management
     // starts a listener using firestorehelper, which monitors crypto price in given fiat
