@@ -146,20 +146,22 @@ class FirestoreHelper: NSObject {
     }
     
     // MARK: - Crypto Prices
-    func getBTCPriceInDollars(completionHandler: @escaping (_ value: Decimal) -> Void){
+    
+    // starts a snapshot listener and makes sure the completion handler is called, whenever the value for a specific object changes
+    func startBTCPriceInDollarsSnapshotListener( completionHandler: @escaping (_ value: NSNumber) -> Void) -> ListenerRegistration{
         let query = db.collection("prices").document("BTC")
-        
-        
-        query.getDocument { (snapshot, error) in
+        let listener = query.addSnapshotListener(includeMetadataChanges: false) { (docSnapshot, error) in
             if error != nil{
-                // ERROR occured
+                // error occured
                 completionHandler(0.0)
             }else{
-                let data = snapshot?.data()
-                let decimal = data!["USD"]
-                print(decimal)
-                
+                let data = docSnapshot?.data()
+                let decimal = data!["USD"] as! NSNumber
+                completionHandler(decimal)
             }
         }
+        return listener
     }
+    
+    
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SendCoinVC: UIViewController {
     
@@ -17,6 +18,9 @@ class SendCoinVC: UIViewController {
     @IBOutlet weak var fiatToSendLabel: UILabel!
     @IBOutlet weak var btcToSendLabel: UILabel!
     @IBOutlet weak var sendButton: UIButton!
+    var cryptoPriceInFiat: NSNumber = 0.0
+    var fiatToSendAmount: NSNumber = 0.0
+    var cryptoPriceUpdateListener: ListenerRegistration!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,11 +38,20 @@ class SendCoinVC: UIViewController {
         // round the button
         sendButton.layer.cornerRadius = 5
         sendButton.clipsToBounds = true
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         // hide the top and bottom bar
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
+        // start the snapshot listener for crypto price update
+        self.startCryptoPriceInFiatUpdateListener()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        // stop listening 
+        self.cryptoPriceUpdateListener.remove()
     }
     
     override func didReceiveMemoryWarning() {
@@ -47,27 +60,31 @@ class SendCoinVC: UIViewController {
     }
     
     @IBAction func didTapNumpadButton(button: UIButton){
-        let num = Int((button.titleLabel?.text)!)
         fiatToSendLabel.text?.removeFirst()
         fiatToSendLabel.text?.append((button.titleLabel?.text)!)
-        
-        self.getCryptoAmountforFiat(fiat: 1)
     }
     
     @IBAction func didTapDeleteNumButton(button: UIButton){
         self.fiatToSendLabel.text? = "00.00"
-        self.getCryptoAmountforFiat(fiat: 00.00)
     }
 
     
-    //MARK:- Crypto
-    func getCryptoAmountforFiat(fiat: Decimal) -> Decimal{
-        FirestoreHelper.sharedInstnace.getBTCPriceInDollars { (value) in
+    //MARK:- Price Management
+    // starts a listener using firestorehelper, which monitors crypto price in given fiat
+    func startCryptoPriceInFiatUpdateListener(){
+        self.cryptoPriceUpdateListener =  FirestoreHelper.sharedInstnace.startBTCPriceInDollarsSnapshotListener( completionHandler: { (value) in
             print(value)
-        }
-        return 0.0
+            self.cryptoPriceInFiat = value
+            
+            // update the crypto amount for the given dollars.
+            
+        })
     }
     
+    // called when a user does some update to the given fiat amount
+    func fiatAmountUpdatedByUser(){
+        
+    }
     
     /*
     // MARK: - Navigation
