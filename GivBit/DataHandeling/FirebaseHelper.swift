@@ -9,11 +9,11 @@
 import UIKit
 import Firebase
 
-enum cryptoType: String{
+enum CryptoType: String{
     case btc = "BitCoin"
 }
 
-enum fiatType: String{
+enum FiatType: String{
     case dollar = "Dollar"
 }
 
@@ -21,7 +21,7 @@ class FirebaseHelper: NSObject {
     static let sharedInstance = FirebaseHelper()
     
     // fetches the given crypto price for given fiat
-    func getCryptoPriceForCurrency(crypto: cryptoType, fiat: fiatType){
+    func getCryptoPriceForCurrency(crypto: CryptoType, fiat: FiatType){
         
     }
 }

@@ -19,7 +19,7 @@ class SendCoinVC: UIViewController {
     @IBOutlet weak var btcToSendLabel: UILabel!
     @IBOutlet weak var sendButton: UIButton!
     var cryptoPriceInFiat: NSNumber = 0.0
-    var fiatToSendAmount: NSNumber = 0.0
+    var amountOfFiatToSend: NSNumber = 0.0
     var cryptoPriceUpdateListener: ListenerRegistration!
     
     override func viewDidLoad() {
@@ -54,6 +54,7 @@ class SendCoinVC: UIViewController {
         self.cryptoPriceUpdateListener.remove()
     }
     
+    // MARK: - Actions
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -62,10 +63,14 @@ class SendCoinVC: UIViewController {
     @IBAction func didTapNumpadButton(button: UIButton){
         fiatToSendLabel.text?.removeFirst()
         fiatToSendLabel.text?.append((button.titleLabel?.text)!)
+        
+        // tell system that fiat amount has been updated
+        self.fiatAmountUpdatedByUser()
     }
     
     @IBAction func didTapDeleteNumButton(button: UIButton){
-        self.fiatToSendLabel.text? = "00.00"
+        self.fiatToSendLabel.text? = "0000"
+        self.fiatAmountUpdatedByUser()
     }
 
     
@@ -73,16 +78,28 @@ class SendCoinVC: UIViewController {
     // starts a listener using firestorehelper, which monitors crypto price in given fiat
     func startCryptoPriceInFiatUpdateListener(){
         self.cryptoPriceUpdateListener =  FirestoreHelper.sharedInstnace.startBTCPriceInDollarsSnapshotListener( completionHandler: { (value) in
-            print(value)
             self.cryptoPriceInFiat = value
             
             // update the crypto amount for the given dollars.
+            self.fiatAmountUpdatedByUser()
             
         })
     }
     
     // called when a user does some update to the given fiat amount
     func fiatAmountUpdatedByUser(){
+        // get the number in that label
+        let numString = fiatToSendLabel.text! as NSString
+        let num = numString.floatValue
+        amountOfFiatToSend = NSNumber(value: num)
+        
+        // update the btc amount
+        self.updateCryptoToSendAmountLabelFor(fiat: amountOfFiatToSend, crypto: CryptoType.btc)
+    }
+    
+    func updateCryptoToSendAmountLabelFor(fiat: NSNumber, crypto: CryptoType){
+        let amount = (fiat.doubleValue) / (cryptoPriceInFiat.doubleValue)
+        btcToSendLabel.text = String(format: "%f", amount)
         
     }
     
