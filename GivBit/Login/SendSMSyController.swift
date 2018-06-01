@@ -10,6 +10,7 @@ import UIKit
 import FirebaseAuth
 import CTKFlagPhoneNumber
 import SVProgressHUD
+import CoreTelephony
 
 class SendSMSyController: LoginVC {
     
@@ -24,6 +25,26 @@ class SendSMSyController: LoginVC {
         
         phoneTextField.layer.masksToBounds = true
         phoneTextField.flagButtonEdgeInsets = UIEdgeInsetsMake(5, 10, 5, 10)
+        
+        // get the locale information
+        let _ = NSLocale.current
+        
+        
+        // get the network info - need it for country code
+        let networkInfo = CTTelephonyNetworkInfo()
+        let carrier = networkInfo.subscriberCellularProvider
+        
+        
+        // set the phone number text field country code ... with respect to the current sims carrier
+        //let carrierCountryCode = carrier?.isoCountryCode
+        phoneTextField.setFlag(with: (carrier?.isoCountryCode)!.uppercased())
+        
+        
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
     }
     
     override func didReceiveMemoryWarning() {

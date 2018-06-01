@@ -101,7 +101,6 @@ class FirestoreHelper: NSObject {
                         let details = error.userInfo[FunctionsErrorDetailsKey]
                         completionHandler(false)
                     }
-                    
                 }
                 else{
                     
@@ -122,6 +121,7 @@ class FirestoreHelper: NSObject {
       
         //return (false, User())
     }
+    
     // Upload user contacts on server
     func updateUserContactOnFirebase(universalUserID uuid: String, completionHandler: @escaping ( _ success: Bool) -> Void) {
         ContactsManager.sharedInstance.convertToDictionery()
