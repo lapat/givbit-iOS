@@ -614,10 +614,10 @@
             </objects>
             <point key="canvasLocation" x="4072.8000000000002" y="-376.46176911544228"/>
         </scene>
-        <!--View Controller-->
+        <!--Send Coin SuccesVC-->
         <scene sceneID="loT-OL-fmA">
             <objects>
-                <viewController id="wiZ-EG-Vvd" sceneMemberID="viewController">
+                <viewController id="wiZ-EG-Vvd" customClass="SendCoinSuccesVC" customModule="GivBit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pwT-yI-RJb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -663,7 +663,16 @@
                                 </constraints>
                                 <color key="tintColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="back-arrow"/>
+                                <connections>
+                                    <segue destination="ojE-An-YVk" kind="unwind" unwindAction="unwindToMainViewControllerWithSegue:" id="I5D-2A-5xx"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Phone Number" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1mR-0M-avx">
+                                <rect key="frame" x="130" y="462" width="115" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.41176470590000003" green="0.43921568630000002" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -671,12 +680,14 @@
                             <constraint firstItem="OkV-jQ-NkH" firstAttribute="top" secondItem="IIz-U1-HXA" secondAttribute="bottom" constant="32.5" id="89k-Z1-Dcl"/>
                             <constraint firstItem="Smr-gV-OrV" firstAttribute="centerX" secondItem="PMc-IC-XtM" secondAttribute="centerX" id="9Lw-8z-RVQ"/>
                             <constraint firstItem="PMc-IC-XtM" firstAttribute="top" secondItem="nh1-e6-8PX" secondAttribute="bottom" constant="8" id="J60-XQ-clW"/>
+                            <constraint firstItem="1mR-0M-avx" firstAttribute="top" secondItem="Smr-gV-OrV" secondAttribute="bottom" constant="4" id="Ky5-8r-XsB"/>
                             <constraint firstItem="OkV-jQ-NkH" firstAttribute="centerX" secondItem="Zsa-Xc-OFb" secondAttribute="centerX" id="M1k-ee-qNc"/>
                             <constraint firstItem="nh1-e6-8PX" firstAttribute="centerX" secondItem="7Oh-fg-XdV" secondAttribute="centerX" id="NMW-Pb-0Do"/>
                             <constraint firstItem="PMc-IC-XtM" firstAttribute="centerX" secondItem="nh1-e6-8PX" secondAttribute="centerX" id="Phw-Fd-kVO"/>
                             <constraint firstItem="7Oh-fg-XdV" firstAttribute="top" secondItem="OkV-jQ-NkH" secondAttribute="bottom" id="Vpn-Xd-ujB"/>
                             <constraint firstItem="Ave-xK-PLy" firstAttribute="leading" secondItem="Zsa-Xc-OFb" secondAttribute="leading" constant="16" id="b7J-9Z-HxH"/>
                             <constraint firstItem="OkV-jQ-NkH" firstAttribute="centerY" secondItem="Zsa-Xc-OFb" secondAttribute="centerY" id="ffh-nJ-E8w"/>
+                            <constraint firstItem="1mR-0M-avx" firstAttribute="centerX" secondItem="Smr-gV-OrV" secondAttribute="centerX" id="fi0-D3-Mou"/>
                             <constraint firstItem="Smr-gV-OrV" firstAttribute="top" secondItem="PMc-IC-XtM" secondAttribute="bottom" constant="8" id="fqe-5y-yH9"/>
                             <constraint firstItem="nh1-e6-8PX" firstAttribute="top" secondItem="7Oh-fg-XdV" secondAttribute="bottom" constant="-0.5" id="jub-ZT-brB"/>
                             <constraint firstItem="Ave-xK-PLy" firstAttribute="top" secondItem="Zsa-Xc-OFb" secondAttribute="top" id="nKM-H6-ZQ4"/>
@@ -684,15 +695,21 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Zsa-Xc-OFb"/>
                     </view>
+                    <connections>
+                        <outlet property="amountSentFiatPlusCryptoLabel" destination="nh1-e6-8PX" id="OLK-81-b7I"/>
+                        <outlet property="nameOfrecieverLabel" destination="Smr-gV-OrV" id="iv2-MJ-AtA"/>
+                        <outlet property="phoneNumberOfRecieverLabel" destination="1mR-0M-avx" id="ebE-m5-R4Y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wYZ-mn-usJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="ojE-An-YVk" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4950" y="-669"/>
         </scene>
-        <!--View Controller-->
+        <!--Send Coin ErrorVC-->
         <scene sceneID="USo-la-JLG">
             <objects>
-                <viewController id="PLJ-fG-ieL" sceneMemberID="viewController">
+                <viewController id="PLJ-fG-ieL" customClass="SendCoinErrorVC" customModule="GivBit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zeD-zl-AhO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -732,6 +749,9 @@
                                 </constraints>
                                 <color key="tintColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="back-arrow"/>
+                                <connections>
+                                    <segue destination="ee4-Hp-hYf" kind="unwind" unwindAction="unwindToSendCoinVCWithSegue:" id="ZDo-KT-6cM"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.24989451036096258" blue="0.25095985127005349" alpha="1" colorSpace="calibratedRGB"/>
@@ -751,8 +771,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nXB-By-fC5"/>
                     </view>
+                    <connections>
+                        <outlet property="errorMessageLabel" destination="l8o-Hz-H1K" id="Gxe-wi-mX7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vb5-JX-CaY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="ee4-Hp-hYf" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4941.6000000000004" y="-3.1484257871064472"/>
         </scene>

@@ -22,6 +22,8 @@ class SendCoinVC: UIViewController {
     var cryptoPriceInFiat: NSNumber = 0.0
     var amountOfFiatToSend: NSNumber = 0.0
     var cryptoPriceUpdateListener: ListenerRegistration!
+    var errorToSendToErrorView: String!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,8 +43,8 @@ class SendCoinVC: UIViewController {
         sendButton.clipsToBounds = true
         
         // varify the number
-        let (countryCode, countryIdentifier, userNumber, numberWithCode) =  PhoneNumberHelper.sharedInstance.parsePhoneNUmber(number: contact.phoneNumber)
-        self.contact.phoneNumber = numberWithCode
+        let (_, _, _, numberWithCode) =  PhoneNumberHelper.sharedInstance.parsePhoneNUmber(number: contact.phoneNumber)
+        self.contact.phoneNumber = "+12244201331"
         
     }
     
@@ -91,8 +93,17 @@ class SendCoinVC: UIViewController {
             functions.httpsCallable("sendCrypto").call(["btcAmount": amountOfFiatToSend.doubleValue, "sendToPhoneNumber": self.contact.phoneNumber]) { (result, error) in
                 if error != nil{
                     print("Error performing function \(String(describing: error?.localizedDescription))")
+                    self.errorToSendToErrorView = error?.localizedDescription
+                    self.performSegue(withIdentifier: "failure-trans-segue", sender: self)
                 }else{
                     print(result?.data ?? "")
+                    let data = result?.data as! [String: Any]
+                    if data["error"] != nil{
+                        self.errorToSendToErrorView = data["error"] as! String
+                        self.performSegue(withIdentifier: "failure-trans-segue", sender: self)
+                    }else{
+                        self.performSegue(withIdentifier: "success-trans-segue", sender: self)
+                    }
                 }
                 SVProgressHUD.dismiss()
             }
@@ -130,14 +141,26 @@ class SendCoinVC: UIViewController {
         
     }
     
-    /*
-    // MARK: - Navigation
-     
+    
+    //MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "failure-trans-segue"{
+            let errorVC = segue.destination as! SendCoinErrorVC
+            errorVC.errorMessage =  errorToSendToErrorView
+        }
+        if segue.identifier == "success-trans-segue"{
+            let successView = segue.destination as! SendCoinSuccesVC
+            successView.amountSentInCrypto = self.amountOfFiatToSend.doubleValue / self.cryptoPriceInFiat.doubleValue
+            successView.amountSentInFiat = self.amountOfFiatToSend.doubleValue
+            successView.nameOfreciever = self.contact.name
+            successView.phoneNumberOfReciever = self.contact.phoneNumber
+        }
     }
-    */
     
+    @IBAction func unwindToSendCoinVC(segue: UIStoryboardSegue){
+        
+    }
 }
