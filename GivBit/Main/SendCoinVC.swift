@@ -99,9 +99,9 @@ class SendCoinVC: UIViewController {
                     print(result?.data ?? "")
                     let data = result?.data as! [String: Any]
                     if data["error"] != nil{
-                        //self.errorToSendToErrorView = data["error"] as! String
-                        //self.performSegue(withIdentifier: "failure-trans-segue", sender: self)
-                        self.performSegue(withIdentifier: "success-trans-segue", sender: self)
+                        self.errorToSendToErrorView = data["error"] as! String
+                        self.performSegue(withIdentifier: "failure-trans-segue", sender: self)
+                        //self.performSegue(withIdentifier: "success-trans-segue", sender: self)
                     }else{
                         self.performSegue(withIdentifier: "success-trans-segue", sender: self)
                     }
