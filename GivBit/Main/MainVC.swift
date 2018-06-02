@@ -16,6 +16,7 @@ class MainVC: UIViewController {
     @IBOutlet var contactsTableView: UITableView!
     @IBOutlet var blurViewBehindSearchBar: UIVisualEffectView!
     
+    var shouldAdjustTableForFirstLoading: Bool = true
     var contacts : [CNContact] = [CNContact]()
     
     override func viewDidLoad() {
@@ -56,9 +57,6 @@ class MainVC: UIViewController {
         })
     }
     
-    
-    
-    
     override func viewWillAppear(_ animated: Bool) {
         // hide the top and bottom bar
         self.navigationController?.setNavigationBarHidden(false, animated: true)
@@ -69,7 +67,8 @@ class MainVC: UIViewController {
         self.contactsTableView.contentInset = UIEdgeInsetsMake(self.blurViewBehindSearchBar.frame.height, 0, 0, 0)
         self.contactsTableView.scrollIndicatorInsets = UIEdgeInsetsMake(self.blurViewBehindSearchBar.frame.height, 0, 0, 0)
         // Make the top cell to adjust with respect to our new insets. Else it will stay in its default position
-        if contacts.count > 0{
+        if contacts.count > 0 && shouldAdjustTableForFirstLoading{
+            shouldAdjustTableForFirstLoading = false
             self.contactsTableView.scrollToRow(at: IndexPath(item: 0, section: 0), at: UITableViewScrollPosition.top, animated: true)
         }
     }

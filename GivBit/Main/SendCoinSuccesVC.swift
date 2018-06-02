@@ -23,6 +23,11 @@ class SendCoinSuccesVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        nameOfrecieverLabel.text = nameOfreciever
+        phoneNumberOfRecieverLabel.text = phoneNumberOfReciever
+        let x = String(format: "$ %.2f (%.5f BTC)", amountSentInFiat,amountSentInCrypto)
+        amountSentFiatPlusCryptoLabel.text = x
     }
 
     override func didReceiveMemoryWarning() {
