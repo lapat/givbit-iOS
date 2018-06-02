@@ -71,7 +71,7 @@ class SendSMSyController: LoginVC {
             return
         }
         
-        SVProgressHUD.show()
+        
         PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber!, uiDelegate: nil) { (verificationID, error) in
             SVProgressHUD.dismiss()
             if let error = error {
@@ -85,5 +85,4 @@ class SendSMSyController: LoginVC {
             // Sign in using the verificationID and the code sent to the user
         }
     }
-
 }

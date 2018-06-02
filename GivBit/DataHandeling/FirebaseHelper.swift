@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseFunctions
 
 enum CryptoType: String{
     case btc = "BitCoin"
@@ -25,5 +26,6 @@ class FirebaseHelper: NSObject {
         
     }
     
-    // functions
+    // MARK: - Functions
+    
 }

@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseFunctions
+import SVProgressHUD
 
 class SendCoinVC: UIViewController {
     
@@ -40,7 +41,8 @@ class SendCoinVC: UIViewController {
         sendButton.clipsToBounds = true
         
         // varify the number
-        print(PhoneNumberHelper.sharedInstance.parsePhoneNUmber(number: contact.phoneNumber))
+        let (countryCode, countryIdentifier, userNumber, numberWithCode) =  PhoneNumberHelper.sharedInstance.parsePhoneNUmber(number: contact.phoneNumber)
+        self.contact.phoneNumber = numberWithCode
         
     }
     
@@ -84,12 +86,15 @@ class SendCoinVC: UIViewController {
             // fiat is good to be sent.
             let functions = Functions.functions()
             print(contact.phoneNumber)
-            functions.httpsCallable("sendCrypto").call(["btcAmount": amountOfFiatToSend.doubleValue, "sendToPhoneNumber": "+12244201331"]) { (result, error) in
+            
+            SVProgressHUD.show()
+            functions.httpsCallable("sendCrypto").call(["btcAmount": amountOfFiatToSend.doubleValue, "sendToPhoneNumber": self.contact.phoneNumber]) { (result, error) in
                 if error != nil{
                     print("Error performing function \(String(describing: error?.localizedDescription))")
                 }else{
                     print(result?.data ?? "")
                 }
+                SVProgressHUD.dismiss()
             }
         }else{
             AlertHelper.sharedInstance.showAlert(inViewController: self, withDescription: "Invalid Amount", andTitle: "Error")

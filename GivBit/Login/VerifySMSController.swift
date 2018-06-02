@@ -77,9 +77,9 @@ class VerifySMSController: LoginVC {
         
         // Call firestore server to verify login - and save or update user, as per the need
         Auth.auth().signInAndRetrieveData(with: credential) { (authResult, error) in
-            SVProgressHUD.dismiss()
             if error != nil {
                 // ...
+                SVProgressHUD.dismiss()
                 AlertHelper.sharedInstance.showAlert(inViewController: self, withDescription: "Kindly check your verification code, or internet.", andTitle: "Error")
                 return
             }
@@ -89,6 +89,7 @@ class VerifySMSController: LoginVC {
             
             // authenticate if the user is a new user or already has a account
             FirestoreHelper.sharedInstnace.getUserWithUUID(universalUserID: (Auth.auth().currentUser?.uid)!, completionHandler: { (gbUser, success) in
+                SVProgressHUD.dismiss()
                 if success{
                     if gbUser == nil{
                         // create a new user
