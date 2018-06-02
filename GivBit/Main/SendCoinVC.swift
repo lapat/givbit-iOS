@@ -44,7 +44,7 @@ class SendCoinVC: UIViewController {
         
         // varify the number
         let (_, _, _, numberWithCode) =  PhoneNumberHelper.sharedInstance.parsePhoneNUmber(number: contact.phoneNumber)
-        self.contact.phoneNumber = "+12244201331"
+        self.contact.phoneNumber = numberWithCode // "+12244201331"
         
     }
     
