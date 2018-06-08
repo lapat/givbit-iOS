@@ -27,9 +27,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Called to configure the firebase framework
         FirebaseApp.configure()
+        let settings = FirestoreSettings()
+        settings.isPersistenceEnabled = true
         
         // check if firebase user is logged in and load the respective uiscreens
         if Auth.auth().currentUser != nil{
+            // check if the user has coinbase linked
             
             // User is signed in... let the general flow go
             let mainStoryBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
