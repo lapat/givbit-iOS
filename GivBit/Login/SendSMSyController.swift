@@ -11,6 +11,8 @@ import FirebaseAuth
 import CTKFlagPhoneNumber
 import SVProgressHUD
 import CoreTelephony
+import SVProgressHUD
+
 
 class SendSMSyController: LoginVC {
     
@@ -67,20 +69,23 @@ class SendSMSyController: LoginVC {
     @IBAction func didTapSendSMSButton(button: UIButton){
         let phoneNumber = self.phoneTextField.getFormattedPhoneNumber()
         if phoneNumber == nil{
-            AlertHelper.sharedInstance.showAlert(inViewController: self, withDescription: "Kindly enter a valid phone number!", andTitle: "Sorry")
+            AlertHelper.sharedInstance.showAlert(inViewController: self, withDescription: "Please enter a valid phone number.", andTitle: "Sorry")
             return
         }
         
+        SVProgressHUD.show()
         
         PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber!, uiDelegate: nil) { (verificationID, error) in
             SVProgressHUD.dismiss()
             if let error = error {
                 print(error.localizedDescription)
                 SVProgressHUD.showError(withStatus: "Please try again")
+                SVProgressHUD.dismiss()
                 return
             }else{
                 UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
                 self.performSegue(withIdentifier: "VerifySMS-Segue", sender: self)
+                SVProgressHUD.dismiss()
             }
             // Sign in using the verificationID and the code sent to the user
         }

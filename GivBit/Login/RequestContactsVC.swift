@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class RequestContactsVC: UIViewController {
     @IBOutlet weak var requestContactsButton: UIButton!
@@ -35,6 +36,8 @@ class RequestContactsVC: UIViewController {
     */
     
     @IBAction func didTapRequestContactsButton(){
+        SVProgressHUD.show()
+
         ContactsManager.sharedInstance.checkAuthorizationStatus { (auth) in
             if auth{
                 print("yay")
@@ -43,9 +46,11 @@ class RequestContactsVC: UIViewController {
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     UIApplication.shared.delegate?.window??.rootViewController = storyboard.instantiateInitialViewController()
                     UIApplication.shared.delegate?.window??.makeKeyAndVisible()
+                    SVProgressHUD.dismiss()
                 }
             }else{
                 print("nay")
+                SVProgressHUD.dismiss()
                 AlertHelper.sharedInstance.showAlert(inViewController: self, withDescription: "Without sharing contacts, you won't be able to send money to any of your friends", andTitle: "Are you sure?", completionHandler: {
                     DispatchQueue.main.async {
                         let storyboard = UIStoryboard(name: "Main", bundle: nil)

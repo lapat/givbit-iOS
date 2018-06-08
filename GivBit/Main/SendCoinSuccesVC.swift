@@ -26,7 +26,7 @@ class SendCoinSuccesVC: UIViewController {
         
         nameOfrecieverLabel.text = nameOfreciever
         phoneNumberOfRecieverLabel.text = phoneNumberOfReciever
-        let x = String(format: "$ %.2f (%.5f BTC)", amountSentInFiat,amountSentInCrypto)
+        let x = String(format: "$ %.2f (%.7f BTC)", amountSentInFiat,amountSentInCrypto)
         amountSentFiatPlusCryptoLabel.text = x
     }
 

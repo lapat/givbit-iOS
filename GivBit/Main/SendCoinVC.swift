@@ -23,7 +23,7 @@ class SendCoinVC: UIViewController {
     var amountOfFiatToSend: NSNumber = 0.0
     var cryptoPriceUpdateListener: ListenerRegistration!
     var errorToSendToErrorView: String!
-    
+    var btcToSend : String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,9 +88,10 @@ class SendCoinVC: UIViewController {
             // fiat is good to be sent.
             let functions = Functions.functions()
             print(contact.phoneNumber)
-            
+            print("BTC:")
+            print(btcToSend)
             SVProgressHUD.show()
-            functions.httpsCallable("sendCrypto").call(["btcAmount": amountOfFiatToSend.doubleValue, "sendToPhoneNumber": self.contact.phoneNumber]) { (result, error) in
+            functions.httpsCallable("sendCrypto").call(["btcAmount": btcToSend, "sendToPhoneNumber": self.contact.phoneNumber]) { (result, error) in
                 if error != nil{
                     print("Error performing function \(String(describing: error?.localizedDescription))")
                     self.errorToSendToErrorView = error?.localizedDescription
@@ -109,7 +110,7 @@ class SendCoinVC: UIViewController {
                 SVProgressHUD.dismiss()
             }
         }else{
-            AlertHelper.sharedInstance.showAlert(inViewController: self, withDescription: "Invalid Amount", andTitle: "You can not send more than USD $500.")
+            AlertHelper.sharedInstance.showAlert(inViewController: self, withDescription: "Enter less than $500 USD and more than $0.", andTitle: "Invalid Amount")
         }
     }
     
@@ -138,6 +139,7 @@ class SendCoinVC: UIViewController {
     func updateCryptoToSendAmountLabelFor(fiat: NSNumber, crypto: CryptoType){
         let amount = (fiat.doubleValue) / (cryptoPriceInFiat.doubleValue)
         btcToSendLabel.text = String(format: "%f", amount)
+        btcToSend = String(format: "%.8f", amount);
         
     }
     
@@ -162,4 +164,5 @@ class SendCoinVC: UIViewController {
     @IBAction func unwindToSendCoinVC(segue: UIStoryboardSegue){
         
     }
+ 
 }

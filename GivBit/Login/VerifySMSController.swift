@@ -51,11 +51,14 @@ class VerifySMSController: LoginVC {
     
     //MARK: - Actions
     @IBAction func didTapOnVerifySMSButton(button: UIButton){
+        SVProgressHUD.show()
+
         // check if var code is 6 digits
         var code = firstDigitTextField.text! + secondDigitTextField.text! + thirdDigitTextField.text!
         code = code + fourthDigitTextField.text! + fifthDigitTextField.text! + sixthDigitTextField.text!
         if code.count != 6{
             // all is bad
+            SVProgressHUD.dismiss()
             AlertHelper.sharedInstance.showAlert(inViewController: self, withDescription: "Kindly enter correct verification code.", andTitle: "Verification Code") {
                 self.firstDigitTextField.text = ""
                 self.secondDigitTextField.text = ""

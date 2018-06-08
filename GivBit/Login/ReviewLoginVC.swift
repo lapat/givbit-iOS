@@ -43,6 +43,7 @@ class ReviewLoginVC: LoginVC {
     // MARK: - Actions
     // takes the user info and adds it to firestore
     @IBAction func userPressedSubmitProfileChnagesButton(){
+        
         // create a user object
         let user = GBUser()
         user.fullName = nameTextField.text!
