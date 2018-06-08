@@ -7,19 +7,22 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class TransactionsVC: UIViewController {
-
+    
     @IBOutlet weak var transactionsTableView: UITableView!
     var transactions = [GBTransaction]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         
         // get the transactions from firestore
-        FirestoreHelper.sharedInstnace.getTransactionsForUser(uuid: "hREmwb9zhWTNuvAWaJOp89KlkCk1") { (transactions, status) in
+        SVProgressHUD.show()
+        FirestoreHelper.sharedInstnace.getTransactionsForUser(uuid: "ZQXoizqn06aTCBtkdQiGlYsosi13") { (transactions, status) in
+            SVProgressHUD.dismiss()
             if status{
                 self.transactions = transactions
                 self.transactionsTableView.reloadData()
@@ -28,15 +31,12 @@ class TransactionsVC: UIViewController {
                 // ... handle it
             }
         }
-        
-        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     /*
     // MARK: - Navigation
@@ -64,8 +64,10 @@ extension TransactionsVC: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "transaction-cell")
-        return cell!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "transaction-cell") as! GBTransactionTVC
+        cell.populateCellWithGBTransanctions(transaction: transactions[indexPath.row])
+        
+        return cell
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

@@ -18,6 +18,7 @@ class SendCoinVC: UIViewController {
     @IBOutlet weak var contactNameLabel: UILabel!
     @IBOutlet weak var fiatToSendLabel: UILabel!
     @IBOutlet weak var btcToSendLabel: UILabel!
+    @IBOutlet weak var phonenUmberLabel: UILabel!
     @IBOutlet weak var sendButton: UIButton!
     var cryptoPriceInFiat: NSNumber = 0.0
     var amountOfFiatToSend: NSNumber = 0.0
@@ -45,6 +46,8 @@ class SendCoinVC: UIViewController {
         // varify the number
         let (_, _, _, numberWithCode) =  PhoneNumberHelper.sharedInstance.parsePhoneNUmber(number: contact.phoneNumber)
         self.contact.phoneNumber = numberWithCode // "+12244201331"
+        
+        self.phonenUmberLabel.text = self.contact.phoneNumber
         
     }
     

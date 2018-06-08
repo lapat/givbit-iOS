@@ -9,9 +9,9 @@
 import UIKit
 
 class GBTransaction: NSObject {
-    var cryptoAmount: String!
+    var cryptoAmount: Double!
     var coinbaseItemID: String!
-    var date: Int!
+    var date: TimeInterval!
     var pending: Bool!
     var recieverPhoneNumber: String!
     var recieverUID: String!

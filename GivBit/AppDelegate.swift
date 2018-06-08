@@ -17,10 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        if url != nil{
-            coinbaseoauth.sharedInstnace.getAccessToken(url: url)
-            
-        }
+        coinbaseoauth.sharedInstnace.getAccessToken(url: url)
+        
         return true
     }
     
@@ -43,12 +41,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // User is not signedf in... load the login UI
         }
         
-        // set the teme
+        // set the theme
         ColorsHelper.setTheme1()
         
         // set the keybaord config
         IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         
+        // if user is already logged in... jusr repopulate from db
+        if Auth.auth().currentUser != nil{
+            FirestoreHelper.sharedInstnace.getUserWithUUID(universalUserID: (Auth.auth().currentUser?.uid)!) { (user, success) in
+                // if user is already logged in before.. it will just populate the gbuser from db cache
+            }
+        }
         return true
     }
     

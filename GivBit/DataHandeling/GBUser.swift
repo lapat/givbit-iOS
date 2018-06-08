@@ -23,6 +23,7 @@ class GBUser: NSObject {
     var phoneNumber: String = ""
     var coinbaseToken: String = ""
     var coinbaseRefreshToken: String = ""
+    static let sharedUser: GBUser = GBUser()
     
     enum ObjectKeys: String{
         case uuid = "uid"

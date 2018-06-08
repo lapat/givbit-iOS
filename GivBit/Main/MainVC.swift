@@ -42,8 +42,12 @@ class MainVC: UIViewController {
         // adjust the scrollview
         
         // firestore testing
-        //FirestoreHelper.sharedInstnace.saveLoggedInFirebaseUser(GBUser())
-        //updateNumberToFireBase()
+        // just load the coinbase user
+        FirestoreHelper.sharedInstnace.fetchCoinbaseUserInfoObjetForUser(givbitUser: GBUser.sharedUser) { (coinbaseUser, success) in
+            if success{
+                print("Coinbase User loaded")
+            }
+        }
     }
     
     // MARK: - Actions on SearchBar change Data
@@ -91,7 +95,9 @@ class MainVC: UIViewController {
     //MARK: - Navigation
     @IBAction func unwindToMainViewController(segue: UIStoryboardSegue){
         // did unwind back to current view
-        self.contactsTableView.deselectRow(at: self.contactsTableView.indexPathForSelectedRow!, animated: false)
+        if self.contactsTableView.indexPathForSelectedRow != nil{
+            self.contactsTableView.deselectRow(at: self.contactsTableView.indexPathForSelectedRow!, animated: false)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

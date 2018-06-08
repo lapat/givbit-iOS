@@ -37,7 +37,10 @@ class SendSMSyController: LoginVC {
         
         // set the phone number text field country code ... with respect to the current sims carrier
         //let carrierCountryCode = carrier?.isoCountryCode
-        phoneTextField.setFlag(with: (carrier?.isoCountryCode)!.uppercased())
+        // check if sim is not present or if the user is on a simulator.
+        if carrier != nil{
+            phoneTextField.setFlag(with: (carrier?.isoCountryCode)!.uppercased())
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
