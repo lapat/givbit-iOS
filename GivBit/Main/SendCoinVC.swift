@@ -84,7 +84,7 @@ class SendCoinVC: UIViewController {
     @IBAction func didTapOnSendCoinButton(button: UIButton){
         // do checks before sending.
         
-        if amountOfFiatToSend.doubleValue < 500 && amountOfFiatToSend.doubleValue > 3.5{
+        if amountOfFiatToSend.doubleValue < 500 && amountOfFiatToSend.doubleValue > 0 {
             // fiat is good to be sent.
             let functions = Functions.functions()
             print(contact.phoneNumber)
@@ -109,7 +109,7 @@ class SendCoinVC: UIViewController {
                 SVProgressHUD.dismiss()
             }
         }else{
-            AlertHelper.sharedInstance.showAlert(inViewController: self, withDescription: "Invalid Amount", andTitle: "Error")
+            AlertHelper.sharedInstance.showAlert(inViewController: self, withDescription: "Invalid Amount", andTitle: "You can not send more than USD $500.")
         }
     }
     
@@ -118,10 +118,9 @@ class SendCoinVC: UIViewController {
     func startCryptoPriceInFiatUpdateListener(){
         self.cryptoPriceUpdateListener =  FirestoreHelper.sharedInstnace.startBTCPriceInDollarsSnapshotListener( completionHandler: { (value) in
             self.cryptoPriceInFiat = value
-            
             // update the crypto amount for the given dollars.
             self.fiatAmountUpdatedByUser()
-            
+
         })
     }
     

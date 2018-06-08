@@ -24,7 +24,7 @@ class coinbaseoauth : NSObject{
         responseType:   "code"
     )
     
-    let coibaseScope = "wallet:user:email,wallet:user:read,wallet:buys:create,wallet:buys:read,wallet:payment-methods:read,wallet:accounts:read,wallet:addresses:read,wallet:transactions:send,wallet:addresses:create"//,wallet:transactions:send:bypass-2fa"
+    let coibaseScope = "wallet:user:email,wallet:user:read,wallet:buys:create,wallet:buys:read,wallet:payment-methods:read,wallet:accounts:read,wallet:addresses:read,wallet:transactions:send,wallet:transactions:send:bypass-2fa,wallet:addresses:create&meta[send_limit_amount]=500.00&meta[send_limit_currency]=USD&meta[send_limit_period]=day"
     let redirectUrl = "com.givbitapp.apps.coinflash-12345678://coinbase-oauth"
     var accessToken = ""
     var refreashToken = ""

@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import SVProgressHUD
+import FirebaseFunctions
 
 class VerifySMSController: LoginVC {
 
@@ -21,6 +22,8 @@ class VerifySMSController: LoginVC {
     @IBOutlet weak var sixthDigitTextField: UITextField!
     @IBOutlet weak var backButton: UIButton!
     
+    var functions = Functions.functions()
+
     //MARK: - VCFunction
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,7 +90,38 @@ class VerifySMSController: LoginVC {
             // ...
             print(authResult?.user.phoneNumber ?? "")
             
+            
+            SVProgressHUD.show()
+            
+            self.functions.httpsCallable("isCoinbaseTokenValid").call([]) { (result, error) in
+                SVProgressHUD.dismiss()
+                if error != nil{
+                    print("Error performing function \(String(describing: error?.localizedDescription))")
+                    //self.errorToSendToErrorView = error?.localizedDescription
+                    //self.performSegue(withIdentifier: "failure-trans-segue", sender: self)
+                }else{
+                    print("isCoinbaseTokenValid returned")
+                    print(result?.data ?? "")
+                    let data = result?.data as! [String: Any]
+                    if data["error"] != nil{
+                        print("error checking isCoinbaseTokenValid")
+                        print(data["error"] as! String)
+                    }else{
+                        let isValid = data["success"] as! Bool
+                        if (isValid == false){
+                            print("not valid token, have to relink")
+                            self.performSegue(withIdentifier: "coinbaseVCSegue", sender: self)
+                        }else{
+                            print("valid token")
+                            self.performSegue(withIdentifier: "showContactsViewSegue", sender: self)
+                        }
+                    }
+                }
+                SVProgressHUD.dismiss()
+            }
+            
             // authenticate if the user is a new user or already has a account
+            /*
             FirestoreHelper.sharedInstnace.getUserWithUUID(universalUserID: (Auth.auth().currentUser?.uid)!, completionHandler: { (gbUser, success) in
                 SVProgressHUD.dismiss()
                 if success{
@@ -111,6 +145,7 @@ class VerifySMSController: LoginVC {
                     // something went wrong while fetching from server
                 }
             })
+            */
         }
     }
 }

@@ -34,8 +34,10 @@ class MainVC: UIViewController {
             }else{
                 // tell user for access
             }
-            
-            self.contactsTableView.reloadData()
+            DispatchQueue.main.async {
+                self.contactsTableView.reloadData()
+            }
+
             self.pushContactsOnFirebase()
         }
         
@@ -91,7 +93,10 @@ class MainVC: UIViewController {
     //MARK: - Navigation
     @IBAction func unwindToMainViewController(segue: UIStoryboardSegue){
         // did unwind back to current view
-        self.contactsTableView.deselectRow(at: self.contactsTableView.indexPathForSelectedRow!, animated: false)
+        if (self.contactsTableView.indexPathForSelectedRow != nil){
+            self.contactsTableView.deselectRow(at: self.contactsTableView.indexPathForSelectedRow!, animated: false)
+        }
+      
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
