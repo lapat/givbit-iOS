@@ -18,7 +18,6 @@ enum FiatType: String{
     case dollar = "Dollar"
 }
 
-
 class FirebaseHelper: NSObject {
     static let sharedInstance = FirebaseHelper()
     
@@ -29,10 +28,10 @@ class FirebaseHelper: NSObject {
     }
     
     // MARK: - Functions
-    func executeUnlinkCoinbaseFunction(completionHandler: @escaping (_ error: Error?) -> Void){
+    static func executeUnlinkCoinbaseFunction(completionHandler: @escaping (_ error: Error?) -> Void){
         Functions.functions().httpsCallable("unLinkCoinbase").call { (result, error) in
+            print(error?.localizedDescription)
             completionHandler(error)
         }
     }
-    
 }

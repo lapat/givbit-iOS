@@ -107,6 +107,9 @@
                                                 <state key="normal" title="Unlink">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="didTapOnUnlinkCoinbaseButton" destination="EQW-bb-4sJ" eventType="touchUpInside" id="4ea-YX-135"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="73r-QD-KTy">
                                                 <rect key="frame" x="166.5" y="0.0" width="156.5" height="60"/>
@@ -115,6 +118,9 @@
                                                 <state key="normal" title="Relink">
                                                     <color key="titleColor" red="0.41176470590000003" green="0.43921568630000002" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="didTapOnLinkCoinbaseButton" destination="EQW-bb-4sJ" eventType="touchUpInside" id="Zf5-eC-qLA"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>

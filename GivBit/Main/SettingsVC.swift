@@ -17,10 +17,13 @@ class SettingsVC: UIViewController {
     @IBOutlet weak var linkCoinbaseButton: UIButton!
     @IBOutlet weak var coinbaseEmailLabel: UILabel!
     @IBOutlet weak var fadedViewHolderUIView: UIView!
+    // used to show if viewwill appear should refresh the coinbase user or just use the current coinbase user. Since user might have attempted to
+    // reconnect a different coinbase
+    var userIsRelinkingCoinbase: Bool! = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         // make all the subviews disapear
         self.fadedViewHolderUIView.subviews.forEach { (view) in
@@ -33,7 +36,7 @@ class SettingsVC: UIViewController {
         self.fadedViewHolderUIView.layer.cornerRadius = 5
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -44,7 +47,8 @@ class SettingsVC: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         self.navigationController?.isToolbarHidden = true
         
-        if GBCoinbaseUser.sharedInstance.hasUser == false{
+        if GBCoinbaseUser.sharedInstance.hasUser == false || userIsRelinkingCoinbase == true{
+            self.userIsRelinkingCoinbase = false
             // coinbaseuser info is not present, try to fetch it
             SVProgressHUD.show()
             FirestoreHelper.sharedInstnace.fetchCoinbaseUserInfoObjetForUser(givbitUser: GBUser.sharedUser) { (cbUser, success) in
@@ -87,19 +91,24 @@ class SettingsVC: UIViewController {
     //MARK: - View
     // updates the view for when user has no coinbase linked to his account
     func updateViewForUnlinkedCoinbase(){
-        //UIView.animate(withDuration: 0.5) {
+        DispatchQueue.main.async {
             self.unlinkCoinbaseButton.isHidden = true
             self.linkCoinbaseButton.titleLabel?.text = "Link Coinbase"
             self.coinbaseEmailLabel.text = "No account Linked"
+        }
+        //UIView.animate(withDuration: 0.5) {
         //}
     }
     
     // updates the view when coinbase is present and user is logged in
     func updateViewForLinkedCoinbase(){
-        //UIView.animate(withDuration: 0.5) {
+        DispatchQueue.main.async {
             self.unlinkCoinbaseButton.isHidden = false
             self.linkCoinbaseButton.titleLabel?.text = "Relink"
             self.coinbaseEmailLabel.text = GBCoinbaseUser.sharedInstance.email
+
+        }
+        //UIView.animate(withDuration: 0.5) {
         //}
     }
     
@@ -118,8 +127,22 @@ class SettingsVC: UIViewController {
     }
     
     // unlinks the coinbase account and updates the ui
-    @IBAction func didTapOnUnlinkgButton(){
-        Functions.functions()
+    @IBAction func didTapOnUnlinkCoinbaseButton(){
+        SVProgressHUD.show()
+        FirebaseHelper.executeUnlinkCoinbaseFunction { (error) in
+            SVProgressHUD.dismiss()
+            if error != nil{
+                self.updateViewForUnlinkedCoinbase()
+            }else{
+                SVProgressHUD.showError(withStatus: error?.localizedDescription)
+            }
+        }
+    }
+    
+    @IBAction func didTapOnLinkCoinbaseButton(){
+        self.userIsRelinkingCoinbase = true
+        coinbaseoauth.sharedInstnace.settingsVC = self
+        coinbaseoauth.sharedInstnace.makeLoginupRequest()
     }
 
 }

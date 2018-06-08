@@ -43,11 +43,7 @@ class MainVC: UIViewController {
         
         // firestore testing
         // just load the coinbase user
-        FirestoreHelper.sharedInstnace.fetchCoinbaseUserInfoObjetForUser(givbitUser: GBUser.sharedUser) { (coinbaseUser, success) in
-            if success{
-                print("Coinbase User loaded")
-            }
-        }
+        
     }
     
     // MARK: - Actions on SearchBar change Data
