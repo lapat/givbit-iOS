@@ -45,7 +45,6 @@ class ContactsManager: NSObject {
         // Iterate all containers and append their contacts to our results array
         for container in allContainers {
             let fetchPredicate = CNContact.predicateForContactsInContainer(withIdentifier: container.identifier)
-            
             do {
                 let containerResults = try contactStore.unifiedContacts(matching: fetchPredicate, keysToFetch: keysToFetch as! [CNKeyDescriptor])
                 results.append(contentsOf: containerResults)
@@ -99,7 +98,6 @@ class ContactsManager: NSObject {
     func loadContacts(completionHandler: @escaping (_  contacts:[CNContact]?, _ authStatus: Bool) -> Void){
         self.checkAuthorizationStatus(completionHandler: { (status) in
             if status == true{
-                // Load the contacts
                 completionHandler(self.contacts, true)
             }else{
                 // Contact Authorization issue

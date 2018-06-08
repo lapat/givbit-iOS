@@ -14,6 +14,8 @@ class SendCoinErrorVC: UIViewController {
     @IBOutlet weak var errorMessageLabel: UILabel!
     
     override func viewDidLoad() {
+        self.errorMessageLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
+        self.errorMessageLabel.numberOfLines = 0
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.

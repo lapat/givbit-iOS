@@ -46,6 +46,9 @@ class SendCoinVC: UIViewController {
         let (_, _, _, numberWithCode) =  PhoneNumberHelper.sharedInstance.parsePhoneNUmber(number: contact.phoneNumber)
         self.contact.phoneNumber = numberWithCode // "+12244201331"
         
+        if let amountString = fiatToSendLabel.text?.currencyInputFormatting() {
+            fiatToSendLabel.text = amountString
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,15 +71,24 @@ class SendCoinVC: UIViewController {
     }
     
     @IBAction func didTapNumpadButton(button: UIButton){
-        fiatToSendLabel.text?.removeFirst()
+        print("didTapNumber")
+        if (fiatToSendLabel.text != ""){
+          fiatToSendLabel.text?.removeFirst()
+        }
         fiatToSendLabel.text?.append((button.titleLabel?.text)!)
-        
-        // tell system that fiat amount has been updated
+        if let amountString = fiatToSendLabel.text?.currencyInputFormatting() {
+            fiatToSendLabel.text = amountString
+        }
+    
+       
         self.fiatAmountUpdatedByUser()
     }
     
     @IBAction func didTapDeleteNumButton(button: UIButton){
-        self.fiatToSendLabel.text? = "0000"
+        self.fiatToSendLabel.text? = "0"
+        if let amountString = fiatToSendLabel.text?.currencyInputFormatting() {
+            fiatToSendLabel.text = amountString
+        }
         self.fiatAmountUpdatedByUser()
     }
     
@@ -128,15 +140,33 @@ class SendCoinVC: UIViewController {
     // called when a user does some update to the given fiat amount
     func fiatAmountUpdatedByUser(){
         // get the number in that label
+        print("fiatAmountUpdatedByUser")
+        print(fiatToSendLabel.text)
         let numString = fiatToSendLabel.text! as NSString
-        let num = numString.floatValue
-        amountOfFiatToSend = NSNumber(value: num)
         
+        print(numString)
+        let num = numString.floatValue
+        //THIS IS CONVERTED TO 0?
+        print(num)
+
+        let numNoCurrencySymbol = numString.replacingOccurrences(of: "$", with: "") as NSString
+        let numNoCommaSymbol = numNoCurrencySymbol.replacingOccurrences(of: ",", with: "") as NSString
+
+        let num2 = numNoCommaSymbol.floatValue
+        print("num2")
+
+        print(num2)
+        amountOfFiatToSend = NSNumber(value: num2)
+        print(amountOfFiatToSend)
         // update the btc amount
         self.updateCryptoToSendAmountLabelFor(fiat: amountOfFiatToSend, crypto: CryptoType.btc)
     }
     
     func updateCryptoToSendAmountLabelFor(fiat: NSNumber, crypto: CryptoType){
+        print("updateCryptoToSendAmountLabelFor")
+
+        print(fiat.doubleValue)
+        print(cryptoPriceInFiat.doubleValue)
         let amount = (fiat.doubleValue) / (cryptoPriceInFiat.doubleValue)
         btcToSendLabel.text = String(format: "%f", amount)
         btcToSend = String(format: "%.8f", amount);
@@ -166,3 +196,36 @@ class SendCoinVC: UIViewController {
     }
  
 }
+
+extension String {
+    
+    // formatting text for currency textField
+    func currencyInputFormatting() -> String {
+        print("here")
+        var number: NSNumber!
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currencyAccounting
+        formatter.currencySymbol = "$"
+        formatter.maximumFractionDigits = 2
+        formatter.minimumFractionDigits = 2
+        
+        var amountWithPrefix = self
+        
+        // remove from String: "$", ".", ","
+        let regex = try! NSRegularExpression(pattern: "[^0-9]", options: .caseInsensitive)
+        amountWithPrefix = regex.stringByReplacingMatches(in: amountWithPrefix, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, self.characters.count), withTemplate: "")
+        
+        let double = (amountWithPrefix as NSString).doubleValue
+        number = NSNumber(value: (double / 100))
+        
+        // if first number is 0 or all numbers were deleted
+        //guard number != 0 as NSNumber else {
+         //   return ""
+       // }
+        
+        return formatter.string(from: number)!
+    }
+    
+}
+
+
