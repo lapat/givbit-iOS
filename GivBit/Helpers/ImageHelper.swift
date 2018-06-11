@@ -37,8 +37,6 @@ class ImageHelper: NSObject {
             NSAttributedStringKey.foregroundColor: textColor,
             ]
         
-        
-        
         // Put the image into a rectangle as large as the original image
         image.draw(in: CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height))
         

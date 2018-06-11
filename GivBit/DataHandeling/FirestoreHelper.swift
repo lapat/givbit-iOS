@@ -39,6 +39,33 @@ class FirestoreHelper: NSObject {
         }
     }
     
+    // gets the users coinbase info
+    func fetchCoinbaseUserInfoObjetForUser(givbitUser user: GBUser, completionHandler: @escaping (_ user: GBCoinbaseUser?,_ success: Bool) -> Void){
+        let query = db.collection("coinbase_users").whereField("uid", isEqualTo: user.uuid)
+        query.getDocuments { (querySnapshot, error) in
+            if error != nil{
+                completionHandler(nil, false)
+            }else{
+                // only one document will exist
+                // check if a document exists:
+                if (querySnapshot?.documents.count)! > 0{
+                    let coinbaseUser = GBCoinbaseUser.sharedInstance
+                    let document = querySnapshot?.documents[0]
+                    coinbaseUser.country = document?.data()["country"] as! String
+                    coinbaseUser.email = document?.data()["email"] as! String
+                    coinbaseUser.name = document?.data()["name"] as! String
+                    coinbaseUser.nativeCurrency = document?.data()["native_currency"] as! String
+                    coinbaseUser.profilePic = document?.data()["profile_pic"] as! String
+                    coinbaseUser.uid = document?.data()["uid"] as! String
+                    coinbaseUser.hasUser = true
+                    completionHandler(coinbaseUser, true)
+                }else{
+                    completionHandler(nil, true)
+                }
+            }
+        }
+    }
+    
     // Checks if the user exists and if it exists it returns User with a true
     func getUserWithUUID(universalUserID uuid: String, completionHandler: @escaping (_ user: GBUser?, _ success: Bool) -> Void) {
         let query = db.collection("users").whereField("uid", isEqualTo: uuid)
@@ -48,9 +75,12 @@ class FirestoreHelper: NSObject {
             }else{
                 // Only one document should exist
                 for document in querySnapshot!.documents{
-                    let user = GBUser()
+                    let user = GBUser.sharedUser
                     user.fullName = document.data()["name"] as! String
                     user.phoneNumber = document.data()["phone_number"] as! String
+                    user.coinbaseRefreshToken = document.data()["coinbase_refresh_token"] as! String
+                    user.coinbaseToken = document.data()["coinbase_token"] as! String
+                    user.uuid = document.data()["uid"] as! String
                     completionHandler(user, true)
                 }
                 if querySnapshot!.documents.count <= 0{
@@ -72,9 +102,9 @@ class FirestoreHelper: NSObject {
                 var transactions = [GBTransaction]()
                 for document in querySnapShot!.documents{
                     let transaction = GBTransaction()
-                    transaction.cryptoAmount = "9.00sdf1" // document.data()["btc_amount"] as! String
+                    transaction.cryptoAmount = document.data()["btc_amount"] as! Double
                     transaction.coinbaseItemID = document.data()["coinbase_idem_id"] as! String
-                    transaction.date = document.data()["date"] as! Int
+                    transaction.date = document.data()["date"] as! TimeInterval/1000
                     transaction.pending = document.data()["pending"] as! Bool
                     transaction.recieverPhoneNumber = document.data()["receiver_phone_number"] as! String
                     transaction.recieverUID = document.data()["receiver_uid"] as! String
@@ -163,5 +193,16 @@ class FirestoreHelper: NSObject {
         return listener
     }
     
-    
+    func getBTCPriceInDollars(completionHandler: @escaping (_ value: Double?, _ status: Bool) -> Void){
+        let query = db.collection("prices").document("BTC")
+        query.getDocument { (documentSnaptshot, error) in
+            if error != nil{
+                completionHandler(nil, false)
+            }else{
+                let data = documentSnaptshot?.data()!
+                let value = data!["USD"] as! Double
+                completionHandler(value, true)
+            }
+        }
+    }
 }

@@ -27,6 +27,8 @@ class ContactsManager: NSObject {
         let contactStore = CNContactStore()
         let keysToFetch = [
             CNContactFormatter.descriptorForRequiredKeys(for: .fullName),
+            CNContactGivenNameKey,
+            CNContactNamePrefixKey,
             CNContactEmailAddressesKey,
             CNContactPhoneNumbersKey,
             CNContactImageDataAvailableKey,
@@ -47,11 +49,43 @@ class ContactsManager: NSObject {
             let fetchPredicate = CNContact.predicateForContactsInContainer(withIdentifier: container.identifier)
             do {
                 let containerResults = try contactStore.unifiedContacts(matching: fetchPredicate, keysToFetch: keysToFetch as! [CNKeyDescriptor])
+            
                 results.append(contentsOf: containerResults)
             } catch {
                 print("Error fetching results for container")
             }
         }
+        
+        // this code is more allegant.. maybe shift to this on sometime later.
+//        let fetchRequest = CNContactFetchRequest(keysToFetch: [CNContactGivenNameKey as CNKeyDescriptor, CNContactFamilyNameKey as CNKeyDescriptor, CNContactMiddleNameKey as CNKeyDescriptor, CNContactEmailAddressesKey as CNKeyDescriptor,CNContactPhoneNumbersKey as CNKeyDescriptor])
+//
+//        fetchRequest.sortOrder = CNContactSortOrder.userDefault
+//
+//        let store = CNContactStore()
+//
+//        do {
+//            try store.enumerateContacts(with: fetchRequest, usingBlock: { (contact, stop) -> Void in
+//                //  print(contact.phoneNumbers.first?.value ?? "not found")
+//
+//            })
+//        }
+//        catch let error as NSError {
+//            print(error.localizedDescription)
+//        }
+//
+//
+        // sort the results array by name
+        results.sort(by: { (contact1, contact2) -> Bool in
+            var name1 = CNContactFormatter.string(from: contact1, style: CNContactFormatterStyle.fullName)
+            var name2 = CNContactFormatter.string(from: contact2, style: CNContactFormatterStyle.fullName)
+            if name1 == nil{
+                name1 = ""
+            }
+            if name2 == nil{
+                name2 = ""
+            }
+            return name1!<name2!
+        })
         
         // used to hold cleaned contacts
         var cleanedResults = [CNContact]()

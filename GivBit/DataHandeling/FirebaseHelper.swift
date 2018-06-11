@@ -21,11 +21,17 @@ enum FiatType: String{
 class FirebaseHelper: NSObject {
     static let sharedInstance = FirebaseHelper()
     
+    // MARK: - Functions
     // fetches the given crypto price for given fiat
     func getCryptoPriceForCurrency(crypto: CryptoType, fiat: FiatType){
         
     }
     
     // MARK: - Functions
-    
+    static func executeUnlinkCoinbaseFunction(completionHandler: @escaping (_ error: Error?) -> Void){
+        Functions.functions().httpsCallable("unLinkCoinbase").call { (result, error) in
+            print(error?.localizedDescription)
+            completionHandler(error)
+        }
+    }
 }

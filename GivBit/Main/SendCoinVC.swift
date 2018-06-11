@@ -18,6 +18,7 @@ class SendCoinVC: UIViewController {
     @IBOutlet weak var contactNameLabel: UILabel!
     @IBOutlet weak var fiatToSendLabel: UILabel!
     @IBOutlet weak var btcToSendLabel: UILabel!
+    @IBOutlet weak var phonenUmberLabel: UILabel!
     @IBOutlet weak var sendButton: UIButton!
     var cryptoPriceInFiat: NSNumber = 0.0
     var amountOfFiatToSend: NSNumber = 0.0
@@ -49,6 +50,7 @@ class SendCoinVC: UIViewController {
         if let amountString = fiatToSendLabel.text?.currencyInputFormatting() {
             fiatToSendLabel.text = amountString
         }
+        self.phonenUmberLabel.text = self.contact.phoneNumber
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -44,8 +44,8 @@ class MainVC: UIViewController {
         // adjust the scrollview
         
         // firestore testing
-        //FirestoreHelper.sharedInstnace.saveLoggedInFirebaseUser(GBUser())
-        //updateNumberToFireBase()
+        // just load the coinbase user
+        
     }
     
     // MARK: - Actions on SearchBar change Data
@@ -96,7 +96,7 @@ class MainVC: UIViewController {
         if (self.contactsTableView.indexPathForSelectedRow != nil){
             self.contactsTableView.deselectRow(at: self.contactsTableView.indexPathForSelectedRow!, animated: false)
         }
-      
+
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

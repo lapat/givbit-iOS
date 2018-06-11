@@ -11,12 +11,14 @@
 		771742B120C1EED400BD0A88 /* PhoneNumberHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771742B020C1EED400BD0A88 /* PhoneNumberHelper.swift */; };
 		771742B320C22E5E00BD0A88 /* SendCoinSuccesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771742B220C22E5E00BD0A88 /* SendCoinSuccesVC.swift */; };
 		771742B520C22FEC00BD0A88 /* SendCoinErrorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771742B420C22FEC00BD0A88 /* SendCoinErrorVC.swift */; };
+		7734162C20C8812C0010EC08 /* GBCoinbaseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7734162B20C8812C0010EC08 /* GBCoinbaseUser.swift */; };
 		774E2D4A20A971BE0039435E /* ContactsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774E2D4920A971BE0039435E /* ContactsManager.swift */; };
 		774E2D4C20A98D4C0039435E /* ContactTBVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774E2D4B20A98D4C0039435E /* ContactTBVCell.swift */; };
 		774E2D5020AC0F240039435E /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774E2D4F20AC0F240039435E /* ImageHelper.swift */; };
 		774E2D5220AC1A3D0039435E /* StringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774E2D5120AC1A3D0039435E /* StringHelper.swift */; };
 		774E2D5420AC22D60039435E /* GBContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774E2D5320AC22D60039435E /* GBContact.swift */; };
 		774E2D5720ACB0150039435E /* GBUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774E2D5620ACB0150039435E /* GBUser.swift */; };
+		7751498E20CA089B00FA206C /* DateaHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7751498D20CA089B00FA206C /* DateaHelper.swift */; };
 		775999FD20A02986001FF565 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775999FC20A02986001FF565 /* AppDelegate.swift */; };
 		775999FF20A02986001FF565 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775999FE20A02986001FF565 /* MainVC.swift */; };
 		77599A0220A02986001FF565 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77599A0020A02986001FF565 /* Main.storyboard */; };
@@ -39,7 +41,7 @@
 		77B7C23820B7F4990008E258 /* GBTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B7C23720B7F4990008E258 /* GBTextField.swift */; };
 		77B7C23A20B835C40008E258 /* CoinbaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B7C23920B835C40008E258 /* CoinbaseVC.swift */; };
 		77B7C23C20B905ED0008E258 /* RequestContactsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B7C23B20B905ED0008E258 /* RequestContactsVC.swift */; };
-		77B7C23E20B915EB0008E258 /* GBTransactionTBVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B7C23D20B915EB0008E258 /* GBTransactionTBVC.swift */; };
+		77B7C23E20B915EB0008E258 /* GBTransactionTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B7C23D20B915EB0008E258 /* GBTransactionTVC.swift */; };
 		77B7C24020B9216D0008E258 /* GBTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B7C23F20B9216D0008E258 /* GBTransaction.swift */; };
 		77B7C24220B924920008E258 /* TransactionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B7C24120B924920008E258 /* TransactionsVC.swift */; };
 		77C04AB720BECB500043AC0A /* FirebaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C04AB620BECB500043AC0A /* FirebaseHelper.swift */; };
@@ -75,12 +77,14 @@
 		771742B020C1EED400BD0A88 /* PhoneNumberHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberHelper.swift; sourceTree = "<group>"; };
 		771742B220C22E5E00BD0A88 /* SendCoinSuccesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCoinSuccesVC.swift; sourceTree = "<group>"; };
 		771742B420C22FEC00BD0A88 /* SendCoinErrorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCoinErrorVC.swift; sourceTree = "<group>"; };
+		7734162B20C8812C0010EC08 /* GBCoinbaseUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBCoinbaseUser.swift; sourceTree = "<group>"; };
 		774E2D4920A971BE0039435E /* ContactsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsManager.swift; sourceTree = "<group>"; };
 		774E2D4B20A98D4C0039435E /* ContactTBVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTBVCell.swift; sourceTree = "<group>"; };
 		774E2D4F20AC0F240039435E /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 		774E2D5120AC1A3D0039435E /* StringHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringHelper.swift; sourceTree = "<group>"; };
 		774E2D5320AC22D60039435E /* GBContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBContact.swift; sourceTree = "<group>"; };
 		774E2D5620ACB0150039435E /* GBUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBUser.swift; sourceTree = "<group>"; };
+		7751498D20CA089B00FA206C /* DateaHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateaHelper.swift; sourceTree = "<group>"; };
 		775999F920A02986001FF565 /* GivBit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GivBit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		775999FC20A02986001FF565 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		775999FE20A02986001FF565 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -111,7 +115,7 @@
 		77B7C23720B7F4990008E258 /* GBTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBTextField.swift; sourceTree = "<group>"; };
 		77B7C23920B835C40008E258 /* CoinbaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinbaseVC.swift; sourceTree = "<group>"; };
 		77B7C23B20B905ED0008E258 /* RequestContactsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestContactsVC.swift; sourceTree = "<group>"; };
-		77B7C23D20B915EB0008E258 /* GBTransactionTBVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBTransactionTBVC.swift; sourceTree = "<group>"; };
+		77B7C23D20B915EB0008E258 /* GBTransactionTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBTransactionTVC.swift; sourceTree = "<group>"; };
 		77B7C23F20B9216D0008E258 /* GBTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBTransaction.swift; sourceTree = "<group>"; };
 		77B7C24120B924920008E258 /* TransactionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsVC.swift; sourceTree = "<group>"; };
 		77C04AB620BECB500043AC0A /* FirebaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseHelper.swift; sourceTree = "<group>"; };
@@ -171,6 +175,7 @@
 				774E2D5320AC22D60039435E /* GBContact.swift */,
 				774E2D5620ACB0150039435E /* GBUser.swift */,
 				77B7C23F20B9216D0008E258 /* GBTransaction.swift */,
+				7734162B20C8812C0010EC08 /* GBCoinbaseUser.swift */,
 			);
 			path = DataHandeling;
 			sourceTree = "<group>";
@@ -266,6 +271,7 @@
 				774E2D5120AC1A3D0039435E /* StringHelper.swift */,
 				779417A620B7E4AE00A46BE2 /* AlertHelper.swift */,
 				771742B020C1EED400BD0A88 /* PhoneNumberHelper.swift */,
+				7751498D20CA089B00FA206C /* DateaHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -289,7 +295,7 @@
 			children = (
 				774E2D4B20A98D4C0039435E /* ContactTBVCell.swift */,
 				77B7C23720B7F4990008E258 /* GBTextField.swift */,
-				77B7C23D20B915EB0008E258 /* GBTransactionTBVC.swift */,
+				77B7C23D20B915EB0008E258 /* GBTransactionTVC.swift */,
 			);
 			path = CustomUIObjects;
 			sourceTree = "<group>";
@@ -571,11 +577,13 @@
 				779417A720B7E4AE00A46BE2 /* AlertHelper.swift in Sources */,
 				77599A3F20A1A78E001FF565 /* ReviewLoginVC.swift in Sources */,
 				779CBEBB20A41FA600341004 /* FirestoreHelper.swift in Sources */,
+				7734162C20C8812C0010EC08 /* GBCoinbaseUser.swift in Sources */,
 				771742B120C1EED400BD0A88 /* PhoneNumberHelper.swift in Sources */,
 				77B7C24020B9216D0008E258 /* GBTransaction.swift in Sources */,
 				774E2D4C20A98D4C0039435E /* ContactTBVCell.swift in Sources */,
 				77599A3520A04A8B001FF565 /* VerifySMSController.swift in Sources */,
 				771742B520C22FEC00BD0A88 /* SendCoinErrorVC.swift in Sources */,
+				7751498E20CA089B00FA206C /* DateaHelper.swift in Sources */,
 				77599A4120A314E1001FF565 /* LoginVC.swift in Sources */,
 				3FC6D4F320B8356100353321 /* coinbaseHelper.swift in Sources */,
 				77B7C23820B7F4990008E258 /* GBTextField.swift in Sources */,
@@ -592,7 +600,7 @@
 				775999FF20A02986001FF565 /* MainVC.swift in Sources */,
 				775999FD20A02986001FF565 /* AppDelegate.swift in Sources */,
 				77C04AB720BECB500043AC0A /* FirebaseHelper.swift in Sources */,
-				77B7C23E20B915EB0008E258 /* GBTransactionTBVC.swift in Sources */,
+				77B7C23E20B915EB0008E258 /* GBTransactionTVC.swift in Sources */,
 				77599A4320A31659001FF565 /* ColorsHelper.swift in Sources */,
 				774E2D5020AC0F240039435E /* ImageHelper.swift in Sources */,
 			);

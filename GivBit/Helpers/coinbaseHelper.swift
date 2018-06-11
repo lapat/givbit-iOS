@@ -16,6 +16,7 @@ class coinbaseoauth : NSObject{
     let meta_all_data = ["":"meta[send_limit_period]=day&meta[send_limit_currency]=USD&meta[send_limit_amount]=500.00&account=all"]
     
     var loginvc = LoginVC()
+    var settingsVC: SettingsVC?
     var oauthswift = OAuth2Swift(
         consumerKey:    "723e663bdd30aac0f9641160de28ce520e1a065853febbd9a9c983569753bcf3",
         consumerSecret: "",
@@ -55,7 +56,9 @@ class coinbaseoauth : NSObject{
             if Auth.auth().currentUser?.providerData[0].providerID == "phone"{
                 FirestoreHelper.sharedInstnace.updateCoinbaseidOnCoinbaseWithUUID(universalUserID: (Auth.auth().currentUser?.uid)!, code: urlString, completionHandler: { (success) in
                     if success == true{
-                        self.loginvc.performSegue(withIdentifier: "requestcontactssegue", sender: self)
+                        if self.settingsVC == nil{
+                            self.loginvc.performSegue(withIdentifier: "requestcontactssegue", sender: self)
+                        }
                     }else{
                         
                     }
