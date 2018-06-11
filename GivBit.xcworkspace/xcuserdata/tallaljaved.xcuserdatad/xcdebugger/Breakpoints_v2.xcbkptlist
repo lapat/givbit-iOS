@@ -24,13 +24,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GivBit/Login/VerifySMSController.swift"
-            timestampString = "550108960.381865"
+            timestampString = "550401905.108925"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "103"
             endingLineNumber = "103"
-            landmarkName = "didTapOnVerifySMSButton(button:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
