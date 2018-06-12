@@ -45,7 +45,7 @@ class coinbaseoauth : NSObject{
     }
     
     func getAccessToken(url: URL){
-        
+        print("getAccessToken")
         var urlString = url.absoluteString
         if urlString.lowercased().range(of:redirectUrl) != nil {
             
@@ -54,13 +54,20 @@ class coinbaseoauth : NSObject{
                 urlString.replaceSubrange(range, with: "")
             }
             if Auth.auth().currentUser?.providerData[0].providerID == "phone"{
-                FirestoreHelper.sharedInstnace.updateCoinbaseidOnCoinbaseWithUUID(universalUserID: (Auth.auth().currentUser?.uid)!, code: urlString, completionHandler: { (success) in
-                    if success == true{
+                FirestoreHelper.sharedInstnace.updateCoinbaseidOnCoinbaseWithUUID(universalUserID: (Auth.auth().currentUser?.uid)!, code: urlString, completionHandler: { (success, email) in
+                    print(success)
+                    print("back from updateCoinbaseidOnCoinbaseWithUUID")
+                    if success == false{
+                        print("ERROR calling updateCoinbaseidOnCoinbaseWithUUID")
+                    }else{
                         if self.settingsVC == nil{
                             self.loginvc.performSegue(withIdentifier: "requestcontactssegue", sender: self)
+                        }else{
+                            print("posting notification email:")
+                            print(email)
+                            let emailDict:[String: String] = ["email": email]
+                            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "finishedLinkingCoinbase"), object: nil, userInfo: emailDict)
                         }
-                    }else{
-                        
                     }
                 })
             }

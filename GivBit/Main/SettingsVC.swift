@@ -24,7 +24,7 @@ class SettingsVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("viewDidLoad - SettingsVC")
         // Do any additional setup after loading the view.
         // make all the subviews disapear
         self.fadedViewHolderUIView.subviews.forEach { (view) in
@@ -36,6 +36,30 @@ class SettingsVC: UIViewController {
         // make the faded view a little rounded on edges
         self.fadedViewHolderUIView.layer.cornerRadius = 5
         
+        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: .UIApplicationWillEnterForeground, object: nil)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(self.finishedLinkingCoinbaseWithSuccess), name: NSNotification.Name(rawValue: "finishedLinkingCoinbase"), object: nil)
+        
+    }
+    
+    @objc func willEnterForeground(){
+        print("willEnterForeground")
+        SVProgressHUD.show()
+
+    }
+    
+
+    @objc func finishedLinkingCoinbaseWithSuccess(_ notification: NSNotification) {
+        print("finishedLinkingCoinbase")
+        SVProgressHUD.dismiss()
+        if let email = notification.userInfo?["email"] as? String {
+            print(email)
+            self.updateViewForLinkedCoinbase(email: email)
+            //Insert code here
+            // do something with your image
+        }else{
+            print("no email in finishedLinkingCoinbaseWithSuccess")
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -43,14 +67,14 @@ class SettingsVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+
+    
     override func viewWillAppear(_ animated: Bool) {
+        print("viewWillAppear SettingsVC")
         // hide the top and bottom bar
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         self.navigationController?.isToolbarHidden = true
-        
-        
         SVProgressHUD.show()
-
         self.functions.httpsCallable("isCoinbaseTokenValid").call([]) { (result, error) in
             SVProgressHUD.dismiss()
             print("done calling")
@@ -68,11 +92,14 @@ class SettingsVC: UIViewController {
                     print(data["error"] as! String)
                 }else{
                     let isValid = data["success"] as! Bool
-                    let email = data["email"] as! String
                     if (isValid == false){
                         print("not valid token, have to relink - show unlinked buttons")
+                        self.fadedViewHolderUIView.subviews.forEach { (view) in
+                            view.isHidden = false
+                        }
                         self.updateViewForUnlinkedCoinbase()
                     }else{
+                        let email = data["email"] as! String
                         print("valid token - show linked buttons")
                         // make all the subviews visible
                         self.fadedViewHolderUIView.subviews.forEach { (view) in
@@ -178,9 +205,9 @@ class SettingsVC: UIViewController {
         FirebaseHelper.executeUnlinkCoinbaseFunction { (error) in
             SVProgressHUD.dismiss()
             if error != nil{
+                print("error in unlinkCoinbase")
                 SVProgressHUD.showError(withStatus: error?.localizedDescription)
             }else{
-                print("error in unlinkCoinbase")
                 self.updateViewForUnlinkedCoinbase()
             }
         }

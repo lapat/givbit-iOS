@@ -116,7 +116,7 @@ class FirestoreHelper: NSObject {
         }
     }
     
-    func updateCoinbaseidOnCoinbaseWithUUID(universalUserID uuid: String,code : String, completionHandler: @escaping (_ success: Bool) -> Void) {
+    func updateCoinbaseidOnCoinbaseWithUUID(universalUserID uuid: String,code : String, completionHandler: @escaping (_ success: Bool, _ email: String) -> Void) {
         let tokens = ["code": code ]
         
         let user = Auth.auth().currentUser
@@ -132,13 +132,27 @@ class FirestoreHelper: NSObject {
                         let code = FunctionsErrorCode(rawValue: error.code)
                         let message = error.localizedDescription
                         let details = error.userInfo[FunctionsErrorDetailsKey]
-                        completionHandler(false)
+                        completionHandler(false, "")
                     }
                 }
                 else{
                     print("printing result.data");
-                    print(result?.data)
-                    completionHandler(true)
+                    
+                    
+                    let data = result?.data as! [String: Any]
+                    if data["error"] != nil{
+                        print("error checking isCoinbaseTokenValid")
+                        print(data["error"] as! String)
+                    }else{
+                        
+                        let data = result?.data as! [String: Any]
+                        if data["email"] != nil{
+                            print("email")
+                            print(data["email"] as! String);
+                            completionHandler(true, data["email"] as! String)
+                        }
+                    }
+                
                 }
             }
             
