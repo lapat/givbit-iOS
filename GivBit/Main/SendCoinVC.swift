@@ -48,8 +48,11 @@ class SendCoinVC: UIViewController {
         self.contact.phoneNumber = numberWithCode // "+12244201331"
         
         if let amountString = fiatToSendLabel.text?.currencyInputFormatting() {
-            fiatToSendLabel.text = amountString
+            print("amountString")
+            print(amountString)
+            //fiatToSendLabel.text = amountString
         }
+        
         self.phonenUmberLabel.text = self.contact.phoneNumber
     }
     
@@ -72,7 +75,7 @@ class SendCoinVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func didTapNumpadButton(button: UIButton){
+   /* @IBAction func didTapNumpadButton(button: UIButton){
         print("didTapNumber")
         if (fiatToSendLabel.text != ""){
           fiatToSendLabel.text?.removeFirst()
@@ -85,8 +88,24 @@ class SendCoinVC: UIViewController {
        
         self.fiatAmountUpdatedByUser()
     }
+ */
+    
+    @IBAction func didTapNumpadButton(button: UIButton){
+        print("didTapNumber")
+        if (fiatToSendLabel.text != ""){
+            fiatToSendLabel.text?.removeFirst()
+        }
+        fiatToSendLabel.text?.append((button.titleLabel?.text)!)
+        if let amountString = fiatToSendLabel.text?.currencyInputFormatting() {
+            fiatToSendLabel.text = amountString
+        }
+        
+        self.fiatAmountUpdatedByUser()
+    }
     
     @IBAction func didTapDeleteNumButton(button: UIButton){
+        print("didTapDeleteNumButton")
+
         self.fiatToSendLabel.text? = "0"
         if let amountString = fiatToSendLabel.text?.currencyInputFormatting() {
             fiatToSendLabel.text = amountString
@@ -141,6 +160,7 @@ class SendCoinVC: UIViewController {
     
     // called when a user does some update to the given fiat amount
     func fiatAmountUpdatedByUser(){
+        
         // get the number in that label
         print("fiatAmountUpdatedByUser")
         print(fiatToSendLabel.text)
@@ -161,7 +181,7 @@ class SendCoinVC: UIViewController {
         amountOfFiatToSend = NSNumber(value: num2)
         print(amountOfFiatToSend)
         // update the btc amount
-        self.updateCryptoToSendAmountLabelFor(fiat: amountOfFiatToSend, crypto: CryptoType.btc)
+        //self.updateCryptoToSendAmountLabelFor(fiat: amountOfFiatToSend, crypto: CryptoType.btc)
     }
     
     func updateCryptoToSendAmountLabelFor(fiat: NSNumber, crypto: CryptoType){
@@ -203,7 +223,6 @@ extension String {
     
     // formatting text for currency textField
     func currencyInputFormatting() -> String {
-        print("here")
         var number: NSNumber!
         let formatter = NumberFormatter()
         formatter.numberStyle = .currencyAccounting
