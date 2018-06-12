@@ -443,11 +443,8 @@
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LRR-Ml-kdB">
-                                <rect key="frame" x="132" y="145" width="111" height="54"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="111" id="v0P-KE-gap"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LRR-Ml-kdB">
+                                <rect key="frame" x="127" y="145" width="121.5" height="54"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="highlightedColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -466,10 +463,13 @@
                                     <action selector="didTapOnSendCoinButtonWithButton:" destination="Lrn-CT-dPn" eventType="touchUpInside" id="ZPv-Hq-bHV"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lpe-Ar-PN2">
-                                <rect key="frame" x="112" y="180" width="12" height="0.0"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lpe-Ar-PN2">
+                                <rect key="frame" x="106.5" y="168" width="12.5" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="12.5" id="Egu-cL-OYs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0000008" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mji-oe-UFD">
@@ -559,10 +559,10 @@
                                             <action selector="didTapNumpadButtonWithButton:" destination="Lrn-CT-dPn" eventType="touchUpInside" id="e1Y-Ni-2R1"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rqD-3e-3TJ">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rqD-3e-3TJ">
                                         <rect key="frame" x="0.0" y="199" width="50" height="66.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <state key="normal" title=".">
+                                        <state key="normal" title=" ">
                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -622,16 +622,8 @@
                                     <constraint firstAttribute="width" constant="50" id="d85-CQ-Re9"/>
                                 </constraints>
                             </stackView>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smallloader" translatesAutoresizingMaskIntoConstraints="NO" id="MPY-JU-KMA">
-                                <rect key="frame" x="238.5" y="210" width="15" height="15"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="15" id="TUl-Gs-olz"/>
-                                    <constraint firstAttribute="height" constant="15" id="UgQ-IX-8IH"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BTC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ia-eq-JM3">
-                                <rect key="frame" x="102" y="206.5" width="32.5" height="20.5"/>
+                                <rect key="frame" x="97" y="206.5" width="32.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -650,7 +642,6 @@
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Usq-mv-VeG" secondAttribute="trailing" constant="20" symbolic="YES" id="5jr-p9-7ht"/>
                             <constraint firstItem="J6e-Vd-KRD" firstAttribute="top" secondItem="Usq-mv-VeG" secondAttribute="bottom" constant="8" id="8yn-m8-dus"/>
                             <constraint firstItem="Hca-E5-In0" firstAttribute="leading" secondItem="J6e-Vd-KRD" secondAttribute="leading" id="9YB-eO-t2T"/>
-                            <constraint firstItem="MPY-JU-KMA" firstAttribute="leading" secondItem="mji-oe-UFD" secondAttribute="trailing" constant="7.5" id="CN5-Cv-qTV"/>
                             <constraint firstItem="l06-1C-im7" firstAttribute="top" relation="greaterThanOrEqual" secondItem="mji-oe-UFD" secondAttribute="bottom" constant="8" id="DQh-q3-PqM"/>
                             <constraint firstItem="l06-1C-im7" firstAttribute="centerX" secondItem="7hL-dt-mhx" secondAttribute="centerX" id="GWl-4S-0j5"/>
                             <constraint firstItem="LRR-Ml-kdB" firstAttribute="top" secondItem="bxn-zo-Gjg" secondAttribute="bottom" constant="50" id="GeZ-rT-UNh"/>
@@ -671,7 +662,6 @@
                             <constraint firstItem="1Ww-yK-fj7" firstAttribute="centerY" secondItem="bxn-zo-Gjg" secondAttribute="centerY" id="cgr-M9-1j2"/>
                             <constraint firstItem="LRR-Ml-kdB" firstAttribute="centerX" secondItem="7hL-dt-mhx" secondAttribute="centerX" id="ePT-gh-vT1"/>
                             <constraint firstItem="mji-oe-UFD" firstAttribute="top" secondItem="LRR-Ml-kdB" secondAttribute="bottom" constant="8" id="gsl-Zu-WEa"/>
-                            <constraint firstItem="MPY-JU-KMA" firstAttribute="centerY" secondItem="mji-oe-UFD" secondAttribute="centerY" id="hPe-T3-hg9"/>
                             <constraint firstItem="4Ia-eq-JM3" firstAttribute="centerY" secondItem="mji-oe-UFD" secondAttribute="centerY" id="iiU-v9-LIG"/>
                             <constraint firstItem="onl-ZJ-dsb" firstAttribute="top" secondItem="CHc-g2-ymc" secondAttribute="top" id="jBi-r7-w9x"/>
                             <constraint firstItem="Usq-mv-VeG" firstAttribute="leading" secondItem="bxn-zo-Gjg" secondAttribute="trailing" constant="7.5" id="jFf-Hc-fjG"/>
@@ -1059,7 +1049,6 @@
         <image name="logout" width="18" height="18"/>
         <image name="right" width="18" height="18"/>
         <image name="sliders" width="18" height="18"/>
-        <image name="smallloader" width="18" height="18"/>
         <image name="users" width="18" height="18"/>
     </resources>
     <inferredMetricsTieBreakers>

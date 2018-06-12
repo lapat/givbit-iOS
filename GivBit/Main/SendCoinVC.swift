@@ -162,31 +162,27 @@ class SendCoinVC: UIViewController {
     func fiatAmountUpdatedByUser(){
         
         // get the number in that label
-        print("fiatAmountUpdatedByUser")
-        print(fiatToSendLabel.text)
         let numString = fiatToSendLabel.text! as NSString
         
         print(numString)
         let num = numString.floatValue
         //THIS IS CONVERTED TO 0?
-        print(num)
+        //print(num)
 
         let numNoCurrencySymbol = numString.replacingOccurrences(of: "$", with: "") as NSString
         let numNoCommaSymbol = numNoCurrencySymbol.replacingOccurrences(of: ",", with: "") as NSString
-
+        
         let num2 = numNoCommaSymbol.floatValue
-        print("num2")
-
-        print(num2)
+        
         amountOfFiatToSend = NSNumber(value: num2)
-        print(amountOfFiatToSend)
         // update the btc amount
         //self.updateCryptoToSendAmountLabelFor(fiat: amountOfFiatToSend, crypto: CryptoType.btc)
     }
     
+    // updates the crypto label for the given fiat amount
     func updateCryptoToSendAmountLabelFor(fiat: NSNumber, crypto: CryptoType){
         print("updateCryptoToSendAmountLabelFor")
-
+        
         print(fiat.doubleValue)
         print(cryptoPriceInFiat.doubleValue)
         let amount = (fiat.doubleValue) / (cryptoPriceInFiat.doubleValue)
