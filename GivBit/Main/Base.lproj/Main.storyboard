@@ -415,11 +415,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ww-yK-fj7">
-                                <rect key="frame" x="22" y="50" width="34" height="30"/>
-                                <state key="normal" title="Back">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ww-yK-fj7">
+                                <rect key="frame" x="22" y="54" width="21" height="22"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="back-arrow"/>
                                 <connections>
                                     <segue destination="yls-UP-JwL" kind="unwind" unwindAction="unwindToMainViewControllerWithSegue:" id="52m-gU-GTM"/>
                                 </connections>
@@ -647,7 +646,6 @@
                             <constraint firstItem="LRR-Ml-kdB" firstAttribute="top" secondItem="bxn-zo-Gjg" secondAttribute="bottom" constant="50" id="GeZ-rT-UNh"/>
                             <constraint firstItem="bxn-zo-Gjg" firstAttribute="centerX" secondItem="7hL-dt-mhx" secondAttribute="centerX" constant="-50" id="KmN-lZ-WKo"/>
                             <constraint firstItem="P62-wi-QHk" firstAttribute="centerY" secondItem="CHc-g2-ymc" secondAttribute="centerY" id="MGp-dK-OH0"/>
-                            <constraint firstItem="4Ia-eq-JM3" firstAttribute="centerX" secondItem="lpe-Ar-PN2" secondAttribute="centerX" id="Sir-mm-iBQ"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="J6e-Vd-KRD" secondAttribute="trailing" constant="20" symbolic="YES" id="Spd-QZ-GBZ"/>
                             <constraint firstItem="P62-wi-QHk" firstAttribute="bottom" secondItem="CHc-g2-ymc" secondAttribute="bottom" id="XMh-Xz-rUI"/>
                             <constraint firstItem="CHc-g2-ymc" firstAttribute="top" secondItem="l06-1C-im7" secondAttribute="bottom" constant="8" id="Y1Q-iT-ovQ"/>
@@ -665,6 +663,7 @@
                             <constraint firstItem="4Ia-eq-JM3" firstAttribute="centerY" secondItem="mji-oe-UFD" secondAttribute="centerY" id="iiU-v9-LIG"/>
                             <constraint firstItem="onl-ZJ-dsb" firstAttribute="top" secondItem="CHc-g2-ymc" secondAttribute="top" id="jBi-r7-w9x"/>
                             <constraint firstItem="Usq-mv-VeG" firstAttribute="leading" secondItem="bxn-zo-Gjg" secondAttribute="trailing" constant="7.5" id="jFf-Hc-fjG"/>
+                            <constraint firstItem="mji-oe-UFD" firstAttribute="leading" secondItem="4Ia-eq-JM3" secondAttribute="trailing" constant="15" id="kfC-8v-tfh"/>
                             <constraint firstItem="onl-ZJ-dsb" firstAttribute="centerY" secondItem="CHc-g2-ymc" secondAttribute="centerY" id="kuv-Ae-Bax"/>
                             <constraint firstItem="mji-oe-UFD" firstAttribute="centerX" secondItem="LRR-Ml-kdB" secondAttribute="centerX" id="m1s-vy-7hA"/>
                             <constraint firstItem="Hca-E5-In0" firstAttribute="top" secondItem="J6e-Vd-KRD" secondAttribute="bottom" constant="0.5" id="nCA-l3-1PN"/>

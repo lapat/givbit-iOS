@@ -62,6 +62,9 @@ class MainVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         // hide the top and bottom bar
         self.navigationController?.setNavigationBarHidden(false, animated: true)
+        // show bottom bar
+        self.tabBarController?.tabBar.isHidden = false
+        
     }
     
     override func viewWillLayoutSubviews() {
