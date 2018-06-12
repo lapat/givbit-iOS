@@ -147,8 +147,8 @@ class SendCoinVC: UIViewController {
         print(numString)
         let num = numString.floatValue
         //THIS IS CONVERTED TO 0?
-        //print(num)
-        
+        //print(num)        
+        // strips the $ and , from the given fiat label
         let numNoCurrencySymbol = numString.replacingOccurrences(of: "$", with: "") as NSString
         let numNoCommaSymbol = numNoCurrencySymbol.replacingOccurrences(of: ",", with: "") as NSString
         

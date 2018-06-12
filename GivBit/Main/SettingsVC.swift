@@ -20,7 +20,8 @@ class SettingsVC: UIViewController {
     // used to show if viewwill appear should refresh the coinbase user or just use the current coinbase user. Since user might have attempted to
     // reconnect a different coinbase
     var userIsRelinkingCoinbase: Bool! = false
-    
+    var functions = Functions.functions()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,6 +48,47 @@ class SettingsVC: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         self.navigationController?.isToolbarHidden = true
         
+        
+        SVProgressHUD.show()
+
+        self.functions.httpsCallable("isCoinbaseTokenValid").call([]) { (result, error) in
+            SVProgressHUD.dismiss()
+            print("done calling")
+            if error != nil{
+                print("Error performing function \(String(describing: error?.localizedDescription))")
+                SVProgressHUD.showError(withStatus: error?.localizedDescription)
+                //self.errorToSendToErrorView = error?.localizedDescription
+                //self.performSegue(withIdentifier: "failure-trans-segue", sender: self)
+            }else{
+                print("isCoinbaseTokenValid returned")
+                print(result?.data ?? "")
+                let data = result?.data as! [String: Any]
+                if data["error"] != nil{
+                    print("error checking isCoinbaseTokenValid")
+                    print(data["error"] as! String)
+                }else{
+                    let isValid = data["success"] as! Bool
+                    let email = data["email"] as! String
+                    if (isValid == false){
+                        print("not valid token, have to relink - show unlinked buttons")
+                        self.updateViewForUnlinkedCoinbase()
+                    }else{
+                        print("valid token - show linked buttons")
+                        // make all the subviews visible
+                        self.fadedViewHolderUIView.subviews.forEach { (view) in
+                            view.isHidden = false
+                        }
+                        self.updateViewForLinkedCoinbase(email : email)
+                    }
+                }
+
+            }
+        }
+        
+        
+        
+        
+        /*
         if GBCoinbaseUser.sharedInstance.hasUser == false || userIsRelinkingCoinbase == true{
             self.userIsRelinkingCoinbase = false
             // coinbaseuser info is not present, try to fetch it
@@ -76,6 +118,7 @@ class SettingsVC: UIViewController {
             // update the ui
             self.updateViewForLinkedCoinbase()
         }
+        */
     }
 
     /*
@@ -103,11 +146,12 @@ class SettingsVC: UIViewController {
     }
     
     // updates the view when coinbase is present and user is logged in
-    func updateViewForLinkedCoinbase(){
+    func updateViewForLinkedCoinbase(email: String){
+        print(email)
         DispatchQueue.main.async {
             self.unlinkCoinbaseButton.isHidden = false
             self.linkCoinbaseButton.titleLabel?.text = "Relink"
-            self.coinbaseEmailLabel.text = GBCoinbaseUser.sharedInstance.email
+            self.coinbaseEmailLabel.text = email
 
         }
         //UIView.animate(withDuration: 0.5) {
