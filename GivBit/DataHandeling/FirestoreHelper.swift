@@ -124,8 +124,11 @@ class FirestoreHelper: NSObject {
             // Add a new document with a generated ID
                 
             functions.httpsCallable("linkCoinbaseWithCode").call(["code":code ,"uriRedirect":coinbaseoauth.sharedInstnace.redirectUrl]) { (result, error) in
+                print("linkCoinbaseWithCode returned");
                 if let error = error as NSError? {
                     if error.domain == FunctionsErrorDomain {
+                        print("got error");
+                        print(error.localizedDescription);
                         let code = FunctionsErrorCode(rawValue: error.code)
                         let message = error.localizedDescription
                         let details = error.userInfo[FunctionsErrorDetailsKey]
@@ -133,7 +136,8 @@ class FirestoreHelper: NSObject {
                     }
                 }
                 else{
-                    
+                    print("printing result.data");
+                    print(result?.data)
                     completionHandler(true)
                 }
             }

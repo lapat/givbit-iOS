@@ -48,11 +48,8 @@ class SendCoinVC: UIViewController {
         self.contact.phoneNumber = numberWithCode // "+12244201331"
         
         if let amountString = fiatToSendLabel.text?.currencyInputFormatting() {
-            print("amountString")
-            print(amountString)
-            //fiatToSendLabel.text = amountString
+            fiatToSendLabel.text = amountString
         }
-        
         self.phonenUmberLabel.text = self.contact.phoneNumber
     }
     
@@ -65,7 +62,7 @@ class SendCoinVC: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        // stop listening 
+        // stop listening
         self.cryptoPriceUpdateListener.remove()
     }
     
@@ -74,21 +71,6 @@ class SendCoinVC: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-   /* @IBAction func didTapNumpadButton(button: UIButton){
-        print("didTapNumber")
-        if (fiatToSendLabel.text != ""){
-          fiatToSendLabel.text?.removeFirst()
-        }
-        fiatToSendLabel.text?.append((button.titleLabel?.text)!)
-        if let amountString = fiatToSendLabel.text?.currencyInputFormatting() {
-            fiatToSendLabel.text = amountString
-        }
-    
-       
-        self.fiatAmountUpdatedByUser()
-    }
- */
     
     @IBAction func didTapNumpadButton(button: UIButton){
         print("didTapNumber")
@@ -100,12 +82,11 @@ class SendCoinVC: UIViewController {
             fiatToSendLabel.text = amountString
         }
         
+        
         self.fiatAmountUpdatedByUser()
     }
     
     @IBAction func didTapDeleteNumButton(button: UIButton){
-        print("didTapDeleteNumButton")
-
         self.fiatToSendLabel.text? = "0"
         if let amountString = fiatToSendLabel.text?.currencyInputFormatting() {
             fiatToSendLabel.text = amountString
@@ -154,13 +135,12 @@ class SendCoinVC: UIViewController {
             self.cryptoPriceInFiat = value
             // update the crypto amount for the given dollars.
             self.fiatAmountUpdatedByUser()
-
+            
         })
     }
     
     // called when a user does some update to the given fiat amount
     func fiatAmountUpdatedByUser(){
-        
         // get the number in that label
         let numString = fiatToSendLabel.text! as NSString
         
@@ -168,7 +148,7 @@ class SendCoinVC: UIViewController {
         let num = numString.floatValue
         //THIS IS CONVERTED TO 0?
         //print(num)
-
+        
         let numNoCurrencySymbol = numString.replacingOccurrences(of: "$", with: "") as NSString
         let numNoCommaSymbol = numNoCurrencySymbol.replacingOccurrences(of: ",", with: "") as NSString
         
@@ -176,7 +156,7 @@ class SendCoinVC: UIViewController {
         
         amountOfFiatToSend = NSNumber(value: num2)
         // update the btc amount
-        //self.updateCryptoToSendAmountLabelFor(fiat: amountOfFiatToSend, crypto: CryptoType.btc)
+        self.updateCryptoToSendAmountLabelFor(fiat: amountOfFiatToSend, crypto: CryptoType.btc)
     }
     
     // updates the crypto label for the given fiat amount
@@ -212,13 +192,14 @@ class SendCoinVC: UIViewController {
     @IBAction func unwindToSendCoinVC(segue: UIStoryboardSegue){
         
     }
- 
+    
 }
 
 extension String {
     
     // formatting text for currency textField
     func currencyInputFormatting() -> String {
+        print("here")
         var number: NSNumber!
         let formatter = NumberFormatter()
         formatter.numberStyle = .currencyAccounting
@@ -237,8 +218,8 @@ extension String {
         
         // if first number is 0 or all numbers were deleted
         //guard number != 0 as NSNumber else {
-         //   return ""
-       // }
+        //   return ""
+        // }
         
         return formatter.string(from: number)!
     }

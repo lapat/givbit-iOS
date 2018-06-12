@@ -91,7 +91,9 @@ class SettingsVC: UIViewController {
     //MARK: - View
     // updates the view for when user has no coinbase linked to his account
     func updateViewForUnlinkedCoinbase(){
+        print("updateViewForUnlinkedCoinbase")
         DispatchQueue.main.async {
+            print("setting buttons")
             self.unlinkCoinbaseButton.isHidden = true
             self.linkCoinbaseButton.titleLabel?.text = "Link Coinbase"
             self.coinbaseEmailLabel.text = "No account Linked"
@@ -132,9 +134,10 @@ class SettingsVC: UIViewController {
         FirebaseHelper.executeUnlinkCoinbaseFunction { (error) in
             SVProgressHUD.dismiss()
             if error != nil{
-                self.updateViewForUnlinkedCoinbase()
-            }else{
                 SVProgressHUD.showError(withStatus: error?.localizedDescription)
+            }else{
+                print("error in unlinkCoinbase")
+                self.updateViewForUnlinkedCoinbase()
             }
         }
     }
