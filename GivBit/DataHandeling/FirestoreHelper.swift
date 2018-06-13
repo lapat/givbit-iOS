@@ -93,13 +93,16 @@ class FirestoreHelper: NSObject {
     
     //MARK: Transactions
     func getTransactionsForUser(uuid: String, completionHandler: @escaping (_ transactions: [GBTransaction], _ success: Bool) -> Void){
+        //MONEY I SENT
         let query = db.collection("transactions").whereField("sender_uid", isEqualTo: uuid)
+        var transactions = [GBTransaction]()
+        var transactions2 = [GBTransaction]()
+
         query.getDocuments { (querySnapShot, error) in
             if error != nil{
                 // Error occured
                 completionHandler([GBTransaction](), false)
             }else{
-                var transactions = [GBTransaction]()
                 for document in querySnapShot!.documents{
                     let transaction = GBTransaction()
                     transaction.cryptoAmount = document.data()["btc_amount"] as! Double
@@ -110,12 +113,46 @@ class FirestoreHelper: NSObject {
                     transaction.recieverUID = document.data()["receiver_uid"] as! String
                     transaction.senderUID = document.data()["sender_uid"] as! String
                     transaction.recieverName = document.data()["receiver_name"] as! String
-
+                    transaction.senderName = document.data()["sender_name"] as! String
+                    transaction.sent = true
                     transactions.append(transaction)
                 }
-                completionHandler(transactions, true)
+                //completionHandler(transactions, true)
+            }
+        
+            //MONEY I RECEIVED
+            let queryReceiver = self.db.collection("transactions").whereField("receiver_uid", isEqualTo: uuid)
+            queryReceiver.getDocuments { (querySnapShot, error) in
+                if error != nil{
+                    // Error occured
+                    completionHandler([GBTransaction](), false)
+                }else{
+                    //var transactions = [GBTransaction]()
+                    for document in querySnapShot!.documents{
+                        let transaction = GBTransaction()
+                        transaction.cryptoAmount = document.data()["btc_amount"] as! Double
+                        transaction.coinbaseItemID = document.data()["coinbase_idem_id"] as! String
+                        transaction.date = document.data()["date"] as! TimeInterval/1000
+                        transaction.pending = document.data()["pending"] as! Bool
+                        transaction.recieverPhoneNumber = document.data()["receiver_phone_number"] as! String
+                        transaction.recieverUID = document.data()["receiver_uid"] as! String
+                        transaction.senderUID = document.data()["sender_uid"] as! String
+                        transaction.recieverName = document.data()["receiver_name"] as! String
+                        transaction.senderName = document.data()["sender_name"] as! String
+                        transaction.sent = false
+                        transactions.append(transaction)
+                    }
+                }
+                transactions2 = transactions.sorted(by: { $0.date > $1.date })
+                //transactions.sort{
+                //    (($0 )["date"] as? Int)! < (($1 as! GBTransaction)["date"] as? Int)!
+                //}
+                completionHandler(transactions2, true)
             }
         }
+       
+
+
     }
     
     func updateCoinbaseidOnCoinbaseWithUUID(universalUserID uuid: String,code : String, completionHandler: @escaping (_ success: Bool, _ email: String) -> Void) {

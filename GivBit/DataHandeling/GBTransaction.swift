@@ -13,10 +13,12 @@ class GBTransaction: NSObject {
     var coinbaseItemID: String!
     var date: TimeInterval!
     var pending: Bool!
+    var sent: Bool!
     var recieverPhoneNumber: String!
     var recieverUID: String!
     var senderUID: String!
     var recieverName: String!
+    var senderName: String!
     override init() {
         
     }

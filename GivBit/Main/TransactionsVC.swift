@@ -8,6 +8,7 @@
 
 import UIKit
 import SVProgressHUD
+import FirebaseAuth
 
 class TransactionsVC: UIViewController {
     
@@ -17,11 +18,17 @@ class TransactionsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        print("viewDidAppear")
+        print("viewDidLoad transaction")
         // Do any additional setup after loading the view.
         
         // get the transactions from firestore
         SVProgressHUD.show()
-        FirestoreHelper.sharedInstnace.getTransactionsForUser(uuid: "ZQXoizqn06aTCBtkdQiGlYsosi13") { (transactions, status) in
+        FirestoreHelper.sharedInstnace.getTransactionsForUser(uuid: (Auth.auth().currentUser?.uid)!) { (transactions, status) in
             SVProgressHUD.dismiss()
             if status{
                 self.transactions = transactions
@@ -32,7 +39,6 @@ class TransactionsVC: UIViewController {
             }
         }
     }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
