@@ -16,7 +16,7 @@ class GBTransaction: NSObject {
     var recieverPhoneNumber: String!
     var recieverUID: String!
     var senderUID: String!
-    
+    var recieverName: String!
     override init() {
         
     }

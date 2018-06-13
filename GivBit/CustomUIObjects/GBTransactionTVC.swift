@@ -31,7 +31,7 @@ class GBTransactionTVC: UITableViewCell {
     func populateCellWithGBTransanctions(transaction: GBTransaction){
         numberLabel.text = transaction.recieverPhoneNumber
         cryptoAmountLabel.text = String(format: "BTC %.6f", transaction.cryptoAmount)
-        nameLabel.text = "NO NAME"
+        nameLabel.text = transaction.recieverName
         // set the time interval
         let transactionDate = Date.init(timeIntervalSince1970: transaction.date)
         DateaHelper.getTimeSinceStringFrom(timeInterval: transaction.date)

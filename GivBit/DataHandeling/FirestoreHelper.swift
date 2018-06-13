@@ -109,6 +109,8 @@ class FirestoreHelper: NSObject {
                     transaction.recieverPhoneNumber = document.data()["receiver_phone_number"] as! String
                     transaction.recieverUID = document.data()["receiver_uid"] as! String
                     transaction.senderUID = document.data()["sender_uid"] as! String
+                    transaction.recieverName = document.data()["receiver_name"] as! String
+
                     transactions.append(transaction)
                 }
                 completionHandler(transactions, true)
