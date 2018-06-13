@@ -105,7 +105,9 @@ class SendCoinVC: UIViewController {
             print("BTC:")
             print(btcToSend)
             SVProgressHUD.show()
-            functions.httpsCallable("sendCrypto").call(["btcAmount": btcToSend, "sendToPhoneNumber": self.contact.phoneNumber]) { (result, error) in
+            print("sendToName:")
+            print(self.contact.name)
+            functions.httpsCallable("sendCrypto").call(["btcAmount": btcToSend, "sendToPhoneNumber": self.contact.phoneNumber, "sendToName": self.contact.name]) { (result, error) in
                 if error != nil{
                     print("Error performing function \(String(describing: error?.localizedDescription))")
                     self.errorToSendToErrorView = error?.localizedDescription
