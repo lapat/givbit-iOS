@@ -30,7 +30,7 @@ class GBTransactionTVC: UITableViewCell {
     // populates the transaction using givbit transaction item
     func populateCellWithGBTransanctions(transaction: GBTransaction){
         numberLabel.text = transaction.recieverPhoneNumber
-        cryptoAmountLabel.text = String(format: "BTC %.6f", transaction.cryptoAmount)
+        cryptoAmountLabel.text = String(format: "%.6f BTC", transaction.cryptoAmount)
         let senderNameStr = transaction.senderName
         let receiverNameStr = transaction.recieverName
         nameLabel.text = senderNameStr! + " sent to " + receiverNameStr!
@@ -39,14 +39,20 @@ class GBTransactionTVC: UITableViewCell {
         DateaHelper.getTimeSinceStringFrom(timeInterval: transaction.date)
         // generate the date since string
         let dateSinceString = DateaHelper.getTimeSinceStringFrom(timeInterval: transaction.date)
-        timeSinceLabel.text = dateSinceString
+        if (transaction.pending){
+            timeSinceLabel.text = dateSinceString
+            timeSinceLabel.textColor  = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1.0)
+        }else{
+            timeSinceLabel.text = "Pending"
+            timeSinceLabel.textColor  = UIColor(red: 69/255, green: 79/255, blue: 172/255, alpha: 1.0)
+        }
         
         // get the price of btc and set it
         FirestoreHelper.sharedInstnace.getBTCPriceInDollars { (value, status) in
             if status{
                 if (transaction.sent){
                     self.fiatAmountLabel.text = String(format: "- $%.2f", value! * transaction.cryptoAmount)
-                    self.fiatAmountLabel.textColor = UIColor(red: 255/255, green: 80/255, blue: 80/255, alpha: 1.0)
+                    self.fiatAmountLabel.textColor = UIColor(red: 255/255, green: 0/255, blue: 0/255, alpha: 1.0)
                 }else{
                     self.fiatAmountLabel.text = String(format: "+ $%.2f", value! * transaction.cryptoAmount)
                     self.fiatAmountLabel.textColor = UIColor(red: 70/255, green: 250/255, blue: 78/255, alpha: 1.0)
