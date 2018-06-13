@@ -9,6 +9,7 @@
 import Foundation
 import Firebase
 import OAuthSwift
+import SVProgressHUD
 
 class coinbaseoauth : NSObject{
     
@@ -46,6 +47,8 @@ class coinbaseoauth : NSObject{
     
     func getAccessToken(url: URL){
         print("getAccessToken")
+        SVProgressHUD.show()
+
         var urlString = url.absoluteString
         if urlString.lowercased().range(of:redirectUrl) != nil {
             
@@ -57,6 +60,7 @@ class coinbaseoauth : NSObject{
                 FirestoreHelper.sharedInstnace.updateCoinbaseidOnCoinbaseWithUUID(universalUserID: (Auth.auth().currentUser?.uid)!, code: urlString, completionHandler: { (success, email) in
                     print(success)
                     print("back from updateCoinbaseidOnCoinbaseWithUUID")
+                    SVProgressHUD.dismiss()
                     if success == false{
                         print("ERROR calling updateCoinbaseidOnCoinbaseWithUUID")
                     }else{

@@ -20,6 +20,7 @@ class ReviewLoginVC: LoginVC {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("reviewLoginVc")
 
         // Do any additional setup after loading the view.
         

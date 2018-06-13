@@ -19,7 +19,7 @@ class FBLoginVC: LoginVC {
     // MARK: - UI Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("FBLogin")
         // Do any additional setup after loading the view.
         
         // Add login with fb button

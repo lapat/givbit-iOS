@@ -14,6 +14,7 @@ class RequestContactsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("requestContactsVC")
         
         // Do any additional setup after loading the view.
         self.requestContactsButton.layer.cornerRadius = 5

@@ -27,7 +27,7 @@ class VerifySMSController: LoginVC {
     //MARK: - VCFunction
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("verifySMS")
         // Do any additional setup after loading the view.
         verifyButton.layer.cornerRadius = 5
         verifyButton.layer.masksToBounds = true

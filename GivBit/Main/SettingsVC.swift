@@ -44,8 +44,6 @@ class SettingsVC: UIViewController {
     
     @objc func willEnterForeground(){
         print("willEnterForeground")
-        SVProgressHUD.show()
-
     }
     
 

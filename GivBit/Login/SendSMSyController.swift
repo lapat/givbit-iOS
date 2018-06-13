@@ -21,7 +21,7 @@ class SendSMSyController: LoginVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("SendSMS")
         // Do any additional setup after loading the view.
         verifySMSButton.layer.cornerRadius = 5
         
