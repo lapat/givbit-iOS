@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class CoinbaseVC: LoginVC {
 
@@ -38,9 +39,9 @@ class CoinbaseVC: LoginVC {
     */
     
     @IBAction func didTapOnSignUpWithCoinbase(button: UIButton){
-        if let url = URL(string: "https://www.coinbase.com/signup?locale=en") {
-            UIApplication.shared.open(url, options: [:])
-        }
+        let svc = SFSafariViewController(url: NSURL(string: "https://www.coinbase.com/join/5924d7298fb60a02816ccc08")! as URL)
+        self.present(svc, animated: true, completion: nil)
+        print("used sariview")
 
     }
     

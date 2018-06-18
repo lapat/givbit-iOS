@@ -185,6 +185,7 @@ class SettingsVC: UIViewController {
     
     //MARK: - Actions
     @IBAction func didTapSignOutButton(){
+        SVProgressHUD.dismiss()
         if Auth.auth().currentUser != nil{
             do{
                 try Auth.auth().signOut()

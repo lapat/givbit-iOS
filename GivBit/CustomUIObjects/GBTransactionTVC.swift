@@ -40,11 +40,11 @@ class GBTransactionTVC: UITableViewCell {
         // generate the date since string
         let dateSinceString = DateaHelper.getTimeSinceStringFrom(timeInterval: transaction.date)
         if (transaction.pending){
-            timeSinceLabel.text = dateSinceString
-            timeSinceLabel.textColor  = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1.0)
-        }else{
             timeSinceLabel.text = "Pending"
             timeSinceLabel.textColor  = UIColor(red: 69/255, green: 79/255, blue: 172/255, alpha: 1.0)
+        }else{
+            timeSinceLabel.text = dateSinceString
+            timeSinceLabel.textColor  = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1.0)
         }
         
         // get the price of btc and set it
@@ -52,10 +52,10 @@ class GBTransactionTVC: UITableViewCell {
             if status{
                 if (transaction.sent){
                     self.fiatAmountLabel.text = String(format: "- $%.2f", value! * transaction.cryptoAmount)
-                    self.fiatAmountLabel.textColor = UIColor(red: 255/255, green: 0/255, blue: 0/255, alpha: 1.0)
+                    self.fiatAmountLabel.textColor = UIColor(red: 255/255, green: 0/255, blue: 0/255, alpha: 0.6)
                 }else{
                     self.fiatAmountLabel.text = String(format: "+ $%.2f", value! * transaction.cryptoAmount)
-                    self.fiatAmountLabel.textColor = UIColor(red: 70/255, green: 250/255, blue: 78/255, alpha: 1.0)
+                    self.fiatAmountLabel.textColor = UIColor(red: 123/255, green: 198/255, blue: 79/255, alpha: 1.0)
                 }
             }
         }
