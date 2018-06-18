@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oHZ-fw-Di2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oHZ-fw-Di2">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -79,6 +79,7 @@
                                 <color key="tintColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="back-arrow"/>
                                 <connections>
+                                    <action selector="BackButtonPress:" destination="EQW-bb-4sJ" eventType="touchUpInside" id="iAJ-1l-Jao"/>
                                     <segue destination="1Ar-YT-8y9" kind="unwind" unwindAction="unwindToMainViewControllerWithSegue:" id="Ekw-VN-XT6"/>
                                 </connections>
                             </button>
@@ -173,7 +174,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mHp-u1-GoM" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="1Ar-YT-8y9" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4072.8000000000002" y="-1063.7181409295354"/>
+            <point key="canvasLocation" x="4206" y="-1067"/>
         </scene>
         <!--GivBit-->
         <scene sceneID="imK-n3-O6T">
@@ -691,7 +692,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ikb-NH-pey" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="yls-UP-JwL" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4072.8000000000002" y="-376.46176911544228"/>
+            <point key="canvasLocation" x="4206" y="-123"/>
         </scene>
         <!--Send Coin SuccesVC-->
         <scene sceneID="loT-OL-fmA">
@@ -783,7 +784,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wYZ-mn-usJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ojE-An-YVk" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4950" y="-669"/>
+            <point key="canvasLocation" x="4942" y="-961"/>
         </scene>
         <!--Send Coin ErrorVC-->
         <scene sceneID="USo-la-JLG">
@@ -1037,7 +1038,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Khh-ED-9Si" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3288.8000000000002" y="453.82308845577217"/>
+            <point key="canvasLocation" x="3318" y="454"/>
         </scene>
     </scenes>
     <resources>

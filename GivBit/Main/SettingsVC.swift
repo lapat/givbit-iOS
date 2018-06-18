@@ -60,9 +60,15 @@ class SettingsVC: UIViewController {
         }
     }
     
+    @IBAction func BackButtonPress(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+        
+        dismiss(animated: true, completion: nil)
+        // Dispose of any resources that can be recreated.
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+       
     }
     
 

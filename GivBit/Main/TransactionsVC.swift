@@ -21,7 +21,9 @@ class TransactionsVC: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        // show bottom bar
+        self.tabBarController?.tabBar.isHidden = false
         print("viewDidAppear")
         print("viewDidLoad transaction")
         // Do any additional setup after loading the view.
