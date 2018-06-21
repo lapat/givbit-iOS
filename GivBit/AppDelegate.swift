@@ -13,6 +13,7 @@ import Firebase
 import FirebaseAuth
 import IQKeyboardManagerSwift
 import FirebaseMessaging
+import FirebaseFunctions
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -203,6 +204,22 @@ extension AppDelegate : MessagingDelegate {
         
         let dataDict:[String: String] = ["token": fcmToken]
         NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
+        let functions = Functions.functions()
+        functions.httpsCallable("updateUserRegistration").call(["registrationToken": fcmToken]) { (result, error) in
+            if error != nil{
+                print("Error performing function \(String(describing: error?.localizedDescription))")
+            
+            }else{
+                print(result?.data ?? "")
+                let data = result?.data as! [String: Any]
+                if data["error"] != nil{
+                    print("error")
+                }else{
+                    print("we good")
+                }
+            }
+        }
+        
         // TODO: If necessary send token to application server.
         // Note: This callback is fired at each app startup and whenever a new token is generated.
     }
