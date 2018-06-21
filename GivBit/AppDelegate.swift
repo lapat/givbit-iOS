@@ -117,7 +117,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // [START receive_message]
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
         print("didReceiveRemoteNotification1")
-
+        
         // If you are receiving a notification message while your app is in the background,
         // this callback will not be fired till the user taps on the notification launching the application.
         // TODO: Handle data of notification
@@ -125,7 +125,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Messaging.messaging().appDidReceiveMessage(userInfo)
         // Print message ID.
         if let messageID = userInfo[gcmMessageIDKey] {
-            print("Message ID: \(messageID)")
+            print("1 Message ID: \(messageID)")
         }
         
         // Print full message.
@@ -142,12 +142,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Messaging.messaging().appDidReceiveMessage(userInfo)
         // Print message ID.
         if let messageID = userInfo[gcmMessageIDKey] {
-            print("Message ID: \(messageID)")
+            print("2 Message ID: \(messageID)")
         }
         
         // Print full message.
         print(userInfo)
+        //_ = UNNotificationAction(identifier: "like", title: "Like", options: [])
         
+        
+
+
         completionHandler(UIBackgroundFetchResult.newData)
     }
     // [END receive_message]
@@ -173,6 +177,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 @available(iOS 10, *)
 extension AppDelegate : UNUserNotificationCenterDelegate {
     
+    //THIS IS CALLED WHEN APP IS OPEN AND THEY GET A NOTIFICATION ****
+    
     // Receive displayed notifications for iOS 10 devices.
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 willPresent notification: UNNotification,
@@ -183,12 +189,11 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         // Messaging.messaging().appDidReceiveMessage(userInfo)
         // Print message ID.
         if let messageID = userInfo[gcmMessageIDKey] {
-            print("Message ID: \(messageID)")
+            print("3 Message ID: \(messageID)")
         }
         
         // Print full message.
         print(userInfo)
-        
         // Change this to your preferred presentation option
         completionHandler([])
     }
@@ -207,15 +212,14 @@ extension AppDelegate : MessagingDelegate {
         let functions = Functions.functions()
         functions.httpsCallable("updateUserRegistration").call(["registrationToken": fcmToken]) { (result, error) in
             if error != nil{
-                print("Error performing function \(String(describing: error?.localizedDescription))")
-            
+                print("Error performing updateUserRegistration function \(String(describing: error?.localizedDescription))")
             }else{
                 print(result?.data ?? "")
                 let data = result?.data as! [String: Any]
                 if data["error"] != nil{
-                    print("error")
+                    print("error - updateUserRegistration")
                 }else{
-                    print("we good")
+
                 }
             }
         }
