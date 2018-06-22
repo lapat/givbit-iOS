@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oHZ-fw-Di2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oHZ-fw-Di2">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -30,6 +30,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iLG-Vk-ETh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2553" y="-376"/>
+        </scene>
+        <!--Vendor-->
+        <scene sceneID="8M7-T0-dcH">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Vendor" id="VSS-ce-BTr" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="SHD-Da-fEY"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WIV-TO-t2C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1603" y="516"/>
         </scene>
         <!--History-->
         <scene sceneID="FZ8-9j-K0X">
@@ -876,6 +886,7 @@
                     <connections>
                         <segue destination="9Vm-vC-YLw" kind="relationship" relationship="viewControllers" id="QxA-ew-4Re"/>
                         <segue destination="jry-eV-eae" kind="relationship" relationship="viewControllers" id="rrY-Lk-9cD"/>
+                        <segue destination="VSS-ce-BTr" kind="relationship" relationship="viewControllers" id="6Zl-Fj-f9A"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cjp-LR-9tQ" userLabel="First Responder" sceneMemberID="firstResponder"/>

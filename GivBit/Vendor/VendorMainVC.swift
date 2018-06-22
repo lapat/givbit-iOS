@@ -1,23 +1,20 @@
 //
-//  LoginVC.swift
+//  VendorMainVC.swift
 //  GivBit
 //
-//  Created by Tallal Javed on 5/9/18.
+//  Created by Tallal Javed on 6/21/18.
 //  Copyright © 2018 Ibtidah. All rights reserved.
 //
 
 import UIKit
-import ChameleonFramework
 
-class LoginVC: UIViewController {
+class VendorMainVC: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("loginVC")
+
         // Do any additional setup after loading the view.
-        
-        // Added gradient background
-        self.view.backgroundColor = ColorsHelper.getLoginViewBackgroundGradientColor(rect: self.view.frame)
+        // Check if vendor is logged in or not. 
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,6 +22,7 @@ class LoginVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+
     /*
     // MARK: - Navigation
 

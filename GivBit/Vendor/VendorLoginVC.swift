@@ -1,23 +1,27 @@
 //
-//  LoginVC.swift
+//  VendorLoginVC.swift
 //  GivBit
 //
-//  Created by Tallal Javed on 5/9/18.
+//  Created by Tallal Javed on 6/21/18.
 //  Copyright © 2018 Ibtidah. All rights reserved.
 //
 
 import UIKit
-import ChameleonFramework
 
-class LoginVC: UIViewController {
+class VendorLoginVC: UIViewController {
+    
+    @IBOutlet weak var backView: UIView!
+    @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var tableView: UITableView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("loginVC")
+
         // Do any additional setup after loading the view.
-        
-        // Added gradient background
-        self.view.backgroundColor = ColorsHelper.getLoginViewBackgroundGradientColor(rect: self.view.frame)
+        // round the relevant views
+        self.submitButton.layer.cornerRadius = 5
+        self.backView.layer.cornerRadius = 5
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,6 +29,7 @@ class LoginVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+
     /*
     // MARK: - Navigation
 
