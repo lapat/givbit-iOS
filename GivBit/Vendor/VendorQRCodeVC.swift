@@ -26,6 +26,10 @@ class VendorQRCodeVC: UIViewController {
         //self.view.backgroundColor = gradientColor
         
         self.generateQRCode()
+        
+        // hide the top view and bottom view
+        self.tabBarController?.tabBar.isHidden = true
+        self.navigationController?.navigationBar.isHidden = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,5 +54,9 @@ class VendorQRCodeVC: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    // MAKR: - Actions
+    @IBAction func didTapOnBackButton(button: UIButton){
+        self.navigationController?.popViewController(animated: true)
+    }
 }

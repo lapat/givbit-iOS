@@ -14,7 +14,8 @@ class VendorMainVC: UINavigationController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        // Check if vendor is logged in or not. 
+        // Check if vendor is logged in or not.
+        
     }
 
     override func didReceiveMemoryWarning() {

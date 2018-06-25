@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ej6-Wk-UbF">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Scan-->
+        <scene sceneID="Asz-eK-wFZ">
+            <objects>
+                <navigationController id="ej6-Wk-UbF" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Scan" image="qrcode" id="uf1-Nr-SZU">
+                        <color key="badgeColor" red="0.41176470590000003" green="0.42352941179999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </tabBarItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KU9-D0-yEf">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="x3a-fe-TMc" kind="relationship" relationship="rootViewController" id="RSi-8a-Rw6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fKN-Xy-yAc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-332" y="143"/>
+        </scene>
+        <!--UserQR ScannerVC-->
+        <scene sceneID="WDj-y4-8Yu">
+            <objects>
+                <viewController id="x3a-fe-TMc" customClass="UserQRScannerVC" customModule="GivBit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xhX-JE-e7t">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="af4-E4-z3T"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="gzf-IS-Kcb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uYe-z9-IYw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="402" y="143"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="qrcode" width="20" height="20"/>
+    </resources>
+</document>

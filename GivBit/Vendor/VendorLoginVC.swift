@@ -22,6 +22,9 @@ class VendorLoginVC: UIViewController {
         // round the relevant views
         self.submitButton.layer.cornerRadius = 5
         self.backView.layer.cornerRadius = 5
+        
+        // top bar
+        self.navigationController?.navigationBar.isHidden = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,4 +43,33 @@ class VendorLoginVC: UIViewController {
     }
     */
 
+    // MARK: - Actions
+    @IBAction func didTapOnCrossButton(){
+        self.dismiss(animated: true) {
+            
+        }
+    }
+}
+
+extension VendorLoginVC: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row == 0{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "1")
+            return cell!
+        }
+        if indexPath.row == 1{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "2")
+            return cell!
+        }
+        if indexPath.row == 2{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "3")
+            return cell!
+        }
+        
+        return UITableViewCell()
+    }
 }

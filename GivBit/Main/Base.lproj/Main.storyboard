@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -31,15 +32,15 @@
             </objects>
             <point key="canvasLocation" x="2553" y="-376"/>
         </scene>
-        <!--Vendor-->
-        <scene sceneID="8M7-T0-dcH">
+        <!--UserQR-->
+        <scene sceneID="aFX-HE-idQ">
             <objects>
-                <viewControllerPlaceholder storyboardName="Vendor" id="VSS-ce-BTr" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="SHD-Da-fEY"/>
+                <viewControllerPlaceholder storyboardName="UserQR" id="srz-cU-Zex" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="IGB-CQ-mWd"/>
                 </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WIV-TO-t2C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="96F-Ru-HbX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1603" y="516"/>
+            <point key="canvasLocation" x="1805" y="740"/>
         </scene>
         <!--History-->
         <scene sceneID="FZ8-9j-K0X">
@@ -184,7 +185,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mHp-u1-GoM" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="1Ar-YT-8y9" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4206" y="-1067"/>
+            <point key="canvasLocation" x="4206" y="-950"/>
         </scene>
         <!--GivBit-->
         <scene sceneID="imK-n3-O6T">
@@ -397,9 +398,17 @@
                         <viewLayoutGuide key="safeArea" id="yxW-Dk-315"/>
                     </view>
                     <navigationItem key="navigationItem" title="GivBit" id="9VB-RF-jgh">
-                        <barButtonItem key="leftBarButtonItem" enabled="NO" id="Nod-WF-aqd">
-                            <color key="tintColor" red="0.41176470590000003" green="0.42352941179999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        </barButtonItem>
+                        <leftBarButtonItems>
+                            <barButtonItem enabled="NO" id="Nod-WF-aqd">
+                                <color key="tintColor" red="0.41176470590000003" green="0.42352941179999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="invoice" id="jSW-bS-pHp">
+                                <color key="tintColor" red="0.41176470590000003" green="0.42352941179999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <segue destination="hsI-NB-k0u" kind="show" id="KjF-P6-Oa7"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="sliders" id="FqW-0g-0Mg">
                             <color key="tintColor" red="0.41176470588235292" green="0.42352941176470588" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -794,7 +803,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wYZ-mn-usJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ojE-An-YVk" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4942" y="-961"/>
+            <point key="canvasLocation" x="4996" y="-449"/>
         </scene>
         <!--Send Coin ErrorVC-->
         <scene sceneID="USo-la-JLG">
@@ -871,7 +880,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vb5-JX-CaY" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ee4-Hp-hYf" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4941.6000000000004" y="-3.1484257871064472"/>
+            <point key="canvasLocation" x="4996" y="233"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Hti-1r-ucw">
@@ -886,12 +895,20 @@
                     <connections>
                         <segue destination="9Vm-vC-YLw" kind="relationship" relationship="viewControllers" id="QxA-ew-4Re"/>
                         <segue destination="jry-eV-eae" kind="relationship" relationship="viewControllers" id="rrY-Lk-9cD"/>
-                        <segue destination="VSS-ce-BTr" kind="relationship" relationship="viewControllers" id="6Zl-Fj-f9A"/>
+                        <segue destination="srz-cU-Zex" kind="relationship" relationship="viewControllers" id="Aa8-Q7-1Ci"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cjp-LR-9tQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1604" y="51.724137931034484"/>
+        </scene>
+        <!--Vendor-->
+        <scene sceneID="eAP-2W-EOX">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Vendor" id="hsI-NB-k0u" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tmB-O1-ekq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3289" y="51"/>
         </scene>
         <!--GivBit-->
         <scene sceneID="xTR-bZ-bgk">
@@ -1036,6 +1053,12 @@
                         <viewLayoutGuide key="safeArea" id="UEn-Oj-ndm"/>
                     </view>
                     <navigationItem key="navigationItem" title="GivBit" id="Kgq-od-shm">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="invoice" id="TXX-09-Tec">
+                            <color key="tintColor" red="0.41176470590000003" green="0.42352941179999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="hsI-NB-k0u" kind="show" id="muV-xR-Zbo"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="sliders" id="miW-cW-rEV">
                             <color key="tintColor" red="0.41176470590000003" green="0.42352941179999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -1049,13 +1072,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Khh-ED-9Si" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3318" y="454"/>
+            <point key="canvasLocation" x="3289" y="454"/>
         </scene>
     </scenes>
     <resources>
         <image name="back-arrow" width="21" height="16"/>
         <image name="check" width="139" height="139"/>
         <image name="cross" width="139" height="139"/>
+        <image name="invoice" width="20" height="20"/>
         <image name="layers" width="18" height="18"/>
         <image name="logout" width="18" height="18"/>
         <image name="right" width="18" height="18"/>
@@ -1063,6 +1087,7 @@
         <image name="users" width="18" height="18"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="muV-xR-Zbo"/>
         <segue reference="NJ6-Mm-WIe"/>
     </inferredMetricsTieBreakers>
 </document>

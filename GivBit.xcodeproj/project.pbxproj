@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3FC6D4F320B8356100353321 /* coinbaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC6D4F220B8356100353321 /* coinbaseHelper.swift */; };
 		770814D520DCFEE8001CAC5D /* VendorQRCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770814D420DCFEE8001CAC5D /* VendorQRCodeVC.swift */; };
+		7713834120DD233900C6E0B0 /* VendorCreateInvoiceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7713834020DD233900C6E0B0 /* VendorCreateInvoiceVC.swift */; };
 		771742B120C1EED400BD0A88 /* PhoneNumberHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771742B020C1EED400BD0A88 /* PhoneNumberHelper.swift */; };
 		771742B320C22E5E00BD0A88 /* SendCoinSuccesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771742B220C22E5E00BD0A88 /* SendCoinSuccesVC.swift */; };
 		771742B520C22FEC00BD0A88 /* SendCoinErrorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771742B420C22FEC00BD0A88 /* SendCoinErrorVC.swift */; };
@@ -38,6 +39,8 @@
 		77599A3F20A1A78E001FF565 /* ReviewLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77599A3E20A1A78E001FF565 /* ReviewLoginVC.swift */; };
 		77599A4120A314E1001FF565 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77599A4020A314E1001FF565 /* LoginVC.swift */; };
 		77599A4320A31659001FF565 /* ColorsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77599A4220A31659001FF565 /* ColorsHelper.swift */; };
+		7773091820E0CFDF0055EDA1 /* UserQR.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7773091720E0CFDF0055EDA1 /* UserQR.storyboard */; };
+		7773091A20E0D20F0055EDA1 /* UserQRScannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7773091920E0D20F0055EDA1 /* UserQRScannerVC.swift */; };
 		779417A120B5045C00A46BE2 /* SendCoinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779417A020B5045C00A46BE2 /* SendCoinVC.swift */; };
 		779417A520B6B37B00A46BE2 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779417A420B6B37B00A46BE2 /* SettingsVC.swift */; };
 		779417A720B7E4AE00A46BE2 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779417A620B7E4AE00A46BE2 /* AlertHelper.swift */; };
@@ -79,6 +82,7 @@
 		45A373ADA415EB283ADD1514 /* Pods-GivBitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GivBitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GivBitTests/Pods-GivBitTests.release.xcconfig"; sourceTree = "<group>"; };
 		6903F1C78049D448E70636E3 /* Pods_GivBitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GivBitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		770814D420DCFEE8001CAC5D /* VendorQRCodeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorQRCodeVC.swift; sourceTree = "<group>"; };
+		7713834020DD233900C6E0B0 /* VendorCreateInvoiceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorCreateInvoiceVC.swift; sourceTree = "<group>"; };
 		771742B020C1EED400BD0A88 /* PhoneNumberHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberHelper.swift; sourceTree = "<group>"; };
 		771742B220C22E5E00BD0A88 /* SendCoinSuccesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCoinSuccesVC.swift; sourceTree = "<group>"; };
 		771742B420C22FEC00BD0A88 /* SendCoinErrorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCoinErrorVC.swift; sourceTree = "<group>"; };
@@ -116,6 +120,8 @@
 		77599A3E20A1A78E001FF565 /* ReviewLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewLoginVC.swift; sourceTree = "<group>"; };
 		77599A4020A314E1001FF565 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		77599A4220A31659001FF565 /* ColorsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsHelper.swift; sourceTree = "<group>"; };
+		7773091720E0CFDF0055EDA1 /* UserQR.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserQR.storyboard; sourceTree = "<group>"; };
+		7773091920E0D20F0055EDA1 /* UserQRScannerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserQRScannerVC.swift; sourceTree = "<group>"; };
 		779417A020B5045C00A46BE2 /* SendCoinVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCoinVC.swift; sourceTree = "<group>"; };
 		779417A420B6B37B00A46BE2 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		779417A620B7E4AE00A46BE2 /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
@@ -180,6 +186,7 @@
 				773B2CB520DB5799005B6A53 /* Vendor.storyboard */,
 				773B2CB720DB60E5005B6A53 /* VendorMainVC.swift */,
 				773B2CB920DB6431005B6A53 /* VendorLoginVC.swift */,
+				7713834020DD233900C6E0B0 /* VendorCreateInvoiceVC.swift */,
 				770814D420DCFEE8001CAC5D /* VendorQRCodeVC.swift */,
 			);
 			path = Vendor;
@@ -226,10 +233,10 @@
 			isa = PBXGroup;
 			children = (
 				77599A2D20A03F4D001FF565 /* GivBit.entitlements */,
+				77599A2A20A03D46001FF565 /* Plists */,
 				77B7C23420B7F4500008E258 /* CustomUIObjects */,
 				77599A4420A3165F001FF565 /* Helpers */,
 				774E2D5520ACAD5D0039435E /* DataHandeling */,
-				77599A2A20A03D46001FF565 /* Plists */,
 				77599A3020A044C0001FF565 /* Login */,
 				773B2CB420DB5782005B6A53 /* Vendor */,
 				779CBEBC20A4387600341004 /* Main */,
@@ -296,9 +303,19 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		7773091620E0CFB60055EDA1 /* UserQR */ = {
+			isa = PBXGroup;
+			children = (
+				7773091720E0CFDF0055EDA1 /* UserQR.storyboard */,
+				7773091920E0D20F0055EDA1 /* UserQRScannerVC.swift */,
+			);
+			path = UserQR;
+			sourceTree = "<group>";
+		};
 		779CBEBC20A4387600341004 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				7773091620E0CFB60055EDA1 /* UserQR */,
 				77599A0020A02986001FF565 /* Main.storyboard */,
 				775999FE20A02986001FF565 /* MainVC.swift */,
 				779417A420B6B37B00A46BE2 /* SettingsVC.swift */,
@@ -445,6 +462,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				77599A0720A02987001FF565 /* LaunchScreen.storyboard in Resources */,
+				7773091820E0CFDF0055EDA1 /* UserQR.storyboard in Resources */,
 				77599A2C20A03D5E001FF565 /* GoogleService-Info.plist in Resources */,
 				773B2CB620DB5799005B6A53 /* Vendor.storyboard in Resources */,
 				77599A0420A02987001FF565 /* Assets.xcassets in Resources */,
@@ -546,6 +564,7 @@
 				"${BUILT_PRODUCTS_DIR}/PhoneNumberKit/PhoneNumberKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/QRCode/QRCode.framework",
+				"${BUILT_PRODUCTS_DIR}/QRCodeReader.swift/QRCodeReader.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
@@ -573,6 +592,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PhoneNumberKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QRCode.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QRCodeReader.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
@@ -612,6 +632,7 @@
 				77599A4120A314E1001FF565 /* LoginVC.swift in Sources */,
 				3FC6D4F320B8356100353321 /* coinbaseHelper.swift in Sources */,
 				77B7C23820B7F4990008E258 /* GBTextField.swift in Sources */,
+				7773091A20E0D20F0055EDA1 /* UserQRScannerVC.swift in Sources */,
 				774E2D5220AC1A3D0039435E /* StringHelper.swift in Sources */,
 				774E2D5420AC22D60039435E /* GBContact.swift in Sources */,
 				779417A120B5045C00A46BE2 /* SendCoinVC.swift in Sources */,
@@ -628,6 +649,7 @@
 				77C04AB720BECB500043AC0A /* FirebaseHelper.swift in Sources */,
 				77B7C23E20B915EB0008E258 /* GBTransactionTVC.swift in Sources */,
 				77599A4320A31659001FF565 /* ColorsHelper.swift in Sources */,
+				7713834120DD233900C6E0B0 /* VendorCreateInvoiceVC.swift in Sources */,
 				774E2D5020AC0F240039435E /* ImageHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
