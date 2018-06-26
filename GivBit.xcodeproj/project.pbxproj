@@ -14,7 +14,7 @@
 		771742B320C22E5E00BD0A88 /* SendCoinSuccesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771742B220C22E5E00BD0A88 /* SendCoinSuccesVC.swift */; };
 		771742B520C22FEC00BD0A88 /* SendCoinErrorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771742B420C22FEC00BD0A88 /* SendCoinErrorVC.swift */; };
 		7734162C20C8812C0010EC08 /* GBCoinbaseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7734162B20C8812C0010EC08 /* GBCoinbaseUser.swift */; };
-		773B2CB620DB5799005B6A53 /* Vendor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 773B2CB520DB5799005B6A53 /* Vendor.storyboard */; };
+		773B2CB620DB5799005B6A53 /* Vendor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 773B2CB520DB5799005B6A53 /* Vendor.storyboard */; settings = {ASSET_TAGS = (1, ); }; };
 		773B2CB820DB60E5005B6A53 /* VendorMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773B2CB720DB60E5005B6A53 /* VendorMainVC.swift */; };
 		773B2CBA20DB6431005B6A53 /* VendorLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773B2CB920DB6431005B6A53 /* VendorLoginVC.swift */; };
 		774E2D4A20A971BE0039435E /* ContactsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774E2D4920A971BE0039435E /* ContactsManager.swift */; };
@@ -413,6 +413,9 @@
 		775999F120A02986001FF565 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					1,
+				);
 				LastSwiftUpdateCheck = 0930;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = Ibtidah;

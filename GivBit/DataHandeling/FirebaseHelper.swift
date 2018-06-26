@@ -35,11 +35,20 @@ class FirebaseHelper: NSObject {
                 print("textResult:")
                 print(textResult)
             }
-            print("result:")
-            print(result?.data)
-            print("error:")
-            print(error?.localizedDescription)
             completionHandler(error)
+        }
+    }
+    
+    // used to update logged in users vendor settings
+    static func updateVendorSettings(companyName: String, vendorEmail: String, shouldEmail: Bool, completionHandler: @escaping (_ error: Error?)->Void){
+        // call the firebase func
+        let data = ["companyName": companyName, "vendorEmail": vendorEmail, "shouldEmail": shouldEmail] as [String : Any]
+        Functions.functions().httpsCallable("updateVendorSettings").call(data) { (result, error) in
+            if (error != nil){
+                completionHandler(error)
+            }else{
+                completionHandler(nil)
+            }
         }
     }
 }

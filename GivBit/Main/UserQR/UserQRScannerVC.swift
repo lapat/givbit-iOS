@@ -27,10 +27,12 @@ class UserQRScannerVC: UIViewController {
         
         // hide the top view
         self.navigationController?.navigationBar.isHidden = true
+        self.scanAction(self)
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.scanAction(self)
+        //self.scanAction(self)
+    
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,7 +57,7 @@ class UserQRScannerVC: UIViewController {
         
         // Or by using the closure pattern
         readerVC.completionBlock = { (result: QRCodeReaderResult?) in
-            print(result as Any)
+            print(result)
         }
         
         // Presents the readerVC as modal form sheet
@@ -74,4 +76,27 @@ extension UserQRScannerVC: QRCodeReaderViewControllerDelegate{
         dismiss(animated: true, completion: nil)
     }
     
+}
+
+
+class qrScanningView: UIView, QRCodeReaderDisplayable{
+    func setNeedsUpdateOrientation() {
+        
+    }
+    
+    func setupComponents(showCancelButton: Bool, showSwitchCameraButton: Bool, showTorchButton: Bool, showOverlayView: Bool, reader: QRCodeReader?) {
+        
+    }
+    
+    let cameraView: UIView            = UIView()
+    let cancelButton: UIButton?       = UIButton()
+    let switchCameraButton: UIButton? = SwitchCameraButton()
+    let toggleTorchButton: UIButton?  = ToggleTorchButton()
+    var overlayView: UIView?          = UIView()
+    
+    func setupComponents(showCancelButton: Bool, showSwitchCameraButton: Bool, showTorchButton: Bool, showOverlayView: Bool) {
+        // addSubviews
+        // setup constraints
+        // etc.
+    }
 }
