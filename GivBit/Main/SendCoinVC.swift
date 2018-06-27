@@ -14,10 +14,13 @@ import SVProgressHUD
 class SendCoinVC: UIViewController {
     
     var contact: GBContact!
+    var amountOfBtcInWallet: String!
     @IBOutlet weak var contactImageView: UIImageView!
     @IBOutlet weak var contactNameLabel: UILabel!
     @IBOutlet weak var fiatToSendLabel: UILabel!
     @IBOutlet weak var btcToSendLabel: UILabel!
+    @IBOutlet weak var btcLeftInAllWallets: UILabel!
+
     @IBOutlet weak var phonenUmberLabel: UILabel!
     @IBOutlet weak var sendButton: UIButton!
     var cryptoPriceInFiat: NSNumber = 0.0
@@ -25,7 +28,7 @@ class SendCoinVC: UIViewController {
     var cryptoPriceUpdateListener: ListenerRegistration!
     var errorToSendToErrorView: String!
     var btcToSend : String = ""
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,14 +54,24 @@ class SendCoinVC: UIViewController {
             fiatToSendLabel.text = amountString
         }
         self.phonenUmberLabel.text = self.contact.phoneNumber
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         // hide the top and bottom bar
+        print("viewWillAppear")
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         
         // start the snapshot listener for crypto price update
         self.startCryptoPriceInFiatUpdateListener()
+        print("amountOfBtcInWallet")
+        print(self.amountOfBtcInWallet)
+        if (self.amountOfBtcInWallet != ""){
+            self.btcLeftInAllWallets.text = "$"+self.amountOfBtcInWallet + " Remaning"
+        }else{
+            self.btcLeftInAllWallets.text = ""
+        }
+
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -116,6 +129,7 @@ class SendCoinVC: UIViewController {
                     print(result?.data ?? "")
                     let data = result?.data as! [String: Any]
                     if data["error"] != nil{
+                        //This needs to handle non stringsK
                         self.errorToSendToErrorView = data["error"] as! String
                         self.performSegue(withIdentifier: "failure-trans-segue", sender: self)
                         //self.performSegue(withIdentifier: "success-trans-segue", sender: self)
@@ -228,4 +242,9 @@ extension String {
     
 }
 
+extension String  {
+    var isNumber: Bool {
+        return !isEmpty && rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil
+    }
+}
 

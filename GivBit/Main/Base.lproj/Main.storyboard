@@ -462,7 +462,7 @@
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LRR-Ml-kdB">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="00.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LRR-Ml-kdB">
                                 <rect key="frame" x="127" y="145" width="121.5" height="54"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -482,7 +482,7 @@
                                     <action selector="didTapOnSendCoinButtonWithButton:" destination="Lrn-CT-dPn" eventType="touchUpInside" id="ZPv-Hq-bHV"/>
                                 </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lpe-Ar-PN2">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lpe-Ar-PN2">
                                 <rect key="frame" x="106.5" y="168" width="12.5" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="12.5" id="Egu-cL-OYs"/>
@@ -491,7 +491,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0000008" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mji-oe-UFD">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="0.0000008" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mji-oe-UFD">
                                 <rect key="frame" x="144.5" y="207" width="86.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
@@ -641,7 +641,7 @@
                                     <constraint firstAttribute="width" constant="50" id="d85-CQ-Re9"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BTC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ia-eq-JM3">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="BTC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ia-eq-JM3">
                                 <rect key="frame" x="97" y="206.5" width="32.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
@@ -650,6 +650,12 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+123" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hca-E5-In0">
                                 <rect key="frame" x="174.5" y="82" width="38.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g13-kP-3vN" userLabel="BTC Left In Account">
+                                <rect key="frame" x="97" y="235" width="173" height="31"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -666,6 +672,7 @@
                             <constraint firstItem="LRR-Ml-kdB" firstAttribute="top" secondItem="bxn-zo-Gjg" secondAttribute="bottom" constant="50" id="GeZ-rT-UNh"/>
                             <constraint firstItem="bxn-zo-Gjg" firstAttribute="centerX" secondItem="7hL-dt-mhx" secondAttribute="centerX" constant="-50" id="KmN-lZ-WKo"/>
                             <constraint firstItem="P62-wi-QHk" firstAttribute="centerY" secondItem="CHc-g2-ymc" secondAttribute="centerY" id="MGp-dK-OH0"/>
+                            <constraint firstItem="g13-kP-3vN" firstAttribute="leading" secondItem="7hL-dt-mhx" secondAttribute="leading" constant="97" id="PF9-Nc-Moq"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="J6e-Vd-KRD" secondAttribute="trailing" constant="20" symbolic="YES" id="Spd-QZ-GBZ"/>
                             <constraint firstItem="P62-wi-QHk" firstAttribute="bottom" secondItem="CHc-g2-ymc" secondAttribute="bottom" id="XMh-Xz-rUI"/>
                             <constraint firstItem="CHc-g2-ymc" firstAttribute="top" secondItem="l06-1C-im7" secondAttribute="bottom" constant="8" id="Y1Q-iT-ovQ"/>
@@ -679,7 +686,9 @@
                             <constraint firstItem="onl-ZJ-dsb" firstAttribute="leading" secondItem="CHc-g2-ymc" secondAttribute="trailing" constant="55" id="ce5-Y0-Pid"/>
                             <constraint firstItem="1Ww-yK-fj7" firstAttribute="centerY" secondItem="bxn-zo-Gjg" secondAttribute="centerY" id="cgr-M9-1j2"/>
                             <constraint firstItem="LRR-Ml-kdB" firstAttribute="centerX" secondItem="7hL-dt-mhx" secondAttribute="centerX" id="ePT-gh-vT1"/>
+                            <constraint firstItem="g13-kP-3vN" firstAttribute="top" secondItem="mji-oe-UFD" secondAttribute="bottom" constant="7.5" id="eYd-fz-PWD"/>
                             <constraint firstItem="mji-oe-UFD" firstAttribute="top" secondItem="LRR-Ml-kdB" secondAttribute="bottom" constant="8" id="gsl-Zu-WEa"/>
+                            <constraint firstItem="l06-1C-im7" firstAttribute="top" secondItem="g13-kP-3vN" secondAttribute="bottom" constant="72.5" id="i5O-KR-dXY"/>
                             <constraint firstItem="4Ia-eq-JM3" firstAttribute="centerY" secondItem="mji-oe-UFD" secondAttribute="centerY" id="iiU-v9-LIG"/>
                             <constraint firstItem="onl-ZJ-dsb" firstAttribute="top" secondItem="CHc-g2-ymc" secondAttribute="top" id="jBi-r7-w9x"/>
                             <constraint firstItem="Usq-mv-VeG" firstAttribute="leading" secondItem="bxn-zo-Gjg" secondAttribute="trailing" constant="7.5" id="jFf-Hc-fjG"/>
@@ -692,12 +701,14 @@
                             <constraint firstItem="lpe-Ar-PN2" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lkC-cR-M2H" secondAttribute="leading" constant="20" symbolic="YES" id="uhw-RO-w0B"/>
                             <constraint firstItem="J6e-Vd-KRD" firstAttribute="leading" secondItem="bxn-zo-Gjg" secondAttribute="trailing" constant="7.5" id="wMz-NC-rWH"/>
                             <constraint firstItem="CHc-g2-ymc" firstAttribute="leading" secondItem="P62-wi-QHk" secondAttribute="trailing" constant="55" id="yfk-pC-OKL"/>
+                            <constraint firstItem="7hL-dt-mhx" firstAttribute="trailing" secondItem="g13-kP-3vN" secondAttribute="trailing" constant="105" id="zJp-Un-1AV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7hL-dt-mhx"/>
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="btcLeftInAllWallets" destination="g13-kP-3vN" id="KyX-s4-9ZM"/>
                         <outlet property="btcToSendLabel" destination="mji-oe-UFD" id="hQ6-XD-i2F"/>
                         <outlet property="contactImageView" destination="bxn-zo-Gjg" id="cT1-aA-1DH"/>
                         <outlet property="contactNameLabel" destination="J6e-Vd-KRD" id="xQ8-j9-u43"/>
@@ -711,7 +722,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ikb-NH-pey" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="yls-UP-JwL" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4206" y="-123"/>
+            <point key="canvasLocation" x="4205.6000000000004" y="-123.68815592203899"/>
         </scene>
         <!--Send Coin SuccesVC-->
         <scene sceneID="loT-OL-fmA">
