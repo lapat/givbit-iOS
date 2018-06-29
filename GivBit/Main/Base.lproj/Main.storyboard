@@ -708,7 +708,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="btcLeftInAllWallets" destination="g13-kP-3vN" id="KyX-s4-9ZM"/>
+                        <outlet property="btcLeftInAllWallets" destination="g13-kP-3vN" id="N74-dm-8YD"/>
                         <outlet property="btcToSendLabel" destination="mji-oe-UFD" id="hQ6-XD-i2F"/>
                         <outlet property="contactImageView" destination="bxn-zo-Gjg" id="cT1-aA-1DH"/>
                         <outlet property="contactNameLabel" destination="J6e-Vd-KRD" id="xQ8-j9-u43"/>
@@ -1098,7 +1098,7 @@
         <image name="users" width="18" height="18"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="muV-xR-Zbo"/>
-        <segue reference="NJ6-Mm-WIe"/>
+        <segue reference="KjF-P6-Oa7"/>
+        <segue reference="7lI-Mn-ndx"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -18,6 +18,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o0u-iu-QzG">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PaS-lB-0Zm" userLabel="FBView">
                                 <rect key="frame" x="16" y="586" width="343" height="61"/>
                                 <subviews>
@@ -203,7 +208,7 @@
                                     <action selector="didTapSendSMSButtonWithButton:" destination="lDd-Pf-59i" eventType="touchUpInside" id="yc2-gP-5Jo"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bitcoingCircle" translatesAutoresizingMaskIntoConstraints="NO" id="Uue-Rh-aiL">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bitcoingCircle" translatesAutoresizingMaskIntoConstraints="NO" id="Uue-Rh-aiL">
                                 <rect key="frame" x="119.5" y="152.5" width="136" height="136"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pay your friends with Bitcoin." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5Dk-zo-Zof">
@@ -483,7 +488,7 @@
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bitcoingCircle" translatesAutoresizingMaskIntoConstraints="NO" id="7WE-XU-q3a">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bitcoingCircle" translatesAutoresizingMaskIntoConstraints="NO" id="7WE-XU-q3a">
                                 <rect key="frame" x="119" y="168" width="136" height="136"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gst-lE-H5U">
@@ -893,7 +898,7 @@
         <image name="group5" width="14" height="15"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="GIa-0S-8da"/>
-        <segue reference="X5w-yM-xMe"/>
+        <segue reference="v3n-lb-mUz"/>
+        <segue reference="VNj-Zw-4F7"/>
     </inferredMetricsTieBreakers>
 </document>
