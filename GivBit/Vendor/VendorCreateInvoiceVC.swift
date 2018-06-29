@@ -12,6 +12,9 @@ class VendorCreateInvoiceVC: UIViewController {
 
     @IBOutlet weak var fiatLabel: UILabel!
     @IBOutlet weak var genQRCodeButton: UIButton!
+    var amountToRequestFormatted: String! = "$00.00"
+    var amountToRequestWithoutDot: String! = ""
+    var amountToRequestInDouble: Double!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,12 +51,31 @@ class VendorCreateInvoiceVC: UIViewController {
     
     @IBAction func didTapOnNumpadButton(button: UIButton){
         if button.titleLabel?.text == "C"{
-            fiatLabel.text = "00.00"
+            fiatLabel.text = "$00.00"
+            self.amountToRequestFormatted = fiatLabel.text
+            self.amountToRequestWithoutDot = ""
+            self.amountToRequestInDouble = 0
+            return
         }
+        let characterPressed = button.titleLabel?.text
+        self.appendCharacterToAmount(char: characterPressed!)
+        self.fiatLabel.text = self.amountToRequestFormatted
     }
     
     @IBAction func didTapOnCrossButton(button: UIButton){
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    func appendCharacterToAmount(char: String){
+        self.amountToRequestWithoutDot = self.amountToRequestWithoutDot + char
+        self.amountToRequestFormatted = self.amountToRequestWithoutDot.currencyInputFormatting()
+        
+        let numNoCurrencySymbol = self.amountToRequestFormatted.replacingOccurrences(of: "$", with: "") as String
+        let numNoCommaSymbol = numNoCurrencySymbol.replacingOccurrences(of: ",", with: "") as String
+        
+        self.amountToRequestInDouble = Double(numNoCommaSymbol)
+        self.amountToRequestInDouble = Double(round(100 * self.amountToRequestInDouble)/100)
     }
 
 }

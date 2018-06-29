@@ -80,7 +80,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pah-vg-xqb">
-                                                            <rect key="frame" x="141" y="10.666666666666664" width="171" height="22"/>
+                                                            <rect key="frame" x="141" y="10.666666666666664" width="116" height="22"/>
                                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="22" id="LZc-rT-2nw"/>
@@ -90,7 +90,7 @@
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ai-cy-K0A">
-                                                            <rect key="frame" x="5" y="43" width="322" height="1"/>
+                                                            <rect key="frame" x="5" y="43" width="267" height="1"/>
                                                             <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="1" id="SWp-Sx-ynr"/>
@@ -124,7 +124,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="example@example.com" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Rp-zp-d9v">
-                                                            <rect key="frame" x="141" y="10.666666666666664" width="171" height="22"/>
+                                                            <rect key="frame" x="100.66666666666667" y="10.666666666666664" width="156.33333333333331" height="22"/>
                                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="22" id="bmx-JR-okR"/>
@@ -134,7 +134,7 @@
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gc9-QP-8Xn">
-                                                            <rect key="frame" x="5" y="43" width="322" height="1"/>
+                                                            <rect key="frame" x="5" y="43" width="267" height="1"/>
                                                             <color key="backgroundColor" white="1" alpha="0.50469805743243246" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="1" id="fVN-8n-dpC"/>
@@ -173,7 +173,7 @@
                                                             <color key="thumbTintColor" red="0.41176470590000003" green="0.42352941179999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         </switch>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ie-wK-R2R">
-                                                            <rect key="frame" x="5" y="43" width="322" height="1"/>
+                                                            <rect key="frame" x="5" y="43" width="267" height="1"/>
                                                             <color key="backgroundColor" white="1" alpha="0.50469805739999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="1" id="S5d-fc-GvD"/>
@@ -297,10 +297,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="TkJ-gM-c3b">
-                                <rect key="frame" x="126.66666666666666" y="89.666666666666657" width="121.66666666666666" height="312.33333333333337"/>
+                                <rect key="frame" x="113.00000000000001" y="89.666666666666657" width="149.33333333333337" height="312.33333333333337"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y7g-7C-GGK">
-                                        <rect key="frame" x="0.0" y="0.0" width="121.66666666666667" height="312.33333333333331"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$00.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y7g-7C-GGK">
+                                        <rect key="frame" x="0.0" y="0.0" width="149.33333333333334" height="312.33333333333331"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="highlightedColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -340,6 +340,9 @@
                                         <state key="normal" title="1">
                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="didTapOnNumpadButtonWithButton:" destination="ET0-Ug-6fD" eventType="touchUpInside" id="Wdv-Ll-QYD"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6MB-Fg-WTT">
                                         <rect key="frame" x="0.0" y="70.333333333333371" width="50" height="70.333333333333314"/>
@@ -347,6 +350,9 @@
                                         <state key="normal" title="4">
                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="didTapOnNumpadButtonWithButton:" destination="ET0-Ug-6fD" eventType="touchUpInside" id="oaN-Rf-Cfd"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z7J-vL-xtP">
                                         <rect key="frame" x="0.0" y="140.66666666666663" width="50" height="70"/>
@@ -354,6 +360,9 @@
                                         <state key="normal" title="7">
                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="didTapOnNumpadButtonWithButton:" destination="ET0-Ug-6fD" eventType="touchUpInside" id="aLu-f1-nkt"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CO6-sJ-xYO">
                                         <rect key="frame" x="0.0" y="210.66666666666663" width="50" height="70.333333333333314"/>
@@ -367,36 +376,48 @@
                                     <constraint firstAttribute="width" constant="50" id="1iJ-RO-l7v"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lr3-Os-rgz">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="lr3-Os-rgz">
                                 <rect key="frame" x="162.66666666666666" y="484" width="50" height="281"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ERc-UP-qxJ">
-                                        <rect key="frame" x="10" y="0.0" width="30" height="70.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="70.333333333333329"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <state key="normal" title="2">
                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="didTapOnNumpadButtonWithButton:" destination="ET0-Ug-6fD" eventType="touchUpInside" id="qXM-oa-mxG"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9I3-Cv-Upw">
-                                        <rect key="frame" x="10" y="70.333333333333371" width="30" height="70.333333333333314"/>
+                                        <rect key="frame" x="0.0" y="70.333333333333371" width="50" height="70.333333333333314"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <state key="normal" title="5">
                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="didTapOnNumpadButtonWithButton:" destination="ET0-Ug-6fD" eventType="touchUpInside" id="5S4-wD-Pmb"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mVh-bs-tkK">
-                                        <rect key="frame" x="10" y="140.66666666666663" width="30" height="70"/>
+                                        <rect key="frame" x="0.0" y="140.66666666666663" width="50" height="70"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <state key="normal" title="8">
                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="didTapOnNumpadButtonWithButton:" destination="ET0-Ug-6fD" eventType="touchUpInside" id="j3H-jf-5gj"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2JF-Cl-wNa">
-                                        <rect key="frame" x="10" y="210.66666666666663" width="30" height="70.333333333333314"/>
+                                        <rect key="frame" x="0.0" y="210.66666666666663" width="50" height="70.333333333333314"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <state key="normal" title="0">
                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="didTapOnNumpadButtonWithButton:" destination="ET0-Ug-6fD" eventType="touchUpInside" id="ZBe-Dp-vUi"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -412,6 +433,9 @@
                                         <state key="normal" title="3">
                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="didTapOnNumpadButtonWithButton:" destination="ET0-Ug-6fD" eventType="touchUpInside" id="H50-7b-vgp"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qky-wC-MUg">
                                         <rect key="frame" x="0.0" y="70.333333333333371" width="50" height="70.333333333333314"/>
@@ -419,6 +443,9 @@
                                         <state key="normal" title="6">
                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="didTapOnNumpadButtonWithButton:" destination="ET0-Ug-6fD" eventType="touchUpInside" id="cSk-uQ-js8"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BpU-u4-vgc">
                                         <rect key="frame" x="0.0" y="140.66666666666663" width="50" height="70"/>
@@ -426,6 +453,9 @@
                                         <state key="normal" title="9">
                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="didTapOnNumpadButtonWithButton:" destination="ET0-Ug-6fD" eventType="touchUpInside" id="iul-2L-b07"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ug3-nQ-Mxw">
                                         <rect key="frame" x="0.0" y="210.66666666666663" width="50" height="70.333333333333314"/>
@@ -433,6 +463,9 @@
                                         <state key="normal" title="C">
                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="didTapOnNumpadButtonWithButton:" destination="ET0-Ug-6fD" eventType="touchUpInside" id="OiP-pf-XHf"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>

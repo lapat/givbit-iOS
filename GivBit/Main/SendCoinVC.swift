@@ -201,7 +201,6 @@ extension String {
     
     // formatting text for currency textField
     func currencyInputFormatting() -> String {
-        print("here")
         var number: NSNumber!
         let formatter = NumberFormatter()
         formatter.numberStyle = .currencyAccounting
