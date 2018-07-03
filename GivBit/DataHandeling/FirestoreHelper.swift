@@ -232,6 +232,28 @@ class FirestoreHelper: NSObject {
         }
     }
     
+    // MARK: - Vendor
+    // checks if the current logged in user is a vendor or not
+    func checkIfUserIsVendor(completionHandler: @escaping (_ exists: Bool, _ error: Error?)->Void){
+        if Auth.auth().currentUser == nil{
+            let e = GBError(localizedDescription: "No User Logged in")
+            completionHandler(false, e)
+        }
+        let query = db.collection("vendors").document((Auth.auth().currentUser?.uid)!)
+        query.getDocument { (docSnapshot, error) in
+            if error != nil{
+                completionHandler(false, error)
+            }else{
+                if docSnapshot?.data() != nil{
+                    completionHandler(true, nil)
+                }else{
+                    completionHandler(false, nil)
+                }
+            }
+        }
+    }
+    
+    
     // MARK: - Crypto Prices
     
     // starts a snapshot listener and makes sure the completion handler is called, whenever the value for a specific object changes

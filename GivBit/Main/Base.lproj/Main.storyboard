@@ -405,7 +405,7 @@
                             <barButtonItem title="Item" image="invoice" id="jSW-bS-pHp">
                                 <color key="tintColor" red="0.41176470590000003" green="0.42352941179999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <segue destination="hsI-NB-k0u" kind="show" id="KjF-P6-Oa7"/>
+                                    <segue destination="hsI-NB-k0u" kind="presentation" id="KjF-P6-Oa7"/>
                                 </connections>
                             </barButtonItem>
                         </leftBarButtonItems>
@@ -1056,7 +1056,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Item" image="invoice" id="TXX-09-Tec">
                             <color key="tintColor" red="0.41176470590000003" green="0.42352941179999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="hsI-NB-k0u" kind="show" id="muV-xR-Zbo"/>
+                                <segue destination="hsI-NB-k0u" kind="presentation" id="muV-xR-Zbo"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="sliders" id="miW-cW-rEV">
@@ -1088,6 +1088,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="muV-xR-Zbo"/>
-        <segue reference="NJ6-Mm-WIe"/>
+        <segue reference="7lI-Mn-ndx"/>
     </inferredMetricsTieBreakers>
 </document>

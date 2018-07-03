@@ -181,6 +181,4 @@ extension MainVC: UITableViewDataSource{
             }
         }
     }
-    
-    
 }
