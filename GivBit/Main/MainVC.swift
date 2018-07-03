@@ -18,6 +18,7 @@ class MainVC: UIViewController {
     
     var shouldAdjustTableForFirstLoading: Bool = true
     var contacts : [CNContact] = [CNContact]()
+    var amountOfBtcInWallet: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +49,8 @@ class MainVC: UIViewController {
         
     }
     
+    
+    
     // MARK: - Actions on SearchBar change Data
     @IBAction func didChangeInSearch(){
         let strindToSearch = textViewSearchBar.text
@@ -65,6 +68,26 @@ class MainVC: UIViewController {
         // show bottom bar
         self.tabBarController?.tabBar.isHidden = false
         
+        
+        let functions = Functions.functions()
+        print("calling getAmountOfBtcInWallets")
+        functions.httpsCallable("getAmountOfBtcInWallets").call() { (result, error) in
+            if error != nil{
+                print("Error performing getAmountOfBtcInWallets function \(String(describing: error?.localizedDescription))")
+            }else{
+                print(result?.data ?? "")
+                let data = result?.data as! [String: Any]
+                print("NO ERROR")
+                if data["error"] == nil{
+                    print("not null")
+                    //TO DO check if data["amountInNativeCurrency"] is a number then show it
+                    self.amountOfBtcInWallet=data["amountInNativeCurrency"] as! String
+                    print("gonnaPrintIt")
+                }else{
+                    print("Error getting getAmountOfBtcInWallets")
+                }
+            }
+        }
     }
     
     override func viewWillLayoutSubviews() {
@@ -109,6 +132,11 @@ class MainVC: UIViewController {
             let contact = GBContact()
             contact.populateWith(CNContact: contacts[selectedContactIndex!])
             destinationController.contact = contact
+            print("self.amountOfBtcInWallet")
+            print(self.amountOfBtcInWallet)
+
+            destinationController.amountOfBtcInWallet = self.amountOfBtcInWallet
+
             //let isFavourite = self.contactsTableView.indexPathForSelectedRow?.section ?? 0??1
         }
     }
@@ -181,4 +209,8 @@ extension MainVC: UITableViewDataSource{
             }
         }
     }
+}
+
+struct globals {
+    static var  btcInWalletGlobal  = ""
 }

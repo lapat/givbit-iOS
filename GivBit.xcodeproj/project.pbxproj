@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16E40F00435E714AE329CA85 /* Pods_GivBitUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 113803A48EDBA9C8178B6936 /* Pods_GivBitUITests.framework */; };
 		3FC6D4F320B8356100353321 /* coinbaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC6D4F220B8356100353321 /* coinbaseHelper.swift */; };
+		49D3A7FC1219534A45A24D7C /* Pods_GivBit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8403572FDF62C76211648DA3 /* Pods_GivBit.framework */; };
 		770814D520DCFEE8001CAC5D /* VendorQRCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770814D420DCFEE8001CAC5D /* VendorQRCodeVC.swift */; };
 		7713834120DD233900C6E0B0 /* VendorCreateInvoiceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7713834020DD233900C6E0B0 /* VendorCreateInvoiceVC.swift */; };
 		771742B120C1EED400BD0A88 /* PhoneNumberHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771742B020C1EED400BD0A88 /* PhoneNumberHelper.swift */; };
@@ -53,9 +55,9 @@
 		77B7C24020B9216D0008E258 /* GBTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B7C23F20B9216D0008E258 /* GBTransaction.swift */; };
 		77B7C24220B924920008E258 /* TransactionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B7C24120B924920008E258 /* TransactionsVC.swift */; };
 		77C04AB720BECB500043AC0A /* FirebaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C04AB620BECB500043AC0A /* FirebaseHelper.swift */; };
-		7D16C58D4611BF5AD5797E38 /* Pods_GivBitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6903F1C78049D448E70636E3 /* Pods_GivBitTests.framework */; };
-		917A29F17ECDF8A04863167A /* Pods_GivBit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27C4F641A0A396D79F7E442A /* Pods_GivBit.framework */; };
-		AC3F4596E8D8706A78B28945 /* Pods_GivBitUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355127CD12E86A95A2FE5E95 /* Pods_GivBitUITests.framework */; };
+		B31A674320E6AD1600987520 /* 1_7_moresubtle1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B31A674220E6AD1600987520 /* 1_7_moresubtle1.mp4 */; };
+		B31A674720E6B6D000987520 /* success2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B31A674620E6B6D000987520 /* success2.mp4 */; };
+		D855CF6079E07D25BD645BCA /* Pods_GivBitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FC27453E8CAB9E7610FB5E5 /* Pods_GivBitTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,12 +78,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		27C4F641A0A396D79F7E442A /* Pods_GivBit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GivBit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2F2FCD1ADE0B53038880992D /* Pods-GivBitUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GivBitUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GivBitUITests/Pods-GivBitUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		355127CD12E86A95A2FE5E95 /* Pods_GivBitUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GivBitUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		113803A48EDBA9C8178B6936 /* Pods_GivBitUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GivBitUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FD7967D39A47B3A57A0EF75 /* Pods-GivBitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GivBitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GivBitTests/Pods-GivBitTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3FC27453E8CAB9E7610FB5E5 /* Pods_GivBitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GivBitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FC6D4F220B8356100353321 /* coinbaseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = coinbaseHelper.swift; sourceTree = "<group>"; };
-		45A373ADA415EB283ADD1514 /* Pods-GivBitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GivBitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GivBitTests/Pods-GivBitTests.release.xcconfig"; sourceTree = "<group>"; };
-		6903F1C78049D448E70636E3 /* Pods_GivBitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GivBitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		57CCA63FCDA53A378A0B206F /* Pods-GivBitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GivBitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GivBitTests/Pods-GivBitTests.release.xcconfig"; sourceTree = "<group>"; };
 		770814D420DCFEE8001CAC5D /* VendorQRCodeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorQRCodeVC.swift; sourceTree = "<group>"; };
 		7713834020DD233900C6E0B0 /* VendorCreateInvoiceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorCreateInvoiceVC.swift; sourceTree = "<group>"; };
 		771742B020C1EED400BD0A88 /* PhoneNumberHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberHelper.swift; sourceTree = "<group>"; };
@@ -135,10 +136,13 @@
 		77B7C23F20B9216D0008E258 /* GBTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBTransaction.swift; sourceTree = "<group>"; };
 		77B7C24120B924920008E258 /* TransactionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsVC.swift; sourceTree = "<group>"; };
 		77C04AB620BECB500043AC0A /* FirebaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseHelper.swift; sourceTree = "<group>"; };
-		97278999021FF89CD2C74A0B /* Pods-GivBit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GivBit.release.xcconfig"; path = "Pods/Target Support Files/Pods-GivBit/Pods-GivBit.release.xcconfig"; sourceTree = "<group>"; };
-		A3243C0D23FF3C2C434E10EC /* Pods-GivBitUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GivBitUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GivBitUITests/Pods-GivBitUITests.release.xcconfig"; sourceTree = "<group>"; };
-		D789BCAE62317A7BE95FE4C1 /* Pods-GivBitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GivBitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GivBitTests/Pods-GivBitTests.debug.xcconfig"; sourceTree = "<group>"; };
-		E18B7F5895A5DE5747222113 /* Pods-GivBit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GivBit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GivBit/Pods-GivBit.debug.xcconfig"; sourceTree = "<group>"; };
+		78CAED032E4F33B4022DC8E7 /* Pods-GivBitUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GivBitUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GivBitUITests/Pods-GivBitUITests.release.xcconfig"; sourceTree = "<group>"; };
+		8403572FDF62C76211648DA3 /* Pods_GivBit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GivBit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B31A674220E6AD1600987520 /* 1_7_moresubtle1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1_7_moresubtle1.mp4; sourceTree = "<group>"; };
+		B31A674620E6B6D000987520 /* success2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = success2.mp4; sourceTree = "<group>"; };
+		C80C7C612C227BBE5A1A52AD /* Pods-GivBit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GivBit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GivBit/Pods-GivBit.debug.xcconfig"; sourceTree = "<group>"; };
+		F730A76E02A2A3D73C989458 /* Pods-GivBit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GivBit.release.xcconfig"; path = "Pods/Target Support Files/Pods-GivBit/Pods-GivBit.release.xcconfig"; sourceTree = "<group>"; };
+		F8004F616193810D979BD52A /* Pods-GivBitUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GivBitUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GivBitUITests/Pods-GivBitUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,7 +150,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				917A29F17ECDF8A04863167A /* Pods_GivBit.framework in Frameworks */,
+				49D3A7FC1219534A45A24D7C /* Pods_GivBit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,7 +158,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D16C58D4611BF5AD5797E38 /* Pods_GivBitTests.framework in Frameworks */,
+				D855CF6079E07D25BD645BCA /* Pods_GivBitTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,24 +166,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC3F4596E8D8706A78B28945 /* Pods_GivBitUITests.framework in Frameworks */,
+				16E40F00435E714AE329CA85 /* Pods_GivBitUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		09CEC11D28E61C20BDB6CD31 /* Pods */ = {
+		2B4D28B203F914AFEF4BCE1F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E18B7F5895A5DE5747222113 /* Pods-GivBit.debug.xcconfig */,
-				97278999021FF89CD2C74A0B /* Pods-GivBit.release.xcconfig */,
-				D789BCAE62317A7BE95FE4C1 /* Pods-GivBitTests.debug.xcconfig */,
-				45A373ADA415EB283ADD1514 /* Pods-GivBitTests.release.xcconfig */,
-				2F2FCD1ADE0B53038880992D /* Pods-GivBitUITests.debug.xcconfig */,
-				A3243C0D23FF3C2C434E10EC /* Pods-GivBitUITests.release.xcconfig */,
+				8403572FDF62C76211648DA3 /* Pods_GivBit.framework */,
+				3FC27453E8CAB9E7610FB5E5 /* Pods_GivBitTests.framework */,
+				113803A48EDBA9C8178B6936 /* Pods_GivBitUITests.framework */,
 			);
-			name = Pods;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		773B2CB420DB5782005B6A53 /* Vendor */ = {
@@ -216,9 +217,9 @@
 				77599A1020A02987001FF565 /* GivBitTests */,
 				77599A1B20A02987001FF565 /* GivBitUITests */,
 				775999FA20A02986001FF565 /* Products */,
-				09CEC11D28E61C20BDB6CD31 /* Pods */,
-				E332B805FAE9490A78AF1E86 /* Frameworks */,
 				77599A3A20A08765001FF565 /* GivBit-Bridging-Header.h */,
+				DB142F0AF90C90A82831106F /* Pods */,
+				2B4D28B203F914AFEF4BCE1F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -235,6 +236,7 @@
 		775999FB20A02986001FF565 /* GivBit */ = {
 			isa = PBXGroup;
 			children = (
+				B31A673420E66E4300987520 /* Videos */,
 				77599A2D20A03F4D001FF565 /* GivBit.entitlements */,
 				77599A2A20A03D46001FF565 /* Plists */,
 				77B7C23420B7F4500008E258 /* CustomUIObjects */,
@@ -340,14 +342,26 @@
 			path = CustomUIObjects;
 			sourceTree = "<group>";
 		};
-		E332B805FAE9490A78AF1E86 /* Frameworks */ = {
+		B31A673420E66E4300987520 /* Videos */ = {
 			isa = PBXGroup;
 			children = (
-				27C4F641A0A396D79F7E442A /* Pods_GivBit.framework */,
-				6903F1C78049D448E70636E3 /* Pods_GivBitTests.framework */,
-				355127CD12E86A95A2FE5E95 /* Pods_GivBitUITests.framework */,
+				B31A674620E6B6D000987520 /* success2.mp4 */,
+				B31A674220E6AD1600987520 /* 1_7_moresubtle1.mp4 */,
 			);
-			name = Frameworks;
+			path = Videos;
+			sourceTree = "<group>";
+		};
+		DB142F0AF90C90A82831106F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C80C7C612C227BBE5A1A52AD /* Pods-GivBit.debug.xcconfig */,
+				F730A76E02A2A3D73C989458 /* Pods-GivBit.release.xcconfig */,
+				1FD7967D39A47B3A57A0EF75 /* Pods-GivBitTests.debug.xcconfig */,
+				57CCA63FCDA53A378A0B206F /* Pods-GivBitTests.release.xcconfig */,
+				F8004F616193810D979BD52A /* Pods-GivBitUITests.debug.xcconfig */,
+				78CAED032E4F33B4022DC8E7 /* Pods-GivBitUITests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -357,11 +371,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 77599A2120A02987001FF565 /* Build configuration list for PBXNativeTarget "GivBit" */;
 			buildPhases = (
-				AC47821A64548200E14B65BD /* [CP] Check Pods Manifest.lock */,
+				6DB919A40CEA323D6A3261E5 /* [CP] Check Pods Manifest.lock */,
 				775999F520A02986001FF565 /* Sources */,
 				775999F620A02986001FF565 /* Frameworks */,
 				775999F720A02986001FF565 /* Resources */,
-				E8CCACE080BEF24FF3A90281 /* [CP] Embed Pods Frameworks */,
+				D96E90DF2F0B6155B963BF3F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -376,7 +390,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 77599A2420A02987001FF565 /* Build configuration list for PBXNativeTarget "GivBitTests" */;
 			buildPhases = (
-				A2B07654EFF5DC6F696F2A86 /* [CP] Check Pods Manifest.lock */,
+				E3C9B667F57FCB6FDF3442D9 /* [CP] Check Pods Manifest.lock */,
 				77599A0920A02987001FF565 /* Sources */,
 				77599A0A20A02987001FF565 /* Frameworks */,
 				77599A0B20A02987001FF565 /* Resources */,
@@ -395,7 +409,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 77599A2720A02987001FF565 /* Build configuration list for PBXNativeTarget "GivBitUITests" */;
 			buildPhases = (
-				C22589FC8445113BFDA5CA12 /* [CP] Check Pods Manifest.lock */,
+				FF763AB19E908F8D2DB61010 /* [CP] Check Pods Manifest.lock */,
 				77599A1420A02987001FF565 /* Sources */,
 				77599A1520A02987001FF565 /* Frameworks */,
 				77599A1620A02987001FF565 /* Resources */,
@@ -468,8 +482,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				77599A0720A02987001FF565 /* LaunchScreen.storyboard in Resources */,
+				B31A674720E6B6D000987520 /* success2.mp4 in Resources */,
 				7773091820E0CFDF0055EDA1 /* UserQR.storyboard in Resources */,
 				77599A2C20A03D5E001FF565 /* GoogleService-Info.plist in Resources */,
+				B31A674320E6AD1600987520 /* 1_7_moresubtle1.mp4 in Resources */,
 				773B2CB620DB5799005B6A53 /* Vendor.storyboard in Resources */,
 				77599A0420A02987001FF565 /* Assets.xcassets in Resources */,
 				77599A2F20A042DD001FF565 /* Login.storyboard in Resources */,
@@ -494,25 +510,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		A2B07654EFF5DC6F696F2A86 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-GivBitTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		AC47821A64548200E14B65BD /* [CP] Check Pods Manifest.lock */ = {
+		6DB919A40CEA323D6A3261E5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -530,25 +528,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C22589FC8445113BFDA5CA12 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-GivBitUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E8CCACE080BEF24FF3A90281 /* [CP] Embed Pods Frameworks */ = {
+		D96E90DF2F0B6155B963BF3F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -612,6 +592,42 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GivBit/Pods-GivBit-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E3C9B667F57FCB6FDF3442D9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GivBitTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FF763AB19E908F8D2DB61010 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GivBitUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -828,7 +844,7 @@
 		};
 		77599A2220A02987001FF565 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E18B7F5895A5DE5747222113 /* Pods-GivBit.debug.xcconfig */;
+			baseConfigurationReference = C80C7C612C227BBE5A1A52AD /* Pods-GivBit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -852,7 +868,7 @@
 		};
 		77599A2320A02987001FF565 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 97278999021FF89CD2C74A0B /* Pods-GivBit.release.xcconfig */;
+			baseConfigurationReference = F730A76E02A2A3D73C989458 /* Pods-GivBit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -875,7 +891,7 @@
 		};
 		77599A2520A02987001FF565 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D789BCAE62317A7BE95FE4C1 /* Pods-GivBitTests.debug.xcconfig */;
+			baseConfigurationReference = 1FD7967D39A47B3A57A0EF75 /* Pods-GivBitTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -897,7 +913,7 @@
 		};
 		77599A2620A02987001FF565 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 45A373ADA415EB283ADD1514 /* Pods-GivBitTests.release.xcconfig */;
+			baseConfigurationReference = 57CCA63FCDA53A378A0B206F /* Pods-GivBitTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -919,7 +935,7 @@
 		};
 		77599A2820A02987001FF565 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2F2FCD1ADE0B53038880992D /* Pods-GivBitUITests.debug.xcconfig */;
+			baseConfigurationReference = F8004F616193810D979BD52A /* Pods-GivBitUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -940,7 +956,7 @@
 		};
 		77599A2920A02987001FF565 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A3243C0D23FF3C2C434E10EC /* Pods-GivBitUITests.release.xcconfig */;
+			baseConfigurationReference = 78CAED032E4F33B4022DC8E7 /* Pods-GivBitUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
