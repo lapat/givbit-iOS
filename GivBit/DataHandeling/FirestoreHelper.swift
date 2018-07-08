@@ -253,6 +253,41 @@ class FirestoreHelper: NSObject {
         }
     }
     
+    func getUsersVendorInfo(completionHandler: @escaping (_ vendorInfo: Any?, _ error: Error?)-> Void){
+        if Auth.auth().currentUser == nil{
+            let e = GBError(localizedDescription: "No User Logged in")
+            completionHandler(false, e)
+        }
+        let query = db.collection("vendors").document((Auth.auth().currentUser?.uid)!)
+        query.getDocument { (docSnapshot, error) in
+            if error != nil{
+                completionHandler(nil, error)
+            }else{
+                if docSnapshot?.data() != nil{
+                    completionHandler(docSnapshot?.data(), nil)
+                }else{
+                    completionHandler(nil, nil)
+                }
+            }
+        }
+        
+    }
+    
+    func saveVendorSettings(name: String, email: String, emailNotificationsAllowed: Bool,
+                            completionHandler: @escaping(_ error: Error?)->Void){
+        let uid = Auth.auth().currentUser?.uid
+        let query = db.collection("vendors").document(uid!).updateData(["company_name" : name, "vendor_email": email, "should_email": emailNotificationsAllowed]){
+            err in
+            if err != nil{
+                //print(err?.localizedDescription)
+                completionHandler(err)
+            }else{
+                //print("doc saved")
+                completionHandler(nil)
+            }
+        }
+    }
+    
     
     // MARK: - Crypto Prices
     

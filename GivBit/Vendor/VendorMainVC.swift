@@ -13,7 +13,12 @@ class VendorMainVC: UIViewController {
     
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var submitButton: UIView!
-
+    @IBOutlet weak var vendorSettingsView: UIView!
+    @IBOutlet weak var vendorEmailField: UITextField!
+    @IBOutlet weak var vendorBusinessNameField: UITextField!
+    @IBOutlet weak var vendorEmailUpdatesAllowedSwitch: UISwitch!
+    @IBOutlet weak var saveVendorInfo: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,7 +33,58 @@ class VendorMainVC: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        // check if user is a vendor or not
+        SVProgressHUD.show()
+        FirestoreHelper.sharedInstnace.checkIfUserIsVendor { (status, error) in
+            if error != nil {
+                SVProgressHUD.dismiss()
+                // maybe network issue occured
+                self.dismiss(animated: true, completion: {
+                    AlertHelper.sharedInstance.showAlert(inViewController: (UIApplication.shared.keyWindow?.rootViewController)!, withDescription: "Error", andTitle: (error!.localizedDescription))
+                })
+            }else{
+                if status == true{
+                    // move to the vendor signed up view
+                    // get the vendor info and update view
+                    self.fetchVendorInfoAndUpdateView(userIsVendor: true)
+                    
+                }else{
+                    SVProgressHUD.dismiss()
+                    // the user needs to login to vendor - Hide the vendor settings
+                    self.vendorSettingsView.isHidden = true
+                }
+            }
+        }
         
+    }
+    
+    // fetches the vendors info form the db and updates view
+    // does this only if user is a vendor
+    func fetchVendorInfoAndUpdateView(userIsVendor: Bool){
+        if userIsVendor == true{
+            FirestoreHelper.sharedInstnace.getUsersVendorInfo { (infoObject, error) in
+                SVProgressHUD.dismiss()
+                if error != nil{
+                    AlertHelper.sharedInstance.showAlert(inViewController: self, withDescription: "Networking Issue", andTitle: "Error")
+                    DispatchQueue.main.async {
+                        self.saveVendorInfo.isHidden = true
+                    }
+                }else{
+                    let data = infoObject as! Dictionary<String, Any>
+                    let vendorEmail = data["vendor_email"] as! String
+                    let companyName = data["company_name"] as! String
+                    // manipulate the ui on main thread for sanities sake.
+                    DispatchQueue.main.async {
+                        self.vendorEmailField.text = vendorEmail
+                        self.vendorBusinessNameField.text = companyName
+                        // show the vendor settings
+                        self.vendorSettingsView.isHidden = false
+                        self.saveVendorInfo.isHidden = false
+                    }
+                    
+                }
+            }
+        }
     }
     
     // MARK: - Actions
@@ -62,6 +118,17 @@ class VendorMainVC: UIViewController {
                     }
                 }
             }
+        }
+    }
+    
+    @IBAction func didTapOnSaveButton(sendor: UIButton){
+        FirestoreHelper.sharedInstnace.saveVendorSettings(name: vendorBusinessNameField.text!, email: vendorEmailField.text!, emailNotificationsAllowed: vendorEmailUpdatesAllowedSwitch.isOn){(err) in
+            if err == nil{
+                AlertHelper.sharedInstance.showAlert(inViewController: self, withDescription: "You vendor info has been updated", andTitle: "Saved")
+            }else{
+                AlertHelper.sharedInstance.showAlert(inViewController: self, withDescription: "We were not able to save your info, kindly check your internet", andTitle: "Error")
+            }
+            
         }
     }
     
