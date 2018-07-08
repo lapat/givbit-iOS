@@ -51,4 +51,18 @@ class FirebaseHelper: NSObject {
             }
         }
     }
+    
+    // sends usd amount to
+    static func createInvoiceForVendor(amountUSD: Double){
+        let data = ["amount": amountUSD]
+        Functions.functions().httpsCallable("createInvoice").call(data) { (result, error) in
+            let data = result?.data
+            if data != nil{
+                print(data)
+            }
+            if error != nil{
+                print(error?.localizedDescription)
+            }
+        }
+    }
 }

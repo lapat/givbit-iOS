@@ -185,7 +185,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mHp-u1-GoM" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="1Ar-YT-8y9" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4206" y="-950"/>
+            <point key="canvasLocation" x="4205.6000000000004" y="-950.37481259370327"/>
         </scene>
         <!--GivBit-->
         <scene sceneID="imK-n3-O6T">
@@ -462,7 +462,7 @@
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="00.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LRR-Ml-kdB">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LRR-Ml-kdB">
                                 <rect key="frame" x="127" y="145" width="121.5" height="54"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -482,7 +482,7 @@
                                     <action selector="didTapOnSendCoinButtonWithButton:" destination="Lrn-CT-dPn" eventType="touchUpInside" id="ZPv-Hq-bHV"/>
                                 </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lpe-Ar-PN2">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lpe-Ar-PN2">
                                 <rect key="frame" x="106.5" y="168" width="12.5" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="12.5" id="Egu-cL-OYs"/>
@@ -491,7 +491,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="0.0000008" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mji-oe-UFD">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0000008" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mji-oe-UFD">
                                 <rect key="frame" x="144.5" y="207" width="86.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
@@ -641,7 +641,7 @@
                                     <constraint firstAttribute="width" constant="50" id="d85-CQ-Re9"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="BTC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ia-eq-JM3">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BTC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ia-eq-JM3">
                                 <rect key="frame" x="97" y="206.5" width="32.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
@@ -653,7 +653,7 @@
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g13-kP-3vN" userLabel="BTC Left In Account">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g13-kP-3vN" userLabel="BTC Left In Account">
                                 <rect key="frame" x="97" y="235" width="173" height="31"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
@@ -668,6 +668,7 @@
                             <constraint firstItem="J6e-Vd-KRD" firstAttribute="top" secondItem="Usq-mv-VeG" secondAttribute="bottom" constant="8" id="8yn-m8-dus"/>
                             <constraint firstItem="Hca-E5-In0" firstAttribute="leading" secondItem="J6e-Vd-KRD" secondAttribute="leading" id="9YB-eO-t2T"/>
                             <constraint firstItem="l06-1C-im7" firstAttribute="top" relation="greaterThanOrEqual" secondItem="mji-oe-UFD" secondAttribute="bottom" constant="8" id="DQh-q3-PqM"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Hca-E5-In0" secondAttribute="trailing" constant="20" symbolic="YES" id="GCg-t5-n4w"/>
                             <constraint firstItem="l06-1C-im7" firstAttribute="centerX" secondItem="7hL-dt-mhx" secondAttribute="centerX" id="GWl-4S-0j5"/>
                             <constraint firstItem="LRR-Ml-kdB" firstAttribute="top" secondItem="bxn-zo-Gjg" secondAttribute="bottom" constant="50" id="GeZ-rT-UNh"/>
                             <constraint firstItem="bxn-zo-Gjg" firstAttribute="centerX" secondItem="7hL-dt-mhx" secondAttribute="centerX" constant="-50" id="KmN-lZ-WKo"/>
@@ -687,6 +688,7 @@
                             <constraint firstItem="1Ww-yK-fj7" firstAttribute="centerY" secondItem="bxn-zo-Gjg" secondAttribute="centerY" id="cgr-M9-1j2"/>
                             <constraint firstItem="LRR-Ml-kdB" firstAttribute="centerX" secondItem="7hL-dt-mhx" secondAttribute="centerX" id="ePT-gh-vT1"/>
                             <constraint firstItem="g13-kP-3vN" firstAttribute="top" secondItem="mji-oe-UFD" secondAttribute="bottom" constant="7.5" id="eYd-fz-PWD"/>
+                            <constraint firstItem="4Ia-eq-JM3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lkC-cR-M2H" secondAttribute="leading" constant="20" symbolic="YES" id="gYh-FH-zQ7"/>
                             <constraint firstItem="mji-oe-UFD" firstAttribute="top" secondItem="LRR-Ml-kdB" secondAttribute="bottom" constant="8" id="gsl-Zu-WEa"/>
                             <constraint firstItem="l06-1C-im7" firstAttribute="top" secondItem="g13-kP-3vN" secondAttribute="bottom" constant="72.5" id="i5O-KR-dXY"/>
                             <constraint firstItem="4Ia-eq-JM3" firstAttribute="centerY" secondItem="mji-oe-UFD" secondAttribute="centerY" id="iiU-v9-LIG"/>

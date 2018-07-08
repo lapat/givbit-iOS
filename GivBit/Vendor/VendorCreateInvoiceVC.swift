@@ -25,7 +25,6 @@ class VendorCreateInvoiceVC: UIViewController {
         
         // top bar
         self.navigationController?.navigationBar.isHidden = true
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,7 +45,7 @@ class VendorCreateInvoiceVC: UIViewController {
     
     //MARK: - Actions
     @IBAction func didTapOnGenerateQRCodeButton(button: UIButton){
-        
+        FirebaseHelper.createInvoiceForVendor(amountUSD: 500)
     }
     
     @IBAction func didTapOnNumpadButton(button: UIButton){
