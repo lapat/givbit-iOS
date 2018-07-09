@@ -99,7 +99,7 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A1v-aE-pVq">
+                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A1v-aE-pVq">
                                                 <rect key="frame" x="0.0" y="322" width="319" height="55"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="name " textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eEE-h3-Rgu">
@@ -425,18 +425,24 @@
                                             <action selector="didTapOnSubmitButton" destination="egG-kh-ZeN" eventType="touchUpInside" id="UDM-HA-F02"/>
                                         </connections>
                                     </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="cart" translatesAutoresizingMaskIntoConstraints="NO" id="hmW-dS-LVF">
+                                        <rect key="frame" x="109" y="153" width="124" height="124"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="H1S-Ec-W2M" firstAttribute="top" relation="greaterThanOrEqual" secondItem="SW1-6v-t5v" secondAttribute="bottom" priority="750" constant="2" id="14h-lR-ltp"/>
+                                    <constraint firstItem="hmW-dS-LVF" firstAttribute="leading" secondItem="U2j-HY-hE1" secondAttribute="leading" constant="109" id="9s0-e2-FjL"/>
                                     <constraint firstAttribute="bottom" secondItem="Z6K-b3-LHA" secondAttribute="bottom" constant="6" id="IyN-G2-KOD"/>
                                     <constraint firstItem="SW1-6v-t5v" firstAttribute="top" secondItem="VWu-HM-qnH" secondAttribute="bottom" id="NFx-5F-hmQ"/>
+                                    <constraint firstItem="hmW-dS-LVF" firstAttribute="top" secondItem="SW1-6v-t5v" secondAttribute="bottom" constant="8" id="Nba-fj-1zd"/>
                                     <constraint firstItem="VWu-HM-qnH" firstAttribute="top" secondItem="U2j-HY-hE1" secondAttribute="top" constant="25" id="NdM-wl-5vL"/>
                                     <constraint firstItem="SW1-6v-t5v" firstAttribute="centerX" secondItem="VWu-HM-qnH" secondAttribute="centerX" id="NvZ-U7-Nw9"/>
                                     <constraint firstItem="Z6K-b3-LHA" firstAttribute="top" secondItem="wbo-qK-FrW" secondAttribute="bottom" constant="8" id="PVV-5x-RKb"/>
                                     <constraint firstItem="wbo-qK-FrW" firstAttribute="top" secondItem="H1S-Ec-W2M" secondAttribute="bottom" constant="8" id="TSt-BF-j4s"/>
                                     <constraint firstItem="H1S-Ec-W2M" firstAttribute="leading" secondItem="U2j-HY-hE1" secondAttribute="leading" constant="8" id="Xia-Yz-c73"/>
                                     <constraint firstAttribute="trailing" secondItem="H1S-Ec-W2M" secondAttribute="trailing" constant="8" id="qQh-Tn-6wF"/>
+                                    <constraint firstAttribute="trailing" secondItem="hmW-dS-LVF" secondAttribute="trailing" constant="110" id="sSM-fE-YSL"/>
                                     <constraint firstItem="VWu-HM-qnH" firstAttribute="centerX" secondItem="U2j-HY-hE1" secondAttribute="centerX" id="sZC-h4-bGt"/>
                                     <constraint firstItem="wbo-qK-FrW" firstAttribute="centerX" secondItem="Z6K-b3-LHA" secondAttribute="centerX" id="vU4-u7-B5d"/>
                                     <constraint firstItem="Z6K-b3-LHA" firstAttribute="centerX" secondItem="U2j-HY-hE1" secondAttribute="centerX" id="ww3-pW-5JG"/>
@@ -478,7 +484,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z21-9J-J4k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="329" y="-341"/>
+            <point key="canvasLocation" x="328.80000000000001" y="-341.37931034482762"/>
         </scene>
         <!--Vendor Create InvoiceVC-->
         <scene sceneID="n2U-ly-YT8">
@@ -797,10 +803,11 @@
     </scenes>
     <resources>
         <image name="back-arrow" width="21" height="16"/>
+        <image name="cart" width="100" height="100"/>
         <image name="cross-1" width="14" height="14"/>
         <image name="qrcode" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="OK0-b3-Ffu"/>
+        <segue reference="E9z-m6-ure"/>
     </inferredMetricsTieBreakers>
 </document>
