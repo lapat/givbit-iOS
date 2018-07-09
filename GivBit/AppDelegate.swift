@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import IQKeyboardManagerSwift
-
+import AVFoundation
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -57,6 +57,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 // if user is already logged in before.. it will just populate the gbuser from db cache
             }
         }
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient)
+        } catch {
+            print("error avaudiosession")
+        }
+        
         return true
     }
     

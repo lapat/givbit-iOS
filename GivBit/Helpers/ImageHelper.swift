@@ -10,12 +10,14 @@
 
 import UIKit
 import ChameleonFramework
+import AVFoundation
 
 class ImageHelper: NSObject {
     
     // dont make a seperate instance use this instead
     static var sharedInstance = ImageHelper()
-    
+    var player: AVPlayer?
+
     
     // This will add given text to the image in the center. Can also add a grey background to the text
     func generateImageWithCenteredText(textAtCenter text: String, inImage image: UIImage, addBackground: Bool) -> UIImage{
@@ -56,6 +58,31 @@ class ImageHelper: NSObject {
         //Pass the image back up to the caller
         return newImage!
     }
+    
+    
+    func playBackgoundVideo(aView: UIView, videoName : String) {
+        if let filePath = Bundle.main.path(forResource: videoName, ofType:"mp4") {
+            let filePathUrl = NSURL.fileURL(withPath: filePath)
+            player = AVPlayer(url: filePathUrl)
+            //player.muted = mute;
+            NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: self.player?.currentItem, queue: .main) { _ in
+                self.player?.seek(to: kCMTimeZero)
+                self.player?.play()
+            }
+            let playerLayer = AVPlayerLayer(player: player)
+            playerLayer.frame = aView.bounds
+            playerLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+            NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: self.player?.currentItem, queue: nil) { (_) in
+                self.player?.seek(to: kCMTimeZero)
+                self.player?.play()
+            }
+            aView.layer.insertSublayer(playerLayer, at: 0)
+            
+            print("gonna try to play video:"+videoName)
+            player?.play()
+        }
+    }
+    
 }
 
 // MARK: - Extension

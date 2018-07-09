@@ -26,7 +26,8 @@ class LoginVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         // hide the top and bottom bar
         print("viewWillAppear")
-        playBackgoundVideo()
+        //playBackgoundVideo()
+        ImageHelper.sharedInstance.playBackgoundVideo(aView : self.view , videoName :  "1_7_moresubtle1")
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,29 +44,6 @@ class LoginVC: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
-    private func playBackgoundVideo() {
-        if let filePath = Bundle.main.path(forResource: "1_7_moresubtle1", ofType:"mp4") {
-            let filePathUrl = NSURL.fileURL(withPath: filePath)
-            player = AVPlayer(url: filePathUrl)
-            NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: self.player?.currentItem, queue: .main) { _ in
-                self.player?.seek(to: kCMTimeZero)
-                self.player?.play()
-            }
-            let playerLayer = AVPlayerLayer(player: player)
-            playerLayer.frame = self.view.bounds
-            playerLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
-            NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: self.player?.currentItem, queue: nil) { (_) in
-                self.player?.seek(to: kCMTimeZero)
-                self.player?.play()
-            }
-            self.view.layer.insertSublayer(playerLayer, at: 0)
-
-            print("gonna try to play it")
-            player?.play()
-        }
-    }
-    
 
 
 }

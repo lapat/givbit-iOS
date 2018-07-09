@@ -41,7 +41,8 @@ class SendCoinSuccesVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         // hide the top and bottom bar
         print("viewWillAppear")
-        playBackgoundVideo()
+        //playBackgoundVideo()
+        ImageHelper.sharedInstance.playBackgoundVideo(aView : self.view , videoName :  "success2")
     }
 
     /*
@@ -53,7 +54,7 @@ class SendCoinSuccesVC: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    private func playBackgoundVideo() {
+    /*private func playBackgoundVideo() {
         if let filePath = Bundle.main.path(forResource: "success2", ofType:"mp4") {
             let filePathUrl = NSURL.fileURL(withPath: filePath)
             player = AVPlayer(url: filePathUrl)
@@ -72,7 +73,7 @@ class SendCoinSuccesVC: UIViewController {
             print("gonna try to play success")
             player?.play()
         }
-    }
+    }*/
     
 
 }

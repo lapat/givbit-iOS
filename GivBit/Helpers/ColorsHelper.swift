@@ -15,7 +15,8 @@ class ColorsHelper: NSObject {
     static let barTintColor1 = UIColor(hexString: "#696cff")
     
     static let generalBlueColor = UIColor(hexString: "#6970F6")
-    
+    static let whiteColor = UIColor(hexString: "#ffffff")
+
     
     // Returns background color for UIView
     static func getLoginViewBackgroundGradientColor(rect: CGRect)-> UIColor{

@@ -41,6 +41,12 @@ class VendorQRCodeVC: UIViewController {
         vendorAmountRequestedLabel.text = transactionAmount
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        print("viewWillAppear")
+        ImageHelper.sharedInstance.playBackgoundVideo(aView : self.view , videoName :  "bgroundQrPurple")
+    }
+
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -55,7 +61,7 @@ class VendorQRCodeVC: UIViewController {
         print(givbitTransactionCode);
         var qrCode = QRCode(givbitTransactionCode);
         qrCode?.size = qrCodeImageView.frame.size
-        qrCode?.backgroundColor = CIColor(color: ColorsHelper.generalBlueColor!)
+        qrCode?.backgroundColor = CIColor(color: ColorsHelper.whiteColor!)
         qrCodeImageView.image = qrCode?.image
     }
     
