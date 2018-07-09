@@ -55,14 +55,13 @@ class VendorMainVC: UIViewController {
                 }
             }
         }
-        
     }
     
     // fetches the vendors info form the db and updates view
     // does this only if user is a vendor
     func fetchVendorInfoAndUpdateView(userIsVendor: Bool){
         if userIsVendor == true{
-            FirestoreHelper.sharedInstnace.getUsersVendorInfo { (infoObject, error) in
+            FirestoreHelper.sharedInstnace.getUserVendorInfo(fromCache: true) { (infoObject, error) in
                 SVProgressHUD.dismiss()
                 if error != nil{
                     AlertHelper.sharedInstance.showAlert(inViewController: self, withDescription: "Networking Issue", andTitle: "Error")

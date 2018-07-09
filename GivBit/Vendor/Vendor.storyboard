@@ -530,7 +530,6 @@
                                 </state>
                                 <connections>
                                     <action selector="didTapOnGenerateQRCodeButtonWithButton:" destination="ET0-Ug-6fD" eventType="touchUpInside" id="e0b-CS-yPa"/>
-                                    <segue destination="Nqb-CE-p2Y" kind="show" id="QX8-Mx-ETG"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="s4u-LD-CI0">
@@ -716,6 +715,7 @@
                     <connections>
                         <outlet property="fiatLabel" destination="y7g-7C-GGK" id="g3G-9H-tnb"/>
                         <outlet property="genQRCodeButton" destination="QNK-5J-8XN" id="6Yo-3K-Z5a"/>
+                        <segue destination="Nqb-CE-p2Y" kind="show" identifier="showQRCodeSegue" id="M0L-HK-CdC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rki-kG-T1U" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -730,13 +730,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7VJ-MT-3kg">
-                                <rect key="frame" x="87.666666666666686" y="311" width="200" height="200"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="7VJ-MT-3kg" secondAttribute="height" multiplier="1:1" id="8LE-hr-USH"/>
-                                    <constraint firstAttribute="width" constant="200" id="V7G-h1-MFp"/>
-                                </constraints>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O6T-GQ-Soh">
                                 <rect key="frame" x="16" y="44" width="30" height="30"/>
                                 <constraints>
@@ -749,23 +742,57 @@
                                     <action selector="didTapOnBackButtonWithButton:" destination="Nqb-CE-p2Y" eventType="touchUpInside" id="lNi-Eo-C9r"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$00.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y8T-R2-Juk">
+                                <rect key="frame" x="16" y="253" width="343" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ee7-q7-RdM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="highlightedColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="752" text="Create Bitcoin Invoice" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gug-ha-lix">
+                                <rect key="frame" x="127" y="44" width="120" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="4Pu-EN-22O"/>
+                                    <constraint firstAttribute="width" constant="120" id="dVb-df-Hcl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7VJ-MT-3kg">
+                                <rect key="frame" x="87" y="311" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="7VJ-MT-3kg" secondAttribute="height" multiplier="1:1" id="8LE-hr-USH"/>
+                                    <constraint firstAttribute="width" constant="200" id="V7G-h1-MFp"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.41176470590000003" green="0.43921568630000002" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="TDi-kF-8TS" firstAttribute="trailing" secondItem="y8T-R2-Juk" secondAttribute="trailing" constant="16" id="2sE-RX-Y3q"/>
                             <constraint firstItem="O6T-GQ-Soh" firstAttribute="top" secondItem="TDi-kF-8TS" secondAttribute="top" id="C3I-GB-X9O"/>
+                            <constraint firstItem="y8T-R2-Juk" firstAttribute="top" relation="greaterThanOrEqual" secondItem="gug-ha-lix" secondAttribute="bottom" id="GG8-AH-UKl"/>
                             <constraint firstItem="7VJ-MT-3kg" firstAttribute="centerX" secondItem="TDi-kF-8TS" secondAttribute="centerX" id="OFw-h5-C6T"/>
                             <constraint firstItem="O6T-GQ-Soh" firstAttribute="leading" secondItem="TDi-kF-8TS" secondAttribute="leading" constant="16" id="Slg-bc-GI8"/>
+                            <constraint firstItem="gug-ha-lix" firstAttribute="centerX" secondItem="TDi-kF-8TS" secondAttribute="centerX" id="VVH-N2-4gu"/>
+                            <constraint firstItem="gug-ha-lix" firstAttribute="top" secondItem="TDi-kF-8TS" secondAttribute="top" id="YMh-DP-6nc"/>
+                            <constraint firstItem="y8T-R2-Juk" firstAttribute="leading" secondItem="TDi-kF-8TS" secondAttribute="leading" constant="16" id="jKS-zS-ZZl"/>
+                            <constraint firstItem="7VJ-MT-3kg" firstAttribute="top" secondItem="y8T-R2-Juk" secondAttribute="bottom" constant="8" id="kHY-IA-Ioo"/>
                             <constraint firstItem="7VJ-MT-3kg" firstAttribute="centerY" secondItem="TDi-kF-8TS" secondAttribute="centerY" id="ybz-Sn-a74"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="TDi-kF-8TS"/>
                     </view>
                     <connections>
                         <outlet property="qrCodeImageView" destination="7VJ-MT-3kg" id="DSE-PM-Ud0"/>
+                        <outlet property="vendorAmountRequestedLabel" destination="y8T-R2-Juk" id="tLv-v9-coN"/>
+                        <outlet property="vendorNameLabel" destination="gug-ha-lix" id="xg0-5I-LA8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Luw-jA-uCk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1116" y="313"/>
+            <point key="canvasLocation" x="1116" y="312.5615763546798"/>
         </scene>
     </scenes>
     <resources>

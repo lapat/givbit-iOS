@@ -53,15 +53,18 @@ class FirebaseHelper: NSObject {
     }
     
     // sends usd amount to
-    static func createInvoiceForVendor(amountUSD: Double){
+    static func createInvoiceForVendor(amountUSD: Double, completionHandler: @escaping (_ invoiceCode: String, Error?) -> Void){
         let data = ["amount": amountUSD]
         Functions.functions().httpsCallable("createInvoice").call(data) { (result, error) in
-            let data = result?.data
+            let data = result?.data as? Dictionary<String, Any>
             if data != nil{
                 print(data)
+                let transCode = data!["success"] as! String
+                completionHandler(transCode, nil)
             }
             if error != nil{
                 print(error?.localizedDescription)
+                completionHandler("", error)
             }
         }
     }

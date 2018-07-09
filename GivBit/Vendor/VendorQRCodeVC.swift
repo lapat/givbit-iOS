@@ -12,6 +12,11 @@ import QRCode
 class VendorQRCodeVC: UIViewController {
     
     @IBOutlet weak var qrCodeImageView: UIImageView!
+    @IBOutlet weak var vendorNameLabel: UILabel!
+    @IBOutlet weak var vendorAmountRequestedLabel: UILabel!
+    var givbitTransactionCode: String! = "Not set"
+    var vendorName: String!
+    var transactionAmount: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +35,10 @@ class VendorQRCodeVC: UIViewController {
         // hide the top view and bottom view
         self.tabBarController?.tabBar.isHidden = true
         self.navigationController?.navigationBar.isHidden = true
+        
+        // populate vendor info
+        vendorNameLabel.text = vendorName
+        vendorAmountRequestedLabel.text = transactionAmount
     }
 
     override func didReceiveMemoryWarning() {

@@ -253,6 +253,27 @@ class FirestoreHelper: NSObject {
         }
     }
     
+    // vendor info from cache
+    func getUserVendorInfo(fromCache: Bool, completionHandler: @escaping (_ vendorInfo: Any?, _ error: Error?)-> Void){
+        if Auth.auth().currentUser == nil{
+            let e = GBError(localizedDescription: "No User Logged in")
+            completionHandler(false, e)
+        }
+        let query = db.collection("vendors").document((Auth.auth().currentUser?.uid)!)
+        query.getDocument(source: FirestoreSource.cache) { (docSnapshot, error) in
+            if error != nil{
+                completionHandler(nil, error)
+            }else{
+                if docSnapshot?.data() != nil{
+                    completionHandler(docSnapshot?.data(), nil)
+                }else{
+                    completionHandler(nil, nil)
+                }
+            }
+        }        
+    }
+    
+    // fetches vendor info from server
     func getUsersVendorInfo(completionHandler: @escaping (_ vendorInfo: Any?, _ error: Error?)-> Void){
         if Auth.auth().currentUser == nil{
             let e = GBError(localizedDescription: "No User Logged in")

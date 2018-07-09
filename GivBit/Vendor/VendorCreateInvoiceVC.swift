@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class VendorCreateInvoiceVC: UIViewController {
 
@@ -14,7 +15,9 @@ class VendorCreateInvoiceVC: UIViewController {
     @IBOutlet weak var genQRCodeButton: UIButton!
     var amountToRequestFormatted: String! = "$00.00"
     var amountToRequestWithoutDot: String! = ""
-    var amountToRequestInDouble: Double!
+    var amountToRequestInDouble: Double! = 0.0
+    var givBitTransactionCode: String = ""
+    var vendorName: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,19 +36,56 @@ class VendorCreateInvoiceVC: UIViewController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "showQRCodeSegue"{
+            let destinationVC = segue.destination as! VendorQRCodeVC
+            destinationVC.givbitTransactionCode = givBitTransactionCode
+            // get the info
+            destinationVC.transactionAmount = self.amountToRequestFormatted
+            
+            FirestoreHelper.sharedInstnace.getUserVendorInfo(fromCache: true) { (info, error) in
+                if error == nil{
+                    let data = info as! Dictionary<String, Any>
+                    DispatchQueue.main.async {
+                        destinationVC.vendorNameLabel.text = data["company_name"] as? String
+                    }
+                }
+            }
+        }
     }
-    */
+    
     
     //MARK: - Actions
     @IBAction func didTapOnGenerateQRCodeButton(button: UIButton){
-        FirebaseHelper.createInvoiceForVendor(amountUSD: 500)
+        
+        if amountToRequestInDouble <= 0.1{
+            AlertHelper.sharedInstance.showAlert(inViewController: self, withDescription: "Amount is too low, kindly specify a larger amount.", andTitle: "Sorry")
+            return
+        }
+        
+        SVProgressHUD.show()
+        FirebaseHelper.createInvoiceForVendor(amountUSD: amountToRequestInDouble) { (transactionCode, error)            in
+            
+            SVProgressHUD.dismiss()
+            self.givBitTransactionCode = transactionCode
+            if error != nil{
+                // process the error
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "showQRCodeSegue", sender: self)
+                }
+                
+            }else{
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "showQRCodeSegue", sender: self)
+                }
+            }
+        }
     }
     
     @IBAction func didTapOnNumpadButton(button: UIButton){
