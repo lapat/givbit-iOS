@@ -64,7 +64,7 @@ class VendorCreateInvoiceVC: UIViewController {
     //MARK: - Actions
     @IBAction func didTapOnGenerateQRCodeButton(button: UIButton){
         
-        if amountToRequestInDouble <= 0.1{
+        if amountToRequestInDouble < 0.01{
             AlertHelper.sharedInstance.showAlert(inViewController: self, withDescription: "Amount is too low, kindly specify a larger amount.", andTitle: "Sorry")
             return
         }

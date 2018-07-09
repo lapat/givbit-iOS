@@ -9,9 +9,14 @@
 import UIKit
 import AVFoundation
 import QRCodeReader
+import SVProgressHUD
 
 class UserQRScannerVC: UIViewController {
     
+    var currencyAmount: Double! = 0.0
+    var btcAmount: Double! = 0.0
+    var companyName: String! = ""
+
     lazy var readerVC: QRCodeReaderViewController = {
         let builder = QRCodeReaderViewControllerBuilder {
             $0.reader = QRCodeReader(metadataObjectTypes: [.qr], captureDevicePosition: .back)
@@ -50,6 +55,21 @@ class UserQRScannerVC: UIViewController {
     }
     */
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if segue.identifier == "confirmInvoiceSegue"{
+            /*
+            let destinationVC = segue.destination as! confirmInvoiceVC
+            destinationVC.givbitTransactionCode = givBitTransactionCode
+            destinationVC.currencyAmount = self.currencyAmount
+            destinationVC.btcAmount = self.btcAmount
+            destinationVC.companyName = self.companyName
+            */
+        }
+    }
+    
+    
     @IBAction func scanAction(_ sender: AnyObject) {
         // Retrieve the QRCode content
         // By using the delegate pattern
@@ -57,7 +77,31 @@ class UserQRScannerVC: UIViewController {
         
         // Or by using the closure pattern
         readerVC.completionBlock = { (result: QRCodeReaderResult?) in
-            print(result)
+            print("got QR Code - result.value:")
+            let invoiceId = result?.value
+
+            print(invoiceId)
+            SVProgressHUD.show()
+            
+            FirebaseHelper.getInvoiceData(invoiceId: invoiceId!) { (currencyAmount, btcAmount, companyName, error) in
+                SVProgressHUD.dismiss()
+                self.currencyAmount = currencyAmount
+                self.btcAmount = btcAmount
+                self.companyName = companyName
+                //print("currencyAmount:"+currencyAmount+"btcAmount:"+btcAmount+" companyName:"+companyName)
+                if error == nil{
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "approveInvoiceSegue", sender: self)
+                    }
+                }else{
+                    // process the error
+                    DispatchQueue.main.async {
+                        print("error gettingInvoiceData")
+                        //self.performSegue(withIdentifier: "showQRCodeSegue", sender: self)
+                    }
+                }
+            }
+        
         }
         
         // Presents the readerVC as modal form sheet

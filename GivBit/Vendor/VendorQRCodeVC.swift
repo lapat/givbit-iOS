@@ -47,7 +47,13 @@ class VendorQRCodeVC: UIViewController {
     }
     
     func generateQRCode(){
-        var qrCode = QRCode("hello");
+        if (givbitTransactionCode == "Not set"){
+            AlertHelper.sharedInstance.showAlert(inViewController: self, withDescription: "There was an error with your invoice, please contact support or try again.", andTitle: "Sorry")
+            return;
+        }
+        print("givbitTransactionCode");
+        print(givbitTransactionCode);
+        var qrCode = QRCode(givbitTransactionCode);
         qrCode?.size = qrCodeImageView.frame.size
         qrCode?.backgroundColor = CIColor(color: ColorsHelper.generalBlueColor!)
         qrCodeImageView.image = qrCode?.image

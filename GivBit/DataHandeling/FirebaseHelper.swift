@@ -58,13 +58,39 @@ class FirebaseHelper: NSObject {
         Functions.functions().httpsCallable("createInvoice").call(data) { (result, error) in
             let data = result?.data as? Dictionary<String, Any>
             if data != nil{
+                print("Invoice created succes")
                 print(data)
                 let transCode = data!["success"] as! String
+                print("transCode")
+                print(transCode)
                 completionHandler(transCode, nil)
             }
             if error != nil{
+                print("got error createInvoiceForVendor")
                 print(error?.localizedDescription)
                 completionHandler("", error)
+            }
+        }
+    }
+    static func getInvoiceData(invoiceId: String, completionHandler: @escaping (_ currencyAmount: Double, _ btcAmount: Double, _ companyName: String,  Error?) -> Void){
+        print("getInvoiceData")
+        let data = ["invoiceId": invoiceId]
+        Functions.functions().httpsCallable("getInvoiceData").call(data) { (result, error) in
+            let data = result?.data as? Dictionary<String, Any>
+            if data != nil{
+                print("getInvoiceData success")
+                print(data)
+                let currencyAmount = data!["currencyAmount"] as! Double
+                let btcAmount = data!["btcAmount"] as! Double
+                let companyName = data!["companyName"] as! String
+                //print("currencyAmount:"+currencyAmount+" btcAmount:"+btcAmount+" companyName:"+companyName)
+                print("companyName:"+companyName)
+                completionHandler(currencyAmount, btcAmount, companyName, nil)
+            }
+            if error != nil{
+                print("got error getInvoiceData")
+                print(error?.localizedDescription)
+                completionHandler(0, 0, "", error)
             }
         }
     }
