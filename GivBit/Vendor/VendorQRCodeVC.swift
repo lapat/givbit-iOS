@@ -43,7 +43,12 @@ class VendorQRCodeVC: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         print("viewWillAppear")
-        ImageHelper.sharedInstance.playBackgoundVideo(aView : self.view , videoName :  "bgroundQrPurple")
+        //ImageHelper.sharedInstance.playBackgoundVideo(aView : self.view , videoName :  "bgroundQrPurple")
+        
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "purpleBlueBackground")
+        backgroundImage.contentMode =  UIViewContentMode.scaleAspectFill
+        self.view.insertSubview(backgroundImage, at: 0)
     }
 
     
