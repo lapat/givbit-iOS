@@ -81,8 +81,8 @@ class MainVC: UIViewController {
                 if data["error"] == nil{
                     print("not null")
                     //TO DO check if data["amountInNativeCurrency"] is a number then show it
-                    self.amountOfBtcInWallet=data["amountInNativeCurrency"] as! String
-                    print("gonnaPrintIt")
+                    //self.amountOfBtcInWallet=data["amountInNativeCurrency"] as! String
+                    //print("gonnaPrintIt")
                 }else{
                     print("Error getting getAmountOfBtcInWallets")
                 }

@@ -14,6 +14,7 @@ class VendorMainVC: UIViewController {
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var submitButton: UIView!
     @IBOutlet weak var vendorSettingsView: UIView!
+    @IBOutlet weak var vendorWelcomView: UIView!
     @IBOutlet weak var vendorEmailField: UITextField!
     @IBOutlet weak var vendorBusinessNameField: UITextField!
     @IBOutlet weak var vendorEmailUpdatesAllowedSwitch: UISwitch!
@@ -28,7 +29,11 @@ class VendorMainVC: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
         
         self.backView.layer.cornerRadius = 5
-        self.submitButton.layer.cornerRadius = 5
+        //self.submitButton.layer.cornerRadius = 5
+        self.vendorSettingsView.isHidden = true
+        self.vendorWelcomView.isHidden = false
+
+        
         
     }
     
@@ -51,7 +56,7 @@ class VendorMainVC: UIViewController {
                 }else{
                     SVProgressHUD.dismiss()
                     // the user needs to login to vendor - Hide the vendor settings
-                    self.vendorSettingsView.isHidden = true
+                    //self.vendorSettingsView.isHidden = true
                 }
             }
         }
@@ -66,7 +71,7 @@ class VendorMainVC: UIViewController {
                 if error != nil{
                     AlertHelper.sharedInstance.showAlert(inViewController: self, withDescription: "Networking Issue", andTitle: "Error")
                     DispatchQueue.main.async {
-                        self.saveVendorInfo.isHidden = true
+                        //self.saveVendorInfo.isHidden = true
                     }
                 }else{
                     let data = infoObject as! Dictionary<String, Any>
@@ -77,8 +82,8 @@ class VendorMainVC: UIViewController {
                         self.vendorEmailField.text = vendorEmail
                         self.vendorBusinessNameField.text = companyName
                         // show the vendor settings
-                        self.vendorSettingsView.isHidden = false
-                        self.saveVendorInfo.isHidden = false
+                        //self.vendorSettingsView.isHidden = false
+                        //self.saveVendorInfo.isHidden = false
                     }
                     
                 }
@@ -120,16 +125,23 @@ class VendorMainVC: UIViewController {
         }
     }
     
-    @IBAction func didTapOnSaveButton(sendor: UIButton){
+
+    @IBAction func didTapCreateInvoiceButton(sendor: UIButton){
+       print("invoiceButton")
         FirestoreHelper.sharedInstnace.saveVendorSettings(name: vendorBusinessNameField.text!, email: vendorEmailField.text!, emailNotificationsAllowed: vendorEmailUpdatesAllowedSwitch.isOn){(err) in
             if err == nil{
-                AlertHelper.sharedInstance.showAlert(inViewController: self, withDescription: "You vendor info has been updated", andTitle: "Saved")
+                //AlertHelper.sharedInstance.showAlert(inViewController: self, withDescription: "You vendor info has been updated", andTitle: "Saved")
+                OperationQueue.main.addOperation {
+                    [weak self] in
+                    self?.performSegue(withIdentifier: "createInvoiceSegue", sender: self)
+                }
             }else{
                 AlertHelper.sharedInstance.showAlert(inViewController: self, withDescription: "We were not able to save your info, kindly check your internet", andTitle: "Error")
             }
             
         }
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
