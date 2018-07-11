@@ -37,8 +37,8 @@ class ConfirmPaymentVC: UIViewController {
         if segue.identifier == "userPaidVendorSuccess"{
             let destinationVC = segue.destination as! userPaidVendorSucessVC
             let currencyAmountString:String = String(format:"%.2f", self.currencyAmount)
-            let btcAmountString:String = String(format:"%.8f", self.btcAmount)
-            print("CompanyName:"+self.companyName)
+            let btcAmountString:String = String(format:"%.8f", self.btcAmountConfrim)
+            print("CompanyName:"+self.companyName+" btcAmountString:"+btcAmountString)
             DispatchQueue.main.async {
                 destinationVC.amount.text = "$ "+currencyAmountString+" ("+btcAmountString+" BTC) to";
                 destinationVC.companyName.text = self.companyName;
