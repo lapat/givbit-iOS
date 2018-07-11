@@ -72,7 +72,7 @@ class FirebaseHelper: NSObject {
             }
         }
     }
-    static func getInvoiceData(invoiceId: String, completionHandler: @escaping (_ currencyAmount: Double, _ btcAmount: Double, _ companyName: String,  Error?) -> Void){
+    static func getInvoiceData(invoiceId: String, completionHandler: @escaping (_ currencyAmount: Double, _ btcAmount: Double, _ companyName: String, _ status: String, Error?) -> Void){
         print("getInvoiceData")
         let data = ["invoiceId": invoiceId]
         Functions.functions().httpsCallable("getInvoiceData").call(data) { (result, error) in
@@ -83,14 +83,67 @@ class FirebaseHelper: NSObject {
                 let currencyAmount = data!["currencyAmount"] as! Double
                 let btcAmount = data!["btcAmount"] as! Double
                 let companyName = data!["companyName"] as! String
+                let status = data!["status"] as! String
                 //print("currencyAmount:"+currencyAmount+" btcAmount:"+btcAmount+" companyName:"+companyName)
                 print("companyName:"+companyName)
-                completionHandler(currencyAmount, btcAmount, companyName, nil)
+                completionHandler(currencyAmount, btcAmount, companyName, status, nil)
             }
             if error != nil{
                 print("got error getInvoiceData")
                 print(error?.localizedDescription)
-                completionHandler(0, 0, "", error)
+                completionHandler(0, 0, "", "", error)
+            }
+        }
+    }
+    //payInvoice(invoiceId: givBitTransactionCode!) { (success, error) in
+    static func payInvoice(invoiceId: String, completionHandler: @escaping (_ success: String, Error?) -> Void){
+        print("payInvoice invoiceId:"+invoiceId)
+        let data = ["invoiceId": invoiceId]
+        Functions.functions().httpsCallable("payInvoice").call(data) { (result, error) in
+            let data = result?.data as? Dictionary<String, Any>
+            if data != nil{
+                print("data is not nil - payInvoice")
+                print(data)
+                if let success = data!["success"] {
+                    let success = data!["success"] as! String
+                    print("success:"+success)
+                    completionHandler(success, nil)
+                    // now val is not nil and the Optional has been unwrapped, so use it
+                }
+                if let errorMsg = data!["error"] {
+                    let errorMsg = data!["error"] as! String
+                    print("error:"+errorMsg)
+                    let error = NSError(domain:"", code:401, userInfo:[ NSLocalizedDescriptionKey: errorMsg])
+                    completionHandler("false", error)
+                    // now val is not nil and the Optional has been unwrapped, so use it
+                }
+
+            }
+            if error != nil{
+                print("got error payInvoice")
+                print(error?.localizedDescription)
+                completionHandler("false", error)
+            }
+        }
+    }
+    
+    static func cancelInvoice(invoiceId: String, completionHandler: @escaping (_ success: String, Error?) -> Void){
+        print("cancelInvoice-")
+        let data = ["invoiceId": invoiceId]
+        Functions.functions().httpsCallable("cancelInvoice").call(data) { (result, error) in
+            let data = result?.data as? Dictionary<String, Any>
+            if data != nil{
+                print("cancelInvoice success")
+                print(data)
+                let success = data!["success"] as! String
+                //print("currencyAmount:"+currencyAmount+" btcAmount:"+btcAmount+" companyName:"+companyName)
+                print("success:"+success)
+                completionHandler(success, nil)
+            }
+            if error != nil{
+                print("got error cancelInvoice")
+                print(error?.localizedDescription)
+                completionHandler("false", error)
             }
         }
     }
