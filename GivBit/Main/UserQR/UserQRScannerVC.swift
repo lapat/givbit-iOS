@@ -38,7 +38,6 @@ class UserQRScannerVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         //self.scanAction(self)
-        
     }
     
     override func didReceiveMemoryWarning() {
