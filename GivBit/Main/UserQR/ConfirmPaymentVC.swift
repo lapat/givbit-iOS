@@ -47,11 +47,7 @@ class ConfirmPaymentVC: UIViewController {
             let destinationVC = segue.destination as! userPaidVendorErrorVC
             print("Error Message:"+self.errorMessage)
             DispatchQueue.main.async {
-                if (destinationVC.errorMessage == nil){
-                    print("Fuck")
-                }
-                //TO DO -destinationVC.errorMessage.text is NULL  - WTF
-                //destinationVC.errorMessage.text = self.errorMessage;
+              destinationVC.errorMessage.text = self.errorMessage;
             }
         }
     }

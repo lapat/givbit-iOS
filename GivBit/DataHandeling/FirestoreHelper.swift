@@ -91,6 +91,13 @@ class FirestoreHelper: NSObject {
         //return (false, User())
     }
     
+    func returnEmptyIfNil(aString: Any?) -> String{
+        if (aString == nil){
+            return ""
+        }
+        return aString as! String
+    }
+    
     //MARK: Transactions
     func getTransactionsForUser(uuid: String, completionHandler: @escaping (_ transactions: [GBTransaction], _ success: Bool) -> Void){
         //MONEY I SENT
@@ -106,14 +113,14 @@ class FirestoreHelper: NSObject {
                 for document in querySnapShot!.documents{
                     let transaction = GBTransaction()
                     transaction.cryptoAmount = document.data()["btc_amount"] as! Double
-                    transaction.coinbaseItemID = document.data()["coinbase_idem_id"] as! String
+                    transaction.coinbaseItemID = self.returnEmptyIfNil(aString: document.data()["coinbase_idem_id"])
                     transaction.date = document.data()["date"] as! TimeInterval/1000
                     transaction.pending = document.data()["pending"] as! Bool
-                    transaction.recieverPhoneNumber = document.data()["receiver_phone_number"] as! String
-                    transaction.recieverUID = document.data()["receiver_uid"] as! String
-                    transaction.senderUID = document.data()["sender_uid"] as! String
-                    transaction.recieverName = document.data()["receiver_name"] as! String
-                    transaction.senderName = document.data()["sender_name"] as! String
+                    transaction.recieverPhoneNumber = self.returnEmptyIfNil(aString: document.data()["receiver_phone_number"])
+                    transaction.recieverUID = self.returnEmptyIfNil(aString: document.data()["receiver_uid"])
+                    transaction.senderUID = self.returnEmptyIfNil(aString: document.data()["sender_uid"])
+                    transaction.recieverName = self.returnEmptyIfNil(aString: document.data()["receiver_name"])
+                    transaction.senderName = self.returnEmptyIfNil(aString: document.data()["sender_name"])
                     transaction.sent = true
                     transactions.append(transaction)
                 }
@@ -340,4 +347,9 @@ class FirestoreHelper: NSObject {
             }
         }
     }
+    
+   
+
+    
+    
 }
