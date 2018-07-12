@@ -32,9 +32,6 @@ class VendorMainVC: UIViewController {
         //self.submitButton.layer.cornerRadius = 5
         self.vendorSettingsView.isHidden = true
         self.vendorWelcomView.isHidden = false
-
-        
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {

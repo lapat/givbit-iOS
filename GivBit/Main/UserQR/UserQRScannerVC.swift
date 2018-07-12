@@ -42,7 +42,6 @@ class UserQRScannerVC: UIViewController {
         print("viewDidAppear - userQRScannerVC")
         self.scanAction(self)
 
-        
     }
     
     override func didReceiveMemoryWarning() {

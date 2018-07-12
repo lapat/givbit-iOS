@@ -41,7 +41,7 @@ class SendSMSyController: LoginVC {
         //let carrierCountryCode = carrier?.isoCountryCode
         // check if sim is not present or if the user is on a simulator.
         if carrier != nil{
-            phoneTextField.setFlag(with: (carrier?.isoCountryCode)!.uppercased())
+            phoneTextField.setFlag(for: (carrier?.isoCountryCode)!.uppercased())
         }
     }
     
