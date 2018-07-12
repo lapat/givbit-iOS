@@ -19,6 +19,7 @@ class UserQRScannerVC: UIViewController {
     var givBitTransactionCode: String! = ""
     
     lazy var readerVC: QRCodeReaderViewController = {
+        print("QRCodeReaderViewController")
         let builder = QRCodeReaderViewControllerBuilder {
             $0.reader = QRCodeReader(metadataObjectTypes: [.qr], captureDevicePosition: .back)
         }
@@ -28,16 +29,18 @@ class UserQRScannerVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("viewDidLoad")
         // Do any additional setup after loading the view.
         
         // hide the top view
         self.navigationController?.navigationBar.isHidden = true
-        self.scanAction(self)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         //self.scanAction(self)
+        print("viewDidAppear")
+        self.scanAction(self)
+
         
     }
     
@@ -91,6 +94,9 @@ class UserQRScannerVC: UIViewController {
             let invoiceId = result?.value
             self.givBitTransactionCode = invoiceId
             print(invoiceId)
+            if(invoiceId == nil){
+                return;
+            }
             SVProgressHUD.show()
             
             FirebaseHelper.getInvoiceData(invoiceId: invoiceId!) { (currencyAmount, btcAmount, companyName, status, error) in
@@ -129,11 +135,14 @@ class UserQRScannerVC: UIViewController {
 
 extension UserQRScannerVC: QRCodeReaderViewControllerDelegate{
     func reader(_ reader: QRCodeReaderViewController, didScanResult result: QRCodeReaderResult) {
+        print("UserQRScannerVC")
         dismiss(animated: true, completion: nil)
     }
     
     func readerDidCancel(_ reader: QRCodeReaderViewController) {
-        dismiss(animated: true, completion: nil)
+        print("readerDidCancel")
+        reader.stopScanning()
+        //dismiss(animated: true, completion: nil)
     }
     
 }
@@ -145,7 +154,7 @@ class qrScanningView: UIView, QRCodeReaderDisplayable{
     }
     
     func setupComponents(showCancelButton: Bool, showSwitchCameraButton: Bool, showTorchButton: Bool, showOverlayView: Bool, reader: QRCodeReader?) {
-        
+        print("setupComponents")
     }
     
     let cameraView: UIView            = UIView()
@@ -155,6 +164,7 @@ class qrScanningView: UIView, QRCodeReaderDisplayable{
     var overlayView: UIView?          = UIView()
     
     func setupComponents(showCancelButton: Bool, showSwitchCameraButton: Bool, showTorchButton: Bool, showOverlayView: Bool) {
+        print("setupComponents")
         // addSubviews
         // setup constraints
         // etc.
