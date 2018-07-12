@@ -42,7 +42,6 @@
 		77599A4120A314E1001FF565 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77599A4020A314E1001FF565 /* LoginVC.swift */; };
 		77599A4320A31659001FF565 /* ColorsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77599A4220A31659001FF565 /* ColorsHelper.swift */; };
 		7773091820E0CFDF0055EDA1 /* UserQR.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7773091720E0CFDF0055EDA1 /* UserQR.storyboard */; };
-		7773091A20E0D20F0055EDA1 /* UserQRScannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7773091920E0D20F0055EDA1 /* UserQRScannerVC.swift */; };
 		778DA11120EB7FB100F0F04E /* GBError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778DA11020EB7FB100F0F04E /* GBError.swift */; };
 		779417A120B5045C00A46BE2 /* SendCoinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779417A020B5045C00A46BE2 /* SendCoinVC.swift */; };
 		779417A520B6B37B00A46BE2 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779417A420B6B37B00A46BE2 /* SettingsVC.swift */; };
@@ -55,16 +54,14 @@
 		77B7C24020B9216D0008E258 /* GBTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B7C23F20B9216D0008E258 /* GBTransaction.swift */; };
 		77B7C24220B924920008E258 /* TransactionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B7C24120B924920008E258 /* TransactionsVC.swift */; };
 		77C04AB720BECB500043AC0A /* FirebaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C04AB620BECB500043AC0A /* FirebaseHelper.swift */; };
-		77E375A920F6B6F30010A674 /* userPaidVendorErrorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E375A620F6B6F20010A674 /* userPaidVendorErrorVC.swift */; };
-		77E375AA20F6B6F30010A674 /* ConfirmPaymentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E375A720F6B6F20010A674 /* ConfirmPaymentVC.swift */; };
-		77E375AB20F6B6F30010A674 /* userPaidVendorSucessVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E375A820F6B6F30010A674 /* userPaidVendorSucessVC.swift */; };
+		77E375B220F7B0470010A674 /* userPaidVendorErrorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E375AE20F7B0470010A674 /* userPaidVendorErrorVC.swift */; };
+		77E375B320F7B0470010A674 /* ConfirmPaymentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E375AF20F7B0470010A674 /* ConfirmPaymentVC.swift */; };
+		77E375B420F7B0470010A674 /* userPaidVendorSucessVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E375B020F7B0470010A674 /* userPaidVendorSucessVC.swift */; };
+		77E375B520F7B0470010A674 /* UserQRScannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E375B120F7B0470010A674 /* UserQRScannerVC.swift */; };
 		B31A674320E6AD1600987520 /* 1_7_moresubtle1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B31A674220E6AD1600987520 /* 1_7_moresubtle1.mp4 */; };
 		B31A674720E6B6D000987520 /* success2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B31A674620E6B6D000987520 /* success2.mp4 */; };
 		B3B2C02720F3FD8A006A252C /* bgroundQrPurple.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B3B2C02620F3FD8A006A252C /* bgroundQrPurple.mp4 */; };
 		B3B2C02920F40B44006A252C /* purpleBlackFireworks.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B3B2C02820F40B44006A252C /* purpleBlackFireworks.mp4 */; };
-		B3B2C02D20F54DF2006A252C /* ConfirmPaymentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B2C02C20F54DF2006A252C /* ConfirmPaymentVC.swift */; };
-		B3B2C02F20F6529A006A252C /* userPaidVendorSucessVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B2C02E20F6529A006A252C /* userPaidVendorSucessVC.swift */; };
-		B3B2C03120F676B9006A252C /* userPaidVendorErrorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B2C03020F676B9006A252C /* userPaidVendorErrorVC.swift */; };
 		D855CF6079E07D25BD645BCA /* Pods_GivBitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FC27453E8CAB9E7610FB5E5 /* Pods_GivBitTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -131,7 +128,6 @@
 		77599A4020A314E1001FF565 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		77599A4220A31659001FF565 /* ColorsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsHelper.swift; sourceTree = "<group>"; };
 		7773091720E0CFDF0055EDA1 /* UserQR.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserQR.storyboard; sourceTree = "<group>"; };
-		7773091920E0D20F0055EDA1 /* UserQRScannerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserQRScannerVC.swift; sourceTree = "<group>"; };
 		778DA11020EB7FB100F0F04E /* GBError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBError.swift; sourceTree = "<group>"; };
 		779417A020B5045C00A46BE2 /* SendCoinVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCoinVC.swift; sourceTree = "<group>"; };
 		779417A420B6B37B00A46BE2 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
@@ -144,18 +140,16 @@
 		77B7C23F20B9216D0008E258 /* GBTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBTransaction.swift; sourceTree = "<group>"; };
 		77B7C24120B924920008E258 /* TransactionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsVC.swift; sourceTree = "<group>"; };
 		77C04AB620BECB500043AC0A /* FirebaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseHelper.swift; sourceTree = "<group>"; };
-		77E375A620F6B6F20010A674 /* userPaidVendorErrorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userPaidVendorErrorVC.swift; sourceTree = "<group>"; };
-		77E375A720F6B6F20010A674 /* ConfirmPaymentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmPaymentVC.swift; sourceTree = "<group>"; };
-		77E375A820F6B6F30010A674 /* userPaidVendorSucessVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userPaidVendorSucessVC.swift; sourceTree = "<group>"; };
+		77E375AE20F7B0470010A674 /* userPaidVendorErrorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userPaidVendorErrorVC.swift; sourceTree = "<group>"; };
+		77E375AF20F7B0470010A674 /* ConfirmPaymentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmPaymentVC.swift; sourceTree = "<group>"; };
+		77E375B020F7B0470010A674 /* userPaidVendorSucessVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userPaidVendorSucessVC.swift; sourceTree = "<group>"; };
+		77E375B120F7B0470010A674 /* UserQRScannerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserQRScannerVC.swift; sourceTree = "<group>"; };
 		78CAED032E4F33B4022DC8E7 /* Pods-GivBitUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GivBitUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GivBitUITests/Pods-GivBitUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8403572FDF62C76211648DA3 /* Pods_GivBit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GivBit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B31A674220E6AD1600987520 /* 1_7_moresubtle1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1_7_moresubtle1.mp4; sourceTree = "<group>"; };
 		B31A674620E6B6D000987520 /* success2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = success2.mp4; sourceTree = "<group>"; };
 		B3B2C02620F3FD8A006A252C /* bgroundQrPurple.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = bgroundQrPurple.mp4; sourceTree = "<group>"; };
 		B3B2C02820F40B44006A252C /* purpleBlackFireworks.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = purpleBlackFireworks.mp4; sourceTree = "<group>"; };
-		B3B2C02C20F54DF2006A252C /* ConfirmPaymentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPaymentVC.swift; sourceTree = "<group>"; };
-		B3B2C02E20F6529A006A252C /* userPaidVendorSucessVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userPaidVendorSucessVC.swift; sourceTree = "<group>"; };
-		B3B2C03020F676B9006A252C /* userPaidVendorErrorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userPaidVendorErrorVC.swift; sourceTree = "<group>"; };
 		C80C7C612C227BBE5A1A52AD /* Pods-GivBit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GivBit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GivBit/Pods-GivBit.debug.xcconfig"; sourceTree = "<group>"; };
 		F730A76E02A2A3D73C989458 /* Pods-GivBit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GivBit.release.xcconfig"; path = "Pods/Target Support Files/Pods-GivBit/Pods-GivBit.release.xcconfig"; sourceTree = "<group>"; };
 		F8004F616193810D979BD52A /* Pods-GivBitUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GivBitUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GivBitUITests/Pods-GivBitUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -327,14 +321,11 @@
 		7773091620E0CFB60055EDA1 /* UserQR */ = {
 			isa = PBXGroup;
 			children = (
-				77E375A720F6B6F20010A674 /* ConfirmPaymentVC.swift */,
-				77E375A620F6B6F20010A674 /* userPaidVendorErrorVC.swift */,
-				77E375A820F6B6F30010A674 /* userPaidVendorSucessVC.swift */,
+				77E375AF20F7B0470010A674 /* ConfirmPaymentVC.swift */,
+				77E375AE20F7B0470010A674 /* userPaidVendorErrorVC.swift */,
+				77E375B020F7B0470010A674 /* userPaidVendorSucessVC.swift */,
+				77E375B120F7B0470010A674 /* UserQRScannerVC.swift */,
 				7773091720E0CFDF0055EDA1 /* UserQR.storyboard */,
-				7773091920E0D20F0055EDA1 /* UserQRScannerVC.swift */,
-				B3B2C02C20F54DF2006A252C /* ConfirmPaymentVC.swift */,
-				B3B2C02E20F6529A006A252C /* userPaidVendorSucessVC.swift */,
-				B3B2C03020F676B9006A252C /* userPaidVendorErrorVC.swift */,
 			);
 			path = UserQR;
 			sourceTree = "<group>";
@@ -671,7 +662,6 @@
 				779CBEBB20A41FA600341004 /* FirestoreHelper.swift in Sources */,
 				7734162C20C8812C0010EC08 /* GBCoinbaseUser.swift in Sources */,
 				771742B120C1EED400BD0A88 /* PhoneNumberHelper.swift in Sources */,
-				B3B2C02F20F6529A006A252C /* userPaidVendorSucessVC.swift in Sources */,
 				77B7C24020B9216D0008E258 /* GBTransaction.swift in Sources */,
 				774E2D4C20A98D4C0039435E /* ContactTBVCell.swift in Sources */,
 				77599A3520A04A8B001FF565 /* VerifySMSController.swift in Sources */,
@@ -680,22 +670,20 @@
 				7751498E20CA089B00FA206C /* DateaHelper.swift in Sources */,
 				77599A4120A314E1001FF565 /* LoginVC.swift in Sources */,
 				3FC6D4F320B8356100353321 /* coinbaseHelper.swift in Sources */,
+				77E375B420F7B0470010A674 /* userPaidVendorSucessVC.swift in Sources */,
 				77B7C23820B7F4990008E258 /* GBTextField.swift in Sources */,
-				77E375AB20F6B6F30010A674 /* userPaidVendorSucessVC.swift in Sources */,
-				7773091A20E0D20F0055EDA1 /* UserQRScannerVC.swift in Sources */,
 				774E2D5220AC1A3D0039435E /* StringHelper.swift in Sources */,
-				B3B2C03120F676B9006A252C /* userPaidVendorErrorVC.swift in Sources */,
 				774E2D5420AC22D60039435E /* GBContact.swift in Sources */,
 				779417A120B5045C00A46BE2 /* SendCoinVC.swift in Sources */,
 				771742B320C22E5E00BD0A88 /* SendCoinSuccesVC.swift in Sources */,
-				77E375A920F6B6F30010A674 /* userPaidVendorErrorVC.swift in Sources */,
 				77B7C24220B924920008E258 /* TransactionsVC.swift in Sources */,
 				77599A3220A044DD001FF565 /* SendSMSyController.swift in Sources */,
 				774E2D5720ACB0150039435E /* GBUser.swift in Sources */,
-				77E375AA20F6B6F30010A674 /* ConfirmPaymentVC.swift in Sources */,
+				77E375B320F7B0470010A674 /* ConfirmPaymentVC.swift in Sources */,
 				77599A3920A086DD001FF565 /* FBLoginVC.swift in Sources */,
-				B3B2C02D20F54DF2006A252C /* ConfirmPaymentVC.swift in Sources */,
 				774E2D4A20A971BE0039435E /* ContactsManager.swift in Sources */,
+				77E375B220F7B0470010A674 /* userPaidVendorErrorVC.swift in Sources */,
+				77E375B520F7B0470010A674 /* UserQRScannerVC.swift in Sources */,
 				77B7C23C20B905ED0008E258 /* RequestContactsVC.swift in Sources */,
 				773B2CB820DB60E5005B6A53 /* VendorMainVC.swift in Sources */,
 				775999FF20A02986001FF565 /* MainVC.swift in Sources */,
