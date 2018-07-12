@@ -23,22 +23,23 @@ class UserQRScannerVC: UIViewController {
         let builder = QRCodeReaderViewControllerBuilder {
             $0.reader = QRCodeReader(metadataObjectTypes: [.qr], captureDevicePosition: .back)
         }
-        
         return QRCodeReaderViewController(builder: builder)
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("viewDidLoad")
+        print("viewDidLoad - userQRScannerVC")
         // Do any additional setup after loading the view.
         
         // hide the top view
         self.navigationController?.navigationBar.isHidden = true
+
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
         //self.scanAction(self)
-        print("viewDidAppear")
+        print("viewDidAppear - userQRScannerVC")
         self.scanAction(self)
 
         
@@ -67,18 +68,17 @@ class UserQRScannerVC: UIViewController {
             print("givBitTransactionCode:"+self.givBitTransactionCode)
             destinationVC.givBitTransactionCode = self.givBitTransactionCode
             destinationVC.currencyAmount = self.currencyAmount
-            destinationVC.btcAmountConfrim = self.btcAmount
+            destinationVC.btcAmountConfirm = self.btcAmount
             destinationVC.companyName = self.companyName
             
-            let currencyAmountString:String = String(format:"%.2f", currencyAmount)
-            let btcAmountString:String = String(format:"%.8f", btcAmount)
-            print("CompanyName:"+companyName)
-            DispatchQueue.main.async {
-                destinationVC.payWhoLabel.text = "Pay "+self.companyName;
-                destinationVC.amountToPay.text = "$" + currencyAmountString + " in BTC";
-                destinationVC.btcAmount.text = btcAmountString + " BTC";
-            }
-            
+            //let currencyAmountString:String = String(format:"%.2f", currencyAmount)
+            //let btcAmountString:String = String(format:"%.8f", btcAmount)
+            //print("CompanyName:"+companyName)
+            //DispatchQueue.main.async {
+                //destinationVC.payCompanyLabel.text = "Pay "+self.companyName;
+                //destinationVC.amountToPay.text = "$" + currencyAmountString + " in BTC";
+                //destinationVC.btcAmount.text = btcAmountString + " BTC";
+            //}
         }
     }
     
@@ -87,7 +87,7 @@ class UserQRScannerVC: UIViewController {
         // Retrieve the QRCode content
         // By using the delegate pattern
         readerVC.delegate = self
-        
+        print("scanAction")
         // Or by using the closure pattern
         readerVC.completionBlock = { (result: QRCodeReaderResult?) in
             print("got QR Code - result.value:")
@@ -109,6 +109,7 @@ class UserQRScannerVC: UIViewController {
                     if (status == "CREATED"){
                         DispatchQueue.main.async {
                             self.performSegue(withIdentifier: "approveInvoiceSegue", sender: self)
+                            self.dismiss(animated: true, completion: nil)
                         }
                     }else  if (status == "PAID"){
                         AlertHelper.sharedInstance.showAlert(inViewController: self, withDescription: "This invoice has already been paid.", andTitle: "Invoice Paid")
@@ -127,22 +128,35 @@ class UserQRScannerVC: UIViewController {
         }
         
         // Presents the readerVC as modal form sheet
-        readerVC.modalPresentationStyle = .formSheet
-        present(readerVC, animated: true, completion: nil)
+        print("about to present")
+        if readerVC.viewIfLoaded?.window != nil {
+            print("IT IS VISIBLE")
+        }else{
+            print("It is NOT visible")
+            readerVC.modalPresentationStyle = .formSheet
+            present(readerVC, animated: true, completion: nil)
+        }
+
     }
     
 }
 
 extension UserQRScannerVC: QRCodeReaderViewControllerDelegate{
     func reader(_ reader: QRCodeReaderViewController, didScanResult result: QRCodeReaderResult) {
-        print("UserQRScannerVC")
-        dismiss(animated: true, completion: nil)
+        print("reader - UserQRScannerVC")
+        //dismiss(animated: true, completion: nil)
     }
     
     func readerDidCancel(_ reader: QRCodeReaderViewController) {
         print("readerDidCancel")
-        reader.stopScanning()
+        //reader.stopScanning()
         //dismiss(animated: true, completion: nil)
+        //dismiss(animated: true, completion: nil)
+
+       DispatchQueue.main.async {
+        self.performSegue(withIdentifier: "unwindToMain", sender: self)
+        }
+
     }
     
 }

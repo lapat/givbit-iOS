@@ -24,9 +24,11 @@
                     </navigationBar>
                     <connections>
                         <segue destination="x3a-fe-TMc" kind="relationship" relationship="rootViewController" id="RSi-8a-Rw6"/>
+                        <segue destination="Pmm-Yf-OLl" kind="unwind" unwindAction="unwindToMainViewControllerWithSegue:" id="Fg4-rT-jpg"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fKN-Xy-yAc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Pmm-Yf-OLl" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-332" y="143"/>
         </scene>
@@ -43,9 +45,11 @@
                     <navigationItem key="navigationItem" id="gzf-IS-Kcb"/>
                     <connections>
                         <segue destination="ziV-C7-fUA" kind="show" identifier="approveInvoiceSegue" id="WmP-cv-acS"/>
+                        <segue destination="xnC-BW-Zcp" kind="unwind" identifier="unwindToMain" unwindAction="unwindToMainViewControllerWithSegue:" id="Hhj-MT-liS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uYe-z9-IYw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="xnC-BW-Zcp" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="402" y="143"/>
         </scene>
@@ -132,7 +136,7 @@
                     <connections>
                         <outlet property="amountToPay" destination="l47-XA-MhZ" id="nea-1w-vCv"/>
                         <outlet property="btcAmount" destination="fPV-4E-7J7" id="36N-Lu-NO0"/>
-                        <outlet property="payWhoLabel" destination="kdz-ed-tdN" id="KXg-0y-b97"/>
+                        <outlet property="payCompanyLabel" destination="kdz-ed-tdN" id="jfW-bo-fhS"/>
                         <segue destination="Nif-Kb-Kbs" kind="show" identifier="userPaidVendorSuccess" id="Ejm-mF-qnn"/>
                         <segue destination="Wxd-5Q-iIS" kind="show" identifier="userPaidVendorError" id="rep-fZ-9Xa"/>
                     </connections>
@@ -193,9 +197,11 @@
                     </view>
                     <connections>
                         <outlet property="errorMessage" destination="yC2-mT-rwd" id="kqE-nh-fCT"/>
+                        <segue destination="3A8-Dt-S6h" kind="unwind" identifier="unwindToMain" unwindAction="unwindToMainViewControllerWithSegue:" id="NCh-jJ-ZAH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ro7-RR-nDw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="3A8-Dt-S6h" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2204" y="518"/>
         </scene>
@@ -276,9 +282,11 @@
                     <connections>
                         <outlet property="amount" destination="Eao-xS-S91" id="5Ab-JZ-PXA"/>
                         <outlet property="companyName" destination="wSd-s9-XzV" id="m2r-Qn-3Fa"/>
+                        <segue destination="hez-yo-s7i" kind="unwind" identifier="unwindToMain" unwindAction="unwindToMainViewControllerWithSegue:" id="Ac8-uA-AOK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q7F-7T-8oQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="hez-yo-s7i" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2204" y="-153"/>
         </scene>

@@ -14,8 +14,11 @@ class userPaidVendorErrorVC: UIViewController {
     @IBOutlet weak var errorMessage: UILabel!
     
     @IBAction func didTapOnXButton(button: UIButton){
-    //TO DO - currently, this goes back to the previously screen but we want to go back to the Contacts page after this.
-        self.navigationController?.popViewController(animated: true)
+
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "unwindToMain", sender: self)
+            self.navigationController?.popToRootViewController(animated: true)
+        }
     }
     
 }

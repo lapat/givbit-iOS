@@ -16,8 +16,25 @@ class userPaidVendorSucessVC: UIViewController {
     @IBOutlet weak var companyName: UILabel!
 
     @IBAction func didTapOnXButton(button: UIButton){
-        //TO DO - currently, this goes back to the previously screen but we want to go back to the Contacts page after this.
-        self.navigationController?.popViewController(animated: true)
+        
+        DispatchQueue.main.async {
+            //UIApplication.shared.keyWindow?.rootViewController?.dismiss(animated: false, completion: nil)
+            //navigationController?.popToRootViewController(animated: true)
+            //self.performSegue(withIdentifier: "unwindToMain", sender: self)
+            //self.navigationController?.popViewController(animated: true)
+            self.performSegue(withIdentifier: "unwindToMain", sender: self)
+
+            self.navigationController?.popToRootViewController(animated: true)
+            //self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
+            
+            //self.dismiss(animated: true, completion: nil)
+            print("x out")
+            //self.dismiss(animated: true, completion: {
+            //    print("dismissed")
+            //self.performSegue(withIdentifier: "unwindToMain", sender: self)
+            //})
+            
+        }
     }
     
 }
