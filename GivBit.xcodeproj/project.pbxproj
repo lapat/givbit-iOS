@@ -58,6 +58,7 @@
 		77E375B320F7B0470010A674 /* ConfirmPaymentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E375AF20F7B0470010A674 /* ConfirmPaymentVC.swift */; };
 		77E375B420F7B0470010A674 /* userPaidVendorSucessVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E375B020F7B0470010A674 /* userPaidVendorSucessVC.swift */; };
 		77E375B520F7B0470010A674 /* UserQRScannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E375B120F7B0470010A674 /* UserQRScannerVC.swift */; };
+		77E375B720F8BC2D0010A674 /* VendorNavVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E375B620F8BC2D0010A674 /* VendorNavVC.swift */; };
 		B31A674320E6AD1600987520 /* 1_7_moresubtle1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B31A674220E6AD1600987520 /* 1_7_moresubtle1.mp4 */; };
 		B31A674720E6B6D000987520 /* success2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B31A674620E6B6D000987520 /* success2.mp4 */; };
 		B3B2C02720F3FD8A006A252C /* bgroundQrPurple.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B3B2C02620F3FD8A006A252C /* bgroundQrPurple.mp4 */; };
@@ -144,6 +145,7 @@
 		77E375AF20F7B0470010A674 /* ConfirmPaymentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmPaymentVC.swift; sourceTree = "<group>"; };
 		77E375B020F7B0470010A674 /* userPaidVendorSucessVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userPaidVendorSucessVC.swift; sourceTree = "<group>"; };
 		77E375B120F7B0470010A674 /* UserQRScannerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserQRScannerVC.swift; sourceTree = "<group>"; };
+		77E375B620F8BC2D0010A674 /* VendorNavVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorNavVC.swift; sourceTree = "<group>"; };
 		78CAED032E4F33B4022DC8E7 /* Pods-GivBitUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GivBitUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GivBitUITests/Pods-GivBitUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8403572FDF62C76211648DA3 /* Pods_GivBit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GivBit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B31A674220E6AD1600987520 /* 1_7_moresubtle1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1_7_moresubtle1.mp4; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				773B2CB520DB5799005B6A53 /* Vendor.storyboard */,
+				77E375B620F8BC2D0010A674 /* VendorNavVC.swift */,
 				773B2CB720DB60E5005B6A53 /* VendorMainVC.swift */,
 				773B2CB920DB6431005B6A53 /* VendorLoginVC.swift */,
 				7713834020DD233900C6E0B0 /* VendorCreateInvoiceVC.swift */,
@@ -657,6 +660,7 @@
 				779417A520B6B37B00A46BE2 /* SettingsVC.swift in Sources */,
 				77B7C23A20B835C40008E258 /* CoinbaseVC.swift in Sources */,
 				770814D520DCFEE8001CAC5D /* VendorQRCodeVC.swift in Sources */,
+				77E375B720F8BC2D0010A674 /* VendorNavVC.swift in Sources */,
 				779417A720B7E4AE00A46BE2 /* AlertHelper.swift in Sources */,
 				77599A3F20A1A78E001FF565 /* ReviewLoginVC.swift in Sources */,
 				779CBEBB20A41FA600341004 /* FirestoreHelper.swift in Sources */,

@@ -405,7 +405,7 @@
                             <barButtonItem title="Item" image="invoice" id="jSW-bS-pHp">
                                 <color key="tintColor" red="0.41176470590000003" green="0.42352941179999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <segue destination="hsI-NB-k0u" kind="presentation" id="KjF-P6-Oa7"/>
+                                    <segue destination="hsI-NB-k0u" kind="presentation" identifier="vendorSegue" id="KjF-P6-Oa7"/>
                                 </connections>
                             </barButtonItem>
                         </leftBarButtonItems>
@@ -1100,7 +1100,7 @@
         <image name="users" width="18" height="18"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="muV-xR-Zbo"/>
+        <segue reference="KjF-P6-Oa7"/>
         <segue reference="7lI-Mn-ndx"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -127,7 +127,7 @@ class MainVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "userSendMoneySegue"{
-            var destinationController = segue.destination as! SendCoinVC
+            let destinationController = segue.destination as! SendCoinVC
             let selectedContactIndex = self.contactsTableView.indexPathForSelectedRow?.row
             let contact = GBContact()
             contact.populateWith(CNContact: contacts[selectedContactIndex!])
@@ -139,6 +139,12 @@ class MainVC: UIViewController {
 
             //let isFavourite = self.contactsTableView.indexPathForSelectedRow?.section ?? 0??1
         }
+//        if segue.identifier == "vendorSegue"{
+//            let destination = segue.destination as! VendorMainVC
+//            var vendorStoryBoard = UIStoryboard(name: "Vendor", bundle: nil)
+//            var qrCodeVC = vendorStoryBoard.instantiateViewController(withIdentifier: "qrCodeView")
+//            destination.viewcontrollers
+//        }
     }
     
     func updateNumberToFireBase(){

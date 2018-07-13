@@ -11,10 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Vendor NavVC-->
         <scene sceneID="f8v-z6-yTa">
             <objects>
-                <navigationController id="1Il-y3-MIp" sceneMemberID="viewController">
+                <navigationController id="1Il-y3-MIp" customClass="VendorNavVC" customModule="GivBit" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="w0Q-Wt-UuY">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -274,7 +274,7 @@
         <!--Vendor LoginVC-->
         <scene sceneID="Pm0-r5-Oss">
             <objects>
-                <viewController id="egG-kh-ZeN" customClass="VendorLoginVC" customModule="GivBit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="create" useStoryboardIdentifierAsRestorationIdentifier="YES" id="egG-kh-ZeN" customClass="VendorLoginVC" customModule="GivBit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jqj-49-w25">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -545,7 +545,7 @@
         <!--Vendor Create InvoiceVC-->
         <scene sceneID="n2U-ly-YT8">
             <objects>
-                <viewController id="ET0-Ug-6fD" customClass="VendorCreateInvoiceVC" customModule="GivBit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="vendorQRCodeView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ET0-Ug-6fD" customClass="VendorCreateInvoiceVC" customModule="GivBit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uub-g8-0Vu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -865,6 +865,6 @@
         <image name="users white" width="25" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="OK0-b3-Ffu"/>
+        <segue reference="E9z-m6-ure"/>
     </inferredMetricsTieBreakers>
 </document>
