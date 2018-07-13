@@ -34,7 +34,6 @@ class VendorMainVC: UIViewController {
         self.vendorSettingsView.isHidden = true
         self.vendorWelcomView.isHidden = true
         self.createInvoice.isHidden = true
-
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -55,6 +54,9 @@ class VendorMainVC: UIViewController {
                 if aaa == true{
                     // move to the vendor signed up view
                     // get the vendor info and update view
+                    // visualize the vendor settings view
+                    self.vendorSettingsView.isHidden = false
+                    self.vendorWelcomView.isHidden = true
                     self.fetchVendorInfoAndUpdateView(userIsVendor: true)
                     self.vendorSettingsView.isHidden = false
                     self.createInvoice.isHidden = false
@@ -63,14 +65,18 @@ class VendorMainVC: UIViewController {
                     SVProgressHUD.dismiss()
                     self.vendorWelcomView.isHidden = false;
                     // the user needs to login to vendor - Hide the vendor settings
-                    //self.vendorSettingsView.isHidden = true
+                    self.vendorSettingsView.isHidden = true
+                    self.vendorWelcomView.isHidden = false
                 }
             }
         }
     }
     
+
+    
     // fetches the vendors info form the db and updates view
     // does this only if user is a vendor
+    // enables the vendor settings view and disables the vendor welcome view
     func fetchVendorInfoAndUpdateView(userIsVendor: Bool){
         if userIsVendor == true{
             FirestoreHelper.sharedInstnace.getUserVendorInfo(fromCache: true) { (infoObject, error) in
@@ -89,9 +95,7 @@ class VendorMainVC: UIViewController {
                         self.nameOfCompany.text = companyName
                         self.vendorEmailField.text = vendorEmail
                         self.vendorBusinessNameField.text = companyName
-                        // show the vendor settings
-                        //self.vendorSettingsView.isHidden = false
-                        //self.saveVendorInfo.isHidden = false
+                        
                     }
                     
                 }

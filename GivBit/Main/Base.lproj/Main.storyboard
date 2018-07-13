@@ -405,7 +405,7 @@
                             <barButtonItem title="Item" image="invoice" id="jSW-bS-pHp">
                                 <color key="tintColor" red="0.41176470590000003" green="0.42352941179999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <segue destination="hsI-NB-k0u" kind="presentation" id="KjF-P6-Oa7"/>
+                                    <action selector="didTapOnVendorButttonWithSender:" destination="2s8-YL-a8Y" id="RcR-rS-GUx"/>
                                 </connections>
                             </barButtonItem>
                         </leftBarButtonItems>
@@ -421,6 +421,8 @@
                         <outlet property="contactsTableView" destination="5hB-ao-LPu" id="02s-T7-SYr"/>
                         <outlet property="textViewSearchBar" destination="jG8-zb-ubB" id="0Cf-Aw-Py4"/>
                         <segue destination="Lrn-CT-dPn" kind="show" identifier="userSendMoneySegue" id="SkF-Tr-Slc"/>
+                        <segue destination="Ca6-sO-dyp" kind="presentation" identifier="vendorCreateInvoiceSegue" id="MjJ-ne-VNL"/>
+                        <segue destination="hsI-NB-k0u" kind="presentation" identifier="vendorWelcomeSegue" id="HMv-zK-mAk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sw0-3X-dcK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -916,12 +918,20 @@
             <point key="canvasLocation" x="1604" y="51.724137931034484"/>
         </scene>
         <!--Vendor-->
+        <scene sceneID="x0F-Ro-URn">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Vendor" id="Ca6-sO-dyp" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XMX-bh-rRl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3480" y="58"/>
+        </scene>
+        <!--InvoiceGenNavView-->
         <scene sceneID="eAP-2W-EOX">
             <objects>
-                <viewControllerPlaceholder storyboardName="Vendor" id="hsI-NB-k0u" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Vendor" referencedIdentifier="InvoiceGenNavView" id="hsI-NB-k0u" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tmB-O1-ekq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3289" y="51"/>
+            <point key="canvasLocation" x="3158" y="58"/>
         </scene>
         <!--GivBit-->
         <scene sceneID="xTR-bZ-bgk">
@@ -1069,7 +1079,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Item" image="invoice" id="TXX-09-Tec">
                             <color key="tintColor" red="0.41176470590000003" green="0.42352941179999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="hsI-NB-k0u" kind="presentation" id="muV-xR-Zbo"/>
+                                <action selector="didTapOnVendorButttonWithSender:" destination="fsN-tx-wpU" id="BS5-WP-nwH"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="sliders" id="miW-cW-rEV">
@@ -1081,6 +1091,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="transactionsTableView" destination="cgT-f8-5UY" id="mZX-w9-zdE"/>
+                        <segue destination="Ca6-sO-dyp" kind="presentation" identifier="vendorCreateInvoiceSegue" id="shF-Up-FmG"/>
+                        <segue destination="hsI-NB-k0u" kind="presentation" identifier="vendorWelcomeSegue" id="DVQ-Fh-0q6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Khh-ED-9Si" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1100,7 +1112,8 @@
         <image name="users" width="18" height="18"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="muV-xR-Zbo"/>
-        <segue reference="7lI-Mn-ndx"/>
+        <segue reference="DVQ-Fh-0q6"/>
+        <segue reference="shF-Up-FmG"/>
+        <segue reference="NJ6-Mm-WIe"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -17,6 +17,8 @@ class VendorCreateInvoiceVC: UIViewController {
     var amountToRequestWithoutDot: String! = ""
     var amountToRequestInDouble: Double! = 0.0
     var givBitTransactionCode: String = ""
+    var btcAmount: String = ""
+
     var vendorName: String!
     
     override func viewDidLoad() {
@@ -53,7 +55,7 @@ class VendorCreateInvoiceVC: UIViewController {
             destinationVC.givbitTransactionCode = givBitTransactionCode
             // get the info
             destinationVC.transactionAmount = self.amountToRequestFormatted
-            
+            destinationVC.btcAmountString = self.btcAmount
             FirestoreHelper.sharedInstnace.getUserVendorInfo(fromCache: true) { (info, error) in
                 if error == nil{
                     let data = info as! Dictionary<String, Any>
@@ -65,6 +67,8 @@ class VendorCreateInvoiceVC: UIViewController {
         }
     }
     
+    @IBAction func unwindToCreateInvoiceVC(segue:UIStoryboardSegue) { print("unwinded to createInvoice")}
+
     
     //MARK: - Actions
     @IBAction func didTapOnGenerateQRCodeButton(button: UIButton){
@@ -74,11 +78,18 @@ class VendorCreateInvoiceVC: UIViewController {
             return
         }
         
+        if amountToRequestInDouble >= 500.00{
+            AlertHelper.sharedInstance.showAlert(inViewController: self, withDescription: "You can not charge more than $500 a day.", andTitle: "Sorry")
+            return
+        }
+        
+        
         SVProgressHUD.show()
-        FirebaseHelper.createInvoiceForVendor(amountUSD: amountToRequestInDouble) { (transactionCode, error)            in
+        FirebaseHelper.createInvoiceForVendor(amountUSD: amountToRequestInDouble) { (transactionCode, btcAmount, error)            in
             
             SVProgressHUD.dismiss()
             self.givBitTransactionCode = transactionCode
+            self.btcAmount = btcAmount
             if error != nil{
                 // process the error
                 DispatchQueue.main.async {

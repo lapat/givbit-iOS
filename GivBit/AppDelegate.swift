@@ -173,6 +173,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 }
 
+
+
+
 // [START ios_10_message_handling]
 @available(iOS 10, *)
 extension AppDelegate : UNUserNotificationCenterDelegate {
@@ -195,20 +198,21 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         // Print full message.
         print(userInfo)
         if let notificationType = userInfo["notificationType"]{
-            print("here1")
+            print("got notificationType")
             if (notificationType as! String == "VENDOR PAID NOTIFICATION"){
-                print("here2")
-
+                print("got Vendor Paid Notification")
                 var invoiceId = userInfo["invoiceId"] as! String
-                let paidNotificationDict:[String: String] = ["invoiceId": invoiceId as! String]
+                var invoiceStatus = userInfo["invoiceStatus"] as! String
+
+                let paidNotificationDict:[String: String] = ["invoiceId": invoiceId as! String, "invoiceStatus": invoiceStatus as! String]
                 //TO DO - add status, paid or not to know if user canceled invoice or not
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "rececivedInvoiceNotification"), object: nil, userInfo: paidNotificationDict)
+                
             }
         }
-        // post a notification
         
-        // Change this to your preferred presentation option
-        completionHandler([])
+        //Show the in app notification if the user has the app open
+        completionHandler([.alert, .badge, .sound])
     }
     
     

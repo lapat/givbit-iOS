@@ -14,6 +14,8 @@ class VendorQRCodeVC: UIViewController {
     @IBOutlet weak var qrCodeImageView: UIImageView!
     @IBOutlet weak var vendorNameLabel: UILabel!
     @IBOutlet weak var vendorAmountRequestedLabel: UILabel!
+    @IBOutlet weak var btcAmountLabel: UILabel!
+    var btcAmountString: String! = ""
     var givbitTransactionCode: String! = "Not set"
     var vendorName: String!
     var transactionAmount: String!
@@ -39,6 +41,7 @@ class VendorQRCodeVC: UIViewController {
         // populate vendor info
         vendorNameLabel.text = vendorName
         vendorAmountRequestedLabel.text = transactionAmount
+        self.btcAmountLabel.text = self.btcAmountString + " BTC"
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.receivedInvoiceNoticationFunction(_:)), name: NSNotification.Name(rawValue: "rececivedInvoiceNotification"), object: nil)
 
@@ -49,27 +52,38 @@ class VendorQRCodeVC: UIViewController {
     @objc func receivedInvoiceNoticationFunction(_ notification: NSNotification) {
         print("Got Notification")
         if let invoiceId = notification.userInfo?["invoiceId"] as? String {
-            print("Got Invoice PAID VENDOR NOTIFICATION - Invoice ID:"+invoiceId)
+            let invoiceStatus = notification.userInfo?["invoiceStatus"] as? String
+            //TO DO - add error handling with vendor
+            print("Got Invoice PAID VENDOR NOTIFICATION - Invoice ID:"+invoiceId+" invoiceStatus:"+invoiceStatus!)
             // do something with your image
             if (invoiceId == givbitTransactionCode){
                 print("matches current invoiceID - going to next VC")
-                DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "showSuccessVendorPaidSegue", sender: self)
+                if (invoiceStatus == "PAID"){
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "showSuccessVendorPaidSegue", sender: self)
+                    }
+                }else{
+                    //TO DO - add error handling MESSAGE with vendor
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "showErrorVendorSegue", sender: self)
+                    }
                 }
             }else{
                 print("Got notification - but does NOT match current invoiceID")
             }
-            //TO DO - DELETE ME, THIS IS JUST FOR TESTING
-            DispatchQueue.main.async {
-                self.performSegue(withIdentifier: "showSuccessVendorPaidSegue", sender: self)
-            }
+            //Next stuff is for testing to test notifications on any vendor screen.
+            //let invoiceStatusTest = notification.userInfo?["invoiceStatus"] as? String
+            //TO DO - add error handling with vendor
+            //print(" invoiceStatus:"+invoiceStatusTest!)
+            //DispatchQueue.main.async {
+            //   self.performSegue(withIdentifier: "showErrorVendorSegue", sender: self)
+            //}
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         print("viewWillAppear")
-        //ImageHelper.sharedInstance.playBackgoundVideo(aView : self.view , videoName :  "bgroundQrPurple")
-        
+        //To do - Maybe move this thing below to the storyboard?
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "purpleBlueBackground")
         backgroundImage.contentMode =  UIViewContentMode.scaleAspectFill
@@ -96,15 +110,20 @@ class VendorQRCodeVC: UIViewController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "showSuccessVendorPaidSegue"{
+            let destinationVC = segue.destination as! VendorGotPaidSuccessVC
+            destinationVC.btcAmountString = self.btcAmountString
+            destinationVC.currencyAmountString = self.transactionAmount
+        }
     }
-    */
+ 
     
     // MAKR: - Actions
     @IBAction func didTapOnBackButton(button: UIButton){
