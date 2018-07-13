@@ -67,27 +67,7 @@ class MainVC: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         // show bottom bar
         self.tabBarController?.tabBar.isHidden = false
-        
-        
-        let functions = Functions.functions()
-        print("calling getAmountOfBtcInWallets")
-        functions.httpsCallable("getAmountOfBtcInWallets").call() { (result, error) in
-            if error != nil{
-                print("Error performing getAmountOfBtcInWallets function \(String(describing: error?.localizedDescription))")
-            }else{
-                print(result?.data ?? "")
-                let data = result?.data as! [String: Any]
-                print("NO ERROR")
-                if data["error"] == nil{
-                    print("not null")
-                    //TO DO check if data["amountInNativeCurrency"] is a number then show it
-                    //self.amountOfBtcInWallet=data["amountInNativeCurrency"] as! String
-                    //print("gonnaPrintIt")
-                }else{
-                    print("Error getting getAmountOfBtcInWallets")
-                }
-            }
-        }
+     
     }
     
     override func viewWillLayoutSubviews() {
@@ -119,6 +99,7 @@ class MainVC: UIViewController {
     //MARK: - Navigation
     @IBAction func unwindToMainViewController(segue: UIStoryboardSegue){
         // did unwind back to current view
+        print("unwindToMain called")
         if (self.contactsTableView.indexPathForSelectedRow != nil){
             self.contactsTableView.deselectRow(at: self.contactsTableView.indexPathForSelectedRow!, animated: false)
         }
