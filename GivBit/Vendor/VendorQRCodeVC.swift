@@ -39,8 +39,33 @@ class VendorQRCodeVC: UIViewController {
         // populate vendor info
         vendorNameLabel.text = vendorName
         vendorAmountRequestedLabel.text = transactionAmount
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.receivedInvoiceNoticationFunction(_:)), name: NSNotification.Name(rawValue: "rececivedInvoiceNotification"), object: nil)
+
     }
 
+    
+    //Hmmmm...looks like sometimes we dont get the notification, maybe need to poll too?
+    @objc func receivedInvoiceNoticationFunction(_ notification: NSNotification) {
+        print("Got Notification")
+        if let invoiceId = notification.userInfo?["invoiceId"] as? String {
+            print("Got Invoice PAID VENDOR NOTIFICATION - Invoice ID:"+invoiceId)
+            // do something with your image
+            if (invoiceId == givbitTransactionCode){
+                print("matches current invoiceID - going to next VC")
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "showSuccessVendorPaidSegue", sender: self)
+                }
+            }else{
+                print("Got notification - but does NOT match current invoiceID")
+            }
+            //TO DO - DELETE ME, THIS IS JUST FOR TESTING
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "showSuccessVendorPaidSegue", sender: self)
+            }
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         print("viewWillAppear")
         //ImageHelper.sharedInstance.playBackgoundVideo(aView : self.view , videoName :  "bgroundQrPurple")

@@ -19,7 +19,8 @@ class VendorMainVC: UIViewController {
     @IBOutlet weak var vendorBusinessNameField: UITextField!
     @IBOutlet weak var vendorEmailUpdatesAllowedSwitch: UISwitch!
     @IBOutlet weak var saveVendorInfo: UIButton!
-    
+    @IBOutlet weak var createInvoice: UIButton!
+    @IBOutlet weak var nameOfCompany: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,7 +32,9 @@ class VendorMainVC: UIViewController {
         self.backView.layer.cornerRadius = 5
         //self.submitButton.layer.cornerRadius = 5
         self.vendorSettingsView.isHidden = true
-        self.vendorWelcomView.isHidden = false
+        self.vendorWelcomView.isHidden = true
+        self.createInvoice.isHidden = true
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -45,13 +48,20 @@ class VendorMainVC: UIViewController {
                     AlertHelper.sharedInstance.showAlert(inViewController: (UIApplication.shared.keyWindow?.rootViewController)!, withDescription: "Error", andTitle: (error!.localizedDescription))
                 })
             }else{
-                if status == true{
+                //User is already signed up as vendor
+                var aaa = true;
+                //CHANGE ME LATER - FOR TESTING
+                //if status == true{
+                if aaa == true{
                     // move to the vendor signed up view
                     // get the vendor info and update view
                     self.fetchVendorInfoAndUpdateView(userIsVendor: true)
-                    
+                    self.vendorSettingsView.isHidden = false
+                    self.createInvoice.isHidden = false
+
                 }else{
                     SVProgressHUD.dismiss()
+                    self.vendorWelcomView.isHidden = false;
                     // the user needs to login to vendor - Hide the vendor settings
                     //self.vendorSettingsView.isHidden = true
                 }
@@ -76,6 +86,7 @@ class VendorMainVC: UIViewController {
                     let companyName = data["company_name"] as! String
                     // manipulate the ui on main thread for sanities sake.
                     DispatchQueue.main.async {
+                        self.nameOfCompany.text = companyName
                         self.vendorEmailField.text = vendorEmail
                         self.vendorBusinessNameField.text = companyName
                         // show the vendor settings
@@ -94,9 +105,14 @@ class VendorMainVC: UIViewController {
     }
     
     @IBAction func didTapContinueButton (button: UIButton){
+        print("didTapCont")
         // Check if vendor is logged in or not.
-        SVProgressHUD.show()
-        
+        //SVProgressHUD.show()
+        OperationQueue.main.addOperation {
+            [weak self] in
+            self?.performSegue(withIdentifier: "vendorLoginSegue", sender: self)
+        }
+        /*
         FirestoreHelper.sharedInstnace.checkIfUserIsVendor { (status, error) in
             SVProgressHUD.dismiss()
             if error != nil {
@@ -105,7 +121,10 @@ class VendorMainVC: UIViewController {
                     AlertHelper.sharedInstance.showAlert(inViewController: (UIApplication.shared.keyWindow?.rootViewController)!, withDescription: "Error", andTitle: (error!.localizedDescription))
                 })
             }else{
-                if status == true{
+                //if status == true{
+                var aaa = false;
+                //CHANGE ME LATER - THIS IS FOR TESTING
+                if (aaa == true){
                     // move to the vendor signed up view
                     OperationQueue.main.addOperation {
                         [weak self] in
@@ -119,12 +138,14 @@ class VendorMainVC: UIViewController {
                     }
                 }
             }
-        }
+         }
+ */
+        
     }
     
 
     @IBAction func didTapCreateInvoiceButton(sendor: UIButton){
-       print("invoiceButton")
+       print("tapCreate")
         FirestoreHelper.sharedInstnace.saveVendorSettings(name: vendorBusinessNameField.text!, email: vendorEmailField.text!, emailNotificationsAllowed: vendorEmailUpdatesAllowedSwitch.isOn){(err) in
             if err == nil{
                 //AlertHelper.sharedInstance.showAlert(inViewController: self, withDescription: "You vendor info has been updated", andTitle: "Saved")
