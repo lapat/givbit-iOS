@@ -261,6 +261,7 @@ class FirestoreHelper: NSObject {
     }
     
     // vendor info from cache
+    // if vendor info is not in cache it returns null
     func getUserVendorInfo(fromCache: Bool, completionHandler: @escaping (_ vendorInfo: Any?, _ error: Error?)-> Void){
         if Auth.auth().currentUser == nil{
             let e = GBError(localizedDescription: "No User Logged in")

@@ -45,6 +45,23 @@ class TransactionsVC: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    //MARK: - Actions
+    // called when the user taps vendor button
+    @IBAction func didTapOnVendorButtton(sender: NSObject){
+        // check if the vendor is present in the cache of database inside firebase
+        FirestoreHelper.sharedInstnace.getUserVendorInfo(fromCache: true) { (info, error) in
+            if error != nil{
+                AlertHelper.sharedInstance.showAlert(inViewController: self, withDescription: "Sorry, something went wrong. Please try again.", andTitle: "Error")
+            }else{
+                if info != nil{
+                    self.performSegue(withIdentifier: "vendorWelcomeSegue", sender: self)
+                }else{
+                    self.performSegue(withIdentifier: "vendorCreateInvoiceSegue", sender: self)
+                }
+            }
+        }
+    }
 
     /*
     // MARK: - Navigation

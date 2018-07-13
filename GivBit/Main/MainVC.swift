@@ -107,6 +107,7 @@ class MainVC: UIViewController {
     }
 
     // MARK: - Actions
+    // the lord wants to log out - process it plz.
     @IBAction func didTapOnLogoutButton(){
         let firebaseAuth = Auth.auth()
         do {
@@ -115,6 +116,23 @@ class MainVC: UIViewController {
             print ("Error signing out: %@", signOutError)
         }
     }
+    
+    // called when the user taps vendor button
+    @IBAction func didTapOnVendorButtton(sender: NSObject){
+        // check if the vendor is present in the cache of database inside firebase
+        FirestoreHelper.sharedInstnace.getUserVendorInfo(fromCache: true) { (info, error) in
+            if error != nil{
+                AlertHelper.sharedInstance.showAlert(inViewController: self, withDescription: "Sorry, something went wrong. Please try again.", andTitle: "Error")
+            }else{
+                if info != nil{
+                    self.performSegue(withIdentifier: "vendorWelcomeSegue", sender: self)
+                }else{
+                    self.performSegue(withIdentifier: "vendorCreateInvoiceSegue", sender: self)
+                }
+            }
+        }
+    }
+    
     
     //MARK: - Navigation
     @IBAction func unwindToMainViewController(segue: UIStoryboardSegue){
