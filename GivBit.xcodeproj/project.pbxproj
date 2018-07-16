@@ -15,6 +15,9 @@
 		771742B120C1EED400BD0A88 /* PhoneNumberHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771742B020C1EED400BD0A88 /* PhoneNumberHelper.swift */; };
 		771742B320C22E5E00BD0A88 /* SendCoinSuccesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771742B220C22E5E00BD0A88 /* SendCoinSuccesVC.swift */; };
 		771742B520C22FEC00BD0A88 /* SendCoinErrorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771742B420C22FEC00BD0A88 /* SendCoinErrorVC.swift */; };
+		771965B420FD26F40095F004 /* VendorGotPaidSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771965B120FD26F30095F004 /* VendorGotPaidSuccess.swift */; };
+		771965B520FD26F40095F004 /* VendorErrorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771965B220FD26F30095F004 /* VendorErrorVC.swift */; };
+		771965B620FD26F40095F004 /* VendorGotPaidSuccessVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771965B320FD26F40095F004 /* VendorGotPaidSuccessVC.swift */; };
 		7734162C20C8812C0010EC08 /* GBCoinbaseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7734162B20C8812C0010EC08 /* GBCoinbaseUser.swift */; };
 		773B2CB620DB5799005B6A53 /* Vendor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 773B2CB520DB5799005B6A53 /* Vendor.storyboard */; settings = {ASSET_TAGS = (1, ); }; };
 		773B2CB820DB60E5005B6A53 /* VendorMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773B2CB720DB60E5005B6A53 /* VendorMainVC.swift */; };
@@ -94,6 +97,9 @@
 		771742B020C1EED400BD0A88 /* PhoneNumberHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberHelper.swift; sourceTree = "<group>"; };
 		771742B220C22E5E00BD0A88 /* SendCoinSuccesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCoinSuccesVC.swift; sourceTree = "<group>"; };
 		771742B420C22FEC00BD0A88 /* SendCoinErrorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCoinErrorVC.swift; sourceTree = "<group>"; };
+		771965B120FD26F30095F004 /* VendorGotPaidSuccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendorGotPaidSuccess.swift; sourceTree = "<group>"; };
+		771965B220FD26F30095F004 /* VendorErrorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendorErrorVC.swift; sourceTree = "<group>"; };
+		771965B320FD26F40095F004 /* VendorGotPaidSuccessVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendorGotPaidSuccessVC.swift; sourceTree = "<group>"; };
 		7734162B20C8812C0010EC08 /* GBCoinbaseUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBCoinbaseUser.swift; sourceTree = "<group>"; };
 		773B2CB520DB5799005B6A53 /* Vendor.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Vendor.storyboard; sourceTree = "<group>"; };
 		773B2CB720DB60E5005B6A53 /* VendorMainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorMainVC.swift; sourceTree = "<group>"; };
@@ -198,6 +204,9 @@
 		773B2CB420DB5782005B6A53 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				771965B220FD26F30095F004 /* VendorErrorVC.swift */,
+				771965B120FD26F30095F004 /* VendorGotPaidSuccess.swift */,
+				771965B320FD26F40095F004 /* VendorGotPaidSuccessVC.swift */,
 				773B2CB520DB5799005B6A53 /* Vendor.storyboard */,
 				77E375B620F8BC2D0010A674 /* VendorNavVC.swift */,
 				773B2CB720DB60E5005B6A53 /* VendorMainVC.swift */,
@@ -661,6 +670,7 @@
 				77B7C23A20B835C40008E258 /* CoinbaseVC.swift in Sources */,
 				770814D520DCFEE8001CAC5D /* VendorQRCodeVC.swift in Sources */,
 				77E375B720F8BC2D0010A674 /* VendorNavVC.swift in Sources */,
+				771965B520FD26F40095F004 /* VendorErrorVC.swift in Sources */,
 				779417A720B7E4AE00A46BE2 /* AlertHelper.swift in Sources */,
 				77599A3F20A1A78E001FF565 /* ReviewLoginVC.swift in Sources */,
 				779CBEBB20A41FA600341004 /* FirestoreHelper.swift in Sources */,
@@ -679,6 +689,7 @@
 				774E2D5220AC1A3D0039435E /* StringHelper.swift in Sources */,
 				774E2D5420AC22D60039435E /* GBContact.swift in Sources */,
 				779417A120B5045C00A46BE2 /* SendCoinVC.swift in Sources */,
+				771965B620FD26F40095F004 /* VendorGotPaidSuccessVC.swift in Sources */,
 				771742B320C22E5E00BD0A88 /* SendCoinSuccesVC.swift in Sources */,
 				77B7C24220B924920008E258 /* TransactionsVC.swift in Sources */,
 				77599A3220A044DD001FF565 /* SendSMSyController.swift in Sources */,
@@ -695,6 +706,7 @@
 				77C04AB720BECB500043AC0A /* FirebaseHelper.swift in Sources */,
 				77B7C23E20B915EB0008E258 /* GBTransactionTVC.swift in Sources */,
 				77599A4320A31659001FF565 /* ColorsHelper.swift in Sources */,
+				771965B420FD26F40095F004 /* VendorGotPaidSuccess.swift in Sources */,
 				7713834120DD233900C6E0B0 /* VendorCreateInvoiceVC.swift in Sources */,
 				774E2D5020AC0F240039435E /* ImageHelper.swift in Sources */,
 				778DA11120EB7FB100F0F04E /* GBError.swift in Sources */,

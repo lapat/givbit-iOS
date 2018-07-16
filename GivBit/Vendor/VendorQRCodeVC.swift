@@ -89,7 +89,6 @@ class VendorQRCodeVC: UIViewController {
         backgroundImage.contentMode =  UIViewContentMode.scaleAspectFill
         self.view.insertSubview(backgroundImage, at: 0)
     }
-
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -109,10 +108,8 @@ class VendorQRCodeVC: UIViewController {
         qrCodeImageView.image = qrCode?.image
     }
     
-
-    
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
@@ -123,7 +120,7 @@ class VendorQRCodeVC: UIViewController {
             destinationVC.currencyAmountString = self.transactionAmount
         }
     }
- 
+    
     
     // MAKR: - Actions
     @IBAction func didTapOnBackButton(button: UIButton){
