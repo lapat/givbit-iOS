@@ -44,6 +44,14 @@ class SendCoinSuccesVC: UIViewController {
         //playBackgoundVideo()
         ImageHelper.sharedInstance.playBackgoundVideo(aView : self.view , videoName :  "success2")
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("viewWillDissapear - SendCoinSuccess")
+        // Show the navigation bar on other view controllers
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        ImageHelper.sharedInstance.removeVideo();
+    }
 
     /*
     // MARK: - Navigation

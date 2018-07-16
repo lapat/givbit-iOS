@@ -103,14 +103,8 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="CURRENTLY LINKED TO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="so2-cm-LYR">
-                                        <rect key="frame" x="88.5" y="61" width="166.5" height="18"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="X1b-4n-MV2">
-                                        <rect key="frame" x="10" y="145" width="323" height="60"/>
+                                        <rect key="frame" x="10" y="193" width="323" height="60"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LpM-F3-67x">
                                                 <rect key="frame" x="0.0" y="0.0" width="156.5" height="60"/>
@@ -139,10 +133,19 @@
                                             <constraint firstAttribute="height" constant="60" id="KEU-PQ-WBU"/>
                                         </constraints>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No account linked" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YfN-2W-D93">
-                                        <rect key="frame" x="94" y="87" width="156" height="24"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No account linkedklklklkklkllklklklklmkm,mkmklklklklklk" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YfN-2W-D93">
+                                        <rect key="frame" x="14.5" y="87" width="314" height="72"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="314" id="MMD-hJ-iMT"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="CURRENTLY LINKED TO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="so2-cm-LYR">
+                                        <rect key="frame" x="88" y="61" width="166.5" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -177,8 +180,10 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="coinbaseEmailLabel" destination="YfN-2W-D93" id="h2c-uD-3vM"/>
+                        <outlet property="coinbaseTitle" destination="7kf-9w-dVb" id="guk-qf-FsB"/>
                         <outlet property="fadedViewHolderUIView" destination="IHm-5T-E0m" id="hVk-RJ-RRy"/>
                         <outlet property="linkCoinbaseButton" destination="73r-QD-KTy" id="J4V-vN-wFp"/>
+                        <outlet property="secondCoinbaseLine" destination="so2-cm-LYR" id="C2i-XM-1rT"/>
                         <outlet property="unlinkCoinbaseButton" destination="LpM-F3-67x" id="NVO-GP-hFV"/>
                     </connections>
                 </viewController>
@@ -412,7 +417,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Item" image="sliders" id="FqW-0g-0Mg">
                             <color key="tintColor" red="0.41176470588235292" green="0.42352941176470588" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="EQW-bb-4sJ" kind="show" id="7lI-Mn-ndx"/>
+                                <segue destination="EQW-bb-4sJ" kind="show" identifier="settingSegue" id="7lI-Mn-ndx"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1114,6 +1119,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="DVQ-Fh-0q6"/>
         <segue reference="shF-Up-FmG"/>
-        <segue reference="NJ6-Mm-WIe"/>
+        <segue reference="7lI-Mn-ndx"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -27,19 +27,29 @@ class VerifySMSController: LoginVC {
     //MARK: - VCFunction
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("verifySMS")
+        print("viewDidLoad - verifySMS")
         // Do any additional setup after loading the view.
         verifyButton.layer.cornerRadius = 5
         verifyButton.layer.masksToBounds = true
         
         // set the back button
+        ImageHelper.sharedInstance.playBackgoundVideo(aView : self.view , videoName :  "1_7_moresubtle1")
+
     }
 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("viewWillDissapear - Verify")
+        // Show the navigation bar on other view controllers
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        ImageHelper.sharedInstance.removeVideo();
+    }
 
     // MARK: - Navigation
 
