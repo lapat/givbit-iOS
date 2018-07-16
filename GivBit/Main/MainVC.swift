@@ -22,6 +22,10 @@ class MainVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("viewDidLoad - mainVC")
+        
+        let Coinbase_Linkage_Status = GlobalVariables.Coinbase_Linkage_Status
+        print("Coinbase_Linkage_Status:"+Coinbase_Linkage_Status)
         // Do any additional setup after loading the view, typically from a nib.
         print(Auth.auth().currentUser?.displayName ?? "")
         
@@ -41,15 +45,47 @@ class MainVC: UIViewController {
 
             self.pushContactsOnFirebase()
         }
+
+
+        
         
         // adjust the scrollview
         
         // firestore testing
         // just load the coinbase user
+       
+        
+       NotificationCenter.default.addObserver(self, selector: #selector(self.handleUnlinkedCoinbaseNotification(_:)), name: NSNotification.Name(rawValue: "coinbaseIsUnlinkedNotification"), object: nil)
         
     }
     
+  
     
+    @objc func handleUnlinkedCoinbaseNotification(_ notification: Notification){
+        handleUnlinkedCoinbase();
+    }
+    
+    
+    //NotificationCenter.default.addObserver(self, selector: #selector(self.receivedInvoiceNoticationFunction(_:)), name: NSNotification.Name(rawValue: "rececivedInvoiceNotification"), object: nil)
+    
+
+
+
+//Hmmmm...looks like sometimes we dont get the notification, maybe need to poll too?
+//@objc func receivedInvoiceNoticationFunction(_ notification: NSNotification) {
+    
+    
+    
+    func handleUnlinkedCoinbase(){
+        print("handleUnlinkedCoinbase")
+        let Coinbase_Linkage_Status = GlobalVariables.Coinbase_Linkage_Status
+        print("Coinbase_Linkage_Status:"+Coinbase_Linkage_Status)
+        if (Coinbase_Linkage_Status == "UNLINKED"){
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "settingSegue", sender: self)
+            }
+        }
+    }
     
     // MARK: - Actions on SearchBar change Data
     @IBAction func didChangeInSearch(){
@@ -62,12 +98,17 @@ class MainVC: UIViewController {
         })
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        print("viewDidAppear Main")
+        coinbaseoauth.sharedInstnace.checkIfCoinbaseUnlinked()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
+        print("viewWillAppear Main")
         // hide the top and bottom bar
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         // show bottom bar
         self.tabBarController?.tabBar.isHidden = false
-     
     }
     
     override func viewWillLayoutSubviews() {
@@ -125,7 +166,9 @@ class MainVC: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "userSendMoneySegue"{
+        if segue.identifier == "settingSegue"{
+            //Maybe don't need this?
+        }else if segue.identifier == "userSendMoneySegue"{
             let destinationController = segue.destination as! SendCoinVC
             let selectedContactIndex = self.contactsTableView.indexPathForSelectedRow?.row
             let contact = GBContact()
@@ -138,13 +181,30 @@ class MainVC: UIViewController {
 
             //let isFavourite = self.contactsTableView.indexPathForSelectedRow?.section ?? 0??1
         }
-//        if segue.identifier == "vendorSegue"{
-//            let destination = segue.destination as! VendorMainVC
-//            var vendorStoryBoard = UIStoryboard(name: "Vendor", bundle: nil)
-//            var qrCodeVC = vendorStoryBoard.instantiateViewController(withIdentifier: "qrCodeView")
-//            destination.viewcontrollers
-//        }
     }
+    
+    
+    /*func ifCoinbaseTokenInvalidSendToSettingsPage(){
+        self.functions.httpsCallable("isCoinbaseTokenValid").call([]) { (result, error) in
+            print("done calling isCoinbaseTokenValid")
+            if error != nil{
+                print("Error performing function isCoinbaseTokenValid \(String(describing: error?.localizedDescription))")
+            }else{
+                print("isCoinbaseTokenValid returned")
+                print(result?.data ?? "")
+                let data = result?.data as! [String: Any]
+                if data["error"] != nil{
+                    print("error checking isCoinbaseTokenValid")
+                    print(data["error"] as! String)
+                }else{
+                    let isValid = data["success"] as! Bool
+                    if (isValid == false){
+                        print("not valid token, have to relink - send to settings")
+                       
+                    }
+            }
+        }
+    }*/
     
     func updateNumberToFireBase(){
         if Auth.auth().currentUser?.providerData[0].providerID == "phone"{

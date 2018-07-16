@@ -20,8 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     let gcmMessageIDKey = "gcm.message_id"
-    
+
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        print("application function ran - appDelegate")
         coinbaseoauth.sharedInstnace.getAccessToken(url: url)
         
         return true
@@ -29,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+        print("didFinishLaunching")
         // Called to configure the firebase framework
         FirebaseApp.configure()
         let settings = FirestoreSettings()
@@ -64,6 +65,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         registerForNotications(application)
+        
+        
         return true
     }
     
@@ -100,14 +103,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        GlobalVariables.Checked_Already = "FALSE"
     }
     
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        print("applicationWillEnterForeground")
+
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        print("applicationDidBecomeActive")
+
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
@@ -252,5 +260,12 @@ extension AppDelegate : MessagingDelegate {
         print("Received data message: \(remoteMessage.appData)")
     }
     // [END ios_10_data_message]
+    
+    
+}
+
+struct GlobalVariables {
+    static var Coinbase_Linkage_Status = ""
+    static var Checked_Already = "FALSE"
 }
 

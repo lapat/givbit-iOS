@@ -13,23 +13,37 @@ import AVFoundation
 class LoginVC: UIViewController {
         
     var player: AVPlayer?
-    
+    var didPlayVideoOnce: String! = "FALSE"
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("loginVC")
+        print("loginVC - viewDidLoad")
         // Do any additional setup after loading the view.
         
         // Added gradient background
        // self.view.backgroundColor = ColorsHelper.getLoginViewBackgroundGradientColor(rect: self.view.frame)
+        ImageHelper.sharedInstance.playBackgoundVideo(aView : self.view , videoName :  "1_7_moresubtle1")
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
         // hide the top and bottom bar
-        print("viewWillAppear")
+        print("viewWillAppear - loginVc")
         //playBackgoundVideo()
-        ImageHelper.sharedInstance.playBackgoundVideo(aView : self.view , videoName :  "1_7_moresubtle1")
+        //if (didPlayVideoOnce == "FALSE"){
+          //  didPlayVideoOnce = "TRUE"
+        //}
     }
 
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("viewWillDissapear - loginVC")
+        // Show the navigation bar on other view controllers
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        ImageHelper.sharedInstance.removeVideo();
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

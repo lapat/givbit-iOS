@@ -43,10 +43,20 @@ class SendSMSyController: LoginVC {
         if carrier != nil{
             phoneTextField.setFlag(for: (carrier?.isoCountryCode)!.uppercased())
         }
+        ImageHelper.sharedInstance.playBackgoundVideo(aView : self.view , videoName :  "1_7_moresubtle1")
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        print("SendSMS - viewDidAppear")
         
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("viewWillDissapear - sendSMS")
+        // Show the navigation bar on other view controllers
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        ImageHelper.sharedInstance.removeVideo();
     }
     
     override func didReceiveMemoryWarning() {

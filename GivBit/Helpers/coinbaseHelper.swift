@@ -10,6 +10,7 @@ import Foundation
 import Firebase
 import OAuthSwift
 import SVProgressHUD
+import FirebaseFunctions
 
 class coinbaseoauth : NSObject{
     
@@ -30,6 +31,8 @@ class coinbaseoauth : NSObject{
     let redirectUrl = "com.givbitapp.apps.coinflash-12345678://coinbase-oauth"
     var accessToken = ""
     var refreashToken = ""
+    var functions = Functions.functions()
+
     func makeLoginupRequest(){
         
         oauthswift.authorize(withCallbackURL: URL(string: redirectUrl)!, scope: coibaseScope, state: "",parameters:meta_all_data,
@@ -45,6 +48,17 @@ class coinbaseoauth : NSObject{
         })
     }
     
+    func checkIfCoinbaseUnlinked(){
+        let Checked_Already = GlobalVariables.Checked_Already
+        if (Checked_Already == "FALSE"){
+            print("Checked_Already is False - Checking Coinbase Linkage")
+            coinbaseoauth.sharedInstnace.ifCoinbaseTokenInvalidSetGlobalVariableToNotLinked()
+            
+        }else{
+            print("Already Checked CB Linkage, Not Going To Check Again")
+        }
+    }
+    
     func getAccessToken(url: URL){
         print("getAccessToken")
         SVProgressHUD.show()
@@ -56,6 +70,7 @@ class coinbaseoauth : NSObject{
             if let range = urlString.range(of: StringToRemove) {
                 urlString.replaceSubrange(range, with: "")
             }
+            //updateCoinbaseidOnCoinbaseWithUUID calls linkCoinbaseWithCode firebase function on server
             if Auth.auth().currentUser?.providerData[0].providerID == "phone"{
                 FirestoreHelper.sharedInstnace.updateCoinbaseidOnCoinbaseWithUUID(universalUserID: (Auth.auth().currentUser?.uid)!, code: urlString, completionHandler: { (success, email) in
                     print(success)
@@ -64,10 +79,12 @@ class coinbaseoauth : NSObject{
                     if success == false{
                         print("ERROR calling updateCoinbaseidOnCoinbaseWithUUID")
                     }else{
+                        GlobalVariables.Coinbase_Linkage_Status="LINKED"
                         if self.settingsVC == nil{
                             self.loginvc.performSegue(withIdentifier: "requestcontactssegue", sender: self)
                         }else{
                             print("posting notification email:")
+                            
                             print(email)
                             let emailDict:[String: String] = ["email": email]
                             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "finishedLinkingCoinbase"), object: nil, userInfo: emailDict)
@@ -76,6 +93,34 @@ class coinbaseoauth : NSObject{
                 })
             }
             let path = URL(string: redirectUrl)
+        }
+    }
+    
+    func ifCoinbaseTokenInvalidSetGlobalVariableToNotLinked(){
+        self.functions.httpsCallable("isCoinbaseTokenValid").call([]) { (result, error) in
+            print("done calling isCoinbaseTokenValid")
+            if error != nil{
+                print("Error performing function isCoinbaseTokenValid \(String(describing: error?.localizedDescription))")
+            }else{
+                print("isCoinbaseTokenValid returned")
+                print(result?.data ?? "")
+                let data = result?.data as! [String: Any]
+                if data["error"] != nil{
+                    print("error checking isCoinbaseTokenValid")
+                    print(data["error"] as! String)
+                }else{
+                    let isValid = data["success"] as! Bool
+                    if (isValid == false){
+                        print("not valid token, setting global variable to not-linked")
+                        GlobalVariables.Coinbase_Linkage_Status = "UNLINKED"
+                        NotificationCenter.default.post(name: Notification.Name("coinbaseIsUnlinkedNotification"), object: nil)
+                        GlobalVariables.Checked_Already = "FALSE"
+                    }else{
+                        GlobalVariables.Checked_Already = "TRUE"
+                        GlobalVariables.Coinbase_Linkage_Status = ""
+                    }
+                }
+            }
         }
     }
     

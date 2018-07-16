@@ -16,10 +16,19 @@ class CoinbaseVC: LoginVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("coinbaseVC")
+        print("coinbaseVC - view didload")
         // Do any additional setup after loading the view.
         coinbaseLoginButton.layer.cornerRadius = 5
         coinbaseSignUpButton.layer.cornerRadius = 5
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // hide the top and bottom bar
+        print("viewWillAppear - CoinbaseVC")
+        ImageHelper.sharedInstance.removeVideo();
+        //view.layer.sublayers = nil
+
+
     }
     
     override func didReceiveMemoryWarning() {

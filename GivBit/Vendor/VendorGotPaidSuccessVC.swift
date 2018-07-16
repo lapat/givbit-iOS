@@ -26,6 +26,13 @@ class VendorGotPaidSuccessVC: UIViewController {
         ImageHelper.sharedInstance.playBackgoundVideo(aView : self.view , videoName :  "purpleBlackFireworks")
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("viewWillDissapear - VendorGotPaidSuccess")
+        // Show the navigation bar on other view controllers
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        ImageHelper.sharedInstance.removeVideo();
+    }
 
     
     @IBAction func didTapOnXButton(button: UIButton){

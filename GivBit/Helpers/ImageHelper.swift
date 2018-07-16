@@ -17,7 +17,7 @@ class ImageHelper: NSObject {
     // dont make a seperate instance use this instead
     static var sharedInstance = ImageHelper()
     var player: AVPlayer?
-
+    var playerLayer: AVPlayerLayer?
     
     // This will add given text to the image in the center. Can also add a grey background to the text
     func generateImageWithCenteredText(textAtCenter text: String, inImage image: UIImage, addBackground: Bool) -> UIImage{
@@ -69,18 +69,27 @@ class ImageHelper: NSObject {
                 self.player?.seek(to: kCMTimeZero)
                 self.player?.play()
             }
-            let playerLayer = AVPlayerLayer(player: player)
-            playerLayer.frame = aView.bounds
-            playerLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+            self.playerLayer = AVPlayerLayer(player: player)
+            self.playerLayer?.frame = aView.bounds
+            self.playerLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
             NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: self.player?.currentItem, queue: nil) { (_) in
                 self.player?.seek(to: kCMTimeZero)
                 self.player?.play()
             }
-            aView.layer.insertSublayer(playerLayer, at: 0)
+            aView.layer.insertSublayer(self.playerLayer!, at: 0)
             
             print("gonna try to play video:"+videoName)
             player?.play()
         }
+    }
+    
+    func removeVideo() {
+        print("REMOVE VIDEO CALLED")
+        if (self.player != nil){
+            self.player!.pause()
+        }
+        //let playerLayer = AVPlayerLayer(player: player)
+        self.playerLayer?.removeFromSuperlayer()
     }
     
 }

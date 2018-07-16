@@ -17,10 +17,15 @@ class SettingsVC: UIViewController {
     @IBOutlet weak var linkCoinbaseButton: UIButton!
     @IBOutlet weak var coinbaseEmailLabel: UILabel!
     @IBOutlet weak var fadedViewHolderUIView: UIView!
+    @IBOutlet weak var coinbaseTitle: UILabel!
+    @IBOutlet weak var secondCoinbaseLine: UILabel!
     // used to show if viewwill appear should refresh the coinbase user or just use the current coinbase user. Since user might have attempted to
     // reconnect a different coinbase
     var userIsRelinkingCoinbase: Bool! = false
+    var alreadyCheckedCoinbaseLinkageStatus: String = "DID NOT CHECK"
+
     var functions = Functions.functions()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +44,8 @@ class SettingsVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: .UIApplicationWillEnterForeground, object: nil)
 
         NotificationCenter.default.addObserver(self, selector: #selector(self.finishedLinkingCoinbaseWithSuccess), name: NSNotification.Name(rawValue: "finishedLinkingCoinbase"), object: nil)
+        
+
         
     }
     
@@ -75,9 +82,25 @@ class SettingsVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         print("viewWillAppear SettingsVC")
+        //Default text
+        self.coinbaseTitle.text = "coinbase"
+        self.secondCoinbaseLine.text = "CURRENTLY LINKED TO"
+        
+        
         // hide the top and bottom bar
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         self.navigationController?.isToolbarHidden = true
+        
+        //we already checked on the main page, so no need to check again.
+        let Coinbase_Linkage_Status = GlobalVariables.Coinbase_Linkage_Status
+        print("Coinbase_Linkage_Status:"+Coinbase_Linkage_Status)
+        if (Coinbase_Linkage_Status == "UNLINKED"){
+            self.fadedViewHolderUIView.subviews.forEach { (view) in
+                view.isHidden = false
+            }
+            self.updateViewForUnlinkedCoinbase()
+            return;
+        }
         SVProgressHUD.show()
         self.functions.httpsCallable("isCoinbaseTokenValid").call([]) { (result, error) in
             SVProgressHUD.dismiss()
@@ -103,6 +126,8 @@ class SettingsVC: UIViewController {
                         }
                         self.updateViewForUnlinkedCoinbase()
                     }else{
+                        GlobalVariables.Coinbase_Linkage_Status="LINKED"
+                        
                         let email = data["email"] as! String
                         print("valid token - show linked buttons")
                         // make all the subviews visible
@@ -168,12 +193,12 @@ class SettingsVC: UIViewController {
         print("updateViewForUnlinkedCoinbase")
         DispatchQueue.main.async {
             print("setting buttons")
+            self.coinbaseTitle.text = "coinbase unlinked"
+            self.secondCoinbaseLine.text = ""
             self.unlinkCoinbaseButton.isHidden = true
             self.linkCoinbaseButton.titleLabel?.text = "Link Coinbase"
-            self.coinbaseEmailLabel.text = "No account Linked"
+            self.coinbaseEmailLabel.text = "Relink to use givbit properly."
         }
-        //UIView.animate(withDuration: 0.5) {
-        //}
     }
     
     // updates the view when coinbase is present and user is logged in
@@ -182,6 +207,8 @@ class SettingsVC: UIViewController {
         DispatchQueue.main.async {
             self.unlinkCoinbaseButton.isHidden = false
             self.linkCoinbaseButton.titleLabel?.text = "Relink"
+            self.coinbaseTitle.text = "coinbase"
+            self.secondCoinbaseLine.text = "CURRENTLY LINKED TO"
             self.coinbaseEmailLabel.text = email
 
         }
@@ -213,6 +240,7 @@ class SettingsVC: UIViewController {
                 print("error in unlinkCoinbase")
                 SVProgressHUD.showError(withStatus: error?.localizedDescription)
             }else{
+                GlobalVariables.Checked_Already = "FALSE"
                 self.updateViewForUnlinkedCoinbase()
             }
         }
