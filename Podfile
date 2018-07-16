@@ -20,6 +20,7 @@ target 'GivBit' do
   pod 'PhoneNumberKit'
   pod 'QRCode'
   pod 'QRCodeReader.swift'
+  pod 'Firebase/Messaging'
   
   target 'GivBitTests' do
     inherit! :search_paths
