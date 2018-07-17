@@ -12,8 +12,7 @@ class BottomNotificationView: UIView {
     var actionButton: UIButton!
     var notificationLabel: UILabel!
     var notificationExplainationLabel: UILabel!
-    //var contentView: UIView?
-    @IBOutlet weak var view: UIView!
+    var view: UIView!
     
     var topConstraint, bottomConstraint, leftConstraint, rightConstrain, heightConstraint: NSLayoutConstraint!
     

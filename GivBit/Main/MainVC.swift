@@ -58,6 +58,7 @@ class MainVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         print("viewDidAppear Main")
         coinbaseoauth.sharedInstnace.checkIfCoinbaseUnlinked()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -74,13 +75,20 @@ class MainVC: UIViewController {
         self.contactsTableView.scrollIndicatorInsets = UIEdgeInsetsMake(self.blurViewBehindSearchBar.frame.height, 0, 0, 0)
         // Make the top cell to adjust with respect to our new insets. Else it will stay in its default position
         if contacts.count > 0 && shouldAdjustTableForFirstLoading{
-            shouldAdjustTableForFirstLoading = false
+            //shouldAdjustTableForFirstLoading = false
             self.contactsTableView.scrollToRow(at: IndexPath(item: 0, section: 0), at: UITableViewScrollPosition.top, animated: true)
         }
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         CustomNotificationManager.sharedInstance.removeCoinbaseNotificationFromView(view: self.view)
+        
+        shouldAdjustTableForFirstLoading = false
     }
     
     override func didReceiveMemoryWarning() {
