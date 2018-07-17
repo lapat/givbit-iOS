@@ -20,6 +20,7 @@ class MainVC: UIViewController {
     var contacts : [CNContact] = [CNContact]()
     var amountOfBtcInWallet: String = ""
     
+    // MARK:- ViewCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         print("viewDidLoad - mainVC")
@@ -45,57 +46,13 @@ class MainVC: UIViewController {
 
             self.pushContactsOnFirebase()
         }
-
-
-        
         
         // adjust the scrollview
         
         // firestore testing
         // just load the coinbase user
-       
         
-       NotificationCenter.default.addObserver(self, selector: #selector(self.handleUnlinkedCoinbaseNotification(_:)), name: NSNotification.Name(rawValue: "coinbaseIsUnlinkedNotification"), object: nil)
-        
-    }
-    
-  
-    
-    @objc func handleUnlinkedCoinbaseNotification(_ notification: Notification){
-        handleUnlinkedCoinbase();
-    }
-    
-    
-    //NotificationCenter.default.addObserver(self, selector: #selector(self.receivedInvoiceNoticationFunction(_:)), name: NSNotification.Name(rawValue: "rececivedInvoiceNotification"), object: nil)
-    
-
-
-
-//Hmmmm...looks like sometimes we dont get the notification, maybe need to poll too?
-//@objc func receivedInvoiceNoticationFunction(_ notification: NSNotification) {
-    
-    
-    
-    func handleUnlinkedCoinbase(){
-        print("handleUnlinkedCoinbase")
-        let Coinbase_Linkage_Status = GlobalVariables.Coinbase_Linkage_Status
-        print("Coinbase_Linkage_Status:"+Coinbase_Linkage_Status)
-        if (Coinbase_Linkage_Status == "UNLINKED"){
-            DispatchQueue.main.async {
-                self.performSegue(withIdentifier: "settingSegue", sender: self)
-            }
-        }
-    }
-    
-    // MARK: - Actions on SearchBar change Data
-    @IBAction func didChangeInSearch(){
-        let strindToSearch = textViewSearchBar.text
-         ContactsManager.sharedInstance.getSearchForContacts(searchString:strindToSearch!, completionHandler: { (contacts, authStatus) in
-            self.contacts = contacts
-        
-            
-            self.contactsTableView.reloadData()
-        })
+        NotificationCenter.default.addObserver(self, selector: #selector(self.handleUnlinkedCoinbaseNotification(_:)), name: NSNotification.Name(rawValue: "coinbaseIsUnlinkedNotification"), object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -121,10 +78,50 @@ class MainVC: UIViewController {
             self.contactsTableView.scrollToRow(at: IndexPath(item: 0, section: 0), at: UITableViewScrollPosition.top, animated: true)
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK:- Coinbase Linkage State
+    
+    @objc func handleUnlinkedCoinbaseNotification(_ notification: Notification){
+        handleUnlinkedCoinbase();
+    }
+    
+    
+    //NotificationCenter.default.addObserver(self, selector: #selector(self.receivedInvoiceNoticationFunction(_:)), name: NSNotification.Name(rawValue: "rececivedInvoiceNotification"), object: nil)
+    
+
+
+
+//Hmmmm...looks like sometimes we dont get the notification, maybe need to poll too?
+//@objc func receivedInvoiceNoticationFunction(_ notification: NSNotification) {
+    
+    
+        
+    func handleUnlinkedCoinbase(){
+        print("handleUnlinkedCoinbase")
+        let Coinbase_Linkage_Status = GlobalVariables.Coinbase_Linkage_Status
+        print("Coinbase_Linkage_Status:"+Coinbase_Linkage_Status)
+        if (Coinbase_Linkage_Status == "UNLINKED"){
+            DispatchQueue.main.async {
+                CustomNotificationHelper.sharedInstance.addNotificationAtBottomForCoinbaseRelinking(inViewController: self)
+               // self.performSegue(withIdentifier: "settingSegue", sender: self)
+            }
+        }
+    }
+    
+    // MARK: - Actions on SearchBar change Data
+    @IBAction func didChangeInSearch(){
+        let strindToSearch = textViewSearchBar.text
+         ContactsManager.sharedInstance.getSearchForContacts(searchString:strindToSearch!, completionHandler: { (contacts, authStatus) in
+            self.contacts = contacts
+        
+            
+            self.contactsTableView.reloadData()
+        })
     }
 
     // MARK: - Actions
