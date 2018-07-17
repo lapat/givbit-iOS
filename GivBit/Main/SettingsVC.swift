@@ -140,41 +140,6 @@ class SettingsVC: UIViewController {
 
             }
         }
-        
-        
-        
-        
-        /*
-        if GBCoinbaseUser.sharedInstance.hasUser == false || userIsRelinkingCoinbase == true{
-            self.userIsRelinkingCoinbase = false
-            // coinbaseuser info is not present, try to fetch it
-            SVProgressHUD.show()
-            FirestoreHelper.sharedInstnace.fetchCoinbaseUserInfoObjetForUser(givbitUser: GBUser.sharedUser) { (cbUser, success) in
-                SVProgressHUD.dismiss()
-                // make all the subviews disapear
-                self.fadedViewHolderUIView.subviews.forEach { (view) in
-                    view.isHidden = false
-                }
-                
-                if cbUser != nil{
-                    self.updateViewForLinkedCoinbase()
-                }else if cbUser == nil && success == true{
-                    // cb user does not exist in the db
-                    self.updateViewForUnlinkedCoinbase()
-                }else if success == false{
-                    // there was a issue with the netowrk
-                    SVProgressHUD.showError(withStatus: "Network Issue, kindly retry")
-                }
-            }
-        }else{
-            // make all the subviews visible
-            self.fadedViewHolderUIView.subviews.forEach { (view) in
-                view.isHidden = false
-            }
-            // update the ui
-            self.updateViewForLinkedCoinbase()
-        }
-        */
     }
     
     /*

@@ -58,7 +58,6 @@ class MainVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         print("viewDidAppear Main")
         coinbaseoauth.sharedInstnace.checkIfCoinbaseUnlinked()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -78,7 +77,6 @@ class MainVC: UIViewController {
             //shouldAdjustTableForFirstLoading = false
             self.contactsTableView.scrollToRow(at: IndexPath(item: 0, section: 0), at: UITableViewScrollPosition.top, animated: true)
         }
-        
     }
     
     override func viewDidLayoutSubviews() {
