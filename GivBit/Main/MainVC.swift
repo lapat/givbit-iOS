@@ -79,6 +79,10 @@ class MainVC: UIViewController {
         }
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        CustomNotificationManager.sharedInstance.removeCoinbaseNotificationFromView(view: self.view)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -89,25 +93,19 @@ class MainVC: UIViewController {
     @objc func handleUnlinkedCoinbaseNotification(_ notification: Notification){
         handleUnlinkedCoinbase();
     }
-    
-    
+
     //NotificationCenter.default.addObserver(self, selector: #selector(self.receivedInvoiceNoticationFunction(_:)), name: NSNotification.Name(rawValue: "rececivedInvoiceNotification"), object: nil)
     
-
-
-
 //Hmmmm...looks like sometimes we dont get the notification, maybe need to poll too?
 //@objc func receivedInvoiceNoticationFunction(_ notification: NSNotification) {
     
-    
-        
     func handleUnlinkedCoinbase(){
         print("handleUnlinkedCoinbase")
         let Coinbase_Linkage_Status = GlobalVariables.Coinbase_Linkage_Status
         print("Coinbase_Linkage_Status:"+Coinbase_Linkage_Status)
         if (Coinbase_Linkage_Status == "UNLINKED"){
             DispatchQueue.main.async {
-                CustomNotificationHelper.sharedInstance.addNotificationAtBottomForCoinbaseRelinking(inViewController: self)
+                CustomNotificationManager.sharedInstance.addNotificationAtBottomForCoinbaseRelinking(inViewController: self)
                // self.performSegue(withIdentifier: "settingSegue", sender: self)
             }
         }

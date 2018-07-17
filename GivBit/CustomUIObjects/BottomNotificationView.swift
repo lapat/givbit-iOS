@@ -9,13 +9,13 @@
 import UIKit
 
 class BottomNotificationView: UIView {
-    @IBOutlet weak var actionButton: UIButton!
-    @IBOutlet weak var notificationLabel: UILabel!
-    @IBOutlet weak var notificationExplainationLabel: UILabel!
+    var actionButton: UIButton!
+    var notificationLabel: UILabel!
+    var notificationExplainationLabel: UILabel!
     //var contentView: UIView?
     @IBOutlet weak var view: UIView!
     
-    //var topConstraint, bottomConstraint, ,: NSLayoutConstraint!
+    var topConstraint, bottomConstraint, leftConstraint, rightConstrain, heightConstraint: NSLayoutConstraint!
     
     /*
     // Only override draw() if you perform custom drawing.
@@ -54,10 +54,23 @@ class BottomNotificationView: UIView {
         let nib = UINib(nibName: String(describing: type(of: self)), bundle: bundle)
         let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
         
+        actionButton = view.viewWithTag(3) as! UIButton
+        notificationLabel  = view.viewWithTag(1) as! UILabel
+        notificationExplainationLabel = view.viewWithTag(2) as! UILabel
+        
+        actionButton.layer.cornerRadius = 5
+        
         // associate the buttons
-        
-        
         return view
     }
     
+    func set(label: String, andExplaination explaination: String, buttonLabel: String){
+        notificationLabel.text = label
+        notificationExplainationLabel.text = explaination
+        actionButton.setTitle(buttonLabel, for: .normal)
+    }
+    
+    func addButtonAction(target: NSObject, action: Selector){
+        actionButton.addTarget(target, action: action, for: UIControlEvents.touchUpInside)
+    }
 }
