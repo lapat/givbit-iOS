@@ -37,4 +37,16 @@ class userPaidVendorSucessVC: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("viewWillAppear")
+        ImageHelper.sharedInstance.playBackgoundVideo(aView : self.view , videoName :  "success2")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("viewWillDissapear - SendCoinSuccess")
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        ImageHelper.sharedInstance.removeVideo();
+    }
+    
 }

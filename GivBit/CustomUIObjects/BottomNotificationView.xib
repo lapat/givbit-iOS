@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BottomNotificationView" customModule="GivBit" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="OxK-Rz-X5t">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MEj-0S-Eam">
+                    <rect key="frame" x="294" y="326" width="65" height="35"/>
+                    <color key="backgroundColor" white="1" alpha="0.24683648767605634" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="65" id="OcL-z3-Ecd"/>
+                        <constraint firstAttribute="height" constant="35" id="QtK-6Z-EvH"/>
+                    </constraints>
+                    <state key="normal" title="Go">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b8x-U9-0aN">
+                    <rect key="frame" x="6" y="318.5" width="278" height="50"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Explainatory Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qzV-42-Uc2">
+                            <rect key="frame" x="8" y="26" width="103.5" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VBm-Wa-c74">
+                            <rect key="frame" x="8" y="8" width="169" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="qzV-42-Uc2" firstAttribute="top" secondItem="VBm-Wa-c74" secondAttribute="bottom" constant="-3" id="1GB-wd-oT2"/>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="qzV-42-Uc2" secondAttribute="trailing" constant="10" id="6pi-QN-A0K"/>
+                        <constraint firstAttribute="height" constant="50" id="Ckx-nS-SoB"/>
+                        <constraint firstItem="VBm-Wa-c74" firstAttribute="leading" secondItem="b8x-U9-0aN" secondAttribute="leading" constant="8" id="LBz-Q4-Y1A"/>
+                        <constraint firstItem="qzV-42-Uc2" firstAttribute="leading" secondItem="b8x-U9-0aN" secondAttribute="leading" constant="8" id="Odt-hC-WIq"/>
+                        <constraint firstItem="VBm-Wa-c74" firstAttribute="top" secondItem="b8x-U9-0aN" secondAttribute="top" constant="8" id="puy-jG-Jka"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.41176470590000003" green="0.42352941179999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="MEj-0S-Eam" firstAttribute="leading" secondItem="b8x-U9-0aN" secondAttribute="trailing" constant="10" id="LDT-uM-TKz"/>
+                <constraint firstItem="b8x-U9-0aN" firstAttribute="centerY" secondItem="9vq-cn-Qbl" secondAttribute="centerY" id="ahy-tK-nw1"/>
+                <constraint firstItem="9vq-cn-Qbl" firstAttribute="trailing" secondItem="MEj-0S-Eam" secondAttribute="trailing" constant="16" id="cZe-9w-f4n"/>
+                <constraint firstItem="b8x-U9-0aN" firstAttribute="leading" secondItem="9vq-cn-Qbl" secondAttribute="leading" constant="6" id="pZH-He-2vB"/>
+                <constraint firstItem="MEj-0S-Eam" firstAttribute="centerY" secondItem="b8x-U9-0aN" secondAttribute="centerY" id="qfI-Yo-KWT"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="9vq-cn-Qbl"/>
+            <point key="canvasLocation" x="234.5" y="-183.5"/>
+        </view>
+    </objects>
+</document>

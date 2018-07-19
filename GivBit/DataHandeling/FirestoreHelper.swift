@@ -91,13 +91,6 @@ class FirestoreHelper: NSObject {
         //return (false, User())
     }
     
-    func returnEmptyIfNil(aString: Any?) -> String{
-        if (aString == nil){
-            return ""
-        }
-        return aString as! String
-    }
-    
     //MARK: Transactions
     func getTransactionsForUser(uuid: String, completionHandler: @escaping (_ transactions: [GBTransaction], _ success: Bool) -> Void){
         //MONEY I SENT
@@ -113,14 +106,14 @@ class FirestoreHelper: NSObject {
                 for document in querySnapShot!.documents{
                     let transaction = GBTransaction()
                     transaction.cryptoAmount = document.data()["btc_amount"] as! Double
-                    transaction.coinbaseItemID = self.returnEmptyIfNil(aString: document.data()["coinbase_idem_id"])
+                    transaction.coinbaseItemID = StringHelper.sharedInstnace.returnEmptyIfNil(aString: document.data()["coinbase_idem_id"])
                     transaction.date = document.data()["date"] as! TimeInterval/1000
                     transaction.pending = document.data()["pending"] as! Bool
-                    transaction.recieverPhoneNumber = self.returnEmptyIfNil(aString: document.data()["receiver_phone_number"])
-                    transaction.recieverUID = self.returnEmptyIfNil(aString: document.data()["receiver_uid"])
-                    transaction.senderUID = self.returnEmptyIfNil(aString: document.data()["sender_uid"])
-                    transaction.recieverName = self.returnEmptyIfNil(aString: document.data()["receiver_name"])
-                    transaction.senderName = self.returnEmptyIfNil(aString: document.data()["sender_name"])
+                    transaction.recieverPhoneNumber = StringHelper.sharedInstnace.returnEmptyIfNil(aString: document.data()["receiver_phone_number"])
+                    transaction.recieverUID = StringHelper.sharedInstnace.returnEmptyIfNil(aString: document.data()["receiver_uid"])
+                    transaction.senderUID = StringHelper.sharedInstnace.returnEmptyIfNil(aString: document.data()["sender_uid"])
+                    transaction.recieverName = StringHelper.sharedInstnace.returnEmptyIfNil(aString: document.data()["receiver_name"])
+                    transaction.senderName = StringHelper.sharedInstnace.returnEmptyIfNil(aString: document.data()["sender_name"])
                     transaction.sent = true
                     transactions.append(transaction)
                 }
@@ -141,11 +134,11 @@ class FirestoreHelper: NSObject {
                         transaction.coinbaseItemID = document.data()["coinbase_idem_id"] as! String
                         transaction.date = document.data()["date"] as! TimeInterval/1000
                         transaction.pending = document.data()["pending"] as! Bool
-                        transaction.recieverPhoneNumber = document.data()["receiver_phone_number"] as! String
-                        transaction.recieverUID = document.data()["receiver_uid"] as! String
-                        transaction.senderUID = document.data()["sender_uid"] as! String
-                        transaction.recieverName = document.data()["receiver_name"] as! String
-                        transaction.senderName = document.data()["sender_name"] as! String
+                        transaction.recieverPhoneNumber = StringHelper.sharedInstnace.returnEmptyIfNil(aString: document.data()["receiver_phone_number"])
+                        transaction.recieverUID = StringHelper.sharedInstnace.returnEmptyIfNil(aString: document.data()["receiver_uid"])
+                        transaction.senderUID = StringHelper.sharedInstnace.returnEmptyIfNil(aString: document.data()["sender_uid"])
+                        transaction.recieverName = StringHelper.sharedInstnace.returnEmptyIfNil(aString: document.data()["receiver_name"])
+                        transaction.senderName = StringHelper.sharedInstnace.returnEmptyIfNil(aString: document.data()["sender_name"])
                         transaction.sent = false
                         transactions.append(transaction)
                     }
@@ -267,14 +260,20 @@ class FirestoreHelper: NSObject {
             let e = GBError(localizedDescription: "No User Logged in")
             completionHandler(false, e)
         }
+        print("uid")
+        print(Auth.auth().currentUser?.uid)
         let query = db.collection("vendors").document((Auth.auth().currentUser?.uid)!)
-        query.getDocument(source: FirestoreSource.cache) { (docSnapshot, error) in
+        //REPLACE WHEN LIVE - JUST FOR TESTING
+        //query.getDocument(source: FirestoreSource.cache) { (docSnapshot, error) in
+        query.getDocument { (docSnapshot, error) in
             if error != nil{
                 completionHandler(nil, error)
             }else{
                 if docSnapshot?.data() != nil{
+                    print("found vendor")
                     completionHandler(docSnapshot?.data(), nil)
                 }else{
+                    print("no vendor")
                     completionHandler(nil, nil)
                 }
             }

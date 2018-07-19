@@ -12,15 +12,18 @@ import SVProgressHUD
 class VendorMainVC: UIViewController {
     
     @IBOutlet weak var backView: UIView!
-    @IBOutlet weak var submitButton: UIView!
+    @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var vendorSettingsView: UIView!
     @IBOutlet weak var vendorWelcomView: UIView!
     @IBOutlet weak var vendorEmailField: UITextField!
     @IBOutlet weak var vendorBusinessNameField: UITextField!
     @IBOutlet weak var vendorEmailUpdatesAllowedSwitch: UISwitch!
-    @IBOutlet weak var saveVendorInfo: UIButton!
-    @IBOutlet weak var createInvoice: UIButton!
-    @IBOutlet weak var nameOfCompany: UILabel!
+    @IBOutlet weak var createInvoiceButton: UIButton!
+    //@IBOutlet weak var saveVendorInfo: UIButton!
+    //@IBOutlet weak var createInvoice: UIButton!
+//    @IBOutlet weak var nameOfCompany: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,7 +36,11 @@ class VendorMainVC: UIViewController {
         //self.submitButton.layer.cornerRadius = 5
         self.vendorSettingsView.isHidden = true
         self.vendorWelcomView.isHidden = true
-        self.createInvoice.isHidden = true
+       // self.createInvoice.isHidden = true
+        
+        // add a radius on buttons
+        self.submitButton.layer.cornerRadius = 5
+        self.createInvoiceButton.layer.cornerRadius = 5
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -50,8 +57,7 @@ class VendorMainVC: UIViewController {
                 //User is already signed up as vendor
                 var aaa = true;
                 //CHANGE ME LATER - FOR TESTING
-                //if status == true{
-                if aaa == true{
+                if status == true{
                     // move to the vendor signed up view
                     // get the vendor info and update view
                     // visualize the vendor settings view
@@ -59,7 +65,7 @@ class VendorMainVC: UIViewController {
                     self.vendorWelcomView.isHidden = true
                     self.fetchVendorInfoAndUpdateView(userIsVendor: true)
                     self.vendorSettingsView.isHidden = false
-                    self.createInvoice.isHidden = false
+//                    self.createInvoice.isHidden = false
 
                 }else{
                     SVProgressHUD.dismiss()
@@ -92,7 +98,7 @@ class VendorMainVC: UIViewController {
                     let companyName = data["company_name"] as! String
                     // manipulate the ui on main thread for sanities sake.
                     DispatchQueue.main.async {
-                        self.nameOfCompany.text = companyName
+//                        self.nameOfCompany.text = companyName
                         self.vendorEmailField.text = vendorEmail
                         self.vendorBusinessNameField.text = companyName
                         

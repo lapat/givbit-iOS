@@ -9,6 +9,14 @@
 import UIKit
 
 class StringHelper: NSObject {
+    static var sharedInstnace = StringHelper()
+
+    func returnEmptyIfNil(aString: Any?) -> String{
+        if (aString == nil){
+            return ""
+        }
+        return aString as! String
+    }
     
 }
 

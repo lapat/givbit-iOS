@@ -130,10 +130,9 @@ class SendCoinVC: UIViewController {
                     let data = result?.data as! [String: Any]
                     if data["error"] != nil{
                         //This needs to handle non stringsK
-                        do {
-                            try self.errorToSendToErrorView = data["error"] as! String
-                        } catch {
-                            self.errorToSendToErrorView = "unknown error"
+                        self.errorToSendToErrorView = "unknown error"
+                        if let errorFromServer = data["error"] {
+                            self.errorToSendToErrorView = data["error"] as! String!
                         }
                         self.performSegue(withIdentifier: "failure-trans-segue", sender: self)
                         //self.performSegue(withIdentifier: "success-trans-segue", sender: self)

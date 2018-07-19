@@ -60,16 +60,26 @@ class FirebaseHelper: NSObject {
             if data != nil{
                 print("Invoice created succes")
                 print(data)
-                let transCode = data!["success"] as! String
-                //newDetail.setQuantity(String(format: "%@", quantity))
-                let btcAmount = String(format: "%@", data!["btcAmount"] as! CVarArg)
-                print("transCode")
-                print(transCode)
-                print("btcAmount")
-                print(btcAmount)
-                completionHandler(transCode, btcAmount, nil)
+                //let transCode = data!["success"] as! String
+                
+                if let tempTransCode = data!["success"] {
+                    let transCode = tempTransCode as! String
+                    //newDetail.setQuantity(String(format: "%@", quantity))
+                    let btcAmount = String(format: "%@", data!["btcAmount"] as! CVarArg)
+                    print("transCode")
+                    print(transCode)
+                    print("btcAmount")
+                    print(btcAmount)
+                    completionHandler(transCode, btcAmount, nil)
+                }else{
+                    print("got error createInvoiceForVendor")
+                    print(error?.localizedDescription)
+                    let e = GBError(localizedDescription: "Error With Function")
+                    completionHandler("", "", e)
+                }
+
             }
-            if error != nil{
+            if error != nil {
                 print("got error createInvoiceForVendor")
                 print(error?.localizedDescription)
                 completionHandler("", "", error)

@@ -90,11 +90,15 @@ class VendorCreateInvoiceVC: UIViewController {
             SVProgressHUD.dismiss()
             self.givBitTransactionCode = transactionCode
             self.btcAmount = btcAmount
+            
             if error != nil{
                 // process the error
-                DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "showQRCodeSegue", sender: self)
-                }
+                //DispatchQueue.main.async {
+                //    self.performSegue(withIdentifier: "showQRCodeSegue", sender: self)
+                //}
+                
+                AlertHelper.sharedInstance.showAlert(inViewController: self, withDescription: "There was an error when creating that invoice, please contact support.", andTitle: "Error")
+                return
                 
             }else{
                 DispatchQueue.main.async {
