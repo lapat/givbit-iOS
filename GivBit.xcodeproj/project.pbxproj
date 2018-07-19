@@ -210,12 +210,12 @@
 		773B2CB420DB5782005B6A53 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				773B2CB520DB5799005B6A53 /* Vendor.storyboard */,
+				773B2CB720DB60E5005B6A53 /* VendorMainVC.swift */,
 				771965B220FD26F30095F004 /* VendorErrorVC.swift */,
 				771965B120FD26F30095F004 /* VendorGotPaidSuccess.swift */,
 				771965B320FD26F40095F004 /* VendorGotPaidSuccessVC.swift */,
-				773B2CB520DB5799005B6A53 /* Vendor.storyboard */,
 				77E375B620F8BC2D0010A674 /* VendorNavVC.swift */,
-				773B2CB720DB60E5005B6A53 /* VendorMainVC.swift */,
 				773B2CB920DB6431005B6A53 /* VendorLoginVC.swift */,
 				7713834020DD233900C6E0B0 /* VendorCreateInvoiceVC.swift */,
 				770814D420DCFEE8001CAC5D /* VendorQRCodeVC.swift */,

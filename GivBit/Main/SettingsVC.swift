@@ -26,7 +26,6 @@ class SettingsVC: UIViewController {
 
     var functions = Functions.functions()
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         print("viewDidLoad - SettingsVC")
