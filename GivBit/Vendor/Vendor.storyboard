@@ -95,7 +95,7 @@
                                             <constraint firstItem="ebg-HL-REh" firstAttribute="centerX" secondItem="69y-6s-rLx" secondAttribute="centerX" id="w2g-38-1Bq"/>
                                         </constraints>
                                     </view>
-                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Shs-Km-JnG" userLabel="Vendor Settings View">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Shs-Km-JnG" userLabel="Vendor Settings View">
                                         <rect key="frame" x="8" y="-1" width="327" height="659"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JcT-aS-eOS">
@@ -229,8 +229,19 @@
                                 <state key="normal" image="cross-1"/>
                                 <connections>
                                     <action selector="didTapOnCancelButton" destination="lP8-NX-3fv" eventType="touchUpInside" id="2qn-J3-JqZ"/>
-                                    <action selector="didTapOnCrossButton" destination="egG-kh-ZeN" eventType="touchUpInside" id="Ufh-F8-Six"/>
-                                    <action selector="didTapOnCrossButtonWithButton:" destination="ET0-Ug-6fD" eventType="touchUpInside" id="hcJ-HR-DBd"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oLG-Ek-a8l">
+                                <rect key="frame" x="313" y="44" width="40" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="0rF-Qt-t8E"/>
+                                    <constraint firstAttribute="height" constant="30" id="d8y-jS-7zv"/>
+                                </constraints>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapOnSaveButtonWithSender:" destination="lP8-NX-3fv" eventType="touchUpInside" id="x4G-Dm-8RL"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -241,6 +252,8 @@
                             <constraint firstItem="69y-6s-rLx" firstAttribute="top" secondItem="E4b-Uf-XGA" secondAttribute="top" constant="55" id="5zf-Sx-cTO"/>
                             <constraint firstItem="E4b-Uf-XGA" firstAttribute="trailing" secondItem="69y-6s-rLx" secondAttribute="trailing" constant="16" id="7PG-N6-k2L"/>
                             <constraint firstItem="E4b-Uf-XGA" firstAttribute="trailing" secondItem="Ovs-ln-M8H" secondAttribute="trailing" constant="16" id="Hvx-uN-LzK"/>
+                            <constraint firstItem="E4b-Uf-XGA" firstAttribute="trailing" secondItem="oLG-Ek-a8l" secondAttribute="trailing" constant="22" id="I25-YU-LKA"/>
+                            <constraint firstItem="oLG-Ek-a8l" firstAttribute="top" secondItem="E4b-Uf-XGA" secondAttribute="top" id="IGF-bg-w0j"/>
                             <constraint firstItem="6Fc-wc-uHo" firstAttribute="leading" secondItem="E4b-Uf-XGA" secondAttribute="leading" constant="16" id="N0x-xh-FFH"/>
                             <constraint firstItem="Ovs-ln-M8H" firstAttribute="centerX" secondItem="E4b-Uf-XGA" secondAttribute="centerX" id="ZJt-Y4-C6t"/>
                             <constraint firstItem="E4b-Uf-XGA" firstAttribute="bottom" secondItem="Shs-Km-JnG" secondAttribute="bottom" constant="20" id="kIf-8c-E8t"/>
@@ -257,6 +270,7 @@
                     <connections>
                         <outlet property="backView" destination="Ovs-ln-M8H" id="Ihf-1l-goT"/>
                         <outlet property="createInvoiceButton" destination="F4x-91-PWz" id="hmq-QY-2ZW"/>
+                        <outlet property="saveButton" destination="oLG-Ek-a8l" id="Xk0-AF-YFl"/>
                         <outlet property="submitButton" destination="6gX-mG-8qr" id="tcY-hB-kuT"/>
                         <outlet property="vendorBusinessNameField" destination="eEE-h3-Rgu" id="uYG-3a-CUX"/>
                         <outlet property="vendorEmailField" destination="XDU-7L-KVr" id="DOG-nR-iTu"/>

@@ -19,9 +19,7 @@ class VendorMainVC: UIViewController {
     @IBOutlet weak var vendorBusinessNameField: UITextField!
     @IBOutlet weak var vendorEmailUpdatesAllowedSwitch: UISwitch!
     @IBOutlet weak var createInvoiceButton: UIButton!
-    //@IBOutlet weak var saveVendorInfo: UIButton!
-    //@IBOutlet weak var createInvoice: UIButton!
-//    @IBOutlet weak var nameOfCompany: UILabel!
+    @IBOutlet weak var saveButton: UIButton!
     
     
     override func viewDidLoad() {
@@ -54,9 +52,6 @@ class VendorMainVC: UIViewController {
                     AlertHelper.sharedInstance.showAlert(inViewController: (UIApplication.shared.keyWindow?.rootViewController)!, withDescription: "Error", andTitle: (error!.localizedDescription))
                 })
             }else{
-                //User is already signed up as vendor
-                var aaa = true;
-                //CHANGE ME LATER - FOR TESTING
                 if status == true{
                     // move to the vendor signed up view
                     // get the vendor info and update view
@@ -65,6 +60,7 @@ class VendorMainVC: UIViewController {
                     self.vendorWelcomView.isHidden = true
                     self.fetchVendorInfoAndUpdateView(userIsVendor: true)
                     self.vendorSettingsView.isHidden = false
+                    self.saveButton.isHidden = false
 //                    self.createInvoice.isHidden = false
 
                 }else{
@@ -73,12 +69,12 @@ class VendorMainVC: UIViewController {
                     // the user needs to login to vendor - Hide the vendor settings
                     self.vendorSettingsView.isHidden = true
                     self.vendorWelcomView.isHidden = false
+                    self.saveButton.isHidden = true
                 }
             }
         }
     }
     
-
     
     // fetches the vendors info form the db and updates view
     // does this only if user is a vendor
@@ -103,7 +99,6 @@ class VendorMainVC: UIViewController {
                         self.vendorBusinessNameField.text = companyName
                         
                     }
-                    
                 }
             }
         }
@@ -122,58 +117,22 @@ class VendorMainVC: UIViewController {
             [weak self] in
             self?.performSegue(withIdentifier: "vendorLoginSegue", sender: self)
         }
-        /*
-        FirestoreHelper.sharedInstnace.checkIfUserIsVendor { (status, error) in
-            SVProgressHUD.dismiss()
-            if error != nil {
-                // maybe network issue occured
-                self.dismiss(animated: true, completion: {
-                    AlertHelper.sharedInstance.showAlert(inViewController: (UIApplication.shared.keyWindow?.rootViewController)!, withDescription: "Error", andTitle: (error!.localizedDescription))
-                })
-            }else{
-                //if status == true{
-                var aaa = false;
-                //CHANGE ME LATER - THIS IS FOR TESTING
-                if (aaa == true){
-                    // move to the vendor signed up view
-                    OperationQueue.main.addOperation {
-                        [weak self] in
-                        self?.performSegue(withIdentifier: "createInvoiceSegue", sender: self)
-                    }
-                }else{
-                    // the user needs to login to vendor
-                    OperationQueue.main.addOperation {
-                        [weak self] in
-                        self?.performSegue(withIdentifier: "vendorLoginSegue", sender: self)
-                    }
-                }
-            }
-         }
- */
-        
     }
     
 
     @IBAction func didTapCreateInvoiceButton(sendor: UIButton){
-       print("tapCreate")
-        FirestoreHelper.sharedInstnace.saveVendorSettings(name: vendorBusinessNameField.text!, email: vendorEmailField.text!, emailNotificationsAllowed: vendorEmailUpdatesAllowedSwitch.isOn){(err) in
-            if err == nil{
-                //AlertHelper.sharedInstance.showAlert(inViewController: self, withDescription: "You vendor info has been updated", andTitle: "Saved")
-                OperationQueue.main.addOperation {
-                    [weak self] in
-                    self?.performSegue(withIdentifier: "createInvoiceSegue", sender: self)
-                }
-            }else{
-                AlertHelper.sharedInstance.showAlert(inViewController: self, withDescription: "We were not able to save your info, kindly check your internet", andTitle: "Error")
-            }
-            
-        }
+        performSegue(withIdentifier: "createInvoiceSegue", sender: self)
+        
     }
     
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func didTapOnSaveButton(sender: UIButton){
+        SVProgressHUD.show()
+        FirestoreHelper.sharedInstnace.saveVendorSettings(name: vendorBusinessNameField.text!, email: vendorEmailField.text!, emailNotificationsAllowed: vendorEmailUpdatesAllowedSwitch.isOn){(err) in
+            SVProgressHUD.dismiss()
+            if err != nil{
+                AlertHelper.sharedInstance.showAlert(inViewController: self, withDescription: "We were not able to save your info, kindly check your internet", andTitle: "Error")
+            }
+        }
     }
     
     
