@@ -254,11 +254,17 @@ class MainVC: UIViewController {
 // MARK:- Tableview
 extension MainVC: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(contacts[indexPath.row])
-        //self.performSegue(withIdentifier: "userSendMoneySegue", sender: self)
-        //self.phoneNumberToSendTo =
-        successView.nameOfreciever = contacts[indexPath.row].name
-        successView.phoneNumberOfReciever = contacts[indexPath.row].phoneNumber
+        //To Do verify phonenumber
+        print("didSelectRowAt")
+        let selectedContactIndex = self.contactsTableView.indexPathForSelectedRow?.row
+        let contact = GBContact()
+        contact.populateWith(CNContact: contacts[selectedContactIndex!])
+        self.nameOfPersonToSendTo = contact.name;
+        let (_, _, _, numberWithCode) =  PhoneNumberHelper.sharedInstance.parsePhoneNUmber(number: contact.phoneNumber)
+        if (numberWithCode != nil){
+            self.phoneNumberToSendTo = numberWithCode;
+        }
+        print(self.phoneNumberToSendTo)
     }
 }
 
