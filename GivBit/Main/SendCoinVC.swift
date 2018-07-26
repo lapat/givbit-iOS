@@ -36,47 +36,47 @@ class SendCoinVC: UIViewController {
         if contact != nil{
             contactImageView.image = contact.getUIImageForPlacement(inRect: CGRect(x: 0, y: 0, width: contactImageView.frame.width, height: contactImageView.frame.height))
         }
-        self.contactNameLabel.text = contact.name
+//        self.contactNameLabel.text = contact.name
         
         // Round the iamgeview
-        self.contactImageView.layer.cornerRadius = self.contactImageView.frame.height/2
-        self.contactImageView.clipsToBounds = true
+//        self.contactImageView.layer.cornerRadius = self.contactImageView.frame.height/2
+//        self.contactImageView.clipsToBounds = true
         
         // round the button
         sendButton.layer.cornerRadius = 5
         sendButton.clipsToBounds = true
         
         // varify the number
-        let (_, _, _, numberWithCode) =  PhoneNumberHelper.sharedInstance.parsePhoneNUmber(number: contact.phoneNumber)
-        self.contact.phoneNumber = numberWithCode // "+12244201331"
-        
+//        let (_, _, _, numberWithCode) =  PhoneNumberHelper.sharedInstance.parsePhoneNUmber(number: contact.phoneNumber)
+//        self.contact.phoneNumber = numberWithCode // "+12244201331"
+//
         if let amountString = fiatToSendLabel.text?.currencyInputFormatting() {
             fiatToSendLabel.text = amountString
         }
-        self.phonenUmberLabel.text = self.contact.phoneNumber
+//        self.phonenUmberLabel.text = self.contact.phoneNumber
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        // hide the top and bottom bar
-        print("viewWillAppear")
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-        
-        // start the snapshot listener for crypto price update
-        self.startCryptoPriceInFiatUpdateListener()
-        print("amountOfBtcInWallet")
-        print(self.amountOfBtcInWallet)
-        if (self.amountOfBtcInWallet != ""){
-            self.btcLeftInAllWallets.text = "$"+self.amountOfBtcInWallet + " Remaning"
-        }else{
-            self.btcLeftInAllWallets.text = ""
-        }
+//        // hide the top and bottom bar
+//        print("viewWillAppear")
+//        self.navigationController?.setNavigationBarHidden(true, animated: true)
+//
+//        // start the snapshot listener for crypto price update
+//        self.startCryptoPriceInFiatUpdateListener()
+//        print("amountOfBtcInWallet")
+//        print(self.amountOfBtcInWallet)
+//        if (self.amountOfBtcInWallet != ""){
+//            self.btcLeftInAllWallets.text = "$"+self.amountOfBtcInWallet + " Remaining"
+//        }else{
+//            self.btcLeftInAllWallets.text = ""
+//        }
 
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         // stop listening
-        self.cryptoPriceUpdateListener.remove()
+//        self.cryptoPriceUpdateListener.remove()
     }
     
     // MARK: - Actions
