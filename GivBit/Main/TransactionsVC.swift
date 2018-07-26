@@ -25,7 +25,6 @@ class TransactionsVC: UIViewController {
         // show bottom bar
         self.tabBarController?.tabBar.isHidden = false
         print("viewDidAppear")
-        print("viewDidLoad transaction")
         // Do any additional setup after loading the view.
         
         // get the transactions from firestore
@@ -33,9 +32,11 @@ class TransactionsVC: UIViewController {
         FirestoreHelper.sharedInstnace.getTransactionsForUser(uuid: (Auth.auth().currentUser?.uid)!) { (transactions, status) in
             SVProgressHUD.dismiss()
             if status{
+                print("got transactions")
                 self.transactions = transactions
                 self.transactionsTableView.reloadData()
             }else{
+                print("error could not get transactions")
                 // ERROR happened
                 // ... handle it
             }
@@ -90,8 +91,9 @@ extension TransactionsVC: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "transaction-cell") as! GBTransactionTVC
-        cell.populateCellWithGBTransanctions(transaction: transactions[indexPath.row])
-        
+        if (transactions[indexPath.row] != nil){
+            cell.populateCellWithGBTransanctions(transaction: transactions[indexPath.row])
+        }
         return cell
     }
     

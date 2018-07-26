@@ -38,6 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // check if firebase user is logged in and load the respective uiscreens
         if Auth.auth().currentUser != nil{
+            print("User is logged in")
             // check if the user has coinbase linked
             
             // User is signed in... let the general flow go
@@ -47,6 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.makeKeyAndVisible()
             
         }else{
+            print("user is not logged in")
             // User is not signedf in... load the login UI
         }
         

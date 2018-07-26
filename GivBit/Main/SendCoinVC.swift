@@ -31,7 +31,9 @@ class SendCoinVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("user:")
+        print(Auth.auth().currentUser?.displayName ?? "")
+
         // Do any additional setup after loading the view.
         if contact != nil{
             contactImageView.image = contact.getUIImageForPlacement(inRect: CGRect(x: 0, y: 0, width: contactImageView.frame.width, height: contactImageView.frame.height))

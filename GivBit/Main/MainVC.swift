@@ -20,6 +20,8 @@ class MainVC: UIViewController {
     var contacts : [CNContact] = [CNContact]()
     var amountOfBtcInWallet: String = ""
     var firstLoad: Bool = true;
+    var phoneNumberToSendTo: String = ""
+    var nameOfPersonToSendTo: String = ""
     // MARK:- ViewCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -177,6 +179,8 @@ class MainVC: UIViewController {
         }
     }
     
+  
+    
     
     //MARK: - Navigation
     @IBAction func unwindToMainViewController(segue: UIStoryboardSegue){
@@ -189,7 +193,7 @@ class MainVC: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "settingSegue"{
+        /*if segue.identifier == "settingSegue"{
             //Maybe don't need this?
         }else if segue.identifier == "userSendMoneySegue"{
             let destinationController = segue.destination as! SendCoinVC
@@ -204,6 +208,7 @@ class MainVC: UIViewController {
 
             //let isFavourite = self.contactsTableView.indexPathForSelectedRow?.section ?? 0??1
         }
+ */
     }
     
     
@@ -249,7 +254,11 @@ class MainVC: UIViewController {
 // MARK:- Tableview
 extension MainVC: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "userSendMoneySegue", sender: self)
+        print(contacts[indexPath.row])
+        //self.performSegue(withIdentifier: "userSendMoneySegue", sender: self)
+        //self.phoneNumberToSendTo =
+        successView.nameOfreciever = contacts[indexPath.row].name
+        successView.phoneNumberOfReciever = contacts[indexPath.row].phoneNumber
     }
 }
 
