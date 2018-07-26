@@ -19,7 +19,7 @@ class MainVC: UIViewController {
     var shouldAdjustTableForFirstLoading: Bool = true
     var contacts : [CNContact] = [CNContact]()
     var amountOfBtcInWallet: String = ""
-    
+    var firstLoad: Bool = true;
     // MARK:- ViewCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +58,25 @@ class MainVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         print("viewDidAppear Main")
         coinbaseoauth.sharedInstnace.checkIfCoinbaseUnlinked()
+        
+        if (self.firstLoad == true){
+            print("isfirstload")
+        /*FirestoreHelper.sharedInstnace.getUserVendorInfo(fromCache: false) { (info, error) in
+            if error != nil{
+                AlertHelper.sharedInstance.showAlert(inViewController: self, withDescription: "Sorry, something went wrong. Please try again.", andTitle: "Error")
+            }else{
+                if info != nil{
+                    print("Already a vendor")
+                    self.performSegue(withIdentifier: "vendorWelcomeSegue", sender: self)
+                }else{
+                    print("NOT a vendor")
+                }
+            }
+             }
+             */
+        
+            self.firstLoad = false
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

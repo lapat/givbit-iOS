@@ -76,11 +76,11 @@ class FirestoreHelper: NSObject {
                 // Only one document should exist
                 for document in querySnapshot!.documents{
                     let user = GBUser.sharedUser
-                    user.fullName = document.data()["name"] as! String
-                    user.phoneNumber = document.data()["phone_number"] as! String
-                    user.coinbaseRefreshToken = document.data()["coinbase_refresh_token"] as! String
-                    user.coinbaseToken = document.data()["coinbase_token"] as! String
-                    user.uuid = document.data()["uid"] as! String
+                    user.fullName = StringHelper.sharedInstnace.returnEmptyIfNil(aString: document.data()["name"])
+                    user.phoneNumber = StringHelper.sharedInstnace.returnEmptyIfNil(aString: document.data()["phone_number"])
+                    user.coinbaseRefreshToken = StringHelper.sharedInstnace.returnEmptyIfNil(aString: document.data()["coinbase_refresh_token"])
+                    user.coinbaseToken = StringHelper.sharedInstnace.returnEmptyIfNil(aString: document.data()["coinbase_token"])
+                    user.uuid = StringHelper.sharedInstnace.returnEmptyIfNil(aString: document.data()["uid"])
                     completionHandler(user, true)
                 }
                 if querySnapshot!.documents.count <= 0{

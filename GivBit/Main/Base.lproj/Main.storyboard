@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -403,17 +402,9 @@
                         <viewLayoutGuide key="safeArea" id="yxW-Dk-315"/>
                     </view>
                     <navigationItem key="navigationItem" title="GivBit" id="9VB-RF-jgh">
-                        <leftBarButtonItems>
-                            <barButtonItem enabled="NO" id="Nod-WF-aqd">
-                                <color key="tintColor" red="0.41176470590000003" green="0.42352941179999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </barButtonItem>
-                            <barButtonItem title="Item" image="invoice" id="jSW-bS-pHp">
-                                <color key="tintColor" red="0.41176470590000003" green="0.42352941179999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="didTapOnVendorButttonWithSender:" destination="2s8-YL-a8Y" id="RcR-rS-GUx"/>
-                                </connections>
-                            </barButtonItem>
-                        </leftBarButtonItems>
+                        <barButtonItem key="leftBarButtonItem" enabled="NO" id="Nod-WF-aqd">
+                            <color key="tintColor" red="0.41176470590000003" green="0.42352941179999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="sliders" id="FqW-0g-0Mg">
                             <color key="tintColor" red="0.41176470588235292" green="0.42352941176470588" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -842,14 +833,14 @@
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="payment because of" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qy3-Ss-oBl">
-                                <rect key="frame" x="109.5" y="379.5" width="156" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="payment because" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qy3-Ss-oBl">
+                                <rect key="frame" x="119.5" y="379.5" width="136" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="unknown reasons." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="200" translatesAutoresizingMaskIntoConstraints="NO" id="l8o-Hz-H1K">
-                                <rect key="frame" x="74" y="401" width="228" height="20.5"/>
+                                <rect key="frame" x="73.5" y="401" width="228" height="20.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="228" id="S36-ew-n0k"/>
                                 </constraints>
@@ -915,7 +906,6 @@
                     <connections>
                         <segue destination="9Vm-vC-YLw" kind="relationship" relationship="viewControllers" id="QxA-ew-4Re"/>
                         <segue destination="jry-eV-eae" kind="relationship" relationship="viewControllers" id="rrY-Lk-9cD"/>
-                        <segue destination="srz-cU-Zex" kind="relationship" relationship="viewControllers" id="Aa8-Q7-1Ci"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cjp-LR-9tQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1081,12 +1071,6 @@
                         <viewLayoutGuide key="safeArea" id="UEn-Oj-ndm"/>
                     </view>
                     <navigationItem key="navigationItem" title="GivBit" id="Kgq-od-shm">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="invoice" id="TXX-09-Tec">
-                            <color key="tintColor" red="0.41176470590000003" green="0.42352941179999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="didTapOnVendorButttonWithSender:" destination="fsN-tx-wpU" id="BS5-WP-nwH"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="sliders" id="miW-cW-rEV">
                             <color key="tintColor" red="0.41176470590000003" green="0.42352941179999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -1109,7 +1093,6 @@
         <image name="back-arrow" width="21" height="16"/>
         <image name="check" width="139" height="139"/>
         <image name="cross" width="139" height="139"/>
-        <image name="invoice" width="20" height="20"/>
         <image name="layers" width="18" height="18"/>
         <image name="logout" width="18" height="18"/>
         <image name="right" width="18" height="18"/>

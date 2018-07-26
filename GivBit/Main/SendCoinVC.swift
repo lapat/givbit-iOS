@@ -120,19 +120,28 @@ class SendCoinVC: UIViewController {
             SVProgressHUD.show()
             print("sendToName:")
             print(self.contact.name)
-            functions.httpsCallable("sendCrypto").call(["btcAmount": btcToSend, "sendToPhoneNumber": self.contact.phoneNumber, "sendToName": self.contact.name]) { (result, error) in
+            //functions.httpsCallable("sendCrypto").call(["btcAmount": btcToSend, "sendToPhoneNumber": self.contact.phoneNumber, "sendToName":
+            //self.contact.name]) { (result, error) in
+            functions.httpsCallable("sendCrypto").call(["btcAmount": btcToSend, "sendToPhoneNumber": self.contact.phoneNumber, "sendToName":
+            self.contact.name]) { (result, error) in
                 if error != nil{
                     print("Error performing function \(String(describing: error?.localizedDescription))")
                     self.errorToSendToErrorView = error?.localizedDescription
                     self.performSegue(withIdentifier: "failure-trans-segue", sender: self)
                 }else{
                     print(result?.data ?? "")
+                    
+
                     let data = result?.data as! [String: Any]
                     if data["error"] != nil{
                         //This needs to handle non stringsK
                         self.errorToSendToErrorView = "unknown error"
                         if let errorFromServer = data["error"] {
-                            self.errorToSendToErrorView = data["error"] as! String!
+                            if let actionString = data["action"] as? String {
+                                self.errorToSendToErrorView = data["error"] as! String!
+                            }else{
+                                self.errorToSendToErrorView = "There was an error with your transaction."
+                            }
                         }
                         self.performSegue(withIdentifier: "failure-trans-segue", sender: self)
                         //self.performSegue(withIdentifier: "success-trans-segue", sender: self)
