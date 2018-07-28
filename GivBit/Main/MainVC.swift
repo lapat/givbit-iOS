@@ -15,6 +15,7 @@ class MainVC: UIViewController {
     @IBOutlet var textViewSearchBar: UITextField!
     @IBOutlet var contactsTableView: UITableView!
     @IBOutlet var blurViewBehindSearchBar: UIVisualEffectView!
+    @IBOutlet weak var selectedContact: UITextField!
     
     var shouldAdjustTableForFirstLoading: Bool = true
     var contacts : [CNContact] = [CNContact]()
@@ -28,9 +29,12 @@ class MainVC: UIViewController {
     var cryptoPriceInFiat: NSNumber = 0.0
     @IBOutlet weak var btcToSendLabel: UILabel!
     
+
+    
     // MARK:- ViewCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         print("viewDidLoad - mainVC")
         let Coinbase_Linkage_Status = GlobalVariables.Coinbase_Linkage_Status
         print("Coinbase_Linkage_Status:"+Coinbase_Linkage_Status)
@@ -38,7 +42,7 @@ class MainVC: UIViewController {
         print(Auth.auth().currentUser?.displayName ?? "")
         
         self.navigationController?.hidesNavigationBarHairline = true
-        
+
         // Contacts and Tableview
         ContactsManager.sharedInstance.loadContacts { (contacts, authStatus) in
             self.contacts = contacts!
@@ -320,6 +324,7 @@ extension MainVC: UITableViewDelegate{
         let contact = GBContact()
         contact.populateWith(CNContact: contacts[selectedContactIndex!])
         self.nameOfPersonToSendTo = contact.name;
+        self.selectedContact.text = contact.name + " (" + contact.phoneNumber + ")"
         let (_, _, _, numberWithCode) =  PhoneNumberHelper.sharedInstance.parsePhoneNUmber(number: contact.phoneNumber)
         if (numberWithCode != nil){
             self.phoneNumberToSendTo = numberWithCode;

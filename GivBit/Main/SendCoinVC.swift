@@ -161,6 +161,7 @@ class SendCoinVC: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if let destinationVC = segue.destination as? MainVC {
+            print("segueing to select contact view")
             destinationVC.btcToSend = btcToSend;
             destinationVC.amountOfFiatToSend = amountOfFiatToSend;
             destinationVC.cryptoPriceInFiat = cryptoPriceInFiat;
