@@ -27,7 +27,7 @@ class SendCoinVC: UIViewController {
     var amountOfFiatToSend: NSNumber = 0.0
     var cryptoPriceUpdateListener: ListenerRegistration!
     var errorToSendToErrorView: String!
-    var btcToSend : String = ""
+    var btcToSend : String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,8 +45,8 @@ class SendCoinVC: UIViewController {
 //        self.contactImageView.clipsToBounds = true
         
         // round the button
-        sendButton.layer.cornerRadius = 5
-        sendButton.clipsToBounds = true
+//        sendButton.layer.cornerRadius = 5
+//        sendButton.clipsToBounds = true
         
         // varify the number
 //        let (_, _, _, numberWithCode) =  PhoneNumberHelper.sharedInstance.parsePhoneNUmber(number: contact.phoneNumber)
@@ -60,12 +60,12 @@ class SendCoinVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-//        // hide the top and bottom bar
-//        print("viewWillAppear")
-//        self.navigationController?.setNavigationBarHidden(true, animated: true)
-//
-//        // start the snapshot listener for crypto price update
-//        self.startCryptoPriceInFiatUpdateListener()
+        // hide the top and bottom bar
+        print("viewWillAppear")
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+
+        // start the snapshot listener for crypto price update
+        self.startCryptoPriceInFiatUpdateListener()
 //        print("amountOfBtcInWallet")
 //        print(self.amountOfBtcInWallet)
 //        if (self.amountOfBtcInWallet != ""){
@@ -110,59 +110,13 @@ class SendCoinVC: UIViewController {
     }
     
     // sends the coin
-    @IBAction func didTapOnSendCoinButton(button: UIButton){
-        // do checks before sending.
-        
-        if amountOfFiatToSend.doubleValue < 500 && amountOfFiatToSend.doubleValue > 0 {
-            // fiat is good to be sent.
-            let functions = Functions.functions()
-            print(contact.phoneNumber)
-            print("BTC:")
-            print(btcToSend)
-            SVProgressHUD.show()
-            print("sendToName:")
-            print(self.contact.name)
-            //functions.httpsCallable("sendCrypto").call(["btcAmount": btcToSend, "sendToPhoneNumber": self.contact.phoneNumber, "sendToName":
-            //self.contact.name]) { (result, error) in
-            functions.httpsCallable("sendCrypto").call(["btcAmount": btcToSend, "sendToPhoneNumber": self.contact.phoneNumber, "sendToName":
-            self.contact.name]) { (result, error) in
-                if error != nil{
-                    print("Error performing function \(String(describing: error?.localizedDescription))")
-                    self.errorToSendToErrorView = error?.localizedDescription
-                    self.performSegue(withIdentifier: "failure-trans-segue", sender: self)
-                }else{
-                    print(result?.data ?? "")
-                    
-
-                    let data = result?.data as! [String: Any]
-                    if data["error"] != nil{
-                        //This needs to handle non stringsK
-                        self.errorToSendToErrorView = "unknown error"
-                        if let errorFromServer = data["error"] {
-                            if let actionString = data["action"] as? String {
-                                self.errorToSendToErrorView = data["error"] as! String!
-                            }else{
-                                self.errorToSendToErrorView = "There was an error with your transaction."
-                            }
-                        }
-                        self.performSegue(withIdentifier: "failure-trans-segue", sender: self)
-                        //self.performSegue(withIdentifier: "success-trans-segue", sender: self)
-                    }else{
-                        self.performSegue(withIdentifier: "success-trans-segue", sender: self)
-                    }
-                }
-                SVProgressHUD.dismiss()
-            }
-        }else{
-            AlertHelper.sharedInstance.showAlert(inViewController: self, withDescription: "Enter less than $500 USD and more than $0.", andTitle: "Invalid Amount")
-        }
-    }
     
     //MARK:- Price Management
     // starts a listener using firestorehelper, which monitors crypto price in given fiat
     func startCryptoPriceInFiatUpdateListener(){
         self.cryptoPriceUpdateListener =  FirestoreHelper.sharedInstnace.startBTCPriceInDollarsSnapshotListener( completionHandler: { (value) in
             self.cryptoPriceInFiat = value
+            print(value)
             // update the crypto amount for the given dollars.
             self.fiatAmountUpdatedByUser()
             
@@ -206,17 +160,10 @@ class SendCoinVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if segue.identifier == "failure-trans-segue"{
-            let errorVC = segue.destination as! SendCoinErrorVC
-            errorVC.errorMessage =  errorToSendToErrorView
+        if let destinationVC = segue.destination as? MainVC {
+            destinationVC.btcToSend = btcToSend;
         }
-        if segue.identifier == "success-trans-segue"{
-            let successView = segue.destination as! SendCoinSuccesVC
-            successView.amountSentInCrypto = self.amountOfFiatToSend.doubleValue / self.cryptoPriceInFiat.doubleValue
-            successView.amountSentInFiat = self.amountOfFiatToSend.doubleValue
-            successView.nameOfreciever = self.contact.name
-            successView.phoneNumberOfReciever = self.contact.phoneNumber
-        }
+
     }
     
     @IBAction func unwindToSendCoinVC(segue: UIStoryboardSegue){

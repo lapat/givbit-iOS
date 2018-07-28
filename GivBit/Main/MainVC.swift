@@ -22,11 +22,13 @@ class MainVC: UIViewController {
     var firstLoad: Bool = true;
     var phoneNumberToSendTo: String = ""
     var nameOfPersonToSendTo: String = ""
+    var btcToSend: String = ""
+    var errorToSendToErrorView: String = ""
+    
     // MARK:- ViewCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         print("viewDidLoad - mainVC")
-        
         let Coinbase_Linkage_Status = GlobalVariables.Coinbase_Linkage_Status
         print("Coinbase_Linkage_Status:"+Coinbase_Linkage_Status)
         // Do any additional setup after loading the view, typically from a nib.
@@ -83,10 +85,10 @@ class MainVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         print("viewWillAppear Main")
-        // hide the top and bottom bar
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-        // show bottom bar
-        self.tabBarController?.tabBar.isHidden = false
+        
+        print("Printing new BTC Value")
+        print(btcToSend)
+        
     }
     
     override func viewWillLayoutSubviews() {
@@ -160,6 +162,49 @@ class MainVC: UIViewController {
         }
     }
     
+    @IBAction func didTapOnSendCoinButton(button: UIButton){
+        print("didTapOnSendCoinButton")
+        print(self.phoneNumberToSendTo)
+        // do checks before sending.
+        // fiat is good to be sent.
+            let functions = Functions.functions()
+
+//            print(contact.phoneNumber)
+            print("BTC:")
+            print(btcToSend)
+//            SVProgressHUD.show()
+            //functions.httpsCallable("sendCrypto").call(["btcAmount": btcToSend, "sendToPhoneNumber": self.contact.phoneNumber, "sendToName":
+            //self.contact.name]) { (result, error) in
+            functions.httpsCallable("sendCrypto").call(["btcAmount": btcToSend, "sendToPhoneNumber": self.phoneNumberToSendTo, "sendToName":
+                self.nameOfPersonToSendTo]) { (result, error) in
+                    if error != nil{
+                        print("Error performing function \(String(describing: error?.localizedDescription))")
+//                        self.errorToSendToErrorView = error?.localizedDescription
+                        self.performSegue(withIdentifier: "failure-trans-segue", sender: self)
+                    }else{
+                        print(result?.data ?? "")
+
+
+                        let data = result?.data as! [String: Any]
+                        if data["error"] != nil{
+                            //This needs to handle non stringsK
+                            self.errorToSendToErrorView = "unknown error"
+                            if let errorFromServer = data["error"] {
+                                if let actionString = data["action"] as? String {
+//                                    self.errorToSendToErrorView = data["error"] as! String!
+                                }else{
+                                    self.errorToSendToErrorView = "There was an error with your transaction."
+                                }
+                            }
+                            self.performSegue(withIdentifier: "failure-trans-segue", sender: self)
+                            //self.performSegue(withIdentifier: "success-trans-segue", sender: self)
+                        }else{
+                            self.performSegue(withIdentifier: "success-trans-segue", sender: self)
+                        }
+                    }
+//                    SVProgressHUD.dismiss()
+            }
+    }
     // called when the user taps vendor button
     @IBAction func didTapOnVendorButtton(sender: NSObject){
         // check if the vendor is present in the cache of database inside firebase
@@ -193,6 +238,17 @@ class MainVC: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "failure-trans-segue"{
+//            let errorVC = segue.destination as! SendCoinErrorVC
+//            errorVC.errorMessage =  errorToSendToErrorView
+//        }
+//        if segue.identifier == "success-trans-segue"{
+//            let successView = segue.destination as! SendCoinSuccesVC
+//            successView.amountSentInCrypto = self.amountOfFiatToSend.doubleValue / self.cryptoPriceInFiat.doubleValue
+//            successView.amountSentInFiat = self.amountOfFiatToSend.doubleValue
+//            successView.nameOfreciever = self.contact.name
+//            successView.phoneNumberOfReciever = self.contact.phoneNumber
+//        }
         /*if segue.identifier == "settingSegue"{
             //Maybe don't need this?
         }else if segue.identifier == "userSendMoneySegue"{
@@ -263,7 +319,9 @@ extension MainVC: UITableViewDelegate{
         let (_, _, _, numberWithCode) =  PhoneNumberHelper.sharedInstance.parsePhoneNUmber(number: contact.phoneNumber)
         if (numberWithCode != nil){
             self.phoneNumberToSendTo = numberWithCode;
+            
         }
+        
         print(self.phoneNumberToSendTo)
     }
 }

@@ -348,6 +348,9 @@
                                 <state key="normal" title="Pay">
                                     <color key="titleColor" red="0.41176470590000003" green="0.43921568630000002" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="didTapOnSendCoinButtonWithButton:" destination="2s8-YL-a8Y" eventType="touchUpInside" id="lWa-X8-cgW"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search Contacts" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jG8-zb-ubB">
                                 <rect key="frame" x="54" y="96" width="305" height="30"/>
@@ -685,7 +688,6 @@
                     <connections>
                         <outlet property="btcToSendLabel" destination="mji-oe-UFD" id="hQ6-XD-i2F"/>
                         <outlet property="fiatToSendLabel" destination="LRR-Ml-kdB" id="kh4-EM-qgr"/>
-                        <outlet property="sendButton" destination="l06-1C-im7" id="S1Y-dg-DyE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ikb-NH-pey" userLabel="First Responder" sceneMemberID="firstResponder"/>
