@@ -26,6 +26,7 @@ class MainVC: UIViewController {
     var amountOfFiatToSend: NSNumber = 0.0
     var errorToSendToErrorView: String = ""
     var cryptoPriceInFiat: NSNumber = 0.0
+    @IBOutlet weak var btcToSendLabel: UILabel!
     
     // MARK:- ViewCycle
     override func viewDidLoad() {
@@ -90,6 +91,7 @@ class MainVC: UIViewController {
         
         print("Printing new BTC Value")
         print(btcToSend)
+        self.btcToSendLabel.text = btcToSend + " BTC";
         
     }
     

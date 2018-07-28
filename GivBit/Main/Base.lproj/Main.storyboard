@@ -320,6 +320,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="blurViewBehindSearchBar" destination="6Um-M0-ryA" id="wkn-Zo-8fE"/>
+                        <outlet property="btcToSendLabel" destination="Rhw-o3-y8l" id="MTD-kF-gSB"/>
                         <outlet property="contactsTableView" destination="5hB-ao-LPu" id="02s-T7-SYr"/>
                         <outlet property="textViewSearchBar" destination="jG8-zb-ubB" id="0Cf-Aw-Py4"/>
                         <segue destination="wiZ-EG-Vvd" kind="show" identifier="success-trans-segue" id="lZN-Ud-Tbw"/>
