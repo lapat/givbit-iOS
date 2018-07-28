@@ -22,8 +22,10 @@ class MainVC: UIViewController {
     var firstLoad: Bool = true;
     var phoneNumberToSendTo: String = ""
     var nameOfPersonToSendTo: String = ""
-    var btcToSend: String = ""
+    var btcToSend: String!
+    var amountOfFiatToSend: NSNumber = 0.0
     var errorToSendToErrorView: String = ""
+    var cryptoPriceInFiat: NSNumber = 0.0
     
     // MARK:- ViewCycle
     override func viewDidLoad() {
@@ -238,17 +240,17 @@ class MainVC: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "failure-trans-segue"{
-//            let errorVC = segue.destination as! SendCoinErrorVC
-//            errorVC.errorMessage =  errorToSendToErrorView
-//        }
-//        if segue.identifier == "success-trans-segue"{
-//            let successView = segue.destination as! SendCoinSuccesVC
-//            successView.amountSentInCrypto = self.amountOfFiatToSend.doubleValue / self.cryptoPriceInFiat.doubleValue
-//            successView.amountSentInFiat = self.amountOfFiatToSend.doubleValue
-//            successView.nameOfreciever = self.contact.name
-//            successView.phoneNumberOfReciever = self.contact.phoneNumber
-//        }
+        if segue.identifier == "failure-trans-segue"{
+            let errorVC = segue.destination as! SendCoinErrorVC
+            errorVC.errorMessage =  errorToSendToErrorView
+        }
+        if segue.identifier == "success-trans-segue"{
+            let successView = segue.destination as! SendCoinSuccesVC
+            successView.amountSentInCrypto = self.amountOfFiatToSend.doubleValue / self.cryptoPriceInFiat.doubleValue
+            successView.amountSentInFiat = self.amountOfFiatToSend.doubleValue
+            successView.nameOfreciever = self.nameOfPersonToSendTo
+            successView.phoneNumberOfReciever = self.phoneNumberToSendTo
+        }
         /*if segue.identifier == "settingSegue"{
             //Maybe don't need this?
         }else if segue.identifier == "userSendMoneySegue"{

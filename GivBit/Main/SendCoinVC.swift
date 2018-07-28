@@ -44,8 +44,8 @@ class SendCoinVC: UIViewController {
 //        self.contactImageView.layer.cornerRadius = self.contactImageView.frame.height/2
 //        self.contactImageView.clipsToBounds = true
         
-        // round the button
-//        sendButton.layer.cornerRadius = 5
+//        // round the button
+//        sendButton.layer.cornerRadius = 2.0
 //        sendButton.clipsToBounds = true
         
         // varify the number
@@ -162,6 +162,8 @@ class SendCoinVC: UIViewController {
         // Pass the selected object to the new view controller.
         if let destinationVC = segue.destination as? MainVC {
             destinationVC.btcToSend = btcToSend;
+            destinationVC.amountOfFiatToSend = amountOfFiatToSend;
+            destinationVC.cryptoPriceInFiat = cryptoPriceInFiat;
         }
 
     }
