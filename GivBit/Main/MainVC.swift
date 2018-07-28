@@ -34,7 +34,7 @@ class MainVC: UIViewController {
     // MARK:- ViewCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.contactsTableView.sectionHeaderHeight = 0;
         print("viewDidLoad - mainVC")
         let Coinbase_Linkage_Status = GlobalVariables.Coinbase_Linkage_Status
         print("Coinbase_Linkage_Status:"+Coinbase_Linkage_Status)
