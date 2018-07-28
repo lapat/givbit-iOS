@@ -16,6 +16,7 @@ class MainVC: UIViewController {
     @IBOutlet var contactsTableView: UITableView!
     @IBOutlet var blurViewBehindSearchBar: UIVisualEffectView!
     @IBOutlet weak var selectedContact: UITextField!
+    @IBOutlet weak var memo: UITextField!
     
     var shouldAdjustTableForFirstLoading: Bool = true
     var contacts : [CNContact] = [CNContact]()

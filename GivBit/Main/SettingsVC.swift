@@ -19,6 +19,8 @@ class SettingsVC: UIViewController {
     @IBOutlet weak var fadedViewHolderUIView: UIView!
     @IBOutlet weak var coinbaseTitle: UILabel!
     @IBOutlet weak var secondCoinbaseLine: UILabel!
+    var currentBtcBalance: String!
+    
     // used to show if viewwill appear should refresh the coinbase user or just use the current coinbase user. Since user might have attempted to
     // reconnect a different coinbase
     var userIsRelinkingCoinbase: Bool! = false
@@ -137,6 +139,29 @@ class SettingsVC: UIViewController {
                     }
                 }
 
+            }
+        }
+        self.functions.httpsCallable("getAmountOfBtcInWallets").call([]) { (result, error) in
+            SVProgressHUD.dismiss()
+            print("trying to call getAmountOfBtcInWallets")
+            if error != nil{
+                print("Error performing function \(String(describing: error?.localizedDescription))")
+                SVProgressHUD.showError(withStatus: error?.localizedDescription)
+                //self.errorToSendToErrorView = error?.localizedDescription
+                //self.performSegue(withIdentifier: "failure-trans-segue", sender: self)
+                
+            }else{
+                print("getAmountOfBtcInWallets returned")
+                print(result?.data ?? "")
+                let data = result?.data as! [String: Any]
+                if data["error"] != nil{
+                    print("error checking isCoinbaseTokenValid")
+                    print(data["error"] as! String)
+                    
+                }else{
+                    print(data)
+                }
+                
             }
         }
     }
