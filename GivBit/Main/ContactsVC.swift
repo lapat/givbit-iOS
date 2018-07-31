@@ -173,6 +173,8 @@ class MainVC: UIViewController {
             print("no contact selected")
             return;
         }
+        
+        
         print(self.phoneNumberToSendTo)
         let functions = Functions.functions()
             print("BTC:")
