@@ -33,7 +33,6 @@
 		774E2D5720ACB0150039435E /* GBUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774E2D5620ACB0150039435E /* GBUser.swift */; };
 		7751498E20CA089B00FA206C /* DateaHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7751498D20CA089B00FA206C /* DateaHelper.swift */; };
 		775999FD20A02986001FF565 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775999FC20A02986001FF565 /* AppDelegate.swift */; };
-		775999FF20A02986001FF565 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775999FE20A02986001FF565 /* MainVC.swift */; };
 		77599A0220A02986001FF565 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77599A0020A02986001FF565 /* Main.storyboard */; };
 		77599A0420A02987001FF565 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77599A0320A02987001FF565 /* Assets.xcassets */; };
 		77599A0720A02987001FF565 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77599A0520A02987001FF565 /* LaunchScreen.storyboard */; };
@@ -65,6 +64,7 @@
 		77E375B420F7B0470010A674 /* userPaidVendorSucessVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E375B020F7B0470010A674 /* userPaidVendorSucessVC.swift */; };
 		77E375B520F7B0470010A674 /* UserQRScannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E375B120F7B0470010A674 /* UserQRScannerVC.swift */; };
 		77E375B720F8BC2D0010A674 /* VendorNavVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E375B620F8BC2D0010A674 /* VendorNavVC.swift */; };
+		A593DAC2211114EA001A6569 /* ContactsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A593DAC1211114EA001A6569 /* ContactsVC.swift */; };
 		B31A674320E6AD1600987520 /* 1_7_moresubtle1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B31A674220E6AD1600987520 /* 1_7_moresubtle1.mp4 */; };
 		B31A674720E6B6D000987520 /* success2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B31A674620E6B6D000987520 /* success2.mp4 */; };
 		B3B2C02720F3FD8A006A252C /* bgroundQrPurple.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B3B2C02620F3FD8A006A252C /* bgroundQrPurple.mp4 */; };
@@ -119,7 +119,6 @@
 		7751498D20CA089B00FA206C /* DateaHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateaHelper.swift; sourceTree = "<group>"; };
 		775999F920A02986001FF565 /* GivBit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GivBit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		775999FC20A02986001FF565 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		775999FE20A02986001FF565 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		77599A0120A02986001FF565 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		77599A0320A02987001FF565 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		77599A0620A02987001FF565 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -160,6 +159,7 @@
 		77E375B620F8BC2D0010A674 /* VendorNavVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorNavVC.swift; sourceTree = "<group>"; };
 		78CAED032E4F33B4022DC8E7 /* Pods-GivBitUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GivBitUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GivBitUITests/Pods-GivBitUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8403572FDF62C76211648DA3 /* Pods_GivBit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GivBit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A593DAC1211114EA001A6569 /* ContactsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsVC.swift; sourceTree = "<group>"; };
 		B31A674220E6AD1600987520 /* 1_7_moresubtle1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1_7_moresubtle1.mp4; sourceTree = "<group>"; };
 		B31A674620E6B6D000987520 /* success2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = success2.mp4; sourceTree = "<group>"; };
 		B3B2C02620F3FD8A006A252C /* bgroundQrPurple.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = bgroundQrPurple.mp4; sourceTree = "<group>"; };
@@ -354,7 +354,7 @@
 			children = (
 				7773091620E0CFB60055EDA1 /* UserQR */,
 				77599A0020A02986001FF565 /* Main.storyboard */,
-				775999FE20A02986001FF565 /* MainVC.swift */,
+				A593DAC1211114EA001A6569 /* ContactsVC.swift */,
 				779417A420B6B37B00A46BE2 /* SettingsVC.swift */,
 				77B7C24120B924920008E258 /* TransactionsVC.swift */,
 				779417A020B5045C00A46BE2 /* SendCoinVC.swift */,
@@ -698,6 +698,7 @@
 				77E375B420F7B0470010A674 /* userPaidVendorSucessVC.swift in Sources */,
 				77B7C23820B7F4990008E258 /* GBTextField.swift in Sources */,
 				774E2D5220AC1A3D0039435E /* StringHelper.swift in Sources */,
+				A593DAC2211114EA001A6569 /* ContactsVC.swift in Sources */,
 				771965BE20FD554B0095F004 /* CustomNotificationManager.swift in Sources */,
 				774E2D5420AC22D60039435E /* GBContact.swift in Sources */,
 				779417A120B5045C00A46BE2 /* SendCoinVC.swift in Sources */,
@@ -713,7 +714,6 @@
 				77E375B520F7B0470010A674 /* UserQRScannerVC.swift in Sources */,
 				77B7C23C20B905ED0008E258 /* RequestContactsVC.swift in Sources */,
 				773B2CB820DB60E5005B6A53 /* VendorMainVC.swift in Sources */,
-				775999FF20A02986001FF565 /* MainVC.swift in Sources */,
 				775999FD20A02986001FF565 /* AppDelegate.swift in Sources */,
 				77C04AB720BECB500043AC0A /* FirebaseHelper.swift in Sources */,
 				77B7C23E20B915EB0008E258 /* GBTransactionTVC.swift in Sources */,
