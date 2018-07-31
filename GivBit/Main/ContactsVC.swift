@@ -11,6 +11,7 @@ import Firebase
 import ChameleonFramework
 import Contacts
 import SVProgressHUD
+import LocalAuthentication
 
 class MainVC: UIViewController {
     @IBOutlet var textViewSearchBar: UITextField!
@@ -174,6 +175,11 @@ class MainVC: UIViewController {
     }
     
     @IBAction func didTapOnSendCoinButton(button: UIButton){
+        let authContext = LAContext()
+        let authReason = "Additional Security for Transactions"
+        var authError: NSError? // Instantiating Local Authorization Object
+        
+        
         print("didTapOnSendCoinButton")
         if (self.selectedContact.text == ""){
             print("no contact selected")
@@ -181,43 +187,61 @@ class MainVC: UIViewController {
         }
         
         
-        print(self.phoneNumberToSendTo)
-        let functions = Functions.functions()
-            print("BTC:")
-            print(btcToSend)
-        
-            SVProgressHUD.show()
-            memoToSend = StringHelper.sharedInstnace.returnEmptyIfNil(aString:self.memo.text)
-        let cryptoAmountInFiat = self.amountOfFiatToSendString.replacingOccurrences(of: "$", with: "", options: .literal, range: nil)
-        print("cryptoAmountInFiat");
-        print(cryptoAmountInFiat);
-            functions.httpsCallable("sendCrypto").call(["btcAmount": btcToSend, "sendToPhoneNumber": self.phoneNumberToSendTo, "sendToName":
-                self.nameOfPersonToSendTo, "memo": memoToSend, "cryptoAmountInFiat": cryptoAmountInFiat]) { (result, error) in
-                    SVProgressHUD.dismiss()
-                    if error != nil{
-                        print("Error performing function \(String(describing: error?.localizedDescription))")
-                        self.performSegue(withIdentifier: "failure-trans-segue", sender: self)
-                    }else{
-                        print(result?.data ?? "")
-                        let data = result?.data as! [String: Any]
-                        if data["error"] != nil{
-                            //This needs to handle non stringsK
-                            self.errorToSendToErrorView = "unknown error"
-                            if let errorFromServer = data["error"] {
-                                if let actionString = data["action"] as? String {
-                                    // self.errorToSendToErrorView = data["error"] as! String!
+        if authContext.canEvaluatePolicy(LAPolicy.deviceOwnerAuthentication, error: &authError){
+            authContext.evaluatePolicy(LAPolicy.deviceOwnerAuthentication, localizedReason: authReason, reply: { (success, error) -> Void in
+                if success{
+                    print(self.phoneNumberToSendTo)
+                    let functions = Functions.functions()
+                    print("BTC:")
+                    print(self.btcToSend)
+                    
+                    SVProgressHUD.show()
+                    self.memoToSend = StringHelper.sharedInstnace.returnEmptyIfNil(aString:self.memo.text)
+                    let cryptoAmountInFiat = self.amountOfFiatToSendString.replacingOccurrences(of: "$", with: "", options: .literal, range: nil)
+                    print("cryptoAmountInFiat");
+                    print(cryptoAmountInFiat);
+                    functions.httpsCallable("sendCrypto").call(["btcAmount": self.btcToSend, "sendToPhoneNumber": self.phoneNumberToSendTo, "sendToName":
+                        self.nameOfPersonToSendTo, "memo": self.memoToSend, "cryptoAmountInFiat": cryptoAmountInFiat]) { (result, error) in
+                            SVProgressHUD.dismiss()
+                            if error != nil{
+                                print("Error performing function \(String(describing: error?.localizedDescription))")
+                                self.performSegue(withIdentifier: "failure-trans-segue", sender: self)
+                            }else{
+                                print(result?.data ?? "")
+                                let data = result?.data as! [String: Any]
+                                if data["error"] != nil{
+                                    //This needs to handle non stringsK
+                                    self.errorToSendToErrorView = "unknown error"
+                                    if let errorFromServer = data["error"] {
+                                        if let actionString = data["action"] as? String {
+                                            // self.errorToSendToErrorView = data["error"] as! String!
+                                        }else{
+                                            self.errorToSendToErrorView = "There was an error with your transaction."
+                                        }
+                                    }
+                                    self.performSegue(withIdentifier: "failure-trans-segue", sender: self)
+                                    //self.performSegue(withIdentifier: "success-trans-segue", sender: self)
                                 }else{
-                                    self.errorToSendToErrorView = "There was an error with your transaction."
+                                    self.performSegue(withIdentifier: "success-trans-segue", sender: self)
                                 }
                             }
-                            self.performSegue(withIdentifier: "failure-trans-segue", sender: self)
-                            //self.performSegue(withIdentifier: "success-trans-segue", sender: self)
-                        }else{
-                            self.performSegue(withIdentifier: "success-trans-segue", sender: self)
-                        }
+                            //                    SVProgressHUD.dismiss()
                     }
-//                    SVProgressHUD.dismiss()
-            }
+                    
+                    
+                    
+                }
+                else{
+                    
+                }
+                
+                
+            })
+        } else {
+            print(authError?.localizedDescription)
+            
+            
+        }
     }
     // called when the user taps vendor button
     @IBAction func didTapOnVendorButtton(sender: NSObject){
