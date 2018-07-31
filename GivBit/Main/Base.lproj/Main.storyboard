@@ -184,8 +184,8 @@
                                                     <color key="textColor" red="0.25882352941176467" green="0.25882352941176467" blue="0.25882352941176467" alpha="0.50420055650684936" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right" translatesAutoresizingMaskIntoConstraints="NO" id="4vg-ZQ-RIZ">
-                                                    <rect key="frame" x="342" y="31.5" width="18" height="18"/>
+                                                <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="purplecheck" translatesAutoresizingMaskIntoConstraints="NO" id="4vg-ZQ-RIZ">
+                                                    <rect key="frame" x="332" y="30" width="28" height="21"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
@@ -206,6 +206,7 @@
                                             <outlet property="contactImage" destination="8ER-kC-IZk" id="Mdb-Xg-Q6f"/>
                                             <outlet property="contactName" destination="cLd-og-KTa" id="Usd-yK-gM0"/>
                                             <outlet property="phoneNumber" destination="DEl-CN-VWl" id="tSU-J0-LhU"/>
+                                            <outlet property="selectedCheckMark" destination="4vg-ZQ-RIZ" id="lt2-gA-ul8"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -226,7 +227,7 @@
                                     <constraint firstAttribute="height" constant="30" id="URw-1d-LMz"/>
                                     <constraint firstAttribute="width" constant="34" id="xhK-z4-0ek"/>
                                 </constraints>
-                                <color key="tintColor" red="0.3407747733" green="0.3407747733" blue="0.3407747733" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="back-arrow">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -1062,7 +1063,7 @@ AAAAAAAAAgEAAAAAAAAAZwAAAAAAAAAAAAAAAAAAGEY
         </image>
         <image name="check" width="139" height="139"/>
         <image name="cross" width="139" height="139"/>
-        <image name="right" width="18" height="18"/>
+        <image name="purplecheck" width="28" height="21"/>
         <image name="sliders" width="18" height="18"/>
         <image name="whitelayers" width="37" height="37"/>
     </resources>

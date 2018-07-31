@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import ChameleonFramework
 import Contacts
+import SVProgressHUD
 
 class MainVC: UIViewController {
     @IBOutlet var textViewSearchBar: UITextField!
@@ -28,6 +29,8 @@ class MainVC: UIViewController {
     var amountOfFiatToSend: NSNumber = 0.0
     var errorToSendToErrorView: String = ""
     var cryptoPriceInFiat: NSNumber = 0.0
+    var previousIndexPicked  = -1
+    var amountOfFiatToSendString: String = ""
     @IBOutlet weak var btcToSendLabel: UILabel!
     
 
@@ -73,20 +76,6 @@ class MainVC: UIViewController {
         
         if (self.firstLoad == true){
             print("isfirstload")
-        /*FirestoreHelper.sharedInstnace.getUserVendorInfo(fromCache: false) { (info, error) in
-            if error != nil{
-                AlertHelper.sharedInstance.showAlert(inViewController: self, withDescription: "Sorry, something went wrong. Please try again.", andTitle: "Error")
-            }else{
-                if info != nil{
-                    print("Already a vendor")
-                    self.performSegue(withIdentifier: "vendorWelcomeSegue", sender: self)
-                }else{
-                    print("NOT a vendor")
-                }
-            }
-             }
-             */
-        
             self.firstLoad = false
         }
     }
@@ -96,8 +85,9 @@ class MainVC: UIViewController {
         
         print("Printing new BTC Value")
         print(btcToSend)
-        self.btcToSendLabel.text = btcToSend + " BTC";
+        //self.btcToSendLabel.text = btcToSend + " BTC";
         
+        self.btcToSendLabel.text = self.amountOfFiatToSendString + " in BTC"
     }
     
     override func viewWillLayoutSubviews() {
@@ -152,10 +142,15 @@ class MainVC: UIViewController {
     // MARK: - Actions on SearchBar change Data
     @IBAction func didChangeInSearch(){
         let strindToSearch = textViewSearchBar.text
+        if (textViewSearchBar.text == ""){
+            if (self.previousIndexPicked != -1){
+                let previousIndexPath = IndexPath(row: self.previousIndexPicked, section: 0)
+                let cell = self.contactsTableView.cellForRow(at: previousIndexPath) as! ContactTBVCell
+                cell.selectedCheckMark.alpha = 0;
+            }
+        }
          ContactsManager.sharedInstance.getSearchForContacts(searchString:strindToSearch!, completionHandler: { (contacts, authStatus) in
             self.contacts = contacts
-        
-            
             self.contactsTableView.reloadData()
         })
     }
@@ -173,34 +168,31 @@ class MainVC: UIViewController {
     
     @IBAction func didTapOnSendCoinButton(button: UIButton){
         print("didTapOnSendCoinButton")
+        if (self.selectedContact.text == ""){
+            print("no contact selected")
+            return;
+        }
         print(self.phoneNumberToSendTo)
-        // do checks before sending.
-        // fiat is good to be sent.
-            let functions = Functions.functions()
-
-//            print(contact.phoneNumber)
+        let functions = Functions.functions()
             print("BTC:")
             print(btcToSend)
-//            SVProgressHUD.show()
-            //functions.httpsCallable("sendCrypto").call(["btcAmount": btcToSend, "sendToPhoneNumber": self.contact.phoneNumber, "sendToName":
-            //self.contact.name]) { (result, error) in
+        
+            SVProgressHUD.show()
             functions.httpsCallable("sendCrypto").call(["btcAmount": btcToSend, "sendToPhoneNumber": self.phoneNumberToSendTo, "sendToName":
                 self.nameOfPersonToSendTo]) { (result, error) in
+                    SVProgressHUD.dismiss()
                     if error != nil{
                         print("Error performing function \(String(describing: error?.localizedDescription))")
-//                        self.errorToSendToErrorView = error?.localizedDescription
                         self.performSegue(withIdentifier: "failure-trans-segue", sender: self)
                     }else{
                         print(result?.data ?? "")
-
-
                         let data = result?.data as! [String: Any]
                         if data["error"] != nil{
                             //This needs to handle non stringsK
                             self.errorToSendToErrorView = "unknown error"
                             if let errorFromServer = data["error"] {
                                 if let actionString = data["action"] as? String {
-//                                    self.errorToSendToErrorView = data["error"] as! String!
+                                    // self.errorToSendToErrorView = data["error"] as! String!
                                 }else{
                                     self.errorToSendToErrorView = "There was an error with your transaction."
                                 }
@@ -318,6 +310,7 @@ class MainVC: UIViewController {
 
 // MARK:- Tableview
 extension MainVC: UITableViewDelegate{
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //To Do verify phonenumber
         print("didSelectRowAt")
@@ -325,14 +318,25 @@ extension MainVC: UITableViewDelegate{
         let contact = GBContact()
         contact.populateWith(CNContact: contacts[selectedContactIndex!])
         self.nameOfPersonToSendTo = contact.name;
-        self.selectedContact.text = contact.name + " (" + contact.phoneNumber + ")"
+        self.selectedContact.text = contact.name // + " (" + contact.phoneNumber + ")"
         let (_, _, _, numberWithCode) =  PhoneNumberHelper.sharedInstance.parsePhoneNUmber(number: contact.phoneNumber)
         if (numberWithCode != nil){
             self.phoneNumberToSendTo = numberWithCode;
-            
+        }
+        print(self.phoneNumberToSendTo)
+        let cell = tableView.cellForRow(at: indexPath) as! ContactTBVCell
+
+        if (self.previousIndexPicked != -1){
+            let previousIndexPath = IndexPath(row: self.previousIndexPicked, section: 0)
+            let cell = tableView.cellForRow(at: previousIndexPath) as! ContactTBVCell
+            cell.selectedCheckMark.alpha = 0;
         }
         
-        print(self.phoneNumberToSendTo)
+        if (cell != nil){
+          cell.selectedCheckMark.alpha = 1;
+          self.previousIndexPicked = selectedContactIndex!
+        }
+
     }
 }
 
@@ -348,11 +352,15 @@ extension MainVC: UITableViewDataSource{
         if indexPath.section == 1{
             let cell = tableView.dequeueReusableCell(withIdentifier: "contact-cell") as! ContactTBVCell
             cell.populateCellWithContact(contact: contacts[indexPath.row])
+            cell.selectionStyle = .none
+            //cell.selectedCheckMark.alpha = 0;
             return cell
         }
         else if indexPath.section == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: "contact-cell") as! ContactTBVCell
             cell.populateCellWithContact(contact: contacts[indexPath.row])
+            cell.selectionStyle = .none
+            //cell.selectedCheckMark.alpha = 0;
             return cell
         }
         return UITableViewCell()

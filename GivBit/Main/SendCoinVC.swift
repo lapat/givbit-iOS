@@ -163,7 +163,7 @@ class SendCoinVC: UIViewController {
         if let destinationVC = segue.destination as? MainVC {
             print("segueing to select contact view")
             destinationVC.btcToSend = btcToSend;
-            destinationVC.amountOfFiatToSend = amountOfFiatToSend;
+            destinationVC.amountOfFiatToSendString = fiatToSendLabel.text!;
             destinationVC.cryptoPriceInFiat = cryptoPriceInFiat;
         }
 

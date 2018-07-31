@@ -15,6 +15,7 @@ class ContactTBVCell: UITableViewCell {
     @IBOutlet var contactImage: UIImageView!
     @IBOutlet var contactName: UILabel!
     @IBOutlet weak var phoneNumber: UILabel!
+    @IBOutlet weak var selectedCheckMark: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
