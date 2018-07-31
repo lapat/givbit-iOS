@@ -74,7 +74,7 @@ class SendCoinVC: UIViewController {
 //        }else{
 //            self.btcLeftInAllWallets.text = ""
 //        }
-
+        NotificationCenter.default.addObserver(self, selector: #selector(self.handleUnlinkedCoinbaseNotification(_:)), name: NSNotification.Name(rawValue: "coinbaseIsUnlinkedNotification"), object: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -86,6 +86,22 @@ class SendCoinVC: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @objc func handleUnlinkedCoinbaseNotification(_ notification: Notification){
+        handleUnlinkedCoinbase();
+    }
+    
+    func handleUnlinkedCoinbase(){
+        print("handleUnlinkedCoinbase")
+        let Coinbase_Linkage_Status = GlobalVariables.Coinbase_Linkage_Status
+        print("Coinbase_Linkage_Status:"+Coinbase_Linkage_Status)
+        if (Coinbase_Linkage_Status == "UNLINKED"){
+            DispatchQueue.main.async {
+                CustomNotificationManager.sharedInstance.addNotificationAtBottomForCoinbaseRelinking(inViewController: self)
+                // self.performSegue(withIdentifier: "settingSegue", sender: self)
+            }
+        }
     }
     
     @IBAction func didTapNumpadButton(button: UIButton){
