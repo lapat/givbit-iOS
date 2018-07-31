@@ -19,6 +19,7 @@ class SendCoinVC: UIViewController {
     @IBOutlet weak var contactNameLabel: UILabel!
     @IBOutlet weak var fiatToSendLabel: UILabel!
     @IBOutlet weak var btcToSendLabel: UILabel!
+   
     @IBOutlet weak var btcLeftInAllWallets: UILabel!
 
     @IBOutlet weak var phonenUmberLabel: UILabel!
@@ -109,6 +110,17 @@ class SendCoinVC: UIViewController {
         self.fiatAmountUpdatedByUser()
     }
     
+    @IBAction func didTapOnPayButton(button: UIButton){
+        //print(btcToSend + "")
+        let btcToSendDouble = Double(btcToSend)
+        if (btcToSendDouble == 0){
+            print("its 0, don't transition")
+        }else{
+            performSegue(withIdentifier: "goToContactsView", sender: nil)
+        }
+    }
+    //
+    
     // sends the coin
     
     //MARK:- Price Management
@@ -146,13 +158,11 @@ class SendCoinVC: UIViewController {
     // updates the crypto label for the given fiat amount
     func updateCryptoToSendAmountLabelFor(fiat: NSNumber, crypto: CryptoType){
         print("updateCryptoToSendAmountLabelFor")
-        
         print(fiat.doubleValue)
         print(cryptoPriceInFiat.doubleValue)
         let amount = (fiat.doubleValue) / (cryptoPriceInFiat.doubleValue)
         btcToSendLabel.text = String(format: "%f", amount)
         btcToSend = String(format: "%.8f", amount);
-        
     }
     
     //MARK: - Navigation
@@ -160,13 +170,14 @@ class SendCoinVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if let destinationVC = segue.destination as? MainVC {
-            print("segueing to select contact view")
-            destinationVC.btcToSend = btcToSend;
-            destinationVC.amountOfFiatToSendString = fiatToSendLabel.text!;
-            destinationVC.cryptoPriceInFiat = cryptoPriceInFiat;
+        if segue.identifier == "goToContactsView"{
+            if let destinationVC = segue.destination as? MainVC {
+                print("segueing to select contact view")
+                destinationVC.btcToSend = btcToSend;
+                destinationVC.amountOfFiatToSendString = fiatToSendLabel.text!;
+                destinationVC.cryptoPriceInFiat = cryptoPriceInFiat;
+            }
         }
-
     }
     
     @IBAction func unwindToSendCoinVC(segue: UIStoryboardSegue){

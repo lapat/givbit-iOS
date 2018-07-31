@@ -50,7 +50,20 @@ class ContactTBVCell: UITableViewCell {
             
             // Set the UIImage with initials
             //let color = UIColor(gradientStyle:UIGradientStyle.radial, withFrame:CGRect(origin: CGPoint.zero, size: self.contactImage.frame.size), andColors:[ColorsHelper.loginViewColor1!,ColorsHelper.loginViewColor2!])
-            let color = UIColor.flatPowderBlue
+            
+            //let randomNumber = Int.random(in: 0 ... 2)
+            let randomNum:UInt32 = arc4random_uniform(3)
+            let randomNumber:Int = Int(randomNum)
+            var color = UIColor.flatPowderBlue
+            if (randomNumber == 0){
+              color = ColorsHelper.hexStringToUIColor(hex : "643dab")
+            }else if (randomNumber == 1){
+              color = ColorsHelper.hexStringToUIColor(hex : "327d9e")
+            }else if (randomNumber == 2){
+                color = ColorsHelper.hexStringToUIColor(hex : "8b96d9")
+            }
+            
+
             let image = UIImage(color: color, size: CGSize(width: self.contactImage.frame.width, height: self.contactImage.frame.height))
             self.contactImage.image = ImageHelper.sharedInstance.generateImageWithCenteredText(textAtCenter: contactInitials, inImage: image!, addBackground: false)
             //self.contactImage.image = nil

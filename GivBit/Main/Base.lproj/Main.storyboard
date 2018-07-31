@@ -357,7 +357,7 @@
                                     <color key="titleColor" red="0.41176470590000003" green="0.43921568630000002" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="2s8-YL-a8Y" kind="show" id="z1O-ry-202"/>
+                                    <action selector="didTapOnPayButtonWithButton:" destination="Lrn-CT-dPn" eventType="touchUpInside" id="wol-2r-C6L"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="CHc-g2-ymc">
@@ -599,6 +599,7 @@
                     <connections>
                         <outlet property="btcToSendLabel" destination="mji-oe-UFD" id="hQ6-XD-i2F"/>
                         <outlet property="fiatToSendLabel" destination="LRR-Ml-kdB" id="kh4-EM-qgr"/>
+                        <segue destination="2s8-YL-a8Y" kind="show" identifier="goToContactsView" id="APX-3h-5b5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ikb-NH-pey" userLabel="First Responder" sceneMemberID="firstResponder"/>
