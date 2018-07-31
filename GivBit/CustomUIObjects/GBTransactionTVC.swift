@@ -15,7 +15,7 @@ class GBTransactionTVC: UITableViewCell {
     @IBOutlet weak var fiatAmountLabel: UILabel!
     @IBOutlet weak var cryptoAmountLabel: UILabel!
     @IBOutlet weak var timeSinceLabel: UILabel!
-    
+    @IBOutlet weak var memo: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -46,7 +46,7 @@ class GBTransactionTVC: UITableViewCell {
             timeSinceLabel.text = dateSinceString
             timeSinceLabel.textColor  = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1.0)
         }
-        
+        memo.text = transaction.memo
         // get the price of btc and set it
         FirestoreHelper.sharedInstnace.getBTCPriceInDollars { (value, status) in
             if status{

@@ -19,6 +19,7 @@ class GBTransaction: NSObject {
     var senderUID: String!
     var recieverName: String!
     var senderName: String!
+    var memo: String!
     override init() {
         
     }

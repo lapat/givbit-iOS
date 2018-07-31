@@ -26,6 +26,7 @@ class MainVC: UIViewController {
     var phoneNumberToSendTo: String = ""
     var nameOfPersonToSendTo: String = ""
     var btcToSend: String!
+    var memoToSend: String!
     var amountOfFiatToSend: NSNumber = 0.0
     var errorToSendToErrorView: String = ""
     var cryptoPriceInFiat: NSNumber = 0.0
@@ -85,7 +86,6 @@ class MainVC: UIViewController {
         
         print("Printing new BTC Value")
         print(btcToSend)
-        //self.btcToSendLabel.text = btcToSend + " BTC";
         
         self.btcToSendLabel.text = self.amountOfFiatToSendString + " in BTC"
     }
@@ -145,8 +145,9 @@ class MainVC: UIViewController {
         if (textViewSearchBar.text == ""){
             if (self.previousIndexPicked != -1){
                 let previousIndexPath = IndexPath(row: self.previousIndexPicked, section: 0)
-                let cell = self.contactsTableView.cellForRow(at: previousIndexPath) as! ContactTBVCell
-                cell.selectedCheckMark.alpha = 0;
+                
+                //let cell = self.contactsTableView.cellForRow(at: previousIndexPath) as! ContactTBVCell
+                //cell.selectedCheckMark.alpha = 0;
             }
         }
          ContactsManager.sharedInstance.getSearchForContacts(searchString:strindToSearch!, completionHandler: { (contacts, authStatus) in
@@ -178,8 +179,12 @@ class MainVC: UIViewController {
             print(btcToSend)
         
             SVProgressHUD.show()
+            memoToSend = StringHelper.sharedInstnace.returnEmptyIfNil(aString:self.memo.text)
+        let cryptoAmountInFiat = self.amountOfFiatToSendString.replacingOccurrences(of: "$", with: "", options: .literal, range: nil)
+        print("cryptoAmountInFiat");
+        print(cryptoAmountInFiat);
             functions.httpsCallable("sendCrypto").call(["btcAmount": btcToSend, "sendToPhoneNumber": self.phoneNumberToSendTo, "sendToName":
-                self.nameOfPersonToSendTo]) { (result, error) in
+                self.nameOfPersonToSendTo, "memo": memoToSend, "cryptoAmountInFiat": cryptoAmountInFiat]) { (result, error) in
                     SVProgressHUD.dismiss()
                     if error != nil{
                         print("Error performing function \(String(describing: error?.localizedDescription))")

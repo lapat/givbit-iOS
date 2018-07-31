@@ -114,6 +114,7 @@ class FirestoreHelper: NSObject {
                     transaction.senderUID = StringHelper.sharedInstnace.returnEmptyIfNil(aString: document.data()["sender_uid"])
                     transaction.recieverName = StringHelper.sharedInstnace.returnEmptyIfNil(aString: document.data()["receiver_name"])
                     transaction.senderName = StringHelper.sharedInstnace.returnEmptyIfNil(aString: document.data()["sender_name"])
+                    transaction.memo = StringHelper.sharedInstnace.returnEmptyIfNil(aString: document.data()["memo"])
                     transaction.sent = true
                     transactions.append(transaction)
                 }
@@ -139,6 +140,7 @@ class FirestoreHelper: NSObject {
                         transaction.senderUID = StringHelper.sharedInstnace.returnEmptyIfNil(aString: document.data()["sender_uid"])
                         transaction.recieverName = StringHelper.sharedInstnace.returnEmptyIfNil(aString: document.data()["receiver_name"])
                         transaction.senderName = StringHelper.sharedInstnace.returnEmptyIfNil(aString: document.data()["sender_name"])
+                        transaction.memo = StringHelper.sharedInstnace.returnEmptyIfNil(aString: document.data()["memo"])
                         transaction.sent = false
                         transactions.append(transaction)
                     }

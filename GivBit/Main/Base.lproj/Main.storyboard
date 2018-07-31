@@ -848,8 +848,8 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="btc amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jzt-WI-gDq">
-                                                    <rect key="frame" x="273" y="46" width="82" height="20"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                    <rect key="frame" x="283" y="46" width="72" height="20"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                     <color key="textColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="0.50420055649999995" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -869,6 +869,16 @@
                                                     <color key="textColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="memo" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xgw-H4-cyw" userLabel="memo">
+                                                    <rect key="frame" x="20" y="66" width="335" height="15.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="335" id="M5h-pp-TRS"/>
+                                                        <constraint firstAttribute="height" constant="15.5" id="rVQ-Fp-khM"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="highlightedColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="R0c-uX-HUM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="SUU-ui-TS6" secondAttribute="trailing" constant="5" id="3EW-k8-oYF"/>
@@ -886,6 +896,7 @@
                                                 <constraint firstItem="Jzt-WI-gDq" firstAttribute="top" secondItem="R0c-uX-HUM" secondAttribute="bottom" constant="2" id="dg6-YT-lC1"/>
                                                 <constraint firstItem="Jzt-WI-gDq" firstAttribute="trailing" secondItem="R0c-uX-HUM" secondAttribute="trailing" id="hQr-Zr-w4O"/>
                                                 <constraint firstItem="Jzt-WI-gDq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="j2I-Ze-0QW" secondAttribute="leading" constant="20" symbolic="YES" id="jCo-ul-yRJ"/>
+                                                <constraint firstItem="Xgw-H4-cyw" firstAttribute="top" secondItem="Jzt-WI-gDq" secondAttribute="bottom" id="phr-HH-VXU"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="NSp-Aq-GOC" secondAttribute="trailing" constant="20" symbolic="YES" id="qEW-b7-v5D"/>
                                                 <constraint firstItem="dYJ-ed-jRU" firstAttribute="leading" secondItem="j2I-Ze-0QW" secondAttribute="leading" constant="20" id="r3w-Tl-mAQ"/>
                                                 <constraint firstAttribute="trailing" secondItem="R0c-uX-HUM" secondAttribute="trailing" constant="20" id="tyE-5k-VWT"/>
@@ -896,6 +907,7 @@
                                         <connections>
                                             <outlet property="cryptoAmountLabel" destination="Jzt-WI-gDq" id="7l3-O0-Xbe"/>
                                             <outlet property="fiatAmountLabel" destination="R0c-uX-HUM" id="DSb-yI-QFd"/>
+                                            <outlet property="memo" destination="Xgw-H4-cyw" id="Yhe-gi-YqP"/>
                                             <outlet property="nameLabel" destination="SUU-ui-TS6" id="M0o-VE-N7Y"/>
                                             <outlet property="numberLabel" destination="pOX-6e-9kQ" id="IKl-jK-LR1"/>
                                             <outlet property="timeSinceLabel" destination="NSp-Aq-GOC" id="QA1-fT-VUK"/>
@@ -945,7 +957,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6tO-Lj-esa" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="9PP-6G-wRV" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2425" y="722"/>
+            <point key="canvasLocation" x="2424.8000000000002" y="721.88905547226398"/>
         </scene>
     </scenes>
     <resources>
