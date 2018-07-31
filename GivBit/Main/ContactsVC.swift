@@ -141,19 +141,25 @@ class MainVC: UIViewController {
     
     // MARK: - Actions on SearchBar change Data
     @IBAction func didChangeInSearch(){
+        print("didChangeInSearch")
         let strindToSearch = textViewSearchBar.text
         if (textViewSearchBar.text == ""){
             if (self.previousIndexPicked != -1){
                 let previousIndexPath = IndexPath(row: self.previousIndexPicked, section: 0)
-                
-                //let cell = self.contactsTableView.cellForRow(at: previousIndexPath) as! ContactTBVCell
-                //cell.selectedCheckMark.alpha = 0;
+                let cell = self.contactsTableView.cellForRow(at: previousIndexPath) as! ContactTBVCell
+                if (cell != nil){
+                  cell.selectedCheckMark.alpha = 0;
+                }
             }
         }
          ContactsManager.sharedInstance.getSearchForContacts(searchString:strindToSearch!, completionHandler: { (contacts, authStatus) in
             self.contacts = contacts
             self.contactsTableView.reloadData()
         })
+    }
+    
+    @IBAction func didChangeInMemo(){
+        print("didChangeInMemo")
     }
 
     // MARK: - Actions

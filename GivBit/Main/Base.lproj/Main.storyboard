@@ -271,7 +271,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="didChangeInSearch" destination="2s8-YL-a8Y" eventType="editingChanged" id="NxK-JA-I7k"/>
+                                    <action selector="didChangeInMemo" destination="2s8-YL-a8Y" eventType="editingChanged" id="emQ-jA-SBX"/>
                                 </connections>
                             </textField>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Um-M0-ryA">
