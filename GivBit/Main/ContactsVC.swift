@@ -156,6 +156,7 @@ class MainVC: UIViewController {
          ContactsManager.sharedInstance.getSearchForContacts(searchString:strindToSearch!, completionHandler: { (contacts, authStatus) in
             self.contacts = contacts
             self.contactsTableView.reloadData()
+            self.previousIndexPicked = -1
         })
     }
     
@@ -368,11 +369,13 @@ extension MainVC: UITableViewDelegate{
             let previousIndexPath = IndexPath(row: self.previousIndexPicked, section: 0)
             let cell = tableView.cellForRow(at: previousIndexPath) as! ContactTBVCell
             cell.selectedCheckMark.alpha = 0;
+            self.previousIndexPicked = -1
         }
         
         if (cell != nil){
           cell.selectedCheckMark.alpha = 1;
           self.previousIndexPicked = selectedContactIndex!
+        
         }
 
     }
