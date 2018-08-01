@@ -32,6 +32,8 @@ class MainVC: UIViewController {
     var errorToSendToErrorView: String = ""
     var cryptoPriceInFiat: NSNumber = 0.0
     var previousIndexPicked  = -1
+    var currentIndexPicked  = -1
+
     var amountOfFiatToSendString: String = ""
     @IBOutlet weak var btcToSendLabel: UILabel!
     
@@ -92,12 +94,13 @@ class MainVC: UIViewController {
     }
     
     override func viewWillLayoutSubviews() {
+        print("willLayout")
         // set scroolview contentinset for tableview to make the header come down
         self.contactsTableView.contentInset = UIEdgeInsetsMake(self.blurViewBehindSearchBar.frame.height, 0, 0, 0)
         self.contactsTableView.scrollIndicatorInsets = UIEdgeInsetsMake(self.blurViewBehindSearchBar.frame.height, 0, 0, 0)
         // Make the top cell to adjust with respect to our new insets. Else it will stay in its default position
         if contacts.count > 0 && shouldAdjustTableForFirstLoading{
-            //shouldAdjustTableForFirstLoading = false
+            shouldAdjustTableForFirstLoading = false
             self.contactsTableView.scrollToRow(at: IndexPath(item: 0, section: 0), at: UITableViewScrollPosition.top, animated: true)
         }
     }
@@ -108,7 +111,6 @@ class MainVC: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         CustomNotificationManager.sharedInstance.removeCoinbaseNotificationFromView(view: self.view)
-        
         shouldAdjustTableForFirstLoading = false
     }
     
@@ -144,19 +146,26 @@ class MainVC: UIViewController {
     @IBAction func didChangeInSearch(){
         print("didChangeInSearch")
         let strindToSearch = textViewSearchBar.text
-        if (textViewSearchBar.text == ""){
-            if (self.previousIndexPicked != -1){
-                let previousIndexPath = IndexPath(row: self.previousIndexPicked, section: 0)
-                let cell = self.contactsTableView.cellForRow(at: previousIndexPath) as! ContactTBVCell
-                if (cell != nil){
-                  cell.selectedCheckMark.alpha = 0;
+      
+         ContactsManager.sharedInstance.getSearchForContacts(searchString:strindToSearch!, completionHandler: { (contacts, authStatus) in
+            print("getSearchForContacts")
+            self.contacts = contacts
+            if (self.textViewSearchBar.text == ""){
+                self.currentIndexPicked = -1;
+            }
+            self.contactsTableView.reloadData()
+            
+            if (self.textViewSearchBar.text == ""){
+                for row in 0..<self.contactsTableView.numberOfRows(inSection: 0) {
+                    let ip = IndexPath(row: row, section: 0)
+                    let cell = self.contactsTableView.cellForRow(at: ip)
+                    if (cell != nil){
+                        print("deleting1")
+                        let TBcell = cell as! ContactTBVCell
+                        TBcell.selectedCheckMark.alpha = 0;
+                    }
                 }
             }
-        }
-         ContactsManager.sharedInstance.getSearchForContacts(searchString:strindToSearch!, completionHandler: { (contacts, authStatus) in
-            self.contacts = contacts
-            self.contactsTableView.reloadData()
-            self.previousIndexPicked = -1
         })
     }
     
@@ -180,70 +189,78 @@ class MainVC: UIViewController {
         let authReason = "Additional Security for Transactions"
         var authError: NSError? // Instantiating Local Authorization Object
         
-        
+        if (GlobalVariables.Coinbase_Linkage_Status == "UNLINKED"){
+            return;
+        }
         print("didTapOnSendCoinButton")
         if (self.selectedContact.text == ""){
             print("no contact selected")
             return;
         }
         
-        
+        if (!devicePasscodeSet()){
+            print("passcode not set by user")
+            self.sendCrypto()
+            return;
+        }
         if authContext.canEvaluatePolicy(LAPolicy.deviceOwnerAuthentication, error: &authError){
             authContext.evaluatePolicy(LAPolicy.deviceOwnerAuthentication, localizedReason: authReason, reply: { (success, error) -> Void in
                 if success{
-                    print(self.phoneNumberToSendTo)
-                    let functions = Functions.functions()
-                    print("BTC:")
-                    print(self.btcToSend)
-                    
-                    SVProgressHUD.show()
-                    self.memoToSend = StringHelper.sharedInstnace.returnEmptyIfNil(aString:self.memo.text)
-                    let cryptoAmountInFiat = self.amountOfFiatToSendString.replacingOccurrences(of: "$", with: "", options: .literal, range: nil)
-                    print("cryptoAmountInFiat");
-                    print(cryptoAmountInFiat);
-                    functions.httpsCallable("sendCrypto").call(["btcAmount": self.btcToSend, "sendToPhoneNumber": self.phoneNumberToSendTo, "sendToName":
-                        self.nameOfPersonToSendTo, "memo": self.memoToSend, "cryptoAmountInFiat": cryptoAmountInFiat]) { (result, error) in
-                            SVProgressHUD.dismiss()
-                            if error != nil{
-                                print("Error performing function \(String(describing: error?.localizedDescription))")
-                                self.performSegue(withIdentifier: "failure-trans-segue", sender: self)
-                            }else{
-                                print(result?.data ?? "")
-                                let data = result?.data as! [String: Any]
-                                if data["error"] != nil{
-                                    //This needs to handle non stringsK
-                                    self.errorToSendToErrorView = "unknown error"
-                                    if let errorFromServer = data["error"] {
-                                        if let actionString = data["action"] as? String {
-                                            // self.errorToSendToErrorView = data["error"] as! String!
-                                        }else{
-                                            self.errorToSendToErrorView = "There was an error with your transaction."
-                                        }
-                                    }
-                                    self.performSegue(withIdentifier: "failure-trans-segue", sender: self)
-                                    //self.performSegue(withIdentifier: "success-trans-segue", sender: self)
-                                }else{
-                                    self.performSegue(withIdentifier: "success-trans-segue", sender: self)
-                                }
-                            }
-                            //                    SVProgressHUD.dismiss()
-                    }
-                    
-                    
-                    
+                    self.sendCrypto()
                 }
                 else{
-                    
                 }
-                
-                
             })
         } else {
             print(authError?.localizedDescription)
-            
-            
         }
     }
+    
+    
+    private func sendCrypto(){
+        print(self.phoneNumberToSendTo)
+        let functions = Functions.functions()
+        print("BTC:")
+        print(self.btcToSend)
+        
+        SVProgressHUD.show()
+        self.memoToSend = StringHelper.sharedInstnace.returnEmptyIfNil(aString:self.memo.text)
+        let cryptoAmountInFiat = self.amountOfFiatToSendString.replacingOccurrences(of: "$", with: "", options: .literal, range: nil)
+        print("cryptoAmountInFiat");
+        print(cryptoAmountInFiat);
+        functions.httpsCallable("sendCrypto").call(["btcAmount": self.btcToSend, "sendToPhoneNumber": self.phoneNumberToSendTo, "sendToName":
+            self.nameOfPersonToSendTo, "memo": self.memoToSend, "cryptoAmountInFiat": cryptoAmountInFiat]) { (result, error) in
+                SVProgressHUD.dismiss()
+                if error != nil{
+                    print("Error performing function \(String(describing: error?.localizedDescription))")
+                    self.performSegue(withIdentifier: "failure-trans-segue", sender: self)
+                }else{
+                    print(result?.data ?? "")
+                    let data = result?.data as! [String: Any]
+                    if data["error"] != nil{
+                        //This needs to handle non stringsK
+                        self.errorToSendToErrorView = "unknown error"
+                        if let errorFromServer = data["error"] {
+                            if let actionString = data["action"] as? String {
+                                // self.errorToSendToErrorView = data["error"] as! String!
+                            }else{
+                                self.errorToSendToErrorView = "There was an error with your transaction."
+                            }
+                        }
+                        self.performSegue(withIdentifier: "failure-trans-segue", sender: self)
+                        //self.performSegue(withIdentifier: "success-trans-segue", sender: self)
+                    }else{
+                        self.performSegue(withIdentifier: "success-trans-segue", sender: self)
+                    }
+                }
+        }
+    }
+    
+    private func devicePasscodeSet() -> Bool {
+        //checks to see if devices (not apps) passcode has been set
+        return LAContext().canEvaluatePolicy(.deviceOwnerAuthentication, error: nil)
+    }
+    
     // called when the user taps vendor button
     @IBAction func didTapOnVendorButtton(sender: NSObject){
         // check if the vendor is present in the cache of database inside firebase
@@ -353,29 +370,44 @@ extension MainVC: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //To Do verify phonenumber
         print("didSelectRowAt")
+
         let selectedContactIndex = self.contactsTableView.indexPathForSelectedRow?.row
+
         let contact = GBContact()
+
         contact.populateWith(CNContact: contacts[selectedContactIndex!])
+
         self.nameOfPersonToSendTo = contact.name;
+
         self.selectedContact.text = contact.name // + " (" + contact.phoneNumber + ")"
         let (_, _, _, numberWithCode) =  PhoneNumberHelper.sharedInstance.parsePhoneNUmber(number: contact.phoneNumber)
         if (numberWithCode != nil){
             self.phoneNumberToSendTo = numberWithCode;
         }
+
         print(self.phoneNumberToSendTo)
+
+    
         let cell = tableView.cellForRow(at: indexPath) as! ContactTBVCell
 
         if (self.previousIndexPicked != -1){
             let previousIndexPath = IndexPath(row: self.previousIndexPicked, section: 0)
-            let cell = tableView.cellForRow(at: previousIndexPath) as! ContactTBVCell
-            cell.selectedCheckMark.alpha = 0;
-            self.previousIndexPicked = -1
+            print("preivousIndexPath")
+            print(previousIndexPath)
+            if let cellPrevious = tableView.cellForRow(at: previousIndexPath){
+                if (cellPrevious != nil){
+                    let cellPreviousGB = cellPrevious as! ContactTBVCell
+                    cellPreviousGB.selectedCheckMark.alpha = 0;
+                    self.previousIndexPicked = -1
+                }
+            }
         }
-        
+ 
+
         if (cell != nil){
-          cell.selectedCheckMark.alpha = 1;
-          self.previousIndexPicked = selectedContactIndex!
-        
+            cell.selectedCheckMark.alpha = 1;
+            self.previousIndexPicked = selectedContactIndex!
+            self.currentIndexPicked = selectedContactIndex!
         }
 
     }
@@ -394,14 +426,22 @@ extension MainVC: UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: "contact-cell") as! ContactTBVCell
             cell.populateCellWithContact(contact: contacts[indexPath.row])
             cell.selectionStyle = .none
-            //cell.selectedCheckMark.alpha = 0;
+            if (self.currentIndexPicked  == indexPath.row){
+              cell.selectedCheckMark.alpha = 1;
+            }else{
+              cell.selectedCheckMark.alpha = 0;
+            }
             return cell
         }
         else if indexPath.section == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: "contact-cell") as! ContactTBVCell
             cell.populateCellWithContact(contact: contacts[indexPath.row])
             cell.selectionStyle = .none
-            //cell.selectedCheckMark.alpha = 0;
+            if (self.currentIndexPicked  == indexPath.row){
+                cell.selectedCheckMark.alpha = 1;
+            }else{
+                cell.selectedCheckMark.alpha = 0;
+            }
             return cell
         }
         return UITableViewCell()

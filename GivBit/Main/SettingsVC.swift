@@ -63,8 +63,7 @@ class SettingsVC: UIViewController {
         if let email = notification.userInfo?["email"] as? String {
             print(email)
             self.updateViewForLinkedCoinbase(email: email)
-            //Insert code here
-            // do something with your image
+            getBtcInWalletUpdateView()
         }else{
             print("no email in finishedLinkingCoinbaseWithSuccess")
         }
@@ -110,7 +109,7 @@ class SettingsVC: UIViewController {
             print("done calling")
             if error != nil{
                 print("Error performing function \(String(describing: error?.localizedDescription))")
-                SVProgressHUD.showError(withStatus: error?.localizedDescription)
+                //SVProgressHUD.showError(withStatus: error?.localizedDescription)
                 //self.errorToSendToErrorView = error?.localizedDescription
                 //self.performSegue(withIdentifier: "failure-trans-segue", sender: self)
             }else{
@@ -143,6 +142,11 @@ class SettingsVC: UIViewController {
 
             }
         }
+        getBtcInWalletUpdateView()
+        
+    }
+    
+    func getBtcInWalletUpdateView(){
         self.functions.httpsCallable("getAmountOfBtcInWallets").call([]) { (result, error) in
             SVProgressHUD.dismiss()
             print("trying to call getAmountOfBtcInWallets")
@@ -162,9 +166,13 @@ class SettingsVC: UIViewController {
                     
                 }else{
                     print(data)
-                    self.btcBalance.text = data["amountOfBtc"] as! String
-                    self.fiatBalance.text = data["amountOfBtcInUsd"] as! String
-                    
+                    let isValid = data["success"] as! Bool
+                    if (isValid == true){
+                        self.btcBalance.text =  data["amountOfBtc"] as! String
+                        self.fiatBalance.text = data["amountOfBtcInUsd"] as! String
+                        self.btcBalance.text  = "BTC " + self.btcBalance.text!
+                        self.fiatBalance.text = "$" + self.fiatBalance.text!
+                    }
                 }
                 
             }

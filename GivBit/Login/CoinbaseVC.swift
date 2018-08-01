@@ -58,6 +58,7 @@ class CoinbaseVC: LoginVC {
         //coinbaseoauth().getAccessToken(url: URL(string: "")!)
         coinbaseoauth.sharedInstnace.loginvc = self
         coinbaseoauth.sharedInstnace.makeLoginupRequest()
+        GlobalVariables.Came_From_On_Boarding = "TRUE"
        // self.performSegue(withIdentifier: "requestcontactssegue", sender: self)
     }
 }

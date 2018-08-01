@@ -22,6 +22,8 @@ class CustomNotificationManager: NSObject {
         }
         
         let view = BottomNotificationView()
+        view.backgroundColor = UIColor.red
+
         view.translatesAutoresizingMaskIntoConstraints = false
         //let parentFrame = viewController.view.frame
         //view.frame = CGRect(x: 0, y: 100, width: parentFrame.width, height: notificationHeight)
@@ -40,7 +42,6 @@ class CustomNotificationManager: NSObject {
         
         // add the button action
         view.addButtonAction(target: self, action: #selector(didTapOnReLinkCoinbaseButton(sender:)))
-        
         // add subview with animation
         UIView.animate(withDuration: 0.3, animations: {
             // add the constraints

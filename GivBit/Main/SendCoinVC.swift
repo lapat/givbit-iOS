@@ -29,7 +29,7 @@ class SendCoinVC: UIViewController {
     var cryptoPriceUpdateListener: ListenerRegistration!
     var errorToSendToErrorView: String!
     var btcToSend : String!
-
+    var firstLoad: Bool = true;
     override func viewDidLoad() {
         super.viewDidLoad()
         print("user:")
@@ -58,6 +58,18 @@ class SendCoinVC: UIViewController {
         }
 //        self.phonenUmberLabel.text = self.contact.phoneNumber
         
+         NotificationCenter.default.addObserver(self, selector: #selector(self.handleUnlinkedCoinbaseNotification(_:)), name: NSNotification.Name(rawValue: "coinbaseIsUnlinkedNotification"), object: nil)
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        print("viewDidAppear Main")
+        coinbaseoauth.sharedInstnace.checkIfCoinbaseUnlinked()
+        
+        if (self.firstLoad == true){
+            print("isfirstload")
+            self.firstLoad = false
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -81,6 +93,7 @@ class SendCoinVC: UIViewController {
         // stop listening
 //        self.cryptoPriceUpdateListener.remove()
     }
+    
     
     // MARK: - Actions
     override func didReceiveMemoryWarning() {

@@ -269,5 +269,6 @@ extension AppDelegate : MessagingDelegate {
 struct GlobalVariables {
     static var Coinbase_Linkage_Status = ""
     static var Checked_Already = "FALSE"
+    static var Came_From_On_Boarding = "FALSE"
 }
 

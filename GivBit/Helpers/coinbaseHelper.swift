@@ -32,7 +32,6 @@ class coinbaseoauth : NSObject{
     var accessToken = ""
     var refreashToken = ""
     var functions = Functions.functions()
-
     func makeLoginupRequest(){
         
         oauthswift.authorize(withCallbackURL: URL(string: redirectUrl)!, scope: coibaseScope, state: "",parameters:meta_all_data,
@@ -80,7 +79,8 @@ class coinbaseoauth : NSObject{
                         print("ERROR calling updateCoinbaseidOnCoinbaseWithUUID")
                     }else{
                         GlobalVariables.Coinbase_Linkage_Status="LINKED"
-                        if self.settingsVC == nil{
+                        if self.settingsVC == nil || GlobalVariables.Came_From_On_Boarding == "TRUE" {
+                            GlobalVariables.Came_From_On_Boarding = "FALSE"
                             self.loginvc.performSegue(withIdentifier: "requestcontactssegue", sender: self)
                         }else{
                             print("posting notification email:")
