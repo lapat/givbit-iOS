@@ -29,7 +29,7 @@ class GBTransactionTVC: UITableViewCell {
     
     // populates the transaction using givbit transaction item
     func populateCellWithGBTransanctions(transaction: GBTransaction){
-        numberLabel.text = transaction.recieverPhoneNumber
+//        numberLabel.text = transaction.recieverPhoneNumber
         cryptoAmountLabel.text = String(format: "%.6f BTC", transaction.cryptoAmount)
         let senderNameStr = transaction.senderName
         let receiverNameStr = transaction.recieverName
