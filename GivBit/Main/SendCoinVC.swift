@@ -178,7 +178,7 @@ class SendCoinVC: UIViewController {
         print(cryptoPriceInFiat.doubleValue)
         let amount = (fiat.doubleValue) / (cryptoPriceInFiat.doubleValue)
         btcToSendLabel.text = String(format: "%f", amount)
-        btcToSend = String(format: "%.8f", amount);
+        btcToSend = String(format: "%f", amount)
     }
     
     //MARK: - Navigation

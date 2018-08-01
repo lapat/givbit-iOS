@@ -11,8 +11,8 @@ import AVFoundation
 
 class SendCoinSuccesVC: UIViewController {
     
-    var amountSentInFiat: Double!
-    var amountSentInCrypto: Double!
+    var amountSentInFiat: String!
+    var amountSentInCrypto: String!
     var nameOfreciever: String!
     var phoneNumberOfReciever: String!
     
@@ -24,13 +24,13 @@ class SendCoinSuccesVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         
         nameOfrecieverLabel.text = nameOfreciever
         phoneNumberOfRecieverLabel.text = phoneNumberOfReciever
-        let x = String(format: "$ %.2f (%.7f BTC)", amountSentInFiat,amountSentInCrypto)
-        amountSentFiatPlusCryptoLabel.text = x
+//        let x = String(format: "$ %.2f (%.7f BTC)", amountSentInFiat,amountSentInCrypto)
+        amountSentFiatPlusCryptoLabel.text = amountSentInFiat + " (" + amountSentInCrypto + " BTC)";
     }
 
     override func didReceiveMemoryWarning() {

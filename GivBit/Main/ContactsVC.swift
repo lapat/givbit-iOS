@@ -281,9 +281,10 @@ class MainVC: UIViewController {
             errorVC.errorMessage =  errorToSendToErrorView
         }
         if segue.identifier == "success-trans-segue"{
+                        
             let successView = segue.destination as! SendCoinSuccesVC
-            successView.amountSentInCrypto = self.amountOfFiatToSend.doubleValue / self.cryptoPriceInFiat.doubleValue
-            successView.amountSentInFiat = self.amountOfFiatToSend.doubleValue
+            successView.amountSentInCrypto = self.btcToSend
+            successView.amountSentInFiat = self.amountOfFiatToSendString
             successView.nameOfreciever = self.nameOfPersonToSendTo
             successView.phoneNumberOfReciever = self.phoneNumberToSendTo
         }

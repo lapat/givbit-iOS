@@ -19,6 +19,8 @@ class SettingsVC: UIViewController {
     @IBOutlet weak var fadedViewHolderUIView: UIView!
     @IBOutlet weak var coinbaseTitle: UILabel!
     @IBOutlet weak var secondCoinbaseLine: UILabel!
+    @IBOutlet weak var btcBalance: UILabel!
+    @IBOutlet weak var fiatBalance: UILabel!
     var currentBtcBalance: String!
     
     // used to show if viewwill appear should refresh the coinbase user or just use the current coinbase user. Since user might have attempted to
@@ -160,6 +162,9 @@ class SettingsVC: UIViewController {
                     
                 }else{
                     print(data)
+                    self.btcBalance.text = data["amountOfBtc"] as! String
+                    self.fiatBalance.text = data["amountOfBtcInUsd"] as! String
+                    
                 }
                 
             }
